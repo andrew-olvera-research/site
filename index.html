@@ -44,24 +44,54 @@
 <body>
 <main>
   <h1>Andrew Olvera</h1>
-  <!-- TODO: edit role / affiliation -->
-  <p class="role">Role &middot; Affiliation</p>
+  <p class="role">Deep Learning &middot; Independent Researcher &middot; York College of Pennsylvania</p>
   <p class="bio">
-    <!-- TODO: edit your intro -->
-    Bio goes here.
+    Hello! My name is Andrew Olvera, a recent graduate from York College of Pennsylvania
+    with a BS in Computer Science. I specialize in deep learning, specifically complex
+    goal-conditioned behavior &mdash; both continuous-valued and language-based &mdash; as well as
+    high-speed, agile autonomous flight. I am also interested in pursuing research in both
+    the alignment and capability development of agent-swarm &ldquo;pseudo-superintelligent&rdquo; systems.
   </p>
   <div class="links">
     <a href="https://github.com/AndrewOlvera-byte">GitHub</a>
-    <!-- TODO: add or remove links -->
     <a href="#">LinkedIn</a>
     <a href="#">CV</a>
   </div>
 
   <h2>Research</h2>
+  <a class="project" href="token-level-rewards/">
+    <span class="name">An Empirical Analysis of Token-Level Rewards and Advantages</span>
+    <span class="meta">Andrew Olvera &middot; Preprint forthcoming, 2026</span>
+    <span class="desc">An ablation study of GRPO against DAPO under varying reward formulations, using a
+      small Qwen3-0.6B model on GSM8K-level mathematics. We find that dense, token-level rewards
+      targeted specifically at reasoning structure stabilize learning and improve the policy&rsquo;s ability
+      to explore toward new global maxima.</span>
+  </a>
+  <a class="project" href="flowdreamer-microrts/">
+    <span class="name">FlowDreamer&nbsp;MicroRTS</span>
+    <span class="meta">Andrew Olvera &middot; Preprint forthcoming, 2026</span>
+    <span class="desc">A flow-matching dynamics model of the MicroRTS game engine that attains high
+      reconstruction and future-state prediction accuracy, enabling an actor to be trained entirely in
+      imagination with PMPO and to beat CoacAI. A self-supervised clustering objective pretrains an
+      encoder whose latents decode into unsupervised clusters of opponent behavior; supplying these to
+      the critic yields a theory-of-mind-style critic that makes PMPO optimization substantially faster
+      and shifts behavior to be more predictive of the opponent, avoiding failure modes observed in a
+      direct ablation against the standard critic.</span>
+  </a>
   <a class="project" href="starscream/">
     <span class="name">Starscream</span>
     <span class="meta">Andrew Olvera &middot; Preprint forthcoming, 2026</span>
-    <span class="desc"><!-- TODO: one-line description -->Project description.</span>
+    <span class="desc">A hybrid DAgger + DART and dynamics-learning pretraining method for scaling
+      generalization in high-speed agile drone racing with extreme sample efficiency, paired with a causal
+      decoder transformer whose sequence design forces geometric continuous trajectory conditioning.</span>
+  </a>
+  <a class="project" href="manippo/">
+    <span class="name">ManiPPO</span>
+    <span class="meta">Andrew Olvera &middot; Work in progress, 2026</span>
+    <span class="desc">A flow-matching VAE trained over a corpus of synthetically generated, highly diverse
+      drone racing courses models the course manifold in latent space. Learning a compass over that latent
+      space, keyed to the behavior the actor needs to acquire, allows manifold-constrained search and
+      traversal to generate synthetic courses that teach the actor specific target behaviors.</span>
   </a>
 </main>
 <footer>&copy; <span id="yr"></span> Andrew Olvera</footer>

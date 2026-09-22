@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FlowDreamer MicroRTS</title>
+<meta name="description" content="FlowDreamer MicroRTS — Andrew Olvera, 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --ink: #1a1d23; --ink-2: #3b414b; --muted: #6b7280;
+    --line: #e5e7eb; --line-2: #d1d5db; --accent: #1f5a96;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --wrap: 880px;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--sans);
+    font-size: 16.5px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  img, video { max-width: 100%; display: block; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .wrap { width: min(var(--wrap), 100% - 32px); margin-inline: auto; }
+
+  .nav {
+    position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.94);
+    backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 52px; }
+  .brand { font-family: var(--serif); font-weight: 600; font-size: 17px; color: var(--ink); }
+  .brand:hover { text-decoration: none; }
+  .nav ul { list-style: none; display: flex; gap: 22px; }
+  .nav ul a { font-size: 14px; color: var(--muted); }
+  .nav ul a:hover, .nav ul a.active { color: var(--ink); text-decoration: none; }
+
+  .masthead { text-align: center; padding: 64px 0 36px; }
+  .venue { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+  h1.title {
+    font-family: var(--serif); font-weight: 700; font-size: clamp(32px, 5.2vw, 48px);
+    line-height: 1.12; letter-spacing: -.01em; max-width: 24ch; margin-inline: auto;
+  }
+  h1.title .sub { display: block; font-weight: 400; font-size: .5em; color: var(--ink-2); margin-top: 12px; letter-spacing: 0; }
+  .authors { margin-top: 24px; font-size: 18px; }
+  .authors a { color: var(--ink); border-bottom: 1px solid var(--line-2); }
+  .authors a:hover { text-decoration: none; border-color: var(--accent); }
+  .affil { margin-top: 4px; font-size: 15px; color: var(--muted); }
+  .buttons { margin-top: 26px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500;
+    padding: 7px 16px; border-radius: 999px; color: var(--ink); border: 1px solid var(--line-2);
+  }
+  .btn:hover { text-decoration: none; border-color: var(--ink); }
+  .btn.soon { color: var(--muted); pointer-events: none; }
+  .btn svg { width: 15px; height: 15px; }
+
+  section.block { padding: 56px 0; }
+  section.block + section.block { border-top: 1px solid var(--line); }
+  h2 {
+    font-family: var(--serif); font-weight: 600; font-size: clamp(25px, 3.2vw, 30px);
+    line-height: 1.25; margin-bottom: 20px; text-align: center;
+  }
+  h3 { font-family: var(--serif); font-weight: 600; font-size: 20px; margin: 32px 0 10px; }
+  p + p { margin-top: 14px; }
+  .prose { color: var(--ink-2); }
+  .abstract { max-width: 70ch; margin-inline: auto; text-align: justify; hyphens: auto; }
+  .todo { color: var(--muted); font-style: italic; }
+  ul.list { padding-left: 1.2em; }
+  ul.list li + li { margin-top: 8px; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 13.5px; color: var(--muted); }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer a { color: var(--muted); }
+
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">FlowDreamer MicroRTS</a>
+    <ul>
+      <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#notes">Notes</a></li>
+      <li><a href="../">Home</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+<div class="masthead wrap">
+  <div class="venue">Preprint forthcoming &middot; 2026</div>
+  <h1 class="title">
+    FlowDreamer MicroRTS
+    <span class="sub">Flow-matching world models and a theory-of-mind critic for real-time strategy</span>
+  </h1>
+  <p class="authors"><a href="../">Andrew Olvera</a></p>
+  <p class="affil">York College of Pennsylvania</p>
+  <div class="buttons">
+    <span class="btn soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Paper (coming soon)</span>
+    <a class="btn" href="../">&larr; All research</a>
+  </div>
+</div>
+
+<section class="block" id="abstract">
+  <div class="wrap">
+    <h2>Overview</h2>
+    <div class="abstract prose">
+      <p>We train a flow-matching dynamics model of the MicroRTS game engine that achieves high
+      reconstruction quality and high future-state predictive accuracy. The fidelity of this learned engine
+      is sufficient to train an actor entirely in imagination with PMPO, and the resulting policy beats
+      CoacAI.</p>
+      <p>We further introduce a self-supervised clustering method that pretrains an encoder whose latents
+      decode into an unsupervised clustering of opponent behavior. Supplying these latents to the critic
+      yields a theory-of-mind-style critic that makes PMPO optimization substantially faster and shifts
+      the learned behavior to be more predictive of the opponent. In a direct ablation against a standard
+      critic, this avoids failure modes the baseline reliably falls into.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="notes">
+  <div class="wrap">
+    <h2>Notes</h2>
+    <div class="prose">
+      <p class="todo">Additional detail, figures, and results to be added.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr"></span> Andrew Olvera</span>
+    <a href="../">&larr; Home</a>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
