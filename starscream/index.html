@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Starscream</title>
-<meta name="description" content="Starscream — Andrew Olvera, 2026.">
+<meta name="description" content="Starscream, Andrew Olvera, 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -20,6 +20,7 @@
     --accent: #1f5a96;   /* matches the trajectory blue in the clips */
     --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
     --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     --wrap: 880px;
     --wide: 1120px;
     color-scheme: light;
@@ -136,6 +137,91 @@
   footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   footer a { color: var(--muted); }
 
+  /* ---------- FIGURES ---------- */
+  .figbox { border: 1px solid var(--line); border-radius: 6px; background: #fff; padding: clamp(10px, 2vw, 20px); overflow-x: auto; }
+  .fg { display: block; width: 100%; height: auto; min-width: 860px; font-family: var(--sans); }
+  .fg text { fill: var(--ink-2); }
+  .fg .kick { font-size: 11.5px; font-weight: 600; letter-spacing: .07em; fill: var(--muted); }
+  .fg .figttl { font-family: var(--serif); font-size: 31px; font-weight: 700; fill: var(--ink); }
+  .fg .ttl { font-size: 15px; font-weight: 600; fill: var(--ink); }
+  .fg .sub { font-family: var(--mono); font-size: 12px; fill: var(--muted); }
+  .fg .lbl { font-size: 13px; fill: var(--ink-2); }
+  .fg .mono { font-family: var(--mono); font-size: 12.5px; fill: var(--ink-2); }
+  .fg .num { font-family: var(--mono); font-size: 11.5px; fill: var(--muted); }
+  .fg .count { font-family: var(--mono); font-size: 15px; font-weight: 600; fill: var(--accent); }
+  .fg .seglab { font-size: 11.5px; font-weight: 600; fill: var(--ink); }
+  .fg .notetx { font-size: 12.5px; fill: var(--ink-2); }
+  .fg .chiptx { font-family: var(--mono); font-size: 10.5px; fill: var(--muted); }
+  .fg .tokn { font-family: var(--mono); font-size: 15px; font-weight: 600; }
+  .fg .tokd { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+  .fg .masklab { font-family: var(--mono); font-size: 9.5px; }
+  .fg .swtx { font-size: 12px; fill: var(--ink-2); }
+  .fg .stepnt { font-size: 12px; font-weight: 600; fill: var(--ink); }
+  .fg .strike { fill: var(--muted); font-size: 13px; }
+  .fg .struck { fill: var(--muted); text-decoration: line-through; }
+
+  .fg rect { fill: #fff; }
+  .fg .card { stroke: var(--line-2); }
+  .fg .card.em { stroke: var(--ink); stroke-width: 1.4; }
+  .fg .sub-card { fill: var(--bg-2); stroke: none; }
+  .fg .note { fill: var(--bg-2); stroke: var(--line); }
+  .fg .eq { stroke: none; }
+  .fg .op { stroke: var(--line-2); }
+  .fg .op.em { fill: #eef3f9; stroke: var(--accent); }
+  .fg .dashgroup { fill: none; stroke: var(--line-2); stroke-dasharray: 4 4; }
+  .fg .chip { fill: var(--bg-2); stroke: var(--line); }
+  .fg .hair { stroke: var(--line); }
+  .fg .axis { stroke: var(--line-2); }
+  .fg .flow { fill: none; stroke: var(--muted); stroke-width: 1.3; }
+  .fg .flowthin { fill: none; stroke: var(--line-2); }
+  .fg .brk { fill: none; stroke: var(--line-2); }
+  .fg .dashed { stroke-dasharray: 5 4; }
+  .fg .curve { fill: none; stroke: var(--ink-2); stroke-width: 1.3; }
+  .fg .bar { stroke: var(--line-2); }
+  .fg .bar2 { fill: #eef1f7; stroke: var(--line-2); }
+  .fg .stepn { fill: #fff; stroke: var(--line-2); }
+  .fg .stub { fill: var(--line-2); }
+  .fg .stub2 { fill: #fff; stroke: var(--line-2); }
+  .fg .cell.off { stroke: var(--line); }
+  .fg .mix.m1 { stroke: var(--line-2); }
+  .fg .mix.m2 { fill: #dfe3e9; stroke: var(--line-2); }
+  .fg .mix.m3 { fill: #9aa3ae; stroke: var(--line-2); }
+  .fg .mask { fill: #141922; stroke: #141922; }
+  .fg .maskback { fill: #c9ced6; stroke: var(--line-2); }
+  .fg .masktx { fill: #fff; font-family: var(--mono); font-size: 11px; }
+  .fg .masktxb { fill: #4a515c; font-family: var(--mono); font-size: 11px; }
+  .fg .gridln { stroke: rgba(191,63,102,.4); }
+  .fg .gatepx { fill: none; stroke: #fff; stroke-width: 7; }
+  .fg marker path { fill: var(--muted); }
+
+  /* colour families */
+  .fg .st { --c: #2563b8; --cb: #eef3fb; }
+  .fg .ct { --c: #b9601c; --cb: #fdf1e7; }
+  .fg .gt { --c: #147a63; --cb: #e9f5f1; }
+  .fg .rd { --c: #7745bd; --cb: #f3eefb; }
+  .fg .dy { --c: #6f7f1c; --cb: #f3f5e4; }
+  .fg .vi { --c: #bf3f66; --cb: #fdeef2; }
+  .fg .tc { --c: #55606e; --cb: #eceef1; }
+  .fg text.st, .fg text.ct, .fg text.gt, .fg text.rd, .fg text.dy, .fg text.vi, .fg text.tc { fill: var(--c); }
+  .fg rect.st, .fg rect.ct, .fg rect.gt, .fg rect.rd, .fg rect.dy, .fg rect.vi, .fg rect.tc { fill: var(--cb); stroke: var(--c); }
+  .fg .tok.dash { stroke-dasharray: 4 3; }
+  .fg .st-card { stroke: #2563b8; }
+  .fg .gt-card { stroke: #147a63; }
+  .fg .ct-card { stroke: #b9601c; }
+  .fg .tc-card { stroke: #55606e; }
+  .fg .dy-note { stroke: #6f7f1c; }
+  .fg .rd-chip { fill: #f3eefb; stroke: #7745bd; }
+  .fg .dy-chip { fill: #f3f5e4; stroke: #6f7f1c; }
+  .fg .rd-eq { fill: #f7f3fd; }
+  .fg .dy-eq { fill: #f5f7e8; }
+  .fg .rd-line { stroke: #7745bd; }
+  .fg .dy-line { stroke: #6f7f1c; }
+  .fg .rdflow { fill: none; stroke: #7745bd; stroke-width: 1.4; }
+  .fg .dynflow { fill: none; stroke: #6f7f1c; stroke-width: 1.4; stroke-dasharray: 5 4; }
+  .fg marker.dyn path { fill: #6f7f1c; }
+  .fg marker.rd path { fill: #7745bd; }
+  .fg .chip.ok { fill: #eef3fb; stroke: #2563b8; }
+
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 </head>
@@ -146,7 +232,8 @@
     <a class="brand" href="#top">Starscream</a>
     <ul>
       <li class="opt"><a href="#abstract">Abstract</a></li>
-      <li class="opt"><a href="#method">Method</a></li>
+      <li class="opt"><a href="#observations">Observations</a></li>
+      <li class="opt"><a href="#method">Architecture</a></li>
       <li class="opt"><a href="#training">Training</a></li>
       <li><a href="#results">Results</a></li>
       <li><a href="../">Home</a></li>
@@ -199,55 +286,937 @@
   </div>
 </section>
 
-<!-- ================= METHOD ================= -->
-<section class="block" id="method">
+<!-- ================= OBSERVATIONS ================= -->
+<section class="block" id="observations">
   <div class="wrap">
-    <h2>Method</h2>
-    <div class="prose">
-      <p class="todo">Overview of the model and control stack.</p>
+    <h2>Observations and tokenization</h2>
+    <div class="prose abstract">
+      <p>Starscream is trained in two passes over the same backbone. A privileged teacher sees the
+      simulator&rsquo;s task state and the route ahead of it, and is supervised directly by an MPCC expert.
+      A vision student is then distilled from the frozen teacher, seeing only a gate segmentation mask
+      and the onboard estimator&rsquo;s output.</p>
+      <p>Both tokenize per field rather than per vector. Every field group gets its own SwiGLU projection
+      into d = 320, so a token always means one thing: a state, a control, or one gate in the look-ahead.</p>
     </div>
 
-    <figure class="fig arch">
-      <div class="fig-frame scroll-x">
-      <!-- TODO: schematic — edit node labels / add nodes -->
-      <svg viewBox="0 0 1000 380" role="img" aria-label="Starscream architecture schematic">
-        <defs>
-          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z"/></marker>
-          <marker id="ah2" class="acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z"/></marker>
-        </defs>
-        <g class="node"><rect x="20" y="60" width="170" height="70" rx="4"/>
-          <text class="n-title" x="36" y="92">Vehicle state</text><text class="n-sub" x="36" y="114">pose · velocity · rates</text></g>
-        <g class="node"><rect x="20" y="220" width="170" height="70" rx="4"/>
-          <text class="n-title" x="36" y="252">Course context</text><text class="n-sub" x="36" y="274">upcoming gates</text></g>
-        <g class="node"><rect x="270" y="130" width="180" height="100" rx="4"/>
-          <text class="n-title" x="288" y="168">Encoder</text><text class="n-sub" x="288" y="192">embed observations</text></g>
-        <g class="node em"><rect x="530" y="110" width="200" height="140" rx="4"/>
-          <text class="n-title" x="550" y="150">Policy network</text><text class="n-sub" x="550" y="174">backbone</text></g>
-        <g class="node"><rect x="810" y="80" width="170" height="70" rx="4"/>
-          <text class="n-title" x="826" y="112">Action head</text><text class="n-sub" x="826" y="134">control outputs</text></g>
-        <g class="node"><rect x="810" y="210" width="170" height="70" rx="4"/>
-          <text class="n-title" x="826" y="242">Value / aux</text><text class="n-sub" x="826" y="264">auxiliary losses</text></g>
-        <g class="node"><rect x="440" y="310" width="200" height="56" rx="4"/>
-          <text class="n-title" x="458" y="343">Simulator</text></g>
-        <path class="flow" d="M190 95 C230 95 230 165 268 165" marker-end="url(#ah)"/>
-        <path class="flow" d="M190 255 C230 255 230 200 268 200" marker-end="url(#ah)"/>
-        <path class="flow" d="M450 180 H528" marker-end="url(#ah)"/>
-        <path class="flow" d="M730 150 C770 150 770 115 808 115" marker-end="url(#ah)"/>
-        <path class="flow" d="M730 215 C770 215 770 245 808 245" marker-end="url(#ah)"/>
-        <path class="flow" d="M980 115 C995 115 995 338 642 338" marker-end="url(#ah)"/>
-        <path class="flow back" d="M440 338 C105 338 105 300 105 292" marker-end="url(#ah2)"/>
-        <text class="lbl" x="476" y="170">z<tspan baseline-shift="sub" font-size="10">t</tspan></text>
-        <text class="lbl" x="760" y="330">a<tspan baseline-shift="sub" font-size="10">t</tspan></text>
-        <text class="lbl" x="226" y="330">s<tspan baseline-shift="sub" font-size="10">t+1</tspan></text>
-      </svg>
-      </div>
-      <figcaption><b>Figure 2.</b> <span class="todo">System schematic — placeholder, replace with final figure.</span></figcaption>
+    <figure class="fig">
+      <div class="figbox"><svg class="fg" viewBox="0 0 1440 1010" role="img" aria-label="Privileged teacher tokenization">
+<defs>
+<marker id="f1-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z"/></marker>
+<marker id="f1-ahd" class="dyn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z"/></marker>
+<marker id="f1-ahr" class="rd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z"/></marker>
+</defs>
+<text class="kick" x="40" y="44">FIGURE 1 &middot; STARSCREAM v6.21</text>
+<text class="figttl" x="40" y="86">Privileged teacher tokenization</text>
+<rect class="sw ct" x="1323.8" y="32" width="11" height="11" rx="3"/>
+<text class="swtx" x="1341.8" y="42">control</text>
+<rect class="sw gt" x="1214.6" y="32" width="11" height="11" rx="3"/>
+<text class="swtx" x="1232.6" y="42">gate / route</text>
+<rect class="sw st" x="1151.6" y="32" width="11" height="11" rx="3"/>
+<text class="swtx" x="1169.6" y="42">state</text>
+<text class="kick" x="40" y="150">PRIVILEGED OBSERVATION</text>
+<text class="sub" x="40" y="172">starscream_route_v1 &middot; 103 values / step &middot; 130 Hz</text>
+<text class="kick" x="760" y="150">PER-FIELD PROJECTION</text>
+<text class="sub" x="760" y="172">SwiGLU MLP &middot; into d = 320</text>
+<text class="kick" x="1090" y="150">TOKENS &middot; ONE TIME STEP</text>
+<text class="sub" x="1090" y="172">each token &#8712; &#8477;&#179;&#178;&#8304;</text>
+<rect class="seg st" x="40" y="210" width="110.67961165048544" height="34" rx="2"/>
+<text class="seglab" x="95.33980582524272" y="202" text-anchor="middle">Task state</text>
+<text class="num" x="95.33980582524272" y="264" text-anchor="middle">[0:19]</text>
+<rect class="seg gt" x="150.67961165048544" y="210" width="75.72815533980582" height="34" rx="2"/>
+<text class="seglab" x="188.54368932038835" y="202" text-anchor="middle">g&#8321;&#183;act</text>
+<text class="num" x="188.54368932038835" y="264" text-anchor="middle">[19:32]</text>
+<rect class="seg gt" x="226.40776699029126" y="210" width="75.72815533980582" height="34" rx="2"/>
+<text class="seglab" x="264.2718446601942" y="202" text-anchor="middle">g&#8322;</text>
+<text class="num" x="264.2718446601942" y="264" text-anchor="middle">[32:45]</text>
+<rect class="seg gt" x="302.13592233009706" y="210" width="75.72815533980582" height="34" rx="2"/>
+<text class="seglab" x="340.0" y="202" text-anchor="middle">g&#8323;</text>
+<text class="num" x="340.0" y="264" text-anchor="middle">[45:58]</text>
+<rect class="seg gt" x="377.8640776699029" y="210" width="75.72815533980582" height="34" rx="2"/>
+<text class="seglab" x="415.72815533980577" y="202" text-anchor="middle">g&#8324;</text>
+<text class="num" x="415.72815533980577" y="264" text-anchor="middle">[58:71]</text>
+<rect class="seg gt" x="453.5922330097087" y="210" width="75.72815533980582" height="34" rx="2"/>
+<text class="seglab" x="491.45631067961165" y="202" text-anchor="middle">g&#8325;</text>
+<text class="num" x="491.45631067961165" y="264" text-anchor="middle">[71:84]</text>
+<rect class="seg gt" x="529.3203883495146" y="210" width="75.72815533980582" height="34" rx="2"/>
+<text class="seglab" x="567.1844660194175" y="202" text-anchor="middle">g&#8326;</text>
+<text class="num" x="567.1844660194175" y="264" text-anchor="middle">[84:97]</text>
+<rect class="seg ct" x="605.0485436893205" y="210" width="34.95145631067961" height="34" rx="2"/>
+<text class="seglab" x="622.5242718446602" y="202" text-anchor="middle">cmd</text>
+<text class="num" x="622.5242718446602" y="280" text-anchor="middle">[97:103]</text>
+<text class="num" x="654" y="232">4 + 2</text>
+<rect class="card st-card" x="40" y="300" width="600" height="220" rx="5"/>
+<text class="ttl" x="60" y="330">Task state</text>
+<text class="sub" x="60" y="350">all expressed in the active gate&rsquo;s frame</text>
+<text class="count" x="620" y="330" text-anchor="end">19</text>
+<text class="lbl" x="60" y="376">position relative to active gate</text>
+<text class="num" x="620" y="376" text-anchor="end">3</text>
+<line class="hair" x1="60" y1="384" x2="620" y2="384"/>
+<text class="lbl" x="60" y="401">linear velocity</text>
+<text class="num" x="620" y="401" text-anchor="end">3</text>
+<line class="hair" x1="60" y1="409" x2="620" y2="409"/>
+<text class="lbl" x="60" y="426">attitude: first two columns of R(gate&#8592;body)</text>
+<text class="num" x="620" y="426" text-anchor="end">6</text>
+<line class="hair" x1="60" y1="434" x2="620" y2="434"/>
+<text class="lbl" x="60" y="451">body rates</text>
+<text class="num" x="620" y="451" text-anchor="end">3</text>
+<line class="hair" x1="60" y1="459" x2="620" y2="459"/>
+<text class="lbl" x="60" y="476">motor angular speeds</text>
+<text class="num" x="620" y="476" text-anchor="end">4</text>
+<line class="hair" x1="60" y1="484" x2="620" y2="484"/>
+<rect class="card gt-card" x="40" y="550" width="600" height="250" rx="5"/>
+<text class="ttl" x="60" y="580">Gate record</text>
+<text class="sub" x="60" y="600">six upcoming gates, in pass order</text>
+<text class="count" x="620" y="580" text-anchor="end">13 &#215; 6</text>
+<text class="lbl" x="60" y="626">gate center position</text>
+<text class="num" x="620" y="626" text-anchor="end">3</text>
+<line class="hair" x1="60" y1="634" x2="620" y2="634"/>
+<text class="lbl" x="60" y="651">gate normal</text>
+<text class="num" x="620" y="651" text-anchor="end">3</text>
+<line class="hair" x1="60" y1="659" x2="620" y2="659"/>
+<text class="lbl" x="60" y="676">gate up vector</text>
+<text class="num" x="620" y="676" text-anchor="end">3</text>
+<line class="hair" x1="60" y1="684" x2="620" y2="684"/>
+<text class="lbl" x="60" y="701">gate size (w, h)</text>
+<text class="num" x="620" y="701" text-anchor="end">2</text>
+<line class="hair" x1="60" y1="709" x2="620" y2="709"/>
+<text class="lbl" x="60" y="726">enter-from-opposite-side flag</text>
+<text class="num" x="620" y="726" text-anchor="end">1</text>
+<line class="hair" x1="60" y1="734" x2="620" y2="734"/>
+<text class="lbl" x="60" y="751">valid mask</text>
+<text class="num" x="620" y="751" text-anchor="end">1</text>
+<line class="hair" x1="60" y1="759" x2="620" y2="759"/>
+<rect class="card ct-card" x="40" y="830" width="600" height="140" rx="5"/>
+<text class="ttl" x="60" y="860">Control trailer</text>
+<text class="sub" x="60" y="880">previous command and its timing</text>
+<text class="count" x="620" y="860" text-anchor="end">6</text>
+<text class="lbl" x="60" y="906">previous CTBR command (thrust + 3 body rates, normalized)</text>
+<text class="num" x="620" y="906" text-anchor="end">4</text>
+<line class="hair" x1="60" y1="914" x2="620" y2="914"/>
+<text class="lbl" x="60" y="931">previous-command age (s)</text>
+<text class="num" x="620" y="931" text-anchor="end">1</text>
+<line class="hair" x1="60" y1="939" x2="620" y2="939"/>
+<text class="lbl" x="60" y="956">previous-command valid</text>
+<text class="num" x="620" y="956" text-anchor="end">1</text>
+<line class="hair" x1="60" y1="964" x2="620" y2="964"/>
+<rect class="op" x="760" y="385" width="200" height="42" rx="5"/>
+<text class="mono" x="860.0" y="411" text-anchor="middle">SwiGLU 19 &#8594; 320</text>
+<rect class="op" x="760" y="655" width="200" height="42" rx="5"/>
+<text class="mono" x="860.0" y="681" text-anchor="middle">SwiGLU 22 &#8594; 320</text>
+<rect class="op" x="760" y="880" width="200" height="42" rx="5"/>
+<text class="mono" x="860.0" y="906" text-anchor="middle">SwiGLU 6 &#8594; 320</text>
+<rect class="note gt-card" x="700" y="450" width="340" height="190" rx="5"/>
+<text class="ttl gt" x="722" y="480">Approach geometry (+9)</text>
+<text class="lbl" x="722" y="508">vehicle position, this gate&rsquo;s frame</text>
+<text class="num" x="1020" y="508" text-anchor="end">3 &middot; &#247;5 m</text>
+<text class="lbl" x="722" y="530">vehicle velocity, this gate&rsquo;s frame</text>
+<text class="num" x="1020" y="530" text-anchor="end">3 &middot; &#247;10 m/s</text>
+<text class="lbl" x="722" y="552">vector to following gate, this frame</text>
+<text class="num" x="1020" y="552" text-anchor="end">3 &middot; &#247;5 m</text>
+<text class="notetx" x="722" y="598">computed on the fly from de-normalized task + route;</text>
+<text class="notetx" x="722" y="615">not part of the stored 103.</text>
+<path class="flow" d="M860 640 L860 653" marker-end="url(#ah)"/>
+<text class="mono" x="868" y="652">&#8477;&#8313;</text>
+<text class="sub" x="760" y="718">13 raw + 9 approach geometry</text>
+<text class="sub gt" x="760" y="738">shared weights across all 6 gates</text>
+<rect class="dashgroup" x="1060" y="300" width="350" height="670" rx="5"/>
+<text class="kick st" x="1090" y="340">STATE TOKEN</text>
+<rect class="tok st" x="1090" y="356" width="72" height="72" rx="5"/>
+<text class="tokn st" x="1126.0" y="390.0" text-anchor="middle">s</text>
+<text class="tokd" x="1126.0" y="410.0" text-anchor="middle">320</text>
+<rect class="chip" x="1180" y="372" width="96" height="19" rx="4"/>
+<text class="chiptx" x="1228.0" y="386" text-anchor="middle">+ type slot</text>
+<rect class="chip" x="1180" y="398" width="96" height="19" rx="4"/>
+<text class="chiptx" x="1228.0" y="412" text-anchor="middle">+ time pos</text>
+<text class="kick gt" x="1090" y="620">GATE TOKENS &middot; CURRENT STEP</text>
+<rect class="tok gt" x="1082" y="636" width="46" height="68" rx="5"/>
+<text class="tokn gt" x="1105.0" y="668.0" text-anchor="middle">g&#8321;</text>
+<text class="tokd" x="1105.0" y="688.0" text-anchor="middle">320</text>
+<rect class="tok gt" x="1136" y="636" width="46" height="68" rx="5"/>
+<text class="tokn gt" x="1159.0" y="668.0" text-anchor="middle">g&#8322;</text>
+<text class="tokd" x="1159.0" y="688.0" text-anchor="middle">320</text>
+<rect class="tok gt" x="1190" y="636" width="46" height="68" rx="5"/>
+<text class="tokn gt" x="1213.0" y="668.0" text-anchor="middle">g&#8323;</text>
+<text class="tokd" x="1213.0" y="688.0" text-anchor="middle">320</text>
+<rect class="tok gt" x="1244" y="636" width="46" height="68" rx="5"/>
+<text class="tokn gt" x="1267.0" y="668.0" text-anchor="middle">g&#8324;</text>
+<text class="tokd" x="1267.0" y="688.0" text-anchor="middle">320</text>
+<rect class="tok gt" x="1298" y="636" width="46" height="68" rx="5"/>
+<text class="tokn gt" x="1321.0" y="668.0" text-anchor="middle">g&#8325;</text>
+<text class="tokd" x="1321.0" y="688.0" text-anchor="middle">320</text>
+<rect class="tok gt" x="1352" y="636" width="46" height="68" rx="5"/>
+<text class="tokn gt" x="1375.0" y="668.0" text-anchor="middle">g&#8326;</text>
+<text class="tokd" x="1375.0" y="688.0" text-anchor="middle">320</text>
+<rect class="chip" x="1082" y="724" width="92" height="19" rx="4"/>
+<text class="chiptx" x="1128.0" y="738" text-anchor="middle">+ gate slot k</text>
+<text class="sub" x="1082" y="762">k = 1&#8230;6 &middot; one learned vector</text>
+<text class="sub" x="1082" y="780">per look-ahead index</text>
+<text class="kick ct" x="1090" y="860">CONTROL TOKEN</text>
+<rect class="tok ct" x="1090" y="876" width="72" height="72" rx="5"/>
+<text class="tokn ct" x="1126.0" y="910.0" text-anchor="middle">a</text>
+<text class="tokd" x="1126.0" y="930.0" text-anchor="middle">320</text>
+<rect class="chip" x="1180" y="892" width="96" height="19" rx="4"/>
+<text class="chiptx" x="1228.0" y="906" text-anchor="middle">+ type slot</text>
+<rect class="chip" x="1180" y="918" width="96" height="19" rx="4"/>
+<text class="chiptx" x="1228.0" y="932" text-anchor="middle">+ time pos</text>
+<path class="flow" d="M640 406 L756 406" marker-end="url(#ah)"/>
+<text class="mono" x="660" y="396">&#8477;&#185;&#8313;</text>
+<path class="flow" d="M960 406 C1010 406 1020 392 1086 392" marker-end="url(#ah)"/>
+<text class="mono" x="1004" y="396">s</text>
+<path class="flow" d="M640 676 L756 676" marker-end="url(#ah)"/>
+<text class="mono" x="660" y="666">&#8477;&#185;&#179; &#215; 6</text>
+<path class="flow" d="M960 676 L1078 670" marker-end="url(#ah)"/>
+<text class="mono" x="1000" y="666">g&#8321;&#8230;g&#8326;</text>
+<path class="flow" d="M640 901 L756 901" marker-end="url(#ah)"/>
+<text class="mono" x="660" y="891">&#8477;&#8310;</text>
+<path class="flow" d="M960 901 L1086 912" marker-end="url(#ah)"/>
+<text class="mono" x="1004" y="895">a</text>
+</svg></div>
+      <figcaption><b>Figure 1.</b> The privileged observation is 103 values per step at 130 Hz. Task state
+      projects to a single state token, the control trailer to a control token, and each of the six upcoming
+      gates to its own token through one shared projection. Nine approach-geometry values are recomputed on
+      the fly per gate and are not part of the stored 103.</figcaption>
+    </figure>
+
+    <figure class="fig">
+      <div class="figbox"><svg class="fg" viewBox="0 0 1560 1120" role="img" aria-label="Vision student tokenization">
+<defs>
+<marker id="f2-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z"/></marker>
+<marker id="f2-ahd" class="dyn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z"/></marker>
+<marker id="f2-ahr" class="rd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z"/></marker>
+</defs>
+<text class="kick" x="40" y="44">FIGURE 2 &middot; STARSCREAM v6.21</text>
+<text class="figttl" x="40" y="86">Vision student tokenization</text>
+<rect class="sw rd" x="1443.8" y="32" width="11" height="11" rx="3"/>
+<text class="swtx" x="1461.8" y="42">readout</text>
+<rect class="sw gt" x="1334.6" y="32" width="11" height="11" rx="3"/>
+<text class="swtx" x="1352.6" y="42">gate / route</text>
+<rect class="sw ct" x="1258.3999999999999" y="32" width="11" height="11" rx="3"/>
+<text class="swtx" x="1276.3999999999999" y="42">control</text>
+<rect class="sw st" x="1195.3999999999999" y="32" width="11" height="11" rx="3"/>
+<text class="swtx" x="1213.3999999999999" y="42">state</text>
+<rect class="sw vi" x="1125.8" y="32" width="11" height="11" rx="3"/>
+<text class="swtx" x="1143.8" y="42">vision</text>
+<text class="kick" x="40" y="126">GATE SEGMENTATION MASK &middot; 160 &#215; 128 &middot; 1 CHANNEL</text>
+<rect class="maskback" x="68" y="144" width="270" height="196" rx="3"/>
+<text class="masktxb" x="78" y="156">t&#8722;2</text>
+<rect class="maskback" x="54" y="158" width="270" height="196" rx="3"/>
+<text class="masktxb" x="64" y="170">t&#8722;1</text>
+<rect class="mask" x="40" y="172" width="270" height="196" rx="3"/>
+<text class="masktx" x="50" y="192">t</text>
+<line class="gridln" x1="94" y1="172" x2="94" y2="368"/>
+<line class="gridln" x1="148" y1="172" x2="148" y2="368"/>
+<line class="gridln" x1="202" y1="172" x2="202" y2="368"/>
+<line class="gridln" x1="256" y1="172" x2="256" y2="368"/>
+<line class="gridln" x1="40" y1="221" x2="310" y2="221"/>
+<line class="gridln" x1="40" y1="270" x2="310" y2="270"/>
+<line class="gridln" x1="40" y1="319" x2="310" y2="319"/>
+<path class="gatepx" d="M80 212 L196 224 L190 328 L76 312 Z"/>
+<path class="gatepx" d="M228 228 L280 234 L276 284 L224 278 Z"/>
+<text class="sub" x="40" y="392">camera-delayed: latest mask</text>
+<text class="sub" x="40" y="411">with timestamp &#8804; t &#8722; image delay</text>
+<path class="flow" d="M314 200 L376 200" marker-end="url(#ah)"/>
+<text class="mono" x="380" y="164">20 &#215; 32&#178;</text>
+<rect class="op" x="380" y="176" width="210" height="42" rx="5"/>
+<text class="mono" x="485" y="202" text-anchor="middle">patch embed 32&#183;32 &#8594; 320</text>
+<path class="flow" d="M485 218 L485 238" marker-end="url(#ah)"/>
+<text class="sub" x="380" y="254">+ 2D patch position</text>
+<text class="kick vi" x="360" y="278">PATCH TOKENS</text>
+<rect class="tok vi" x="360" y="290" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="398" y="290" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="436" y="290" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="474" y="290" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="512" y="290" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="360" y="324" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="398" y="324" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="436" y="324" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="474" y="324" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="512" y="324" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="360" y="358" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="398" y="358" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="436" y="358" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="474" y="358" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="512" y="358" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="360" y="392" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="398" y="392" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="436" y="392" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="474" y="392" width="32" height="28" rx="4"/>
+<rect class="tok vi" x="512" y="392" width="32" height="28" rx="4"/>
+<text class="sub" x="360" y="450">v&#8321; &#8230; v&#8322;&#8320; &middot; 20 / step</text>
+<text class="mono vi" x="360" y="472">20 &#215; &#8477;&#179;&#178;&#8304;</text>
+<text class="kick" x="640" y="150">RAW DEPLOYMENT OBSERVATION</text>
+<text class="sub" x="640" y="172">84 values / step &middot; raw84</text>
+<rect class="seg st" x="640" y="188" width="195.0" height="28" rx="2"/>
+<text class="num st" x="640" y="238">[0:39] estimator &middot; 39</text>
+<rect class="seg gt" x="835.0" y="188" width="195.0" height="28" rx="2"/>
+<text class="num gt" x="835.0" y="238">[39:78] route &middot; 39</text>
+<rect class="seg ct" x="1030.0" y="188" width="30.0" height="28" rx="2"/>
+<text class="num ct" x="1030.0" y="238">[78:84] cmd &middot; 6</text>
+<rect class="card st-card" x="620" y="268" width="500" height="244" rx="5"/>
+<text class="ttl" x="640" y="298">Estimator + proprioception</text>
+<text class="count" x="1100" y="298" text-anchor="end">39</text>
+<text class="lbl" x="642" y="324">[0:12]&#160;&#160;VIO gate-state: position, velocity, attitude (noisy)</text>
+<text class="num" x="1100" y="324" text-anchor="end">12</text>
+<line class="hair" x1="642" y1="332" x2="1100" y2="332"/>
+<text class="lbl" x="642" y="349">[12:21]&#160;Delayed active-gate position, normal, up</text>
+<text class="num" x="1100" y="349" text-anchor="end">9</text>
+<line class="hair" x1="642" y1="357" x2="1100" y2="357"/>
+<text class="lbl" x="642" y="374">[21:24]&#160;Acceleration estimate</text>
+<text class="num" x="1100" y="374" text-anchor="end">3</text>
+<line class="hair" x1="642" y1="382" x2="1100" y2="382"/>
+<text class="lbl" x="642" y="399">[24:28]&#160;Uncertainty: position, attitude, gate</text>
+<text class="num" x="1100" y="399" text-anchor="end">4</text>
+<line class="hair" x1="642" y1="407" x2="1100" y2="407"/>
+<text class="lbl" x="642" y="424">[28:32]&#160;VIO / gate valid bits and ages</text>
+<text class="num" x="1100" y="424" text-anchor="end">4</text>
+<line class="hair" x1="642" y1="432" x2="1100" y2="432"/>
+<text class="lbl" x="642" y="449">[32:39]&#160;Body rates (3) + motor speeds (4), direct</text>
+<text class="num" x="1100" y="449" text-anchor="end">7</text>
+<line class="hair" x1="642" y1="457" x2="1100" y2="457"/>
+<rect class="note" x="1150" y="132" width="390" height="132" rx="5"/>
+<text class="kick" x="1170" y="160">STATE TOKEN &middot; ABLATION</text>
+<text class="strike" x="1170" y="188">&#10683;</text>
+<text class="lbl struck" x="1192" y="188">Adapter &#8594; reconstructed 19-d teacher</text>
+<text class="lbl struck" x="1192" y="206">task state &#8594; s</text>
+<rect class="chip ok" x="1168" y="212" width="16" height="19" rx="4"/>
+<text class="chiptx" x="1176.0" y="226" text-anchor="middle">&#10003;</text>
+<text class="ttl" x="1192" y="226" font-size="13">Raw estimator obs (39) &#8594; &#349;</text>
+<text class="sub st" x="1170" y="250">chosen</text>
+<text class="sub" x="1520" y="250" text-anchor="end">[FILL: completion &#916;]</text>
+<rect class="card ct-card" x="1150" y="286" width="185" height="106" rx="5"/>
+<text class="ttl" x="1170" y="316">Previous cmd</text>
+<text class="count" x="1315" y="316" text-anchor="end">6</text>
+<text class="lbl" x="1168" y="342">prev CTBR</text>
+<text class="num" x="1317" y="342" text-anchor="end">4</text>
+<line class="hair" x1="1168" y1="350" x2="1317" y2="350"/>
+<text class="lbl" x="1168" y="367">age / valid</text>
+<text class="num" x="1317" y="367" text-anchor="end">2</text>
+<line class="hair" x1="1168" y1="375" x2="1317" y2="375"/>
+<rect class="card gt-card" x="1355" y="286" width="185" height="106" rx="5"/>
+<text class="ttl" x="1375" y="316">Known route</text>
+<text class="count" x="1520" y="316" text-anchor="end">39</text>
+<text class="lbl" x="1373" y="342">flight plan</text>
+<text class="num" x="1522" y="342" text-anchor="end">3 &#215; 13</text>
+<line class="hair" x1="1373" y1="350" x2="1522" y2="350"/>
+<text class="lbl" x="1373" y="367">known a priori</text>
+<text class="num" x="1522" y="367" text-anchor="end">&#10003;</text>
+<line class="hair" x1="1373" y1="375" x2="1522" y2="375"/>
+<rect class="op" x="720" y="556" width="190" height="40" rx="5"/>
+<text class="mono" x="815.0" y="581" text-anchor="middle">SwiGLU 39 &#8594; 320</text>
+<rect class="op" x="1150" y="436" width="185" height="40" rx="5"/>
+<text class="mono" x="1242.5" y="461" text-anchor="middle">SwiGLU 6 &#8594; 320</text>
+<rect class="op" x="1355" y="436" width="185" height="40" rx="5"/>
+<text class="mono" x="1447.5" y="461" text-anchor="middle">SwiGLU &#8594; 320 (shared)</text>
+<path class="flow" d="M815 512 L815 552" marker-end="url(#ah)"/>
+<text class="mono" x="824" y="544">&#349;</text>
+<path class="flow" d="M1242 392 L1242 432" marker-end="url(#ah)"/>
+<path class="flow" d="M1447 392 L1447 432" marker-end="url(#ah)"/>
+<rect class="dashgroup" x="560" y="624" width="480" height="208" rx="5"/>
+<text class="sub" x="584" y="654">step t</text>
+<rect class="tok vi" x="584" y="666" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="620" y="666" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="656" y="666" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="692" y="666" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="728" y="666" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="584" y="698" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="620" y="698" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="656" y="698" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="692" y="698" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="728" y="698" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="584" y="730" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="620" y="730" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="656" y="730" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="692" y="730" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="728" y="730" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="584" y="762" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="620" y="762" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="656" y="762" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="692" y="762" width="30" height="26" rx="4"/>
+<rect class="tok vi" x="728" y="762" width="30" height="26" rx="4"/>
+<rect class="tok st" x="788" y="702" width="66" height="66" rx="5"/>
+<text class="tokn st" x="821.0" y="733.0" text-anchor="middle">&#349;</text>
+<text class="tokd" x="821.0" y="753.0" text-anchor="middle">320</text>
+<rect class="tok ct" x="880" y="702" width="66" height="66" rx="5"/>
+<text class="tokn ct" x="913.0" y="733.0" text-anchor="middle">a</text>
+<text class="tokd" x="913.0" y="753.0" text-anchor="middle">320</text>
+<rect class="chip" x="958" y="724" width="66" height="19" rx="4"/>
+<text class="chiptx" x="991.0" y="738" text-anchor="middle">= teacher</text>
+<text class="kick" x="300" y="664">PER-STEP TOKEN GROUP</text>
+<text class="sub" x="300" y="688">20 vision + 1 state + 1 control</text>
+<text class="sub" x="300" y="707">= 22 tokens / step</text>
+<path class="flowthin" d="M456 424 C520 424 540 600 580 664"/>
+<path class="flow" d="M815 596 L815 698" marker-end="url(#ah)"/>
+<path class="flow" d="M1150 456 C1040 456 940 640 918 698" marker-end="url(#ah)"/>
+<text class="mono ct" x="1040" y="600">a &#8712; &#8477;&#179;&#178;&#8304;</text>
+<text class="kick" x="40" y="916">STUDENT SEQUENCE</text>
+<text class="sub" x="40" y="938">one causal pass</text>
+<text class="sub" x="349" y="888" text-anchor="middle">step t&#8722;2 &middot; 22</text>
+<rect class="tok vi" x="250" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="259" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="268" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="277" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="286" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="295" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="304" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="313" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="322" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="331" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="340" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="349" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="358" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="367" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="376" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="385" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="394" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="403" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="412" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="421" y="900" width="7" height="26" rx="2"/>
+<rect class="tok st" x="432" y="900" width="7" height="26" rx="2"/>
+<rect class="tok ct" x="441" y="900" width="7" height="26" rx="2"/>
+<text class="sub" x="619" y="888" text-anchor="middle">step t&#8722;1 &middot; 22</text>
+<rect class="tok vi" x="520" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="529" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="538" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="547" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="556" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="565" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="574" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="583" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="592" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="601" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="610" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="619" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="628" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="637" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="646" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="655" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="664" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="673" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="682" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="691" y="900" width="7" height="26" rx="2"/>
+<rect class="tok st" x="702" y="900" width="7" height="26" rx="2"/>
+<rect class="tok ct" x="711" y="900" width="7" height="26" rx="2"/>
+<text class="sub" x="889" y="888" text-anchor="middle">step t &middot; 22</text>
+<rect class="tok vi" x="790" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="799" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="808" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="817" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="826" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="835" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="844" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="853" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="862" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="871" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="880" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="889" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="898" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="907" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="916" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="925" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="934" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="943" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="952" y="900" width="7" height="26" rx="2"/>
+<rect class="tok vi" x="961" y="900" width="7" height="26" rx="2"/>
+<rect class="tok st" x="972" y="900" width="7" height="26" rx="2"/>
+<rect class="tok ct" x="981" y="900" width="7" height="26" rx="2"/>
+<rect class="tok gt" x="1050" y="900" width="12" height="26" rx="2"/>
+<rect class="tok gt" x="1064" y="900" width="12" height="26" rx="2"/>
+<rect class="tok gt" x="1078" y="900" width="12" height="26" rx="2"/>
+<rect class="tok gt" x="1092" y="900" width="12" height="26" rx="2"/>
+<rect class="tok gt" x="1106" y="900" width="12" height="26" rx="2"/>
+<rect class="tok gt" x="1120" y="900" width="12" height="26" rx="2"/>
+<rect class="tok rd" x="1146" y="900" width="12" height="26" rx="2"/>
+<text class="sub gt" x="1056" y="888">g&#8321; &#8230; g&#8326;</text>
+<text class="sub rd" x="1152" y="890" text-anchor="middle">&#9670;</text>
+<path class="flow" d="M1447 476 C1300 476 1160 840 1120 894" marker-end="url(#ah)"/>
+<text class="mono gt" x="1286" y="700">g&#8321;&#8230;g&#8326;</text>
+<path class="flowthin" d="M790 834 L790 894"/>
+<path class="flowthin" d="M990 834 L990 894"/>
+<text class="mono" x="700" y="966" text-anchor="middle">3 &#215; 22 + 6 + 1 = 73 tokens</text>
+<path class="flow" d="M700 976 L700 1006" marker-end="url(#ah)"/>
+<rect class="op em" x="560" y="1010" width="280" height="48" rx="5"/>
+<text class="ttl" x="700" y="1040" text-anchor="middle">Causal transformer (as F3)</text>
+<path class="flow" d="M840 1034 L918 1034" marker-end="url(#ah)"/>
+<text class="mono" x="856" y="1024">&#8477;&#8308;</text>
+<rect class="tok rd" x="922" y="1012" width="200" height="44" rx="5"/>
+<text class="tokn rd" x="1022.0" y="1032.0" text-anchor="middle">CTBR action (4)</text>
+<rect class="note" x="1150" y="990" width="390" height="96" rx="5"/>
+<text class="notetx" x="1166" y="1016">Distillation: trained against the frozen privileged teacher&rsquo;s</text>
+<text class="notetx" x="1166" y="1034">action (and optionally its latent / dynamics targets) on</text>
+<text class="notetx" x="1166" y="1052">paired rollouts.</text>
+</svg></div>
+      <figcaption><b>Figure 2.</b> The student replaces privileged task state with 20 patch tokens from the
+      gate mask plus the raw 39-value estimator observation, giving 22 tokens per step over a three-step
+      window. The route is known a priori and shares the teacher&rsquo;s gate projection. Supervision comes
+      from the frozen teacher&rsquo;s action on paired rollouts.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= ARCHITECTURE ================= -->
+<section class="block" id="method">
+  <div class="wrap">
+    <h2>Architecture</h2>
+    <div class="prose abstract">
+      <p>The actor is a single causal transformer, 5.49 M parameters, reading a 13-token sequence: three
+      steps of state and control history, the six upcoming gates, and one learned readout token. Token
+      identity carries all the position information there is. History tokens get a type embedding and a
+      time index, gate tokens get a learned slot vector per look-ahead index, and there is no other
+      positional encoding and no ALiBi.</p>
+      <p>That is what forces the geometric conditioning. A gate can only ever be read through the slot for
+      its place in the route, so the continuous trajectory ahead is what the readout has to attend over.
+      Outputs at the first twelve positions are unused; the action and the dynamics prediction both come off
+      the readout token alone.</p>
+    </div>
+
+    <figure class="fig">
+      <div class="figbox"><svg class="fg" viewBox="0 0 1500 1160" role="img" aria-label="Token sequence and readout">
+<defs>
+<marker id="f3-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z"/></marker>
+<marker id="f3-ahd" class="dyn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z"/></marker>
+<marker id="f3-ahr" class="rd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z"/></marker>
+</defs>
+<text class="kick" x="40" y="44">FIGURE 3 &middot; STARSCREAM v6.21</text>
+<text class="figttl" x="40" y="86">Token sequence &amp; readout</text>
+<rect class="sw dy" x="1350.8" y="32" width="11" height="11" rx="3"/>
+<text class="swtx" x="1368.8" y="42">dynamics aux</text>
+<rect class="sw rd" x="1274.6" y="32" width="11" height="11" rx="3"/>
+<text class="swtx" x="1292.6" y="42">readout</text>
+<rect class="sw gt" x="1165.3999999999999" y="32" width="11" height="11" rx="3"/>
+<text class="swtx" x="1183.3999999999999" y="42">gate / route</text>
+<rect class="sw ct" x="1089.1999999999998" y="32" width="11" height="11" rx="3"/>
+<text class="swtx" x="1107.1999999999998" y="42">control</text>
+<rect class="sw st" x="1026.1999999999998" y="32" width="11" height="11" rx="3"/>
+<text class="swtx" x="1044.1999999999998" y="42">state</text>
+<path class="brk" d="M60 200 L60 192 L492 192 L492 200"/>
+<text class="kick" x="276.0" y="182" text-anchor="middle">STATE / ACTION HISTORY &middot; H = 3</text>
+<path class="brk" d="M600 200 L600 192 L1032 192 L1032 200"/>
+<text class="kick" x="816.0" y="182" text-anchor="middle">NEXT 6 GATES &middot; CURRENT STEP ONLY</text>
+<path class="brk" d="M1140 200 L1140 192 L1212 192 L1212 200"/>
+<text class="kick" x="1176.0" y="182" text-anchor="middle">READOUT</text>
+<rect class="tok st" x="60" y="212" width="64" height="80" rx="5"/>
+<text class="tokn st" x="92.0" y="250.0" text-anchor="middle">s&#8331;&#178;</text>
+<text class="tokd" x="92.0" y="270.0" text-anchor="middle">320</text>
+<text class="num" x="92" y="312" text-anchor="middle">1</text>
+<rect class="chip" x="62" y="324" width="60" height="19" rx="4"/>
+<text class="chiptx" x="92.0" y="338" text-anchor="middle">+type</text>
+<rect class="chip" x="62" y="350" width="60" height="19" rx="4"/>
+<text class="chiptx" x="92.0" y="364" text-anchor="middle">&#964;=&#8722;2</text>
+<rect class="tok ct" x="132" y="212" width="64" height="80" rx="5"/>
+<text class="tokn ct" x="164.0" y="250.0" text-anchor="middle">a&#8331;&#178;</text>
+<text class="tokd" x="164.0" y="270.0" text-anchor="middle">320</text>
+<text class="num" x="164" y="312" text-anchor="middle">2</text>
+<rect class="chip" x="134" y="324" width="60" height="19" rx="4"/>
+<text class="chiptx" x="164.0" y="338" text-anchor="middle">+type</text>
+<rect class="chip" x="134" y="350" width="60" height="19" rx="4"/>
+<text class="chiptx" x="164.0" y="364" text-anchor="middle">&#964;=&#8722;2</text>
+<rect class="tok st" x="204" y="212" width="64" height="80" rx="5"/>
+<text class="tokn st" x="236.0" y="250.0" text-anchor="middle">s&#8331;&#185;</text>
+<text class="tokd" x="236.0" y="270.0" text-anchor="middle">320</text>
+<text class="num" x="236" y="312" text-anchor="middle">3</text>
+<rect class="chip" x="206" y="324" width="60" height="19" rx="4"/>
+<text class="chiptx" x="236.0" y="338" text-anchor="middle">+type</text>
+<rect class="chip" x="206" y="350" width="60" height="19" rx="4"/>
+<text class="chiptx" x="236.0" y="364" text-anchor="middle">&#964;=&#8722;1</text>
+<rect class="tok ct" x="276" y="212" width="64" height="80" rx="5"/>
+<text class="tokn ct" x="308.0" y="250.0" text-anchor="middle">a&#8331;&#185;</text>
+<text class="tokd" x="308.0" y="270.0" text-anchor="middle">320</text>
+<text class="num" x="308" y="312" text-anchor="middle">4</text>
+<rect class="chip" x="278" y="324" width="60" height="19" rx="4"/>
+<text class="chiptx" x="308.0" y="338" text-anchor="middle">+type</text>
+<rect class="chip" x="278" y="350" width="60" height="19" rx="4"/>
+<text class="chiptx" x="308.0" y="364" text-anchor="middle">&#964;=&#8722;1</text>
+<rect class="tok st" x="348" y="212" width="64" height="80" rx="5"/>
+<text class="tokn st" x="380.0" y="250.0" text-anchor="middle">s&#8320;</text>
+<text class="tokd" x="380.0" y="270.0" text-anchor="middle">320</text>
+<text class="num" x="380" y="312" text-anchor="middle">5</text>
+<rect class="chip" x="350" y="324" width="60" height="19" rx="4"/>
+<text class="chiptx" x="380.0" y="338" text-anchor="middle">+type</text>
+<rect class="chip" x="350" y="350" width="60" height="19" rx="4"/>
+<text class="chiptx" x="380.0" y="364" text-anchor="middle">&#964;=0</text>
+<rect class="tok ct" x="420" y="212" width="64" height="80" rx="5"/>
+<text class="tokn ct" x="452.0" y="250.0" text-anchor="middle">a&#8320;</text>
+<text class="tokd" x="452.0" y="270.0" text-anchor="middle">320</text>
+<text class="num" x="452" y="312" text-anchor="middle">6</text>
+<rect class="chip" x="422" y="324" width="60" height="19" rx="4"/>
+<text class="chiptx" x="452.0" y="338" text-anchor="middle">+type</text>
+<rect class="chip" x="422" y="350" width="60" height="19" rx="4"/>
+<text class="chiptx" x="452.0" y="364" text-anchor="middle">&#964;=0</text>
+<rect class="tok gt" x="600" y="212" width="64" height="80" rx="5"/>
+<text class="tokn gt" x="632.0" y="250.0" text-anchor="middle">g&#8321;</text>
+<text class="tokd" x="632.0" y="270.0" text-anchor="middle">320</text>
+<text class="num" x="632" y="312" text-anchor="middle">7</text>
+<rect class="chip" x="602" y="324" width="60" height="19" rx="4"/>
+<text class="chiptx" x="632.0" y="338" text-anchor="middle">+slot</text>
+<rect class="chip" x="602" y="350" width="60" height="19" rx="4"/>
+<text class="chiptx" x="632.0" y="364" text-anchor="middle">k=1</text>
+<rect class="tok gt" x="672" y="212" width="64" height="80" rx="5"/>
+<text class="tokn gt" x="704.0" y="250.0" text-anchor="middle">g&#8322;</text>
+<text class="tokd" x="704.0" y="270.0" text-anchor="middle">320</text>
+<text class="num" x="704" y="312" text-anchor="middle">8</text>
+<rect class="chip" x="674" y="324" width="60" height="19" rx="4"/>
+<text class="chiptx" x="704.0" y="338" text-anchor="middle">+slot</text>
+<rect class="chip" x="674" y="350" width="60" height="19" rx="4"/>
+<text class="chiptx" x="704.0" y="364" text-anchor="middle">k=2</text>
+<rect class="tok gt" x="744" y="212" width="64" height="80" rx="5"/>
+<text class="tokn gt" x="776.0" y="250.0" text-anchor="middle">g&#8323;</text>
+<text class="tokd" x="776.0" y="270.0" text-anchor="middle">320</text>
+<text class="num" x="776" y="312" text-anchor="middle">9</text>
+<rect class="chip" x="746" y="324" width="60" height="19" rx="4"/>
+<text class="chiptx" x="776.0" y="338" text-anchor="middle">+slot</text>
+<rect class="chip" x="746" y="350" width="60" height="19" rx="4"/>
+<text class="chiptx" x="776.0" y="364" text-anchor="middle">k=3</text>
+<rect class="tok gt" x="816" y="212" width="64" height="80" rx="5"/>
+<text class="tokn gt" x="848.0" y="250.0" text-anchor="middle">g&#8324;</text>
+<text class="tokd" x="848.0" y="270.0" text-anchor="middle">320</text>
+<text class="num" x="848" y="312" text-anchor="middle">10</text>
+<rect class="chip" x="818" y="324" width="60" height="19" rx="4"/>
+<text class="chiptx" x="848.0" y="338" text-anchor="middle">+slot</text>
+<rect class="chip" x="818" y="350" width="60" height="19" rx="4"/>
+<text class="chiptx" x="848.0" y="364" text-anchor="middle">k=4</text>
+<rect class="tok gt" x="888" y="212" width="64" height="80" rx="5"/>
+<text class="tokn gt" x="920.0" y="250.0" text-anchor="middle">g&#8325;</text>
+<text class="tokd" x="920.0" y="270.0" text-anchor="middle">320</text>
+<text class="num" x="920" y="312" text-anchor="middle">11</text>
+<rect class="chip" x="890" y="324" width="60" height="19" rx="4"/>
+<text class="chiptx" x="920.0" y="338" text-anchor="middle">+slot</text>
+<rect class="chip" x="890" y="350" width="60" height="19" rx="4"/>
+<text class="chiptx" x="920.0" y="364" text-anchor="middle">k=5</text>
+<rect class="tok gt" x="960" y="212" width="64" height="80" rx="5"/>
+<text class="tokn gt" x="992.0" y="250.0" text-anchor="middle">g&#8326;</text>
+<text class="tokd" x="992.0" y="270.0" text-anchor="middle">320</text>
+<text class="num" x="992" y="312" text-anchor="middle">12</text>
+<rect class="chip" x="962" y="324" width="60" height="19" rx="4"/>
+<text class="chiptx" x="992.0" y="338" text-anchor="middle">+slot</text>
+<rect class="chip" x="962" y="350" width="60" height="19" rx="4"/>
+<text class="chiptx" x="992.0" y="364" text-anchor="middle">k=6</text>
+<rect class="tok rd dash" x="1140" y="212" width="72" height="80" rx="5"/>
+<text class="tokn rd dash" x="1176.0" y="250.0" text-anchor="middle">&#9670;ACT</text>
+<text class="tokd" x="1176.0" y="270.0" text-anchor="middle">learned</text>
+<text class="num" x="1176" y="312" text-anchor="middle">13</text>
+<text class="num" x="1176" y="338" text-anchor="middle">&#8211;</text>
+<text class="sub" x="1032" y="392" text-anchor="end">no other positional encoding &middot; no ALiBi</text>
+<path class="flow" d="M540 400 L540 448" marker-end="url(#ah)"/>
+<text class="mono" x="552" y="428">13 &#215; &#8477;&#179;&#178;&#8304;</text>
+<rect class="card" x="40" y="452" width="960" height="300" rx="5"/>
+<text class="ttl" x="66" y="490" font-size="18">Unified causal transformer</text>
+<text class="sub" x="66" y="514">d = 320 &middot; 8 heads (40-d) &middot; FFN 640 &middot; &#215; 4 blocks &middot; 5.49 M params (full actor)</text>
+<text class="ttl" x="974" y="492" text-anchor="end" font-size="20">&#215; 4</text>
+<rect class="dashgroup" x="66" y="532" width="908" height="150" rx="5"/>
+<text class="kick" x="86" y="558">ONE BLOCK &middot; PRE-NORM &middot; REPEATED &#215; 4</text>
+<text class="mono" x="88" y="605">x</text>
+<rect class="op" x="106" y="580" width="118" height="40" rx="20"/>
+<text class="lbl" x="165.0" y="605" text-anchor="middle">RMSNorm</text>
+<rect class="op em" x="244" y="580" width="140" height="40" rx="20"/>
+<text class="lbl" x="314.0" y="605" text-anchor="middle">Causal MHSA</text>
+<rect class="op" x="430" y="580" width="118" height="40" rx="20"/>
+<text class="lbl" x="489.0" y="605" text-anchor="middle">RMSNorm</text>
+<rect class="op" x="568" y="580" width="126" height="40" rx="20"/>
+<text class="lbl" x="631.0" y="605" text-anchor="middle">SwiGLU FFN</text>
+<rect class="op" x="746" y="580" width="150" height="40" rx="20"/>
+<text class="lbl" x="821.0" y="605" text-anchor="middle">RMSNorm (output)</text>
+<circle class="op" cx="404" cy="600" r="13"/>
+<text class="lbl" x="404" y="606" text-anchor="middle">+</text>
+<circle class="op" cx="714" cy="600" r="13"/>
+<text class="lbl" x="714" y="606" text-anchor="middle">+</text>
+<path class="flow" d="M96 600 L102 600"/>
+<path class="flow" d="M224 600 L240 600" marker-end="url(#ah)"/>
+<path class="flow" d="M384 600 L389 600" marker-end="url(#ah)"/>
+<path class="flow" d="M417 600 L426 600" marker-end="url(#ah)"/>
+<path class="flow" d="M548 600 L564 600" marker-end="url(#ah)"/>
+<path class="flow" d="M694 600 L699 600" marker-end="url(#ah)"/>
+<path class="flow" d="M727 600 L742 600" marker-end="url(#ah)"/>
+<path class="flow" d="M100 600 L100 652 L404 652 L404 615" marker-end="url(#ah)"/>
+<text class="sub" x="252" y="668" text-anchor="middle">residual</text>
+<path class="flow" d="M424 600 L424 652 L714 652 L714 615" marker-end="url(#ah)"/>
+<text class="sub" x="569" y="668" text-anchor="middle">residual</text>
+<text class="sub" x="66" y="716">outputs at positions 1&#8211;12 are unused (no loss)</text>
+<line class="hair" x1="92" y1="752" x2="92" y2="764"/>
+<circle class="stub" cx="92" cy="768" r="4"/>
+<line class="hair" x1="164" y1="752" x2="164" y2="764"/>
+<circle class="stub" cx="164" cy="768" r="4"/>
+<line class="hair" x1="236" y1="752" x2="236" y2="764"/>
+<circle class="stub" cx="236" cy="768" r="4"/>
+<line class="hair" x1="308" y1="752" x2="308" y2="764"/>
+<circle class="stub" cx="308" cy="768" r="4"/>
+<line class="hair" x1="380" y1="752" x2="380" y2="764"/>
+<circle class="stub" cx="380" cy="768" r="4"/>
+<line class="hair" x1="452" y1="752" x2="452" y2="764"/>
+<circle class="stub" cx="452" cy="768" r="4"/>
+<line class="hair" x1="524" y1="752" x2="524" y2="764"/>
+<circle class="stub" cx="524" cy="768" r="4"/>
+<line class="hair" x1="596" y1="752" x2="596" y2="764"/>
+<circle class="stub" cx="596" cy="768" r="4"/>
+<line class="hair" x1="668" y1="752" x2="668" y2="764"/>
+<circle class="stub" cx="668" cy="768" r="4"/>
+<line class="hair" x1="740" y1="752" x2="740" y2="764"/>
+<circle class="stub" cx="740" cy="768" r="4"/>
+<line class="hair" x1="812" y1="752" x2="812" y2="764"/>
+<circle class="stub" cx="812" cy="768" r="4"/>
+<line class="hair" x1="884" y1="752" x2="884" y2="764"/>
+<circle class="stub" cx="884" cy="768" r="4"/>
+<path class="rdflow" d="M1176 292 L1176 756 L120 756 L120 800" marker-end="url(#f3-ahr)"/>
+<text class="sub rd" x="1166" y="744" text-anchor="end">from &#9670;ACT only</text>
+<rect class="tok rd" x="96" y="806" width="52" height="78" rx="5"/>
+<text class="tokn rd" x="122.0" y="843.0" text-anchor="middle">h</text>
+<text class="tokd" x="122" y="866" text-anchor="middle">&#8477;&#179;&#178;&#8304;</text>
+<text class="mono" x="160" y="832">&#8477;&#179;&#178;&#8304;</text>
+<text class="kick rd" x="520" y="812">A &middot; ACTION (PRIMARY)</text>
+<path class="rdflow" d="M150 842 L454 842" marker-end="url(#f3-ahr)"/>
+<circle class="op" cx="470" cy="842" r="13"/>
+<text class="lbl" x="470" y="847" text-anchor="middle">+</text>
+<path class="rdflow" d="M484 842 L516 842" marker-end="url(#f3-ahr)"/>
+<rect class="op" x="520" y="818" width="190" height="48" rx="5"/>
+<text class="ttl" x="615" y="848" text-anchor="middle" font-size="14">SwiGLU action MLP</text>
+<rect class="tok rd" x="726" y="818" width="52" height="48" rx="5"/>
+<text class="tokn rd" x="752.0" y="840.0" text-anchor="middle">&#956;</text>
+<text class="tokd" x="752" y="858" text-anchor="middle">&#8477;&#8308;</text>
+<path class="rdflow" d="M710 842 L722 842" marker-end="url(#f3-ahr)"/>
+<path class="rdflow" d="M778 842 L804 842" marker-end="url(#f3-ahr)"/>
+<text class="ttl rd" x="814" y="834" font-size="14">CTBR command</text>
+<text class="mono" x="814" y="856">collective thrust,</text>
+<text class="mono" x="814" y="875">&#969;_x, &#969;_y, &#969;_z</text>
+<text class="sub" x="640" y="986">Gaussian, state-independent log &#963;</text>
+<text class="sub" x="640" y="1005">(init &#8722;1.2, clamp [&#8722;3.5, 0])</text>
+<rect class="op" x="150" y="924" width="108" height="40" rx="5"/>
+<text class="mono" x="204" y="949" text-anchor="middle">v_cmd</text>
+<text class="sub" x="204" y="984" text-anchor="middle">m/s</text>
+<rect class="op rd-line" x="292" y="924" width="292" height="40" rx="20"/>
+<text class="mono" x="438" y="949" text-anchor="middle">speed conditioner MLP(v_cmd / 20)</text>
+<path class="flow" d="M260 944 L288 944" marker-end="url(#ah)"/>
+<text class="sub" x="300" y="984">zero-initialized &middot; after the backbone</text>
+<path class="rdflow" d="M470 924 L470 858" marker-end="url(#f3-ahr)"/>
+<text class="kick dy" x="250" y="1024">B &middot; DYNAMICS AUXILIARY</text>
+<path class="dynflow" d="M122 884 L122 1064 L244 1064" marker-end="url(#f3-ahd)"/>
+<rect class="op dy-line" x="250" y="1038" width="344" height="60" rx="5"/>
+<text class="ttl" x="270" y="1064" font-size="16">Dynamics head</text>
+<text class="sub" x="270" y="1086">Linear 320&#8594;320 &middot; SiLU &middot; Linear 320&#8594;19</text>
+<path class="dynflow" d="M594 1068 L650 1068" marker-end="url(#f3-ahd)"/>
+<rect class="tok dy" x="654" y="1040" width="56" height="56" rx="5"/>
+<text class="tokn dy" x="682.0" y="1066.0" text-anchor="middle">&#916;&#349;</text>
+<text class="tokd" x="682" y="1082" text-anchor="middle">&#8477;&#185;&#8313;</text>
+<text class="sub" x="730" y="1032">predicted one-step task-state</text>
+<text class="sub" x="730" y="1051">change (training only)</text>
+<path class="dynflow dashed" d="M714 1068 L890 1068" marker-end="url(#f3-ahd)"/>
+<rect class="chip dy-chip" x="898" y="1054" width="164" height="28" rx="4"/>
+<text class="chiptx" x="980.0" y="1068" text-anchor="middle">used by L_dyn (F4)</text>
+<rect class="card" x="1040" y="452" width="420" height="500" rx="5"/>
+<text class="kick" x="1064" y="486">CAUSAL ATTENTION MASK</text>
+<text class="sub" x="1064" y="508">rows = queries &middot; columns = keys</text>
+<text class="masklab st" x="1140.0" y="528" text-anchor="middle">s&#8331;&#178;</text>
+<text class="masklab ct" x="1164.0" y="528" text-anchor="middle">a&#8331;&#178;</text>
+<text class="masklab st" x="1188.0" y="528" text-anchor="middle">s&#8331;&#185;</text>
+<text class="masklab ct" x="1212.0" y="528" text-anchor="middle">a&#8331;&#185;</text>
+<text class="masklab st" x="1236.0" y="528" text-anchor="middle">s&#8320;</text>
+<text class="masklab ct" x="1260.0" y="528" text-anchor="middle">a&#8320;</text>
+<text class="masklab gt" x="1284.0" y="528" text-anchor="middle">g&#8321;</text>
+<text class="masklab gt" x="1308.0" y="528" text-anchor="middle">g&#8322;</text>
+<text class="masklab gt" x="1332.0" y="528" text-anchor="middle">g&#8323;</text>
+<text class="masklab gt" x="1356.0" y="528" text-anchor="middle">g&#8324;</text>
+<text class="masklab gt" x="1380.0" y="528" text-anchor="middle">g&#8325;</text>
+<text class="masklab gt" x="1404.0" y="528" text-anchor="middle">g&#8326;</text>
+<text class="masklab rd" x="1428.0" y="528" text-anchor="middle">&#9670;ACT</text>
+<text class="masklab st" x="1118" y="553" text-anchor="end">s&#8331;&#178;</text>
+<rect class="cell on st" x="1130" y="538" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1154" y="538" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1178" y="538" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1202" y="538" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1226" y="538" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1250" y="538" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1274" y="538" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1298" y="538" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1322" y="538" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1346" y="538" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1370" y="538" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1394" y="538" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1418" y="538" width="20" height="20" rx="3"/>
+<text class="masklab ct" x="1118" y="577" text-anchor="end">a&#8331;&#178;</text>
+<rect class="cell on ct" x="1130" y="562" width="20" height="20" rx="3"/>
+<rect class="cell on ct" x="1154" y="562" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1178" y="562" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1202" y="562" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1226" y="562" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1250" y="562" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1274" y="562" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1298" y="562" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1322" y="562" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1346" y="562" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1370" y="562" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1394" y="562" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1418" y="562" width="20" height="20" rx="3"/>
+<text class="masklab st" x="1118" y="601" text-anchor="end">s&#8331;&#185;</text>
+<rect class="cell on st" x="1130" y="586" width="20" height="20" rx="3"/>
+<rect class="cell on st" x="1154" y="586" width="20" height="20" rx="3"/>
+<rect class="cell on st" x="1178" y="586" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1202" y="586" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1226" y="586" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1250" y="586" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1274" y="586" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1298" y="586" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1322" y="586" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1346" y="586" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1370" y="586" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1394" y="586" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1418" y="586" width="20" height="20" rx="3"/>
+<text class="masklab ct" x="1118" y="625" text-anchor="end">a&#8331;&#185;</text>
+<rect class="cell on ct" x="1130" y="610" width="20" height="20" rx="3"/>
+<rect class="cell on ct" x="1154" y="610" width="20" height="20" rx="3"/>
+<rect class="cell on ct" x="1178" y="610" width="20" height="20" rx="3"/>
+<rect class="cell on ct" x="1202" y="610" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1226" y="610" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1250" y="610" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1274" y="610" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1298" y="610" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1322" y="610" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1346" y="610" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1370" y="610" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1394" y="610" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1418" y="610" width="20" height="20" rx="3"/>
+<text class="masklab st" x="1118" y="649" text-anchor="end">s&#8320;</text>
+<rect class="cell on st" x="1130" y="634" width="20" height="20" rx="3"/>
+<rect class="cell on st" x="1154" y="634" width="20" height="20" rx="3"/>
+<rect class="cell on st" x="1178" y="634" width="20" height="20" rx="3"/>
+<rect class="cell on st" x="1202" y="634" width="20" height="20" rx="3"/>
+<rect class="cell on st" x="1226" y="634" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1250" y="634" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1274" y="634" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1298" y="634" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1322" y="634" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1346" y="634" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1370" y="634" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1394" y="634" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1418" y="634" width="20" height="20" rx="3"/>
+<text class="masklab ct" x="1118" y="673" text-anchor="end">a&#8320;</text>
+<rect class="cell on ct" x="1130" y="658" width="20" height="20" rx="3"/>
+<rect class="cell on ct" x="1154" y="658" width="20" height="20" rx="3"/>
+<rect class="cell on ct" x="1178" y="658" width="20" height="20" rx="3"/>
+<rect class="cell on ct" x="1202" y="658" width="20" height="20" rx="3"/>
+<rect class="cell on ct" x="1226" y="658" width="20" height="20" rx="3"/>
+<rect class="cell on ct" x="1250" y="658" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1274" y="658" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1298" y="658" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1322" y="658" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1346" y="658" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1370" y="658" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1394" y="658" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1418" y="658" width="20" height="20" rx="3"/>
+<text class="masklab gt" x="1118" y="697" text-anchor="end">g&#8321;</text>
+<rect class="cell on gt" x="1130" y="682" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1154" y="682" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1178" y="682" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1202" y="682" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1226" y="682" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1250" y="682" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1274" y="682" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1298" y="682" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1322" y="682" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1346" y="682" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1370" y="682" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1394" y="682" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1418" y="682" width="20" height="20" rx="3"/>
+<text class="masklab gt" x="1118" y="721" text-anchor="end">g&#8322;</text>
+<rect class="cell on gt" x="1130" y="706" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1154" y="706" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1178" y="706" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1202" y="706" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1226" y="706" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1250" y="706" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1274" y="706" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1298" y="706" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1322" y="706" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1346" y="706" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1370" y="706" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1394" y="706" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1418" y="706" width="20" height="20" rx="3"/>
+<text class="masklab gt" x="1118" y="745" text-anchor="end">g&#8323;</text>
+<rect class="cell on gt" x="1130" y="730" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1154" y="730" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1178" y="730" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1202" y="730" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1226" y="730" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1250" y="730" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1274" y="730" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1298" y="730" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1322" y="730" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1346" y="730" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1370" y="730" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1394" y="730" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1418" y="730" width="20" height="20" rx="3"/>
+<text class="masklab gt" x="1118" y="769" text-anchor="end">g&#8324;</text>
+<rect class="cell on gt" x="1130" y="754" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1154" y="754" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1178" y="754" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1202" y="754" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1226" y="754" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1250" y="754" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1274" y="754" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1298" y="754" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1322" y="754" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1346" y="754" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1370" y="754" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1394" y="754" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1418" y="754" width="20" height="20" rx="3"/>
+<text class="masklab gt" x="1118" y="793" text-anchor="end">g&#8325;</text>
+<rect class="cell on gt" x="1130" y="778" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1154" y="778" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1178" y="778" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1202" y="778" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1226" y="778" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1250" y="778" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1274" y="778" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1298" y="778" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1322" y="778" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1346" y="778" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1370" y="778" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1394" y="778" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1418" y="778" width="20" height="20" rx="3"/>
+<text class="masklab gt" x="1118" y="817" text-anchor="end">g&#8326;</text>
+<rect class="cell on gt" x="1130" y="802" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1154" y="802" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1178" y="802" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1202" y="802" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1226" y="802" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1250" y="802" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1274" y="802" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1298" y="802" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1322" y="802" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1346" y="802" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1370" y="802" width="20" height="20" rx="3"/>
+<rect class="cell on gt" x="1394" y="802" width="20" height="20" rx="3"/>
+<rect class="cell off" x="1418" y="802" width="20" height="20" rx="3"/>
+<text class="masklab rd" x="1118" y="841" text-anchor="end">&#9670;ACT</text>
+<rect class="cell on rd" x="1130" y="826" width="20" height="20" rx="3"/>
+<rect class="cell on rd" x="1154" y="826" width="20" height="20" rx="3"/>
+<rect class="cell on rd" x="1178" y="826" width="20" height="20" rx="3"/>
+<rect class="cell on rd" x="1202" y="826" width="20" height="20" rx="3"/>
+<rect class="cell on rd" x="1226" y="826" width="20" height="20" rx="3"/>
+<rect class="cell on rd" x="1250" y="826" width="20" height="20" rx="3"/>
+<rect class="cell on rd" x="1274" y="826" width="20" height="20" rx="3"/>
+<rect class="cell on rd" x="1298" y="826" width="20" height="20" rx="3"/>
+<rect class="cell on rd" x="1322" y="826" width="20" height="20" rx="3"/>
+<rect class="cell on rd" x="1346" y="826" width="20" height="20" rx="3"/>
+<rect class="cell on rd" x="1370" y="826" width="20" height="20" rx="3"/>
+<rect class="cell on rd" x="1394" y="826" width="20" height="20" rx="3"/>
+<rect class="cell on rd" x="1418" y="826" width="20" height="20" rx="3"/>
+<text class="sub gt" x="1064" y="884">gate k sees the full history + gates 1&#8230;k</text>
+<text class="sub rd" x="1064" y="904">the readout attends to all 13</text>
+<rect class="cell on rd" x="1064" y="928" width="13" height="13" rx="3"/>
+<text class="sub" x="1084" y="939">may attend (j &#8804; i)</text>
+<rect class="cell off" x="1240" y="928" width="13" height="13" rx="3"/>
+<text class="sub" x="1260" y="939">masked</text>
+</svg></div>
+      <figcaption><b>Figure 3.</b> Sequence layout, backbone, and the two heads. The speed conditioner is
+      zero-initialized and injected after the backbone, so the commanded speed shifts the action without
+      touching the features the backbone has learned. The dynamics head is a training-time auxiliary only.</figcaption>
     </figure>
 
     <div class="cols-3 prose">
-      <div><h4>Observations</h4><p class="todo">Observation space and encoding.</p></div>
-      <div><h4>Policy backbone</h4><p class="todo">Backbone and inductive biases.</p></div>
-      <div><h4>Action space</h4><p class="todo">Action parameterization.</p></div>
+      <div><h4>Observations</h4><p>Task state in the active gate&rsquo;s frame, six gates in pass order, and the
+      previous command with its age. Only the current step&rsquo;s gates are tokenized.</p></div>
+      <div><h4>Backbone</h4><p>Pre-norm blocks, d = 320, 8 heads at 40-d, FFN 640, four blocks, RMSNorm on the
+      output. Causal mask throughout.</p></div>
+      <div><h4>Action space</h4><p>CTBR: collective thrust and three body rates, Gaussian with a
+      state-independent log &#963; initialized at &#8722;1.2 and clamped to [&#8722;3.5, 0].</p></div>
     </div>
   </div>
 </section>
@@ -256,36 +1225,223 @@
 <section class="block" id="training">
   <div class="wrap">
     <h2>Data &amp; Training</h2>
-    <div class="prose">
-      <p class="todo">How the data is sourced and shaped, and how the model is trained and evaluated.</p>
+    <div class="prose abstract">
+      <p>Every label comes from an MPCC expert solved with acados. The expert labels each visited state with
+      the first command of its plan, so the policy learns from the teacher&rsquo;s intent rather than from
+      whatever the rollout actually executed. That distinction is what lets DAgger, DART noise, and
+      expert-prefix roll-ins all write into the same replay without conflicting.</p>
+      <p>The run is 218 rounds and roughly 54 M collected steps, with DART and pure expert episodes
+      concentrated in the first four rounds and the DAgger mixing coefficient decaying from 1.0 to 0.35 over
+      the first twenty.</p>
     </div>
+
+    <figure class="fig">
+      <div class="figbox"><svg class="fg" viewBox="0 0 1500 1180" role="img" aria-label="Hybrid DAgger-DART pretraining">
+<defs>
+<marker id="f4-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z"/></marker>
+<marker id="f4-ahd" class="dyn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z"/></marker>
+<marker id="f4-ahr" class="rd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z"/></marker>
+</defs>
+<text class="kick" x="40" y="44">FIGURE 4 &middot; STARSCREAM v6.21</text>
+<text class="figttl" x="40" y="86">Hybrid DAgger&#8211;DART pretraining</text>
+<rect class="sw dy" x="1350.8" y="32" width="11" height="11" rx="3"/>
+<text class="swtx" x="1368.8" y="42">dynamics aux</text>
+<rect class="sw rd" x="1274.6" y="32" width="11" height="11" rx="3"/>
+<text class="swtx" x="1292.6" y="42">readout</text>
+<rect class="sw tc" x="1165.3999999999999" y="32" width="11" height="11" rx="3"/>
+<text class="swtx" x="1183.3999999999999" y="42">MPCC teacher</text>
+<rect class="card" x="470" y="128" width="520" height="128" rx="5"/>
+<circle class="stepn" cx="504" cy="156" r="13"/>
+<text class="stepnt" x="504" y="161" text-anchor="middle">1</text>
+<text class="ttl" x="524" y="162" font-size="18">Course sampler</text>
+<text class="lbl" x="524" y="192">45 training courses (35 base + 10 motif additions)</text>
+<text class="sub" x="524" y="214">frontier sampler: competence-EMA targets 0.55,</text>
+<text class="sub" x="524" y="234">multiplier &#8712; [0.5, 2.0] &middot; per-course uniform family weights</text>
+<rect class="card" x="1040" y="128" width="440" height="490" rx="5"/>
+<circle class="stepn" cx="1074" cy="156" r="13"/>
+<text class="stepnt" x="1074" y="161" text-anchor="middle">2</text>
+<text class="ttl" x="1094" y="162" font-size="18">Rollout workers</text>
+<rect class="sub-card" x="1064" y="190" width="392" height="70" rx="5"/>
+<rect class="swatch rd" x="1078" y="204" width="26" height="26" rx="4"/>
+<text class="ttl" x="1118" y="216" font-size="14">Mixed execution (DAgger)</text>
+<text class="sub" x="1118" y="236">execute a* w.p. &#946;, else &#960;_&#952;</text>
+<text class="sub" x="1118" y="254">&#946;: 1.0 &#8594; 0.35 over rounds 1&#8211;20</text>
+<rect class="sub-card" x="1064" y="272" width="392" height="88" rx="5"/>
+<rect class="swatch tc" x="1078" y="286" width="26" height="26" rx="4"/>
+<text class="ttl" x="1118" y="298" font-size="14">DART</text>
+<text class="sub" x="1118" y="318">expert executes a* + &#949; &middot; &#949; ~ N(0, &#963;&#178;)</text>
+<text class="sub" x="1118" y="336">&#963; = [.025, .035, .035, .025]</text>
+<text class="sub" x="1118" y="354">rounds 1&#8211;4 &middot; 50% of episodes</text>
+<rect class="sub-card" x="1064" y="372" width="392" height="70" rx="5"/>
+<rect class="swatch rd" x="1078" y="386" width="26" height="26" rx="4"/>
+<text class="ttl" x="1118" y="398" font-size="14">Expert-prefix roll-in</text>
+<text class="sub" x="1118" y="418">expert flies a prefix, hands off to &#960;_&#952;</text>
+<text class="sub" x="1118" y="436">mid-course &middot; 50% of episodes start this way</text>
+<rect class="sub-card" x="1064" y="454" width="392" height="70" rx="5"/>
+<rect class="swatch tc" x="1078" y="468" width="26" height="26" rx="4"/>
+<text class="ttl" x="1118" y="480" font-size="14">Permanent expert</text>
+<text class="sub" x="1118" y="500">pure expert episodes &#8594; permanent pool</text>
+<text class="sub" x="1118" y="518">rounds 1&#8211;4 &middot; &#8805;1 per course</text>
+<text class="sub" x="1064" y="556">360 episodes / round &middot; 16 envs &middot; 130 Hz &middot;</text>
+<text class="sub" x="1064" y="575">11 ms action delay &middot; dynamics randomization on</text>
+<rect class="card" x="20" y="264" width="420" height="164" rx="5"/>
+<circle class="stepn" cx="54" cy="292" r="13"/>
+<text class="stepnt" x="54" y="297" text-anchor="middle">6</text>
+<text class="ttl" x="74" y="298" font-size="18">Evaluation &amp; selection</text>
+<text class="lbl" x="44" y="330">every round: 140 episodes on 35 held-out</text>
+<text class="sub" x="44" y="350">validation courses &middot; select by full-course success</text>
+<text class="sub" x="44" y="370">keep top-5 checkpoints</text>
+<text class="ttl" x="44" y="406" font-size="14">218 rounds &#8776; 54 M collected steps</text>
+<rect class="card em" x="560" y="330" width="340" height="190" rx="5"/>
+<text class="ttl" x="586" y="370" font-size="20">Policy &#960;_&#952;</text>
+<text class="sub" x="586" y="394">5.49 M params &middot; architecture in F3</text>
+<rect class="op" x="586" y="412" width="200" height="78" rx="5"/>
+<text class="ttl" x="686" y="444" text-anchor="middle" font-size="14">shared transformer</text>
+<text class="sub" x="686" y="466" text-anchor="middle">d = 320 &middot; &#215; 4</text>
+<rect class="chip rd-chip" x="810" y="420" width="76" height="26" rx="4"/>
+<text class="chiptx" x="848.0" y="434" text-anchor="middle">action head</text>
+<rect class="chip dy-chip" x="810" y="462" width="76" height="26" rx="4"/>
+<text class="chiptx" x="848.0" y="476" text-anchor="middle">dyn head</text>
+<path class="rdflow" d="M788 434 L806 434" marker-end="url(#f3-ahr)"/>
+<path class="dynflow" d="M788 476 L806 476" marker-end="url(#f3-ahd)"/>
+<rect class="card tc-card" x="1040" y="686" width="440" height="164" rx="5"/>
+<circle class="stepn" cx="1074" cy="714" r="13"/>
+<text class="stepnt" x="1074" y="719" text-anchor="middle">3</text>
+<text class="ttl" x="1094" y="720" font-size="18">MPCC expert (acados)</text>
+<text class="lbl" x="1064" y="752">labels every visited state: a* = first planned command</text>
+<text class="lbl" x="1064" y="774">per-course speed profile (manifest), nominal 16.5 m/s</text>
+<text class="lbl" x="1064" y="796">speed command v_cmd = teacher&rsquo;s speed &#8594; conditions &#960;_&#952;</text>
+<path class="flow" d="M1260 618 L1260 682" marker-end="url(#ah)"/>
+<text class="sub" x="1272" y="662">visited states</text>
+<circle class="stub2" cx="1260" cy="890" r="11"/>
+<text class="sub" x="1260" y="895" text-anchor="middle">&#10005;</text>
+<path class="flow dashed" d="M1260 850 L1260 878"/>
+<text class="sub" x="1282" y="886">solver failures &amp;</text>
+<text class="sub" x="1282" y="904">unsuccessful</text>
+<text class="sub" x="1282" y="922">episodes dropped</text>
+<rect class="card" x="540" y="686" width="340" height="300" rx="5"/>
+<circle class="stepn" cx="574" cy="714" r="13"/>
+<text class="stepnt" x="574" y="719" text-anchor="middle">4</text>
+<text class="ttl" x="594" y="720" font-size="18">Replay</text>
+<rect class="sub-card" x="562" y="748" width="296" height="58" rx="5"/>
+<text class="ttl" x="580" y="772" font-size="14">Online replay</text>
+<text class="sub" x="580" y="792">1.575 M rows &middot; +27 k rows / round</text>
+<rect class="sub-card" x="562" y="816" width="296" height="58" rx="5"/>
+<text class="ttl" x="580" y="840" font-size="14">Permanent expert pool</text>
+<text class="sub" x="580" y="860">675 k rows</text>
+<rect class="mix m1" x="562" y="890" width="118.4" height="16" rx="2"/>
+<rect class="mix m2" x="680.4" y="890" width="103.6" height="16" rx="2"/>
+<rect class="mix m3" x="784.0" y="890" width="74.0" height="16" rx="2"/>
+<text class="sub" x="710" y="928" text-anchor="middle">nominal .40 &middot; critical .35 &middot; recovery .25</text>
+<text class="mono" x="710" y="956" text-anchor="middle">batch 1536 &middot; 65% online / 35% permanent</text>
+<rect class="card" x="20" y="686" width="480" height="300" rx="5"/>
+<circle class="stepn" cx="54" cy="714" r="13"/>
+<text class="stepnt" x="54" y="719" text-anchor="middle">5</text>
+<text class="ttl" x="74" y="720" font-size="18">Learner update</text>
+<rect class="eq rd-eq" x="44" y="738" width="432" height="26" rx="3"/>
+<text class="mono rd" x="54" y="757">L =  Huber_&#946;=.05( &#960;_&#952;(o), a* )</text>
+<text class="sub" x="468" y="757" text-anchor="end">normalized CTBR</text>
+<rect class="eq rd-eq" x="60" y="770" width="416" height="48" rx="3"/>
+<text class="mono rd" x="70" y="789">+ 0.75 &middot; Huber_&#946;=.05( phys(&#960;_&#952;(o)) / [10,3,3,3],</text>
+<text class="mono rd" x="196" y="809">phys(a*) / [10,3,3,3] )</text>
+<rect class="eq dy-eq" x="60" y="824" width="416" height="26" rx="3"/>
+<text class="mono dy" x="70" y="843">+ 0.15 &middot; SmoothL1( &#916;&#349;_&#952;(o), &#916;s* ) &middot; valid</text>
+<text class="sub" x="468" y="866" text-anchor="end">dynamics aux</text>
+<text class="sub" x="44" y="896">2026 updates / round &middot; AdamW &middot; clip 2.0 &middot; wd 1e-5 &middot; AMP</text>
+<text class="sub" x="44" y="916">lr 1.2e-4 cosine &#8594; 3e-5 (3-round warmup)</text>
+<rect class="note dy-note" x="900" y="856" width="282" height="150" rx="5"/>
+<text class="notetx" x="916" y="882">The dynamics target is the state MPCC</text>
+<text class="notetx" x="916" y="901">predicts after its own first command, not</text>
+<text class="notetx" x="916" y="920">the executed transition. It stays valid</text>
+<text class="notetx" x="916" y="939">when the learner or DART noise chose the</text>
+<text class="notetx" x="916" y="958">executed action, and at gate crossings</text>
+<text class="notetx" x="916" y="977">when the gate frame switches.</text>
+<path class="flow" d="M990 178 L1036 178" marker-end="url(#ah)"/>
+<text class="sub" x="1000" y="168">courses</text>
+<path class="flow" d="M900 420 L1036 420" marker-end="url(#ah)"/>
+<text class="sub" x="912" y="410">acts (w.p. 1&#8722;&#946;)</text>
+<path class="flow" d="M1040 742 L884 742" marker-end="url(#ah)"/>
+<text class="sub" x="1030" y="732" text-anchor="end">(o, a*)</text>
+<path class="dynflow" d="M1036 800 L884 800" marker-end="url(#f3-ahd)"/>
+<text class="mono dy" x="1030" y="790" text-anchor="end">&#916;s* = s&#8321;^MPCC &#8722; s&#8320;</text>
+<line class="hair" x1="1036" y1="782" x2="1036" y2="818"/>
+<path class="flow" d="M540 800 L504 800" marker-end="url(#ah)"/>
+<text class="sub" x="521" y="790" text-anchor="middle">batch</text>
+<path class="flow dashed" d="M300 686 L300 640 L640 640 L640 566"/>
+<path class="flow dashed" d="M640 566 L640 528" marker-end="url(#ah)"/>
+<text class="mono" x="392" y="632">&#952; &#8592; &#952; &#8722; &#951;&#8711;L</text>
+<path class="flow" d="M180 686 L180 436" marker-end="url(#ah)"/>
+<text class="sub" x="192" y="596">checkpoint &#952;</text>
+<path class="flow" d="M230 264 L230 190 L466 190" marker-end="url(#ah)"/>
+<text class="sub" x="250" y="180">next round</text>
+<path class="dynflow dashed" d="M700 676 L700 612 L700 530" marker-end="url(#f3-ahd)"/>
+<text class="sub dy" x="712" y="652">shapes the shared latent</text>
+<text class="kick" x="40" y="1046">ROUND SCHEDULE &middot; LOG SCALE</text>
+<line class="axis" x1="40" y1="1150" x2="1460" y2="1150"/>
+<line class="axis" x1="40.0" y1="1150" x2="40.0" y2="1156"/>
+<text class="num" x="40.0" y="1172" text-anchor="middle">1</text>
+<line class="axis" x1="405.593796602085" y1="1150" x2="405.593796602085" y2="1156"/>
+<text class="num" x="405.593796602085" y="1172" text-anchor="middle">4</text>
+<line class="axis" x1="830.0350504255433" y1="1150" x2="830.0350504255433" y2="1156"/>
+<text class="num" x="830.0350504255433" y="1172" text-anchor="middle">20</text>
+<line class="axis" x1="1119.7612794808344" y1="1150" x2="1119.7612794808344" y2="1156"/>
+<text class="num" x="1119.7612794808344" y="1172" text-anchor="middle">60</text>
+<line class="axis" x1="1302.558177781877" y1="1150" x2="1302.558177781877" y2="1156"/>
+<text class="num" x="1302.558177781877" y="1172" text-anchor="middle">120</text>
+<line class="axis" x1="1460.0" y1="1150" x2="1460.0" y2="1156"/>
+<text class="num" x="1460.0" y="1172" text-anchor="middle">218</text>
+<path class="curve" d="M40.0 1050.0 L443.4 1050.0 L596.0 1050.0 L692.0 1050.1 L762.2 1050.2 L817.7 1050.4 L863.4 1050.6 L902.4 1050.8 L936.4 1051.1 L966.5 1051.4 L993.5 1051.7 L1017.9 1052.1 L1040.4 1052.5 L1061.0 1052.9 L1080.2 1053.4 L1098.0 1053.9 L1114.7 1054.4 L1130.5 1055.0 L1145.3 1055.5 L1159.3 1056.1 L1172.7 1056.8 L1185.4 1057.4 L1197.5 1058.1 L1209.1 1058.7 L1220.2 1059.4 L1230.8 1060.1 L1241.0 1060.9 L1250.9 1061.6 L1260.4 1062.3 L1269.6 1063.1 L1278.4 1063.8 L1287.0 1064.5 L1295.3 1065.3 L1303.3 1066.0 L1311.1 1066.7 L1318.7 1067.5 L1326.1 1068.2 L1333.3 1068.9 L1340.2 1069.6 L1347.0 1070.2 L1353.7 1070.9 L1360.1 1071.5 L1366.5 1072.1 L1372.6 1072.7 L1378.6 1073.3 L1384.5 1073.8 L1390.3 1074.3 L1395.9 1074.8 L1401.5 1075.3 L1406.9 1075.7 L1412.2 1076.1 L1417.4 1076.4 L1422.4 1076.8 L1427.4 1077.1 L1432.3 1077.3 L1437.2 1077.5 L1441.9 1077.7 L1446.5 1077.8 L1451.1 1077.9 L1455.6 1078.0 L1460.0 1078.0"/>
+<text class="sub" x="339.7262290552912" y="1042">lr 1.2e-4 (round 3)</text>
+<text class="num" x="1460" y="1070" text-anchor="end">3e-5</text>
+<rect class="bar" x="40" y="1092" width="365.593796602085" height="20" rx="2"/>
+<text class="sub" x="50" y="1106">DART + permanent expert</text>
+<path class="bar2" d="M40 1122 L830.0 1122 L830.0 1136 L40 1136 Z"/>
+<text class="sub" x="840.0350504255433" y="1134">&#946; decay 1.0 &#8594; 0.35</text>
+</svg></div>
+      <figcaption><b>Figure 4.</b> The round loop. Courses are drawn by a competence-targeting frontier
+      sampler, rolled out under four execution modes, labelled by the MPCC expert, mixed into replay, and
+      distilled into the policy. Checkpoints are selected every round on held-out courses.</figcaption>
+    </figure>
 
     <div class="split prose">
       <div>
         <h3>Training</h3>
         <table class="kv">
-          <tr><td>Procedure</td><td>—</td></tr>
-          <tr><td>Objective</td><td>—</td></tr>
-          <tr><td>Optimizer</td><td>—</td></tr>
-          <tr><td>Training steps</td><td>—</td></tr>
-          <tr><td>Hardware</td><td>—</td></tr>
+          <tr><td>Procedure</td><td>DAgger with DART noise, expert-prefix roll-in, permanent expert pool</td></tr>
+          <tr><td>Objective</td><td>Huber on normalized CTBR, + 0.75 Huber in physical units, + 0.15 SmoothL1 dynamics auxiliary</td></tr>
+          <tr><td>Optimizer</td><td>AdamW &middot; clip 2.0 &middot; wd 1e-5 &middot; AMP</td></tr>
+          <tr><td>Schedule</td><td>lr 1.2e-4 cosine to 3e-5, 3-round warmup</td></tr>
+          <tr><td>Updates</td><td>2026 per round &#215; 218 rounds</td></tr>
+          <tr><td>Rollouts</td><td>360 episodes / round &middot; 16 envs &middot; 130 Hz &middot; 11 ms action delay</td></tr>
+          <tr><td>Batch</td><td>1536 &middot; 65% online / 35% permanent expert</td></tr>
         </table>
       </div>
       <div>
         <h3>Evaluation</h3>
         <table class="kv">
-          <tr><td>Suite</td><td>—</td></tr>
-          <tr><td>Episodes per course</td><td>—</td></tr>
-          <tr><td>Success criterion</td><td>—</td></tr>
+          <tr><td>Suite</td><td>35 held-out validation courses</td></tr>
+          <tr><td>Episodes per round</td><td>140</td></tr>
+          <tr><td>Success criterion</td><td>full-course success</td></tr>
+          <tr><td>Selection</td><td>keep top-5 checkpoints</td></tr>
+          <tr><td>Nominal speed</td><td>16.5 m/s, per-course profile from the manifest</td></tr>
+          <tr><td>Training courses</td><td>45 (35 base + 10 motif additions)</td></tr>
         </table>
       </div>
     </div>
 
     <h3>Design decisions</h3>
-    <ul class="list prose todo">
-      <li>Key decision about the data distribution and why.</li>
-      <li>Key decision about the training objective and why.</li>
-      <li>How sim-to-real / generalization gaps are handled.</li>
+    <ul class="list prose">
+      <li>The dynamics target is <b>&#916;s* = s&#8321;<sup>MPCC</sup> &#8722; s&#8320;</b>, the state MPCC predicts
+      after its own first command, not the executed transition. It therefore stays valid when the learner or
+      DART noise chose the executed action, and at gate crossings when the gate frame switches.</li>
+      <li>Only the current step&rsquo;s gates become tokens. History steps contribute state and control only,
+      which keeps the sequence at 13 tokens while still giving the readout three steps of context.</li>
+      <li>The loss is computed twice, once on normalized CTBR and once in physical units scaled by
+      [10, 3, 3, 3], so thrust error and rate error stay comparable instead of one drowning the other.</li>
+      <li>Replay is mixed by regime, .40 nominal, .35 critical, .25 recovery, and 35% of every batch is drawn
+      from the permanent expert pool so clean expert behaviour never washes out.</li>
+      <li>Solver failures and unsuccessful episodes are dropped rather than labelled, so the student is never
+      asked to imitate a plan the expert could not fly.</li>
     </ul>
   </div>
 </section>

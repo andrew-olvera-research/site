@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>An Empirical Analysis of Token-Level Rewards and Advantages</title>
-<meta name="description" content="An Empirical Analysis of Token-Level Rewards and Advantages — Andrew Olvera, 2026.">
+<meta name="description" content="An Empirical Analysis of Token-Level Rewards and Advantages, Andrew Olvera, 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -115,10 +115,9 @@
       <p>We present an ablation study comparing GRPO and DAPO under a range of reward formulations,
       run with a small Qwen3-0.6B model on mathematics problems at the GSM8K level. Holding the model and
       task fixed lets the reward formulation itself be isolated as the variable of interest.</p>
-      <p>Empirically, we find that dense rewards assigned at the token level &mdash; and specifically those
-      targeted at improving reasoning structure rather than final-answer correctness alone &mdash; make
-      learning markedly more stable and improve the policy&rsquo;s ability to explore toward new global
-      maxima.</p>
+      <p>Empirically, dense rewards assigned at the token level make learning markedly more stable, and
+      the rewards that matter are the ones targeting reasoning structure rather than final-answer
+      correctness alone. They also improve the policy&rsquo;s ability to explore toward new global maxima.</p>
     </div>
   </div>
 </section>
