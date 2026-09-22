@@ -1,0 +1,42 @@
+{
+  "camera_position": [
+    -15.022720336914062,
+    -11.023962020874023,
+    18.037466049194336
+  ],
+  "camera_target": [
+    -1.1659657955169678,
+    -1.458889365196228,
+    1.2000000476837158
+  ],
+  "completed": true,
+  "crashed": false,
+  "duration_seconds": 7.653873443603516,
+  "eligible_recovery_free_episodes": 6,
+  "episode_index": 25,
+  "episodes_evaluated": 32,
+  "exposure": "fresh geometry",
+  "family": "behavior:vertical_chain",
+  "fps": 20,
+  "geometry_edit": null,
+  "gif": "01-v622-hard-v2b-vertical-chain-008-06.gif",
+  "gif_bytes": 101593,
+  "gif_duration_seconds": 7.7,
+  "gif_frames": 154,
+  "maximum_speed_mps": 15.652907371520996,
+  "missed_gate_crossings": 0,
+  "mp4": "01-v622-hard-v2b-vertical-chain-008-06.mp4",
+  "mp4_bytes": 46213,
+  "name": "v622_hard_v2b_vertical_chain_008_06",
+  "passed_gates": 8,
+  "playback_rate_vs_simulation": 1.0060265637701435,
+  "poster": "01-v622-hard-v2b-vertical-chain-008-06-poster.jpg",
+  "renderer": "starscream-academic-v3",
+  "seed": 2034116687,
+  "steps": 995,
+  "target_gates": 8,
+  "target_speed_mps": 16.5,
+  "track": "v622_hard_v2b_vertical_chain_008_06",
+  "track_fingerprint": "1588ae5f80fc86813f2d724b0869d219bcdf014338e510fff37ca1f680537264",
+  "track_path": "/workspace/outputs/v622-hard-v2/candidates/v622_hard_v2b_vertical_chain_008_06.yaml"
+}

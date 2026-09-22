@@ -1,0 +1,42 @@
+{
+  "camera_position": [
+    -23.423648834228516,
+    2.089369297027588,
+    25.89970588684082
+  ],
+  "camera_target": [
+    -8.696660995483398,
+    8.445712089538574,
+    1.2000000476837158
+  ],
+  "completed": true,
+  "crashed": false,
+  "duration_seconds": 6.130790710449219,
+  "eligible_recovery_free_episodes": 14,
+  "episode_index": 8,
+  "episodes_evaluated": 32,
+  "exposure": "fresh geometry",
+  "family": "diving_hairpin",
+  "fps": 20,
+  "geometry_edit": null,
+  "gif": "03-v622-hard-diving-hairpin-039-011-arena1.gif",
+  "gif_bytes": 81285,
+  "gif_duration_seconds": 6.2,
+  "gif_frames": 124,
+  "maximum_speed_mps": 18.84393310546875,
+  "missed_gate_crossings": 0,
+  "mp4": "03-v622-hard-diving-hairpin-039-011-arena1.mp4",
+  "mp4_bytes": 34225,
+  "name": "v622_hard_diving_hairpin_039_011_arena1",
+  "passed_gates": 5,
+  "playback_rate_vs_simulation": 1.0112888031608749,
+  "poster": "03-v622-hard-diving-hairpin-039-011-arena1-poster.jpg",
+  "renderer": "starscream-academic-v3",
+  "seed": 2034099534,
+  "steps": 797,
+  "target_gates": 5,
+  "target_speed_mps": 16.5,
+  "track": "v622_hard_diving_hairpin_039_011_arena1",
+  "track_fingerprint": "cbabd64d393b80cee25151eae5aa21091d142e9124a9112edf00e8d3c0306832",
+  "track_path": "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_diving_hairpin_039_011_arena1.yaml"
+}

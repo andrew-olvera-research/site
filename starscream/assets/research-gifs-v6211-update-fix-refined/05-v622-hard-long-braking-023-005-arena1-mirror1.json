@@ -1,0 +1,42 @@
+{
+  "camera_position": [
+    -8.897149085998535,
+    -12.293069839477539,
+    42.90304183959961
+  ],
+  "camera_target": [
+    5.20576286315918,
+    9.84483814239502,
+    2.484032392501831
+  ],
+  "completed": true,
+  "crashed": false,
+  "duration_seconds": 10.184652328491211,
+  "eligible_recovery_free_episodes": 8,
+  "episode_index": 15,
+  "episodes_evaluated": 32,
+  "exposure": "fresh geometry",
+  "family": "long_braking",
+  "fps": 20,
+  "geometry_edit": null,
+  "gif": "05-v622-hard-long-braking-023-005-arena1-mirror1.gif",
+  "gif_bytes": 110460,
+  "gif_duration_seconds": 10.25,
+  "gif_frames": 205,
+  "maximum_speed_mps": 19.174087524414062,
+  "missed_gate_crossings": 0,
+  "mp4": "05-v622-hard-long-braking-023-005-arena1-mirror1.mp4",
+  "mp4_bytes": 44119,
+  "name": "v622_hard_long_braking_023_005_arena1_mirror1",
+  "passed_gates": 10,
+  "playback_rate_vs_simulation": 1.0064162888826338,
+  "poster": "05-v622-hard-long-braking-023-005-arena1-mirror1-poster.jpg",
+  "renderer": "starscream-academic-v3",
+  "seed": 2034106597,
+  "steps": 1324,
+  "target_gates": 10,
+  "target_speed_mps": 16.5,
+  "track": "v622_hard_long_braking_023_005_arena1_mirror1",
+  "track_fingerprint": "83c2b19c39840c9a6043cda7f6a1d0eafcc376c0d7fdd6b9a3e970da4985bffc",
+  "track_path": "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_long_braking_023_005_arena1_mirror1.yaml"
+}

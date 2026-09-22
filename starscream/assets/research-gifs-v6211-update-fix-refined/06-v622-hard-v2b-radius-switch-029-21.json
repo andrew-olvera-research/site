@@ -1,0 +1,42 @@
+{
+  "camera_position": [
+    16.96055030822754,
+    -31.911991119384766,
+    37.946205139160156
+  ],
+  "camera_target": [
+    22.224225997924805,
+    0.611147403717041,
+    4.999873638153076
+  ],
+  "completed": true,
+  "crashed": false,
+  "duration_seconds": 10.853885650634766,
+  "eligible_recovery_free_episodes": 5,
+  "episode_index": 1,
+  "episodes_evaluated": 32,
+  "exposure": "fresh geometry",
+  "family": "behavior:radius_switch",
+  "fps": 20,
+  "geometry_edit": null,
+  "gif": "06-v622-hard-v2b-radius-switch-029-21.gif",
+  "gif_bytes": 119140,
+  "gif_duration_seconds": 10.9,
+  "gif_frames": 218,
+  "maximum_speed_mps": 19.181068420410156,
+  "missed_gate_crossings": 0,
+  "mp4": "06-v622-hard-v2b-radius-switch-029-21.mp4",
+  "mp4_bytes": 46375,
+  "name": "v622_hard_v2b_radius_switch_029_21",
+  "passed_gates": 8,
+  "playback_rate_vs_simulation": 1.0042486489032192,
+  "poster": "06-v622-hard-v2b-radius-switch-029-21-poster.jpg",
+  "renderer": "starscream-academic-v3",
+  "seed": 2034092471,
+  "steps": 1411,
+  "target_gates": 8,
+  "target_speed_mps": 16.5,
+  "track": "v622_hard_v2b_radius_switch_029_21",
+  "track_fingerprint": "25a893aeaa89aeb9f6fb3fc3a725d2181f956b5aceea6e0c40b40fa7a1e073c0",
+  "track_path": "/workspace/outputs/v622-hard-v2/candidates/v622_hard_v2b_radius_switch_029_21.yaml"
+}

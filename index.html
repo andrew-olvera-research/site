@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andrew Olvera</title>
+<meta name="description" content="Andrew Olvera — machine learning research and projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg-2: #f6f7f9; --ink: #1a1d23; --ink-2: #3b414b; --muted: #6b7280;
+    --line: #e3e6ea; --line-2: #cfd4da; --accent: #1f4e8c;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--sans);
+    font-size: 16.5px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  main { width: min(720px, 100% - 32px); margin: 0 auto; padding: 88px 0 56px; }
+  h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(36px, 6vw, 48px); line-height: 1.1; letter-spacing: -.01em; }
+  .role { margin-top: 8px; font-size: 17px; color: var(--muted); }
+  .bio { margin-top: 24px; color: var(--ink-2); max-width: 62ch; }
+  .links { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 15px; }
+  h2 {
+    font-family: var(--serif); font-weight: 600; font-size: 22px;
+    margin-top: 56px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  }
+  .project { display: block; padding: 18px 0; border-bottom: 1px solid var(--line); color: inherit; }
+  .project:hover { text-decoration: none; }
+  .project .name { font-family: var(--serif); font-size: 19px; font-weight: 600; color: var(--ink); }
+  .project:hover .name { color: var(--accent); }
+  .project .meta { display: block; font-size: 14px; color: var(--muted); margin-top: 2px; }
+  .project .desc { display: block; font-size: 15px; color: var(--ink-2); margin-top: 6px; }
+  footer { width: min(720px, 100% - 32px); margin: 0 auto; padding: 0 0 40px; font-size: 13.5px; color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Andrew Olvera</h1>
+  <!-- TODO: edit role / affiliation -->
+  <p class="role">Role &middot; Affiliation</p>
+  <p class="bio">
+    <!-- TODO: edit your intro -->
+    Bio goes here.
+  </p>
+  <div class="links">
+    <a href="https://github.com/AndrewOlvera-byte">GitHub</a>
+    <!-- TODO: add or remove links -->
+    <a href="#">LinkedIn</a>
+    <a href="#">CV</a>
+  </div>
+
+  <h2>Research</h2>
+  <a class="project" href="starscream/">
+    <span class="name">Starscream</span>
+    <span class="meta">Andrew Olvera &middot; Preprint forthcoming, 2026</span>
+    <span class="desc"><!-- TODO: one-line description -->Project description.</span>
+  </a>
+</main>
+<footer>&copy; <span id="yr"></span> Andrew Olvera</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

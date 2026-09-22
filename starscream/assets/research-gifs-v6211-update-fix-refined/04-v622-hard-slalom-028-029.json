@@ -1,0 +1,42 @@
+{
+  "camera_position": [
+    -7.5920634269714355,
+    -16.87555503845215,
+    32.63264083862305
+  ],
+  "camera_target": [
+    -6.146274089813232,
+    1.8183903694152832,
+    3.760525941848755
+  ],
+  "completed": true,
+  "crashed": false,
+  "duration_seconds": 8.084644317626953,
+  "eligible_recovery_free_episodes": 1,
+  "episode_index": 1,
+  "episodes_evaluated": 32,
+  "exposure": "fresh geometry",
+  "family": "slalom",
+  "fps": 20,
+  "geometry_edit": null,
+  "gif": "04-v622-hard-slalom-028-029.gif",
+  "gif_bytes": 98232,
+  "gif_duration_seconds": 8.15,
+  "gif_frames": 163,
+  "maximum_speed_mps": 17.053897857666016,
+  "missed_gate_crossings": 0,
+  "mp4": "04-v622-hard-slalom-028-029.mp4",
+  "mp4_bytes": 40379,
+  "name": "v622_hard_slalom_028_029",
+  "passed_gates": 9,
+  "playback_rate_vs_simulation": 1.0080839279757245,
+  "poster": "04-v622-hard-slalom-028-029-poster.jpg",
+  "renderer": "starscream-academic-v3",
+  "seed": 2034092471,
+  "steps": 1051,
+  "target_gates": 9,
+  "target_speed_mps": 16.5,
+  "track": "v622_hard_slalom_028_029",
+  "track_fingerprint": "76c9dd3f5e49a88b9a58ec2db615cc02b927d7219d2ac86e98e689862ec6819f",
+  "track_path": "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_slalom_028_029.yaml"
+}

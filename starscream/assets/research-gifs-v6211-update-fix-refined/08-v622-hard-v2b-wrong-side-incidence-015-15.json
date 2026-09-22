@@ -1,0 +1,42 @@
+{
+  "camera_position": [
+    -14.388715744018555,
+    -15.870804786682129,
+    32.27253723144531
+  ],
+  "camera_target": [
+    -3.0694589614868164,
+    -2.715977191925049,
+    5.549109935760498
+  ],
+  "completed": true,
+  "crashed": false,
+  "duration_seconds": 12.938508987426758,
+  "eligible_recovery_free_episodes": 5,
+  "episode_index": 28,
+  "episodes_evaluated": 32,
+  "exposure": "fresh geometry",
+  "family": "behavior:wrong_side_incidence",
+  "fps": 20,
+  "geometry_edit": null,
+  "gif": "08-v622-hard-v2b-wrong-side-incidence-015-15.gif",
+  "gif_bytes": 165768,
+  "gif_duration_seconds": 13.0,
+  "gif_frames": 260,
+  "maximum_speed_mps": 20.876649856567383,
+  "missed_gate_crossings": 0,
+  "mp4": "08-v622-hard-v2b-wrong-side-incidence-015-15.mp4",
+  "mp4_bytes": 84629,
+  "name": "v622_hard_v2b_wrong_side_incidence_015_15",
+  "passed_gates": 8,
+  "playback_rate_vs_simulation": 1.0047525578591008,
+  "poster": "08-v622-hard-v2b-wrong-side-incidence-015-15-poster.jpg",
+  "renderer": "starscream-academic-v3",
+  "seed": 2034119714,
+  "steps": 1682,
+  "target_gates": 8,
+  "target_speed_mps": 16.5,
+  "track": "v622_hard_v2b_wrong_side_incidence_015_15",
+  "track_fingerprint": "f2c9c0d14fe84d61cb75e0b1c721dab36395e013fd99e68e364743a91662904a",
+  "track_path": "/workspace/outputs/v622-hard-v2/candidates/v622_hard_v2b_wrong_side_incidence_015_15.yaml"
+}

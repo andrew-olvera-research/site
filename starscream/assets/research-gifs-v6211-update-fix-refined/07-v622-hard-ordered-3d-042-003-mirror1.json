@@ -1,0 +1,42 @@
+{
+  "camera_position": [
+    2.469771146774292,
+    -7.906826496124268,
+    23.978248596191406
+  ],
+  "camera_target": [
+    3.3435702323913574,
+    5.174381256103516,
+    3.790064811706543
+  ],
+  "completed": true,
+  "crashed": false,
+  "duration_seconds": 7.307718276977539,
+  "eligible_recovery_free_episodes": 1,
+  "episode_index": 22,
+  "episodes_evaluated": 32,
+  "exposure": "fresh geometry",
+  "family": "ordered_3d",
+  "fps": 20,
+  "geometry_edit": null,
+  "gif": "07-v622-hard-ordered-3d-042-003-mirror1.gif",
+  "gif_bytes": 92347,
+  "gif_duration_seconds": 7.35,
+  "gif_frames": 147,
+  "maximum_speed_mps": 14.585531234741211,
+  "missed_gate_crossings": 0,
+  "mp4": "07-v622-hard-ordered-3d-042-003-mirror1.mp4",
+  "mp4_bytes": 48902,
+  "name": "v622_hard_ordered_3d_042_003_mirror1",
+  "passed_gates": 10,
+  "playback_rate_vs_simulation": 1.0057858994312447,
+  "poster": "07-v622-hard-ordered-3d-042-003-mirror1-poster.jpg",
+  "renderer": "starscream-academic-v3",
+  "seed": 2034113660,
+  "steps": 950,
+  "target_gates": 10,
+  "target_speed_mps": 16.5,
+  "track": "v622_hard_ordered_3d_042_003_mirror1",
+  "track_fingerprint": "a169ca63a00011a1dff446ed00b0453e350373b6f81331444199c80ebd3ef856",
+  "track_path": "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_ordered_3d_042_003_mirror1.yaml"
+}

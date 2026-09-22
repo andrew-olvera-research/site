@@ -1,0 +1,67 @@
+{
+  "camera_position": [
+    3.4058423042297363,
+    -9.338119506835938,
+    16.349088668823242
+  ],
+  "camera_target": [
+    3.085503578186035,
+    -0.9591195583343506,
+    3.4371354579925537
+  ],
+  "completed": true,
+  "crashed": false,
+  "duration_seconds": 6.65386962890625,
+  "eligible_recovery_free_episodes": 4,
+  "episode_index": 15,
+  "episodes_evaluated": 32,
+  "exposure": "edited showcase variant of real100-v2; not benchmark geometry",
+  "family": "behavior:compound_reversal",
+  "fps": 20,
+  "geometry_edit": {
+    "reason": "Gate 8 is 0.91 m from gate 3; simplify overlapping showcase geometry.",
+    "removed_gate": {
+      "enter_from_opposite_side": false,
+      "kind": "gate",
+      "name": "gate_07",
+      "position": [
+        5.045219898223877,
+        1.2867892980575562,
+        5.001087188720703
+      ],
+      "quaternion_wxyz": [
+        0.2023126631975174,
+        0.0,
+        0.0,
+        0.9793210029602051
+      ],
+      "render": true,
+      "size": [
+        1.5844365358352661,
+        1.5677942037582397
+      ]
+    },
+    "removed_gate_index_1based": 8,
+    "source_track": "outputs/v622-hard-v2/candidates/v622_hard_v2b_compound_reversal_021_03.yaml"
+  },
+  "gif": "02-v622-hard-v2b-compound-reversal-021-03.gif",
+  "gif_bytes": 100705,
+  "gif_duration_seconds": 6.7,
+  "gif_frames": 134,
+  "maximum_speed_mps": 14.27614688873291,
+  "missed_gate_crossings": 0,
+  "mp4": "02-v622-hard-v2b-compound-reversal-021-03.mp4",
+  "mp4_bytes": 58592,
+  "name": "v622_hard_v2b_compound_reversal_021_03",
+  "passed_gates": 7,
+  "playback_rate_vs_simulation": 1.0069328636818111,
+  "poster": "02-v622-hard-v2b-compound-reversal-021-03-poster.jpg",
+  "renderer": "starscream-academic-v3",
+  "seed": 2034106597,
+  "steps": 865,
+  "target_gates": 7,
+  "target_speed_mps": 16.5,
+  "track": "v622_hard_v2b_compound_reversal_021_03_showcase",
+  "track_fingerprint": "7a50f1008121a0fb98dabe36dcfade07ba998c4abfb32a19456f590776eb60e6",
+  "track_path": "/workspace/starscream/assets/tracks/showcase/v6211_compound_reversal.yaml"
+}

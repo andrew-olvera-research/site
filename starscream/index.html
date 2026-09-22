@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Starscream</title>
+<meta name="description" content="Starscream — Andrew Olvera, 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-2: #f7f8fa;
+    --ink: #1a1d23;
+    --ink-2: #3b414b;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --line-2: #d1d5db;
+    --accent: #1f5a96;   /* matches the trajectory blue in the clips */
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --wrap: 880px;
+    --wide: 1120px;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--sans);
+    font-size: 16.5px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  img, video { max-width: 100%; display: block; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .wrap { width: min(var(--wrap), 100% - 32px); margin-inline: auto; }
+  .wrap.wide { width: min(var(--wide), 100% - 32px); }
+
+  /* ---------- NAV ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.94);
+    backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 52px; }
+  .brand { font-family: var(--serif); font-weight: 600; font-size: 17px; color: var(--ink); }
+  .brand:hover { text-decoration: none; }
+  .nav ul { list-style: none; display: flex; gap: 22px; }
+  .nav ul a { font-size: 14px; color: var(--muted); }
+  .nav ul a:hover, .nav ul a.active { color: var(--ink); text-decoration: none; }
+  @media (max-width: 640px) { .nav ul li.opt { display: none; } }
+
+  /* ---------- TITLE BLOCK ---------- */
+  .masthead { text-align: center; padding: 64px 0 36px; }
+  .venue { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+  h1.title {
+    font-family: var(--serif); font-weight: 700; font-size: clamp(34px, 5.6vw, 52px);
+    line-height: 1.12; letter-spacing: -.01em; max-width: 22ch; margin-inline: auto;
+  }
+  h1.title .sub { display: block; font-weight: 400; font-size: .52em; color: var(--ink-2); margin-top: 12px; letter-spacing: 0; }
+  .authors { margin-top: 24px; font-size: 18px; }
+  .authors a { color: var(--ink); border-bottom: 1px solid var(--line-2); }
+  .authors a:hover { text-decoration: none; border-color: var(--accent); }
+  .affil { margin-top: 4px; font-size: 15px; color: var(--muted); }
+  .buttons { margin-top: 26px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500;
+    padding: 7px 16px; border-radius: 999px; color: var(--ink); border: 1px solid var(--line-2);
+  }
+  .btn:hover { text-decoration: none; border-color: var(--ink); }
+  .btn.soon { color: var(--muted); pointer-events: none; }
+  .btn svg { width: 15px; height: 15px; }
+
+  /* ---------- FIGURES ---------- */
+  .frame { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: #fff; aspect-ratio: 16 / 9; }
+  .frame video, .frame img { width: 100%; height: 100%; object-fit: contain; }
+  figcaption { margin-top: 10px; font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
+  figcaption b { color: var(--ink); font-weight: 600; }
+  .teaser figcaption { text-align: center; }
+
+  /* ---------- SECTIONS ---------- */
+  section.block { padding: 56px 0; }
+  section.block + section.block { border-top: 1px solid var(--line); }
+  h2 {
+    font-family: var(--serif); font-weight: 600; font-size: clamp(25px, 3.2vw, 30px);
+    line-height: 1.25; margin-bottom: 20px; text-align: center;
+  }
+  h3 { font-family: var(--serif); font-weight: 600; font-size: 20px; margin: 32px 0 10px; }
+  p + p { margin-top: 14px; }
+  .prose { color: var(--ink-2); }
+  .abstract { max-width: 70ch; margin-inline: auto; text-align: justify; hyphens: auto; }
+  .todo { color: var(--muted); font-style: italic; }
+
+  /* ---------- METHOD SCHEMATIC ---------- */
+  figure.fig { margin-top: 28px; }
+  .fig-frame { border: 1px solid var(--line); border-radius: 6px; padding: clamp(14px, 3vw, 28px); }
+  .scroll-x { overflow-x: auto; }
+  .arch svg { width: 100%; min-width: 640px; height: auto; display: block; }
+  .arch .node rect { fill: #fff; stroke: var(--line-2); stroke-width: 1.2; }
+  .arch .node.em rect { stroke: var(--accent); fill: #eef3f9; }
+  .arch .n-title { font-family: var(--sans); font-weight: 600; font-size: 15px; fill: var(--ink); }
+  .arch .n-sub { font-family: var(--sans); font-size: 12px; fill: var(--muted); }
+  .arch .flow { fill: none; stroke: var(--muted); stroke-width: 1.3; }
+  .arch .flow.back { stroke: var(--accent); stroke-dasharray: 5 4; }
+  .arch .lbl { font-family: var(--serif); font-style: italic; font-size: 14px; fill: var(--ink-2); }
+  .arch marker path { fill: var(--muted); }
+  .arch marker.acc path { fill: var(--accent); }
+
+  .cols-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 32px; }
+  @media (max-width: 820px) { .cols-3 { grid-template-columns: 1fr; gap: 18px; } }
+  .cols-3 h4 { font-family: var(--serif); font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+  .cols-3 p { font-size: 15px; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  @media (max-width: 820px) { .split { grid-template-columns: 1fr; gap: 8px; } }
+  table.kv { width: 100%; border-collapse: collapse; font-size: 15px; }
+  table.kv td { padding: 8px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.kv td:first-child { color: var(--muted); padding-right: 16px; width: 44%; }
+  ul.list { padding-left: 1.2em; }
+  ul.list li + li { margin-top: 8px; }
+
+  /* ---------- RESULTS GALLERY ---------- */
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 24px; margin-top: 28px; }
+  @media (max-width: 720px) { .gallery { grid-template-columns: 1fr; } }
+  .clip { cursor: zoom-in; }
+  .clip figcaption { font-size: 15px; color: var(--ink); }
+
+  .lightbox {
+    position: fixed; inset: 0; z-index: 100; display: none; place-items: center; padding: 16px;
+    background: rgba(255,255,255,.96); cursor: zoom-out;
+  }
+  .lightbox.open { display: grid; }
+  .lightbox video { max-height: 84vh; width: min(1280px, 100%); border: 1px solid var(--line); border-radius: 4px; background: #fff; }
+  .lightbox p { margin-top: 12px; text-align: center; font-size: 15px; color: var(--ink-2); }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 13.5px; color: var(--muted); }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer a { color: var(--muted); }
+
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap wide">
+    <a class="brand" href="#top">Starscream</a>
+    <ul>
+      <li class="opt"><a href="#abstract">Abstract</a></li>
+      <li class="opt"><a href="#method">Method</a></li>
+      <li class="opt"><a href="#training">Training</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="../">Home</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+<!-- ================= TITLE ================= -->
+<div class="masthead wrap">
+  <div class="venue">Preprint forthcoming &middot; 2026</div>
+  <h1 class="title">
+    Starscream
+    <!-- TODO: full paper title -->
+    <span class="sub">Paper subtitle</span>
+  </h1>
+  <p class="authors"><a href="../">Andrew Olvera</a></p>
+  <p class="affil"><!-- TODO: affiliation -->Affiliation</p>
+  <div class="buttons">
+    <span class="btn soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Paper (coming soon)</span>
+    <a class="btn" href="#results">Results</a>
+  </div>
+</div>
+
+<!-- ================= TEASER ================= -->
+<div class="wrap teaser">
+  <figure>
+    <div class="frame">
+      <video autoplay muted loop playsinline preload="auto"
+             poster="assets/research-gifs-v6211-update-fix-refined/02-v622-hard-v2b-compound-reversal-021-03-poster.jpg">
+        <source src="assets/research-gifs-v6211-update-fix-refined/02-v622-hard-v2b-compound-reversal-021-03.mp4" type="video/mp4">
+        <img src="assets/research-gifs-v6211-update-fix-refined/02-v622-hard-v2b-compound-reversal-021-03.gif" alt="Compound reversal course">
+      </video>
+    </div>
+    <figcaption>Compound reversal</figcaption>
+  </figure>
+</div>
+
+<!-- ================= ABSTRACT ================= -->
+<section class="block" id="abstract">
+  <div class="wrap">
+    <h2>Abstract</h2>
+    <div class="abstract prose">
+      <!-- TODO: abstract -->
+      <p class="todo">Abstract goes here.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= METHOD ================= -->
+<section class="block" id="method">
+  <div class="wrap">
+    <h2>Method</h2>
+    <div class="prose">
+      <p class="todo">Overview of the model and control stack.</p>
+    </div>
+
+    <figure class="fig arch">
+      <div class="fig-frame scroll-x">
+      <!-- TODO: schematic — edit node labels / add nodes -->
+      <svg viewBox="0 0 1000 380" role="img" aria-label="Starscream architecture schematic">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z"/></marker>
+          <marker id="ah2" class="acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z"/></marker>
+        </defs>
+        <g class="node"><rect x="20" y="60" width="170" height="70" rx="4"/>
+          <text class="n-title" x="36" y="92">Vehicle state</text><text class="n-sub" x="36" y="114">pose · velocity · rates</text></g>
+        <g class="node"><rect x="20" y="220" width="170" height="70" rx="4"/>
+          <text class="n-title" x="36" y="252">Course context</text><text class="n-sub" x="36" y="274">upcoming gates</text></g>
+        <g class="node"><rect x="270" y="130" width="180" height="100" rx="4"/>
+          <text class="n-title" x="288" y="168">Encoder</text><text class="n-sub" x="288" y="192">embed observations</text></g>
+        <g class="node em"><rect x="530" y="110" width="200" height="140" rx="4"/>
+          <text class="n-title" x="550" y="150">Policy network</text><text class="n-sub" x="550" y="174">backbone</text></g>
+        <g class="node"><rect x="810" y="80" width="170" height="70" rx="4"/>
+          <text class="n-title" x="826" y="112">Action head</text><text class="n-sub" x="826" y="134">control outputs</text></g>
+        <g class="node"><rect x="810" y="210" width="170" height="70" rx="4"/>
+          <text class="n-title" x="826" y="242">Value / aux</text><text class="n-sub" x="826" y="264">auxiliary losses</text></g>
+        <g class="node"><rect x="440" y="310" width="200" height="56" rx="4"/>
+          <text class="n-title" x="458" y="343">Simulator</text></g>
+        <path class="flow" d="M190 95 C230 95 230 165 268 165" marker-end="url(#ah)"/>
+        <path class="flow" d="M190 255 C230 255 230 200 268 200" marker-end="url(#ah)"/>
+        <path class="flow" d="M450 180 H528" marker-end="url(#ah)"/>
+        <path class="flow" d="M730 150 C770 150 770 115 808 115" marker-end="url(#ah)"/>
+        <path class="flow" d="M730 215 C770 215 770 245 808 245" marker-end="url(#ah)"/>
+        <path class="flow" d="M980 115 C995 115 995 338 642 338" marker-end="url(#ah)"/>
+        <path class="flow back" d="M440 338 C105 338 105 300 105 292" marker-end="url(#ah2)"/>
+        <text class="lbl" x="476" y="170">z<tspan baseline-shift="sub" font-size="10">t</tspan></text>
+        <text class="lbl" x="760" y="330">a<tspan baseline-shift="sub" font-size="10">t</tspan></text>
+        <text class="lbl" x="226" y="330">s<tspan baseline-shift="sub" font-size="10">t+1</tspan></text>
+      </svg>
+      </div>
+      <figcaption><b>Figure 2.</b> <span class="todo">System schematic — placeholder, replace with final figure.</span></figcaption>
+    </figure>
+
+    <div class="cols-3 prose">
+      <div><h4>Observations</h4><p class="todo">Observation space and encoding.</p></div>
+      <div><h4>Policy backbone</h4><p class="todo">Backbone and inductive biases.</p></div>
+      <div><h4>Action space</h4><p class="todo">Action parameterization.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRAINING ================= -->
+<section class="block" id="training">
+  <div class="wrap">
+    <h2>Data &amp; Training</h2>
+    <div class="prose">
+      <p class="todo">How the data is sourced and shaped, and how the model is trained and evaluated.</p>
+    </div>
+
+    <div class="split prose">
+      <div>
+        <h3>Training</h3>
+        <table class="kv">
+          <tr><td>Procedure</td><td>—</td></tr>
+          <tr><td>Objective</td><td>—</td></tr>
+          <tr><td>Optimizer</td><td>—</td></tr>
+          <tr><td>Training steps</td><td>—</td></tr>
+          <tr><td>Hardware</td><td>—</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3>Evaluation</h3>
+        <table class="kv">
+          <tr><td>Suite</td><td>—</td></tr>
+          <tr><td>Episodes per course</td><td>—</td></tr>
+          <tr><td>Success criterion</td><td>—</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <h3>Design decisions</h3>
+    <ul class="list prose todo">
+      <li>Key decision about the data distribution and why.</li>
+      <li>Key decision about the training objective and why.</li>
+      <li>How sim-to-real / generalization gaps are handled.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= RESULTS ================= -->
+<section class="block" id="results">
+  <div class="wrap wide">
+    <h2>Results</h2>
+    <div class="wrap prose" style="width:100%;max-width:var(--wrap);text-align:center">
+      <p>Full-course rollouts on eight courses. Real-time playback. Click a clip to enlarge.</p>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr"></span> Andrew Olvera</span>
+    <a href="../">&larr; Home</a>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged clip">
+  <div><video muted loop playsinline controls></video><p></p></div>
+</div>
+
+<script>
+(() => {
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* ---------- Clips: edit names / order here ---------- */
+  const DIR = 'assets/research-gifs-v6211-update-fix-refined/';
+  const CLIPS = [
+    ['01-v622-hard-v2b-vertical-chain-008-06',          'Vertical chain'],
+    ['02-v622-hard-v2b-compound-reversal-021-03',       'Compound reversal'],
+    ['03-v622-hard-diving-hairpin-039-011-arena1',      'Diving hairpin'],
+    ['04-v622-hard-slalom-028-029',                     'Slalom'],
+    ['05-v622-hard-long-braking-023-005-arena1-mirror1', 'Long braking'],
+    ['06-v622-hard-v2b-radius-switch-029-21',           'Changing-radius turns'],
+    ['07-v622-hard-ordered-3d-042-003-mirror1',         'Ordered 3D'],
+    ['08-v622-hard-v2b-wrong-side-incidence-015-15',    'Oblique gate approaches'],
+  ];
+
+  const gallery = document.getElementById('gallery');
+  CLIPS.forEach(([f, name]) => {
+    const fig = document.createElement('figure');
+    fig.className = 'clip';
+    const frame = document.createElement('div');
+    frame.className = 'frame';
+    const v = document.createElement('video');
+    Object.assign(v, { muted: true, loop: true, playsInline: true, preload: 'metadata', poster: `${DIR}${f}-poster.jpg` });
+    const src = document.createElement('source');
+    src.src = `${DIR}${f}.mp4`; src.type = 'video/mp4';
+    // If the mp4 can't be played, fall back to the GIF.
+    src.addEventListener('error', () => {
+      const img = new Image(); img.src = `${DIR}${f}.gif`; img.alt = name; img.loading = 'lazy';
+      v.replaceWith(img);
+    });
+    v.appendChild(src);
+    frame.appendChild(v);
+    const cap = document.createElement('figcaption');
+    cap.textContent = name;
+    fig.append(frame, cap);
+    fig.addEventListener('click', () => openBox(f, name));
+    gallery.appendChild(fig);
+  });
+
+  /* Play clips only while on screen */
+  const vis = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      const v = e.target;
+      if (e.isIntersecting) { const p = v.play(); if (p) p.catch(() => {}); } else v.pause();
+    });
+  }, { threshold: .25 });
+  document.querySelectorAll('.clip video, .teaser video').forEach(v => vis.observe(v));
+
+  /* ---------- Lightbox ---------- */
+  const lb = document.getElementById('lightbox'), lbVid = lb.querySelector('video'), lbCap = lb.querySelector('p');
+  function openBox(f, name) {
+    lbVid.poster = `${DIR}${f}-poster.jpg`;
+    lbVid.src = `${DIR}${f}.mp4`;
+    lbCap.textContent = name;
+    lb.classList.add('open');
+    const p = lbVid.play(); if (p) p.catch(() => {});
+  }
+  const close = () => { lb.classList.remove('open'); lbVid.pause(); lbVid.removeAttribute('src'); lbVid.load(); };
+  lb.addEventListener('click', e => { if (e.target !== lbVid) close(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('open')) close(); });
+
+  /* ---------- Active nav link ---------- */
+  const links = [...document.querySelectorAll('.nav ul a[href^="#"]')];
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('section.block').forEach(s => secObs.observe(s));
+})();
+</script>
+</body>
+</html>
