@@ -251,6 +251,18 @@
     .modegrid { grid-template-columns: 1fr; }
   }
 
+  .runnote { margin-top: 20px; }
+
+  /* run stats */
+  .runstat { display: grid; grid-template-columns: repeat(auto-fit, minmax(172px, 1fr)); gap: 22px 28px; }
+  .runstat div b { display: block; font-family: var(--mono); font-size: 23px; font-weight: 600;
+                   color: var(--ink); letter-spacing: -.02em; line-height: 1.2; }
+  .runstat div.em { grid-column: 1 / -1; border-top: 1px solid var(--line); padding-top: 20px;
+                    display: flex; align-items: baseline; gap: 6px 16px; flex-wrap: wrap; }
+  .runstat div.em b { color: var(--accent); font-size: 26px; }
+  .runstat div.em span { margin-top: 0; font-size: 14.5px; }
+  .runstat div span { display: block; font-size: 13.5px; color: var(--muted); margin-top: 5px; line-height: 1.45; }
+
   /* the page sets p + p spacing; diagrams manage their own */
   .dg p + p { margin-top: 0; }
 
@@ -395,12 +407,16 @@
     <h2>Architecture</h2>
     <div class="prose abstract">
       <p>The actor is one causal transformer reading thirteen tokens: three steps of state and control
-      history, the six gates ahead, and a learned readout token. Token identity carries all the position
-      information there is. History tokens get a time index, gate tokens get a learned slot vector, and
-      there is nothing else, no sinusoids and no ALiBi.</p>
-      <p>That is what forces the geometric conditioning. A gate can only be read through the slot for its
-      place in the route, so the continuous line ahead is what the readout has to attend over. The action
-      and the dynamics prediction both come off that one token.</p>
+      history, the six gates ahead, and a learned readout token.</p>
+      <p>Position is carried by what a token is, not by where it sits. A gate is only ever readable through
+      the slot for its place in the route, so &ldquo;the gate two ahead&rdquo; becomes something the network
+      holds a representation of rather than an offset it has to recover from an index. The ordering of the
+      route is structural, and the continuous line through it is what the readout has to attend over. That
+      is where the geometric conditioning comes from.</p>
+      <p>Everything the policy decides is formed at that one readout token. Both heads read it, which forces
+      a single representation to answer two different questions: what to command now, and where the vehicle
+      will be a step from now. The dynamics head is thrown away after training, but the pressure it puts on
+      the shared latent is the reason it is there.</p>
     </div>
 
     <figure class="fig">
@@ -444,7 +460,7 @@
         <div class="foot">
           <span>gate <b>k</b> attends to the history and gates <b>1&#8230;k</b></span>
           <span>the readout attends to all <b>13</b></span>
-          <span>outputs at the other twelve positions are unused</span>
+          <span>only the readout position carries a loss</span>
         </div>
       </div>
       <figcaption><b>Figure 2.</b> The sequence and the two heads. The speed conditioner is zero-initialized
@@ -533,7 +549,7 @@
               <div><b>1.00</b> Huber on the normalized CTBR command</div>
               <div><b>0.75</b> Huber again in physical units</div>
               <div><b>0.15</b> SmoothL1 on the dynamics target</div>
-              <div>AdamW, <b>2026</b> updates per round, lr <b>1.2e-4</b> cosine to <b>3e-5</b></div>
+              <div>AdamW, <b>5,081</b> updates per round, lr <b>1.2e-4</b> cosine to <b>3e-5</b></div>
             </div>
           </li>
 
@@ -553,7 +569,6 @@
 
         <div class="foot">
           <span><b>218</b> rounds</span>
-          <span><b>&#8776;54 M</b> collected steps</span>
           <span>nominal <b>16.5 m/s</b>, per-course profile</span>
           <span><b>11 ms</b> action delay</span>
         </div>
@@ -562,6 +577,26 @@
       reaches, which is why the four rollout modes matter: each one puts the vehicle somewhere a clean
       expert trajectory would never go.</figcaption>
     </figure>
+
+    <h3>The run behind the clips</h3>
+    <div class="dg">
+      <div class="runstat">
+        <div><b>218</b><span>rounds</span></div>
+        <div><b>5,081</b><span>updates per round</span></div>
+        <div><b>1,107,658</b><span>optimizer updates in total</span></div>
+        <div><b>1,536</b><span>samples per update</span></div>
+        <div class="em"><b>121,343,545</b><span>the step at which the best checkpoint and the performance plateau were reached</span></div>
+      </div>
+    </div>
+    <div class="prose runnote">
+      <p>Every rollout on this page comes from that one run. The shape of those numbers is the interesting
+      part: a 5.49 M-parameter policy is pushed through more than a million updates against a pool of states
+      that is small by comparison, because very little of what the rollouts produce ever becomes a label.
+      The expert has to solve at every visited state, failed solves and crashed episodes are discarded
+      outright, and a third of every batch is reserved for clean expert behaviour.</p>
+      <p>What survives that filtering is expensive, so it gets used hard. Spending this much compute per
+      retained sample is the trade being made, and it is what buys the sample efficiency.</p>
+    </div>
 
     <h3>Design decisions</h3>
     <ul class="list prose">
