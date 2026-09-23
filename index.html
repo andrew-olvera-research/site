@@ -86,8 +86,8 @@
       transformer that reads the next six gates as ordered route tokens and takes a speed command that can be
       changed at test time and generalizes beyond its training targets. Flying randomized vehicles it was not told about, it completes 45 to 61% of
       attempts on unseen layouts and recovers from missed gates. The full method distills this privileged
-      teacher into deployment-observation and vision students that infer the vehicle through an auxiliary plant
-      head; final results with the preprint.</span>
+      teacher into a single student that adds camera gate-segmentation tokens to raw or estimated state and
+      infers the vehicle through an auxiliary plant head; final results with the preprint.</span>
   </a>
   <a class="project" href="manippo/">
     <span class="name">ManiPPO</span>

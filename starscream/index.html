@@ -383,7 +383,7 @@
       reported here the policy was not given those parameters, and still, before any RL, it completes 60.6% of
       attempts on 52 unseen course layouts and 45.5% on 92 unseen hard layouts, and turns back to take a gate it
       has missed. The full method treats this model as a privileged teacher that sees the plant, distilled into
-      deployment-observation and vision-based students that do not and must infer it, with plant prediction as an
+      a vision-based student that does not and must infer it, with plant prediction as an
       auxiliary target. We report the teacher results, the experiments now running, and what the base model does
       and does not yet show; final results will be released with the preprint.</p>
     </div>
@@ -923,16 +923,22 @@
       be distilled. By design, the teacher also reads the <b>sampled plant parameters</b> of the vehicle it is
       flying, so that it can learn the best way to fly each vehicle without having to discover which one it
       has.</p>
-      <p>The second stage is a <b>student</b> that does not get any of that. One student flies from deployment
-      observations, the signals an onboard stack actually has; another flies from vision. The teacher supplies
+      <p>The second stage is a standard <b>student</b>. Where the teacher gets privileged state, the student
+      gets a normal observation: raw or estimated values, plus <b>vision tokens</b>. A forward-facing camera
+      looks along the direction of travel, and each frame&rsquo;s gate segmentation is cut into patches and
+      projected into tokens. These are added to every step of the history, the current step included, placed
+      before that step&rsquo;s values, so the values can attend to what the camera sees and the action attends to
+      both. The exact ordering is being settled by ablations. In training the masks come from the
+      simulator&rsquo;s ground-truth segmentation, with noise and augmentation applied to regularize the student
+      and help it generalize. The teacher supplies
       the targets, as the MPCC expert did for the teacher. The student is not given the plant, so it has to infer
       from its own recent observations and commands what the teacher was told outright. We make that explicit:
       alongside the one-step dynamics head, the student carries an auxiliary head that predicts the plant
       parameters, so the representation it acts from is pushed to carry an estimate of the vehicle it is flying.
       The result is meant to be one student that flies many vehicles of different weight and capability, with
       the commanded speed still adjustable at test time.</p>
-      <p>The first distillation runs carry meaningful success rate and speed over from the teacher to both the
-      deployment-observation and the vision-based student. Full numbers will be released with the preprint.</p>
+      <p>The first distillation runs carry meaningful success rate and speed over from the teacher to the
+      vision-based student. Full numbers will be released with the preprint.</p>
     </div>
 
     <div class="ret" style="text-align:left;margin-top:28px">
@@ -1019,9 +1025,9 @@
       </li>
       <li>
         <h4>2 &middot; Distillation with a plant head</h4>
-        <p class="prose"><b>Setup.</b> Distill the privileged teacher into deployment-observation and
-        vision-based students with no auxiliary head, the dynamics head alone, and dynamics plus plant
-        prediction. Measure the success rate and speed each student retains from the teacher, per-vehicle
+        <p class="prose"><b>Setup.</b> Distill the privileged teacher into the vision-based student three
+        ways: with no auxiliary head, with the dynamics head alone, and with dynamics plus plant prediction.
+        Measure the success rate and speed each variant retains from the teacher, per-vehicle
         performance across Table 1, and how accurately each plant parameter can be read from the student&rsquo;s
         latent.</p>
         <p class="prose"><b>Hypothesis.</b> The plant head improves transfer on hard vehicles and makes the
@@ -1031,7 +1037,7 @@
       <li>
         <h4>3 &middot; What the speed command selects</h4>
         <p class="prose"><b>Setup.</b> Sweep the commanded speed below and above each course&rsquo;s nominal
-        value, for the teacher and for each student, and measure completion, lap time and flight behavior
+        value, for the teacher and for the student, and measure completion, lap time and flight behavior
         separately for open, low-gate-count courses and tight, technical ones. As a control, train a teacher on
         per-episode rescaled speed targets, so that the command is no longer correlated with the kind of
         course.</p>
