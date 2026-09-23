@@ -133,6 +133,18 @@
   .lightbox video { max-height: 84vh; width: min(1280px, 100%); border: 1px solid var(--line); border-radius: 4px; background: #fff; }
   .lightbox p { margin-top: 12px; text-align: center; font-size: 15px; color: var(--ink-2); }
 
+  /* ---------- 3D SCENE (prototype) ---------- */
+  .scene3d { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: #fff; }
+  .scene3d canvas { display: block; width: 100%; aspect-ratio: 16 / 9; cursor: grab; touch-action: none; outline: none; }
+  .scene3d canvas:active { cursor: grabbing; }
+  .scene3d-bar { display: flex; align-items: center; gap: 12px; padding: 8px 12px; border-top: 1px solid var(--line); font-size: 13px; }
+  .scene3d-bar button {
+    font: inherit; color: var(--ink); background: none; border: 1px solid var(--line-2);
+    border-radius: 999px; padding: 2px 12px; cursor: pointer; min-width: 64px;
+  }
+  .scene3d-bar button:hover { border-color: var(--ink); }
+  .scene3d-bar input[type=range] { flex: 1; min-width: 0; accent-color: var(--accent); }
+
   footer { border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 13.5px; color: var(--muted); }
   footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   footer a { color: var(--muted); }
@@ -617,6 +629,11 @@
     <div class="wrap prose" style="width:100%;max-width:var(--wrap);text-align:center">
       <p>Full-course rollouts on eight courses. Real-time playback. Click a clip to enlarge.</p>
     </div>
+    <figure class="fig" style="max-width:var(--wrap);margin-inline:auto">
+      <div class="scene3d" data-scene3d="assets/scene3d/demo.json"></div>
+      <figcaption><b>Interactive rollout.</b> Drag to orbit, shift-drag to pan, click then scroll (or pinch) to zoom,
+      double-click to reset. Placeholder course while the real rollouts are exported.</figcaption>
+    </figure>
     <div class="gallery" id="gallery"></div>
   </div>
 </section>
@@ -706,5 +723,6 @@
   document.querySelectorAll('section.block').forEach(s => secObs.observe(s));
 })();
 </script>
+<script src="scene3d.js" defer></script>
 </body>
 </html>
