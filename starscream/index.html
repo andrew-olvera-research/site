@@ -119,6 +119,13 @@
   ul.list { padding-left: 1.2em; }
   ul.list li + li { margin-top: 8px; }
 
+  /* ---------- EXPERIMENTS ---------- */
+  ol.exps { list-style: none; margin-top: 24px; border-top: 1px solid var(--line); }
+  ol.exps li { padding: 22px 0; border-bottom: 1px solid var(--line); }
+  ol.exps h4 { font-family: var(--serif); font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+  ol.exps p { font-size: 15.5px; }
+  ol.exps p + p { margin-top: 8px; }
+
   /* ---------- 3D EXPLORER ---------- */
   .explorer { margin-top: 28px; }
   .scene3d { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: #fff; }
@@ -323,7 +330,8 @@
       <li><a href="#results">Results</a></li>
       <li class="opt"><a href="#behavior">Behavior</a></li>
       <li class="opt"><a href="#student">Student</a></li>
-      <li class="opt"><a href="#before-rl">Before RL</a></li>
+      <li class="opt"><a href="#before-rl">Why no RL</a></li>
+      <li class="opt"><a href="#next">Next</a></li>
       <li><a href="../">Home</a></li>
     </ul>
   </div>
@@ -364,20 +372,20 @@
   <div class="wrap">
     <h2>Abstract</h2>
     <div class="abstract prose">
-      <p>We pretrain an agile drone-racing policy entirely from supervised labels, with no reinforcement
-      learning, and treat it as a foundation for everything downstream. An MPCC expert labels the states the
-      learner actually reaches (DAgger), DART noise and expert-prefix roll-ins widen where those states come from,
-      and an auxiliary one-step dynamics head shapes the representation the policy acts from. Every episode flies
-      a freshly sampled vehicle: mass, geometry-derived inertia, actuator limits and thrust mapping, aerodynamic
-      force coefficients, wind and center-of-mass offset are all randomized, and the policy is never told which
-      vehicle it has. The policy is a 5.49&nbsp;M-parameter causal transformer that reads the next six gates as
-      ordered route tokens and takes a commanded speed as a separate input. Before any RL, it completes 60.6% of
-      attempts on 52 unseen course layouts and 45.5% on 92 unseen hard layouts; when it misses a gate, it can turn
-      back to the approach side and take the gate again. The commanded speed, learned from the expert&rsquo;s
-      time-optimal pace for each course, becomes an aggressiveness knob at deployment. This privileged teacher is
-      then distilled into students that fly from deployment observations and from vision, which must infer the
-      vehicle from their own history. We characterize what this pretraining provides, and what it does not yet
-      show, as the starting point for distillation and reinforcement learning.</p>
+      <p>We pretrain an agile drone-racing base model entirely from supervised labels, with no reinforcement
+      learning, to isolate what can be learned as representation before any policy-gradient fine-tuning. An MPCC
+      expert labels the states the learner actually reaches (DAgger), DART noise and expert-prefix roll-ins widen
+      where those states come from, and an auxiliary one-step dynamics head shapes the representation the policy
+      acts from. The policy is a 5.49&nbsp;M-parameter causal transformer that reads the next six gates as ordered
+      route tokens and takes a commanded speed, learned from the expert&rsquo;s time-optimal pace for each course,
+      that becomes an aggressiveness knob. Every episode flies a freshly sampled vehicle, with randomized mass,
+      inertia, thrust mapping, actuator limits, aerodynamic response, wind and center-of-mass offset. In the run
+      reported here the policy was not given those parameters, and still, before any RL, it completes 60.6% of
+      attempts on 52 unseen course layouts and 45.5% on 92 unseen hard layouts, and turns back to take a gate it
+      has missed. The full method treats this model as a privileged teacher that sees the plant, distilled into
+      deployment-observation and vision-based students that do not and must infer it, with plant prediction as an
+      auxiliary target. We report the teacher results, the experiments now running, and what the base model does
+      and does not yet show; final results will be released with the preprint.</p>
     </div>
   </div>
 </section>
@@ -454,10 +462,10 @@
     <h3>A different vehicle every episode</h3>
     <div class="prose">
       <p>A course is only half of what changes. At every reset the simulator samples a new plant and holds it
-      fixed for that episode, so the policy never flies the same vehicle twice in a row. It is not given the
-      sampled parameters: nothing in its observation says how heavy the vehicle is, how strong its motors are or
-      which way the wind is blowing. Whatever it knows about the vehicle, it has to read from how the vehicle
-      responds.</p>
+      fixed for that episode, so the policy never flies the same vehicle twice in a row. In the method as designed, the privileged teacher is given the sampled
+      parameters and the student is not. In the v6.21.1 run reported on this page, randomization was on but the
+      parameters were not in the teacher&rsquo;s observation (see the <a href="#student">note on this run</a>), so
+      every teacher result here comes from a policy that had to act on vehicles it was not told about.</p>
     </div>
     <figure class="fig">
       <div class="scroll-x">
@@ -717,7 +725,8 @@
       121,343,545 collected environment steps, <b>before any reinforcement learning</b>. It flies from
       privileged true vehicle state, the ordered next six gates, three steps of history, its own previous
       commands and a commanded speed, and it outputs one collective-thrust-and-body-rate command per control
-      step. It is not given the parameters of the vehicle it is flying.</p>
+      step. In this run it was not given the
+      parameters of the vehicle it was flying.</p>
     </div>
 
     <h3>Completion on layouts it has never seen</h3>
@@ -900,68 +909,56 @@
 <!-- ================= STUDENT ================= -->
 <section class="block" id="student">
   <div class="wrap">
-    <h2>From teacher to deployable student</h2>
+    <h2>From privileged teacher to deployable student</h2>
     <div class="prose">
-      <p>Everything above is a <b>privileged teacher</b>. It reads true vehicle state and exact gate geometry,
-      which a real racing drone does not get. That is deliberate: privileged inputs make the teacher cheap to
-      train and easy to analyse, and the teacher&rsquo;s job is to be distilled.</p>
-      <p>We distill it into two students. One flies from <b>deployment observations</b>, the signals an onboard
-      stack actually has. The other flies from <b>vision</b>. In both, the teacher supplies the targets, as the
-      MPCC expert did for the teacher. Neither teacher nor student is given the plant parameters of Table 1, so a student that flies a randomized vehicle well has
-      to infer enough about that vehicle from its own recent history of observations and commands.</p>
+      <p>The method has two stages. The first is the pretrained model on this page: a <b>privileged
+      teacher</b>. It reads true vehicle state and exact gate geometry, which a real racing drone does not get.
+      That is deliberate. Privileged inputs make the teacher cheap to train and easy to analyse, and its job is to
+      be distilled. By design, the teacher also reads the <b>sampled plant parameters</b> of the vehicle it is
+      flying, so that it can learn the best way to fly each vehicle without having to discover which one it
+      has.</p>
+      <p>The second stage is a <b>student</b> that does not get any of that. One student flies from deployment
+      observations, the signals an onboard stack actually has; another flies from vision. The teacher supplies
+      the targets, as the MPCC expert did for the teacher. The student is not given the plant, so it has to infer
+      from its own recent observations and commands what the teacher was told outright. We make that explicit:
+      alongside the one-step dynamics head, the student carries an auxiliary head that predicts the plant
+      parameters, so the representation it acts from is pushed to carry an estimate of the vehicle it is flying.
+      The result is meant to be one student that flies many vehicles of different weight and capability, with
+      the commanded speed as its aggressiveness knob.</p>
       <p>The first distillation runs carry meaningful success rate and speed over from the teacher to both the
-      deployment-observation and the vision-based student. Ablations and full evaluations are being processed and
-      will be released with the preprint.</p>
+      deployment-observation and the vision-based student. Full numbers will be released with the preprint.</p>
     </div>
 
-    <div class="cols-3">
-      <div>
-        <h4>One policy, many vehicles</h4>
-        <p class="prose">The teacher is trained across a randomized family of quadrotors, from mass and inertia to
-        thrust mapping, aerodynamic response, wind and center-of-mass offset, without being told which one it is
-        flying.</p>
-      </div>
-      <div>
-        <h4>Inferred, not given</h4>
-        <p class="prose">Because the plant is hidden from teacher and student alike, distillation asks the student
-        to fly many vehicles from what it can observe. Whether it forms an explicit estimate of the plant is an
-        ablation in progress.</p>
-      </div>
-      <div>
-        <h4>Speed on a dial</h4>
-        <p class="prose">Students are trained to keep the teacher&rsquo;s pace as well as its success rate.
-        Whether the aggressiveness knob carries through to deployment intact is part of what the pending
-        evaluations measure.</p>
-      </div>
-    </div>
-
-    <div class="ret" style="text-align:left;margin-top:32px">
-      <b>Claim boundary.</b> The randomization in Table 1 is broad but bounded: it covers a family of vehicles
-      around one nominal racing quadrotor, not arbitrary airframes, and aerodynamics are varied through effective
-      force coefficients rather than physical shape. Student results are preliminary and are summarized here
-      without numbers until the ablations are complete. That the policy explicitly identifies the plant, rather
-      than acting robustly across it, is a hypothesis for those ablations.
+    <div class="ret" style="text-align:left;margin-top:28px">
+      <b>A note on the run reported here.</b> In the v6.21.1 run behind every teacher result on this page,
+      plant randomization was left enabled by mistake, and the plant parameters were <em>not</em> part of the
+      teacher&rsquo;s observation. We report it as it ran. It means those results were obtained under a harder
+      condition than the method intends: a policy that flies unseen courses at 45 to 61% completion
+      <em>without</em> being told which vehicle it has, from true state, three steps of history and its own
+      previous commands. That the architecture copes with an unobserved plant at all is itself informative. Whether
+      giving the teacher the plant helps or changes what it learns is exactly what the first experiment below
+      measures.
     </div>
   </div>
 </section>
 
-<!-- ================= BEFORE RL ================= -->
+<!-- ================= SCOPE ================= -->
 <section class="block" id="before-rl">
   <div class="wrap">
-    <h2>Why stop before reinforcement learning</h2>
+    <h2>Why no reinforcement learning here</h2>
     <div class="prose">
-      <p>This paper is scoped to pretraining and distillation, deliberately. Reinforcement learning comes next,
-      and the question this work answers is what an RL run should start from: a policy that already flies unseen
-      courses, on vehicles it is not told about, at a speed it can be asked for.</p>
-      <p>Racing is unforgiving of a bad command: progress comes only from crossing gates in order, at speed,
-      and one wrong command at 16&nbsp;m/s ends the episode. Even with a dense progress reward, a randomly
-      initialized controller spends its early experience learning to stay airborne and to find the gates at all,
-      before reward can say anything about pace. This checkpoint starts past that point. It already completes 45% to 61% of its attempts on
-      layouts it has never seen, on randomized vehicles, so an RL run built on it collects reward on completed routes from its first
-      episodes. And because a missed gate is not the end of an attempt, some of the failures that would
-      otherwise end an episode are already followed by corrective actions inside the policy&rsquo;s own
-      distribution. RL can spend its samples on refining pace and consistency, rather than on finding the
-      course.</p>
+      <p>Policy-gradient reinforcement learning is the established route to the strongest high-speed,
+      high-accuracy racing controllers, including champion-level drone racing. We do not dispute that, and RL
+      comes next in this line of work. This paper leaves it out on purpose, to isolate one question: how much of
+      a general flight controller can be learned as a <b>base model</b>, from supervision alone, and what that
+      model&rsquo;s representation carries.</p>
+      <p>Keeping RL out keeps the answer clean. Every behavior on this page, from flying unseen layouts to
+      turning back through a missed gate, came from supervised labels, so none of it can be attributed to reward
+      shaping or policy-gradient fine-tuning. It also sets up the RL stage well. Racing is unforgiving: progress
+      comes only from crossing gates in order, at speed, and one wrong command at 16&nbsp;m/s ends the episode.
+      A randomly initialized controller spends its early experience learning to stay airborne and to find the
+      gates at all. A base model that already completes 45% to 61% of unseen layouts, recovers from missed
+      gates and takes a speed command lets RL spend its samples on pace and consistency instead.</p>
     </div>
 
     <div class="cols-3">
@@ -971,23 +968,71 @@
         through ordered gates, and how to come back from the wrong side of one. No reward shaping is involved.</p>
       </div>
       <div>
-        <h4>The representation is already shaped</h4>
-        <p class="prose">The dynamics head and the ordered route tokens give RL a latent that carries local
-        dynamics and the route ahead, instead of one it has to build from reward alone.</p>
+        <h4>The representation is shaped</h4>
+        <p class="prose">Auxiliary heads for dynamics, and in the student for the plant, give downstream
+        learning a latent that carries local dynamics, the route ahead and the vehicle, instead of one it has to
+        build from reward alone.</p>
       </div>
       <div>
         <h4>The targets are measured</h4>
-        <p class="prose">Long-low courses (18.8% and 6.2%), consistency across randomized vehicles, and the cost
-        of a recovery (a median of about 22&nbsp;m of extra path) are specific, measurable things for RL to improve.</p>
+        <p class="prose">Long-low courses (18.8% and 6.2%), consistency across vehicles, and the cost of a
+        recovery (a median of about 22&nbsp;m of extra path) are specific, measurable things for RL to
+        improve.</p>
       </div>
     </div>
 
     <div class="ret" style="text-align:left;margin-top:32px">
-      <b>Claim boundary.</b> We have not run a matched comparison against RL from random initialization for
-      this checkpoint. The numbers here show substantial ability before RL; they do not establish that RL from
-      this starting point is more sample-efficient, or reaches better final performance, than RL from scratch.
-      The argument above is a mechanism hypothesis that the next stage of this work is designed to test.
+      <b>Claim boundary.</b> We have not run a matched comparison against RL from random initialization. The
+      numbers here show substantial ability before RL; they do not establish that RL from this starting point is
+      more sample-efficient, or reaches better final performance, than RL from scratch.
     </div>
+  </div>
+</section>
+
+<!-- ================= NEXT ================= -->
+<section class="block" id="next">
+  <div class="wrap">
+    <h2>Experiments in progress</h2>
+    <div class="prose">
+      <p>Three controlled experiments turn the story above into measured claims. Each changes one thing
+      against a matched baseline: same courses, seeds, plant randomization, training budget and evaluation
+      suites.</p>
+    </div>
+    <ol class="exps">
+      <li>
+        <h4>1 &middot; Plant in the teacher&rsquo;s observation</h4>
+        <p class="prose"><b>Setup.</b> Retrain the teacher with the sampled plant parameters added to its
+        privileged observation, against the as-run v6.21.1 recipe without them. Compare completion on fresh
+        geometry, lap time, recovery behavior and learning speed, broken down by where each vehicle sits in
+        Table 1.</p>
+        <p class="prose"><b>Hypothesis.</b> Giving the plant makes the teacher at least as good, most visibly on
+        vehicles near the edges of the range (heavy, weak-thrust, high-drag). A small gap would say the
+        architecture already infers most of what it needs from its history; a large one would say the as-run
+        results were paid for with capacity spent on inference, and that the privileged teacher is the better
+        base to distill from.</p>
+      </li>
+      <li>
+        <h4>2 &middot; Distillation with a plant head</h4>
+        <p class="prose"><b>Setup.</b> Distill the privileged teacher into deployment-observation and
+        vision-based students with no auxiliary head, the dynamics head alone, and dynamics plus plant
+        prediction. Measure the success rate and speed each student retains from the teacher, per-vehicle
+        performance across Table 1, and how accurately each plant parameter can be read from the student&rsquo;s
+        latent.</p>
+        <p class="prose"><b>Hypothesis.</b> The plant head improves transfer on hard vehicles and makes the
+        vehicle explicitly readable from the student&rsquo;s representation, where the dynamics head alone
+        carries it only implicitly.</p>
+      </li>
+      <li>
+        <h4>3 &middot; Speed as an aggressiveness knob</h4>
+        <p class="prose"><b>Setup.</b> Sweep the commanded speed around each course&rsquo;s expert value, for
+        the teacher and for each student, across vehicles.</p>
+        <p class="prose"><b>Hypothesis.</b> Raising the command trades completion for lap time smoothly and
+        monotonically, and the same trade-off survives distillation, so a deployed student can be told how hard
+        to fly.</p>
+      </li>
+    </ol>
+    <p class="prose" style="margin-top:24px">Final results for all three, together with the student evaluations, will be
+    released with the preprint.</p>
   </div>
 </section>
 </main>
