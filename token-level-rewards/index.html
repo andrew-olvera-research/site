@@ -3,17 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>An Empirical Analysis of Token-Level Rewards and Advantages</title>
-<meta name="description" content="An Empirical Analysis of Token-Level Rewards and Advantages, Andrew Olvera, 2026.">
+<title>Learning Dynamics in RLVR Near Capacity</title>
+<meta name="description" content="Learning Dynamics in RLVR Near Capacity: Mapping Optimization Dynamics and Capacity Constraints in Small LLMs. Andrew Olvera, 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\(', right: '\\)', display: false}]});"></script>
 <style>
   :root {
-    --bg: #ffffff; --ink: #1a1d23; --ink-2: #3b414b; --muted: #6b7280;
+    --bg: #ffffff; --bg-2: #f7f8fa; --ink: #1a1d23; --ink-2: #3b414b; --muted: #6b7280;
     --line: #e5e7eb; --line-2: #d1d5db; --accent: #1f5a96;
     --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
     --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     --wrap: 880px;
     color-scheme: light;
   }
@@ -23,7 +28,7 @@
     background: var(--bg); color: var(--ink); font-family: var(--sans);
     font-size: 16.5px; line-height: 1.7; -webkit-font-smoothing: antialiased;
   }
-  img, video { max-width: 100%; display: block; }
+  img { max-width: 100%; display: block; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; text-underline-offset: 3px; }
   .wrap { width: min(var(--wrap), 100% - 32px); margin-inline: auto; }
@@ -33,11 +38,12 @@
     backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
   }
   .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 52px; }
-  .brand { font-family: var(--serif); font-weight: 600; font-size: 17px; color: var(--ink); }
+  .brand { font-family: var(--serif); font-weight: 600; font-size: 17px; color: var(--ink); white-space: nowrap; }
   .brand:hover { text-decoration: none; }
   .nav ul { list-style: none; display: flex; gap: 22px; }
   .nav ul a { font-size: 14px; color: var(--muted); }
-  .nav ul a:hover, .nav ul a.active { color: var(--ink); text-decoration: none; }
+  .nav ul a:hover { color: var(--ink); text-decoration: none; }
+  @media (max-width: 640px) { .nav ul li.opt { display: none; } }
 
   .masthead { text-align: center; padding: 64px 0 36px; }
   .venue { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
@@ -65,13 +71,46 @@
     font-family: var(--serif); font-weight: 600; font-size: clamp(25px, 3.2vw, 30px);
     line-height: 1.25; margin-bottom: 20px; text-align: center;
   }
-  h3 { font-family: var(--serif); font-weight: 600; font-size: 20px; margin: 32px 0 10px; }
+  h3 { font-family: var(--serif); font-weight: 600; font-size: 20px; margin: 36px 0 10px; }
   p + p { margin-top: 14px; }
   .prose { color: var(--ink-2); }
   .abstract { max-width: 70ch; margin-inline: auto; text-align: justify; hyphens: auto; }
-  .todo { color: var(--muted); font-style: italic; }
-  ul.list { padding-left: 1.2em; }
+  ul.list { padding-left: 1.2em; margin-top: 14px; }
   ul.list li + li { margin-top: 8px; }
+  b { color: var(--ink); font-weight: 600; }
+  code { font-family: var(--mono); font-size: .9em; }
+
+  .katex-display { margin: 22px 0; overflow-x: auto; overflow-y: hidden; padding: 4px 0; }
+  .katex { font-size: 1.08em; }
+
+  figure.fig { margin: 30px 0 26px; }
+  .fig-frame { border: 1px solid var(--line); border-radius: 6px; padding: clamp(10px, 2.4vw, 22px); background: #fff; }
+  .fig-frame img { width: 100%; height: auto; }
+  .pair { display: grid; gap: 14px; max-width: 640px; margin-inline: auto; }
+  figcaption { margin-top: 10px; font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
+
+  table.data { width: 100%; border-collapse: collapse; font-size: 15px; margin-top: 20px; }
+  table.data th, table.data td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  table.data th { font-weight: 600; color: var(--ink); border-bottom-color: var(--line-2); font-size: 14px; }
+  table.data td.num, table.data th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  table.data td:first-child { color: var(--ink); }
+  .scroll-x { overflow-x: auto; }
+
+  .dots svg { width: 100%; min-width: 560px; height: auto; display: block; }
+  .dots text { font-family: var(--sans); font-size: 13px; fill: var(--ink-2); }
+  .dots .grp { font-size: 12px; font-weight: 600; fill: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+  .dots .k { fill: var(--muted); }
+  .dots .tick { font-size: 12px; fill: var(--muted); }
+  .dots .val { font-size: 12.5px; fill: var(--ink); font-variant-numeric: tabular-nums; }
+  .dots .grid { stroke: var(--line); stroke-width: 1; }
+  .dots .grid.ref { stroke: var(--line-2); stroke-dasharray: 4 4; }
+  .dots .se { stroke: var(--accent); stroke-opacity: .35; stroke-width: 6; stroke-linecap: round; }
+  .dots .dot { fill: var(--accent); stroke: #fff; stroke-width: 2; }
+  .dots .dot.base { fill: var(--muted); }
+  .dots .hit { fill: transparent; }
+  .dots .row:hover .hit { fill: var(--bg-2); }
+
+  .note { border-left: 2px solid var(--line-2); padding: 2px 0 2px 16px; margin-top: 22px; color: var(--ink-2); }
 
   footer { border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 13.5px; color: var(--muted); }
   footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -84,10 +123,11 @@
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top">Token-Level Rewards</a>
+    <a class="brand" href="#top">RLVR Near Capacity</a>
     <ul>
-      <li><a href="#abstract">Abstract</a></li>
-      <li><a href="#notes">Notes</a></li>
+      <li class="opt"><a href="#objectives">Objectives</a></li>
+      <li class="opt"><a href="#rewards">Rewards</a></li>
+      <li><a href="#results">Results</a></li>
       <li><a href="../">Home</a></li>
     </ul>
   </div>
@@ -97,8 +137,8 @@
 <div class="masthead wrap">
   <div class="venue">Preprint forthcoming &middot; 2026</div>
   <h1 class="title">
-    An Empirical Analysis of Token-Level Rewards and Advantages
-    <span class="sub">Dense, structure-targeted reward shaping for small-model reasoning</span>
+    Learning Dynamics in RLVR Near Capacity
+    <span class="sub">Mapping optimization dynamics and capacity constraints in small LLMs</span>
   </h1>
   <p class="authors"><a href="../">Andrew Olvera</a></p>
   <p class="affil">York College of Pennsylvania</p>
@@ -108,25 +148,343 @@
   </div>
 </div>
 
-<section class="block" id="abstract">
+<section class="block" id="overview">
   <div class="wrap">
     <h2>Overview</h2>
     <div class="abstract prose">
-      <p>We present an ablation study comparing GRPO and DAPO under a range of reward formulations,
-      run with a small Qwen3-0.6B model on mathematics problems at the GSM8K level. Holding the model and
-      task fixed lets the reward formulation itself be isolated as the variable of interest.</p>
-      <p>Empirically, dense rewards assigned at the token level make learning markedly more stable, and
-      the rewards that matter are the ones targeting reasoning structure rather than final-answer
-      correctness alone. They also improve the policy&rsquo;s ability to explore toward new global maxima.</p>
+      <p>Most of what is known about reinforcement learning from verifiable rewards comes from models at
+      7B parameters and above. Small models are where a lot of research actually gets done, and they
+      behave differently: less room to explore, less internal representation for the policy to draw on.
+      This is a controlled study of what RLVR does to a 0.6B model that is already close to its ceiling
+      on the task.</p>
+      <p>The model is Qwen3 0.6B, supervised fine-tuned on math chain-of-thought traces, trained with RLVR
+      on GSM8K. It happens in two phases. Phase 1 holds the reward fixed at binary correctness and varies
+      the optimizer (GRPO or DAPO) and the group size. Its job is to pick one stable configuration to use
+      as a baseline. Phase 2 holds that baseline fixed and varies only the reward.</p>
+      <p>Two things come out of it. Rewards that separate completions <i>within</i> a group, rather than
+      only pass from fail, keep the learning signal alive once the model starts solving most prompts.
+      And every configuration lands between 69 and 72% from a 68% start, with the first two points coming
+      quickly and nothing ever passing 72. At this scale RLVR sharpens the policy the model already has;
+      it does not find a new one.</p>
     </div>
   </div>
 </section>
 
-<section class="block" id="notes">
+<section class="block" id="objectives">
   <div class="wrap">
-    <h2>Notes</h2>
+    <h2>Policy gradients for RLVR</h2>
     <div class="prose">
-      <p class="todo">Additional detail, figures, and results to be added.</p>
+      <p>A problem \(x\) is drawn from the task distribution \(\mathcal{D}\), the model samples a response
+      \(y \sim \pi_\theta(\cdot \mid x)\), and a deterministic verifier returns a scalar \(r(x, y)\). No
+      reward model, no human labels. The objective is the expected reward:</p>
+      $$J(\theta) = \mathbb{E}_{x \sim \mathcal{D},\; y \sim \pi_\theta(\cdot \mid x)}\big[\, r(x, y) \,\big]$$
+      <p>Everything below descends from REINFORCE. A response is a sequence of tokens, so the log-likelihood
+      factorizes and the one sequence-level reward multiplies the gradient of every token in it:</p>
+      $$\nabla_\theta J = \mathbb{E}\Big[\big(r(x,y) - b\big) \sum_{t=1}^{|y|} \nabla_\theta \log \pi_\theta\big(y_t \mid x, y_{&lt;t}\big)\Big]$$
+      <p>That sum is the thing to keep in mind for the rest of the page. The verifier scores the answer,
+      but the gradient lands on every token of the reasoning that produced it.</p>
+
+      <h3>GRPO</h3>
+      <p>GRPO drops PPO&rsquo;s value network and gets its baseline from the group instead. Sample \(G\)
+      responses per prompt, score them, and normalize within the group:</p>
+      $$\hat A_i = \frac{R_i - \operatorname{mean}(\{R_j\}_{j=1}^{G})}{\operatorname{std}(\{R_j\}_{j=1}^{G})}$$
+      <p>With the per-token importance ratio
+      \(\rho_{i,t}(\theta) = \pi_\theta(y_{i,t} \mid x, y_{i,&lt;t}) \,/\, \pi_{\theta_\text{old}}(y_{i,t} \mid x, y_{i,&lt;t})\),
+      the objective is PPO&rsquo;s clipped surrogate averaged per response, then across the group, with a KL
+      penalty back to a frozen reference policy:</p>
+      $$\mathcal{J}_\text{GRPO}(\theta) = \mathbb{E}\Bigg[\frac{1}{G}\sum_{i=1}^{G} \frac{1}{|y_i|}\sum_{t=1}^{|y_i|} \min\!\Big(\rho_{i,t}\hat A_i,\; \operatorname{clip}\big(\rho_{i,t},\,1-\epsilon,\,1+\epsilon\big)\hat A_i\Big)\Bigg] - \beta\, \mathbb{D}_\text{KL}\big(\pi_\theta \,\|\, \pi_\text{ref}\big)$$
+
+      <h3>DAPO</h3>
+      <p>DAPO keeps the group baseline and changes how the loss is assembled:</p>
+      $$\mathcal{J}_\text{DAPO}(\theta) = \mathbb{E}\Bigg[\frac{1}{\sum_{i=1}^{G}|y_i|}\sum_{i=1}^{G}\sum_{t=1}^{|y_i|} \min\!\Big(\rho_{i,t}\hat A_i,\; \operatorname{clip}\big(\rho_{i,t},\,1-\epsilon_\text{low},\,1+\epsilon_\text{high}\big)\hat A_i\Big)\Bigg]
+      \quad \text{s.t.}\quad 0 &lt; \big|\{\, y_i : \text{correct} \,\}\big| &lt; G$$
+      <p>Three differences matter here. The KL term is gone, so the policy is free to move away from where
+      it started. The clip range is decoupled, which leaves more room to raise the probability of unlikely
+      tokens. And the loss is normalized over every token in the group rather than per response.</p>
+      <p>It is worth being exact about that last one, because &ldquo;token-level&rdquo; is easy to overread.
+      In both objectives the advantage is a single number per response, \(\hat A_{i,t} = \hat A_i\) for every
+      \(t\), and in both the ratio and the clip act per token. What changes is the weight each token gets:</p>
+      $$w_{i,t}^{\text{GRPO}} = \frac{1}{G\,|y_i|} \qquad\qquad w_{i,t}^{\text{DAPO}} = \frac{1}{\sum_{j}|y_j|}$$
+      <p>Under GRPO a token in a long response counts for less than a token in a short one, so a long wrong
+      answer is penalized less per token than a short one. Under DAPO every token counts the same. Neither
+      one can tell a good step from a bad step inside a single response. The only thing that can make the
+      signal finer is the reward, through how it orders responses within the group.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="rewards">
+  <div class="wrap">
+    <h2>Reward formulations</h2>
+    <div class="prose">
+      <p>Since \(\hat A_i\) only depends on where \(R_i\) sits relative to its groupmates, a reward is really
+      a way of ranking \(G\) responses. The three rewards in phase 2 differ in how much of that ranking they
+      can express.</p>
+
+      <h3>Binary correctness</h3>
+      $$r_\text{bin}(x, y) = \mathbb{1}\big[\,\text{answer}(y) = \text{answer}^\star(x)\,\big]$$
+      <p>One bit per response. Within a group there are exactly two advantage values: every correct response
+      gets the same credit whether its reasoning was clean or got there by accident, and every wrong one
+      gets the same blame whether it was nearly right or never boxed an answer. When all \(G\) responses are
+      correct the standard deviation is zero and the prompt contributes nothing.</p>
+
+      <h3>Structure + correctness</h3>
+      <p>The SFT traces use a <code>PLAN</code> / <code>WORK</code> / <code>ANSWER</code> layout. The structure
+      reward keeps correctness as the dominant term and uses the layout, the depth of the work section, and
+      a repetition penalty to spread responses apart on either side of it:</p>
+      $$r_\text{struct}(x, y) = \operatorname{clip}_{[-1,\,1]}\Big( c(y)\big[\,0.7 + 0.3\,s(y) + 0.1\,d(y)\,\big] - \big(1 - c(y)\big)\,m(y) - \min\big(0.3,\, p_\text{rep}(y)\big) - 0.2\,\mathbb{1}_\text{len}(y) \Big)$$
+      <p>Here \(c\) is correctness, \(s \in [0,1]\) scores the plan, work, answer structure, \(d \in [0,1]\)
+      is work-section depth, \(m\) is 0.5 for a wrong boxed answer and 0.7 for no answer at all, and the last
+      term fires on responses that are degenerately short or long. A correct response is always worth more
+      than a wrong one. Inside each tier, the reward carries information about how the response got there.</p>
+
+      <h3>Ranked dense</h3>
+      <p>The ranked reward scores quality with a weighted mix (correctness 40%, structure 25%, format 15%,
+      depth 10%, conciseness 5%, repetition 5%), then splits the group into a correct tier and a wrong tier
+      and spaces responses evenly by rank:</p>
+      $$r_\text{rank}(y_i) = \begin{cases} \dfrac{k_i}{n_c - 1} & y_i \text{ correct, rank } k_i \text{ of } n_c \\[10pt] -1 + 0.99\,\dfrac{k_i}{n_w - 1} & y_i \text{ wrong, rank } k_i \text{ of } n_w \end{cases}$$
+      <p>This is dense, but it is a rank rather than a measurement. The same response gets a different
+      reward depending on who it was sampled alongside, and a tiny quality gap gets the same spacing as a
+      large one. The magnitude information the structure reward keeps is thrown away.</p>
+
+      <div class="scroll-x">
+      <table class="data">
+        <thead><tr><th>Reward</th><th>Range</th><th>Same response, same reward?</th><th>Separates within a tier?</th></tr></thead>
+        <tbody>
+          <tr><td>Binary</td><td>\(\{0, 1\}\)</td><td>Yes</td><td>No</td></tr>
+          <tr><td>Structure + correctness</td><td>\([-1, 1]\)</td><td>Yes</td><td>Yes, by magnitude</td></tr>
+          <tr><td>Ranked dense</td><td>\([-1, 1]\)</td><td>No, depends on the group</td><td>Yes, by rank only</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="setup">
+  <div class="wrap">
+    <h2>Setup</h2>
+    <div class="prose">
+      <p>Everything starts from the same checkpoint: Qwen3 0.6B base, fine-tuned on math chain-of-thought
+      traces ranging from grade school to competition problems. It scores 68.0% on the GSM8K test set before
+      any RL. Training uses <code>allenai/RLVR-GSM</code>, which is GSM8K problem and answer pairs. Grade
+      school math is deliberate. It is well inside what the model can answer, so the thing being measured is
+      the optimization, not whether the task is reachable at all.</p>
+      <p>All runs are full-parameter fine-tuning on a single RTX 5070 Ti with 16 GB, which is what sets the
+      model size and the batch. Training uses TRL&rsquo;s <code>GRPOTrainer</code> with vLLM for rollouts.</p>
+
+      <div class="scroll-x">
+      <table class="data">
+        <thead><tr><th>Setting</th><th>Phase 1</th><th>Phase 2</th></tr></thead>
+        <tbody>
+          <tr><td>Objective</td><td>GRPO (\(\beta = 0.03\)) or DAPO (\(\beta = 0\))</td><td>DAPO</td></tr>
+          <tr><td>Group size \(G\)</td><td>8, 16, 32</td><td>32</td></tr>
+          <tr><td>Reward</td><td>Binary</td><td>Binary, structure, ranked dense</td></tr>
+          <tr><td>Steps</td><td>780</td><td>1000</td></tr>
+          <tr><td>Learning rate, warmup</td><td colspan="2">\(1 \times 10^{-5}\), 50 steps, AdamW, bf16</td></tr>
+          <tr><td>Batch</td><td colspan="2">2 per device &times; 16 accumulation = 32 completions per step</td></tr>
+          <tr><td>Clip \(\epsilon\)</td><td colspan="2">0.10</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p style="margin-top:18px">The batch is fixed in completions, so group size trades against prompt
+      diversity: \(G = 8\) sees four prompts per step and \(G = 32\) sees one. Phase 1&rsquo;s group size axis
+      is really an axis between more samples of one problem and fewer samples of several.</p>
+      <p>Every 10 steps a hand-picked subset of the GSM8K test split is evaluated and the ten best checkpoints
+      are kept. After training, those ten are run on the full 1,319-problem test set and the best is
+      reported. Final evaluation uses Transformers generation rather than greedy decoding, which cost a
+      steady ~3 points on every checkpoint, including the SFT start. Qwen reports the same degradation under
+      greedy decoding for the Qwen3 family.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="results">
+  <div class="wrap">
+    <h2>Results</h2>
+    <div class="prose">
+      <p>Every run in the study, on the full GSM8K test set:</p>
+    </div>
+
+    <figure class="fig dots">
+      <div class="fig-frame scroll-x">
+<svg viewBox="0 0 720 486" role="img" aria-label="Final GSM8K test accuracy for every run, with one standard error bars">
+<line class="grid" x1="250.0" x2="250.0" y1="12" y2="460"/><text class="tick" x="250.0" y="478" text-anchor="middle">66%</text>
+<line class="grid" x1="305.8" x2="305.8" y1="12" y2="460"/><text class="tick" x="305.8" y="478" text-anchor="middle">67%</text>
+<line class="grid ref" x1="361.5" x2="361.5" y1="12" y2="460"/><text class="tick" x="361.5" y="478" text-anchor="middle">68%</text>
+<line class="grid" x1="417.2" x2="417.2" y1="12" y2="460"/><text class="tick" x="417.2" y="478" text-anchor="middle">69%</text>
+<line class="grid" x1="473.0" x2="473.0" y1="12" y2="460"/><text class="tick" x="473.0" y="478" text-anchor="middle">70%</text>
+<line class="grid" x1="528.8" x2="528.8" y1="12" y2="460"/><text class="tick" x="528.8" y="478" text-anchor="middle">71%</text>
+<line class="grid" x1="584.5" x2="584.5" y1="12" y2="460"/><text class="tick" x="584.5" y="478" text-anchor="middle">72%</text>
+<line class="grid" x1="640.2" x2="640.2" y1="12" y2="460"/><text class="tick" x="640.2" y="478" text-anchor="middle">73%</text>
+<line class="grid" x1="696.0" x2="696.0" y1="12" y2="460"/><text class="tick" x="696.0" y="478" text-anchor="middle">74%</text>
+<text class="grp" x="0" y="24">Starting point</text>
+<g class="row"><title>CoT SFT checkpoint: 68.0% (&#177;1.3 pts, 1 s.e.)</title><rect class="hit" x="0" y="41" width="720" height="26"/><text class="lab" x="12" y="58">CoT SFT checkpoint</text><line class="se" x1="289.9" x2="433.1" y1="54" y2="54"/><circle class="dot base" cx="361.5" cy="54" r="5"/><text class="val" x="441.1" y="58">68.0</text></g>
+<text class="grp" x="0" y="94">Phase 1 &middot; binary reward &middot; 780 steps</text>
+<g class="row"><title>GRPO G = 8: 70.5% (&#177;1.3 pts, 1 s.e.)</title><rect class="hit" x="0" y="111" width="720" height="26"/><text class="lab" x="12" y="128">GRPO <tspan class="k">G = 8</tspan></text><line class="se" x1="430.9" x2="570.9" y1="124" y2="124"/><circle class="dot" cx="500.9" cy="124" r="5"/><text class="val" x="578.9" y="128">70.5</text></g>
+<g class="row"><title>GRPO G = 16: 71.7% (&#177;1.2 pts, 1 s.e.)</title><rect class="hit" x="0" y="137" width="720" height="26"/><text class="lab" x="12" y="154">GRPO <tspan class="k">G = 16</tspan></text><line class="se" x1="498.6" x2="636.9" y1="150" y2="150"/><circle class="dot" cx="567.8" cy="150" r="5"/><text class="val" x="644.9" y="154">71.7</text></g>
+<g class="row"><title>GRPO G = 32: 69.1% (&#177;1.3 pts, 1 s.e.)</title><rect class="hit" x="0" y="163" width="720" height="26"/><text class="lab" x="12" y="180">GRPO <tspan class="k">G = 32</tspan></text><line class="se" x1="351.9" x2="493.8" y1="176" y2="176"/><circle class="dot" cx="422.8" cy="176" r="5"/><text class="val" x="501.8" y="180">69.1</text></g>
+<g class="row"><title>DAPO G = 8: 70.1% (&#177;1.3 pts, 1 s.e.)</title><rect class="hit" x="0" y="189" width="720" height="26"/><text class="lab" x="12" y="206">DAPO <tspan class="k">G = 8</tspan></text><line class="se" x1="408.3" x2="548.9" y1="202" y2="202"/><circle class="dot" cx="478.6" cy="202" r="5"/><text class="val" x="556.9" y="206">70.1</text></g>
+<g class="row"><title>DAPO G = 16: 70.0% (&#177;1.3 pts, 1 s.e.)</title><rect class="hit" x="0" y="215" width="720" height="26"/><text class="lab" x="12" y="232">DAPO <tspan class="k">G = 16</tspan></text><line class="se" x1="402.7" x2="543.3" y1="228" y2="228"/><circle class="dot" cx="473.0" cy="228" r="5"/><text class="val" x="551.3" y="232">70.0</text></g>
+<g class="row"><title>DAPO G = 32: 70.1% (&#177;1.3 pts, 1 s.e.)</title><rect class="hit" x="0" y="241" width="720" height="26"/><text class="lab" x="12" y="258">DAPO <tspan class="k">G = 32</tspan></text><line class="se" x1="408.3" x2="548.9" y1="254" y2="254"/><circle class="dot" cx="478.6" cy="254" r="5"/><text class="val" x="556.9" y="258">70.1</text></g>
+<text class="grp" x="0" y="294">Baseline extended &middot; 1500 steps</text>
+<g class="row"><title>DAPO G = 32: 71.9% (&#177;1.2 pts, 1 s.e.)</title><rect class="hit" x="0" y="311" width="720" height="26"/><text class="lab" x="12" y="328">DAPO <tspan class="k">G = 32</tspan></text><line class="se" x1="509.9" x2="647.9" y1="324" y2="324"/><circle class="dot" cx="578.9" cy="324" r="5"/><text class="val" x="655.9" y="328">71.9</text></g>
+<text class="grp" x="0" y="364">Phase 2 &middot; DAPO, G = 32 &middot; 1000 steps</text>
+<g class="row"><title>Binary: 71.5% (&#177;1.2 pts, 1 s.e.)</title><rect class="hit" x="0" y="381" width="720" height="26"/><text class="lab" x="12" y="398">Binary</text><line class="se" x1="487.3" x2="625.9" y1="394" y2="394"/><circle class="dot" cx="556.6" cy="394" r="5"/><text class="val" x="633.9" y="398">71.5</text></g>
+<g class="row"><title>Ranked dense: 70.6% (&#177;1.3 pts, 1 s.e.)</title><rect class="hit" x="0" y="407" width="720" height="26"/><text class="lab" x="12" y="424">Ranked dense</text><line class="se" x1="436.5" x2="576.4" y1="420" y2="420"/><circle class="dot" cx="506.4" cy="420" r="5"/><text class="val" x="584.4" y="424">70.6</text></g>
+<g class="row"><title>Structure + correctness: 72.0% (&#177;1.2 pts, 1 s.e.)</title><rect class="hit" x="0" y="433" width="720" height="26"/><text class="lab" x="12" y="450">Structure + correctness</text><line class="se" x1="515.6" x2="653.4" y1="446" y2="446"/><circle class="dot" cx="584.5" cy="446" r="5"/><text class="val" x="661.4" y="450">72.0</text></g>
+</svg>
+      </div>
+      <figcaption>Final GSM8K test accuracy for every run. Bars are one binomial standard error on 1,319
+      problems, about &plusmn;1.3 points. The dashed line is the SFT starting point. Each configuration is a
+      single seed.</figcaption>
+    </figure>
+
+    <div class="prose">
+      <p>The error bars set the tone for reading everything else. Most gaps between runs are under two points,
+      about the size of the noise on a single run, and each cell is one seed. The final numbers say that RL moved the model two to
+      four points and then stopped. They do not rank the configurations. The ranking, where there is one,
+      comes from the training dynamics.</p>
+
+      <h3>Phase 1: choosing a baseline</h3>
+      <p>Phase 1 is not a verdict on GRPO versus DAPO. The best 780-step number is GRPO at \(G = 16\), 71.7%.
+      The point of the phase is to fix one configuration whose behavior over a long run is clean enough that
+      phase 2&rsquo;s reward changes can be read off it. The two objectives also differ in more than one way
+      at once (KL penalty, clip range, loss normalization), so this comparison cannot say which component
+      is responsible for what.</p>
+    </div>
+
+    <figure class="fig">
+      <div class="pair">
+        <div class="fig-frame"><img src="assets/entropy.png" alt="Policy entropy over 780 training steps for GRPO and DAPO at group sizes 8, 16 and 32"></div>
+        <div class="fig-frame"><img src="assets/clip-ratio.png" alt="Clip ratio over 780 training steps for all six phase 1 runs, broken y-axis"></div>
+      </div>
+      <figcaption>Top: policy entropy (\(K\) in the plots is the group size \(G\)). GRPO holds near 0.3 at every group size. DAPO drifts down to about
+      0.15, and DAPO at \(G = 32\) climbs back up twice before settling. Bottom: fraction of tokens clipped,
+      with a broken axis for outliers. GRPO at \(G = 32\) produces the largest clipping bursts, especially late
+      in training.</figcaption>
+    </figure>
+
+    <div class="prose">
+      <p>The entropy plot has a simple reading. GRPO&rsquo;s KL term anchors it to the reference policy, so
+      entropy stays where the reference left it. DAPO has no anchor, so it sharpens. Sharpening on its own
+      is how a policy collapses, which is why the recoveries in the \(G = 32\) run matter: it narrows,
+      reopens, and narrows again rather than locking in. Consistent with that, in a side run DAPO trained
+      with a KL term and symmetric clipping reproduced GRPO&rsquo;s flat entropy and broke down before 1,000
+      steps. That points at the KL anchor and the decoupled clip, not loss normalization, as what separates
+      the two dynamics here.</p>
+    </div>
+
+    <figure class="fig">
+      <div class="fig-frame" style="max-width:640px;margin-inline:auto"><img src="assets/zero-std.png" alt="Fraction of prompt groups with zero reward standard deviation over training for all six phase 1 runs"></div>
+      <figcaption>Fraction of prompt groups where every completion got the same reward, so the advantage is
+      zero and the prompt contributes no gradient. Larger groups are less likely to agree. DAPO runs sit
+      higher than GRPO at the same group size.</figcaption>
+    </figure>
+
+    <div class="prose">
+      <p>Under a binary reward a zero-variance group is almost always a solved prompt: the policy got it
+      right \(G\) times out of \(G\). DAPO&rsquo;s higher fraction is the same sharpening seen in the entropy
+      plot, showing up as more prompts the policy now answers every time. It is also the cost of a binary
+      reward. Every solved prompt drops out of the batch, and the better the policy gets, the less signal
+      there is left to learn from.</p>
+      <p>GRPO learning degraded near the 780-step mark. DAPO at \(G = 32\) kept improving when extended to
+      1,500 steps, reaching 71.9%, and that run became the baseline for phase 2: no KL anchor so it can keep
+      moving, the largest group so the fewest wasted prompts, and entropy that recovers instead of
+      collapsing.</p>
+
+      <h3>Phase 2: the reward</h3>
+    </div>
+
+    <figure class="fig">
+      <div class="fig-frame" style="max-width:640px;margin-inline:auto"><img src="assets/phase2-reward.png" alt="Average per-prompt reward over 1,000 steps for binary, structure, and ranked dense rewards"></div>
+      <figcaption>Mean reward per prompt group over training, DAPO at \(G = 32\). The rewards live on
+      different scales, so compare shapes, not heights. Binary and ranked dense hold a flat band from the
+      start. Structure starts low, since the SFT model rarely hits the full layout, and climbs through the
+      whole run.</figcaption>
+    </figure>
+
+    <div class="prose">
+      <div class="scroll-x">
+      <table class="data">
+        <thead><tr><th>Reward (DAPO, \(G = 32\), 1,000 steps)</th><th class="num">GSM8K test</th></tr></thead>
+        <tbody>
+          <tr><td>Binary correctness</td><td class="num">71.5%</td></tr>
+          <tr><td>Ranked dense</td><td class="num">70.6%</td></tr>
+          <tr><td>Structure + correctness</td><td class="num">72.0%</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p style="margin-top:18px">Structure + correctness is the only formulation whose reward keeps rising
+      for the whole run, and it reaches 72.0% in 1,000 steps where the binary baseline needed 1,500 to reach
+      71.9%. The accuracy gaps are inside the noise; the difference in the curves is not.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="analysis">
+  <div class="wrap">
+    <h2>What the dynamics say</h2>
+    <div class="prose">
+      <h3>A reward is a ranking of the group</h3>
+      <p>Back to the REINFORCE sum. Whatever \(\hat A_i\) is, it multiplies every token in response \(i\).
+      Take a response that makes an early mistake, writes something incoherent, and still lands on the right
+      number. Under a binary reward it gets exactly the same credit as a clean derivation, and the optimizer
+      is told to make the bad section more likely. At the start of a trace that is worse than it sounds: a
+      corrosive early section conditions every token after it, pushing the model into text that looks
+      nothing like what it saw in pretraining and fine-tuning.</p>
+      <p>The structure reward does not reach inside a response either. What it does is give the clean
+      derivation a higher \(R_i\) than the lucky one, so after group normalization they get different
+      advantages and the tokens of the clean one are pushed up harder. It also keeps signal on solved
+      prompts. A group where all 32 responses are correct has zero variance under a binary reward and
+      nonzero variance under the structure reward, so the prompt keeps teaching after the model has learned
+      to answer it. That is the likeliest reason its reward curve keeps climbing while the binary curve sits
+      flat.</p>
+
+      <h3>Why ranked dense behaves like binary</h3>
+      <p>Ranked dense is also dense and also separates within a tier, but it trained like the binary reward
+      and finished lowest. Two properties set it apart from the structure reward. It is relative: a
+      response&rsquo;s reward, and so its advantage, shifts with its groupmates, so the same reasoning can be
+      pushed up on one step and down on the next. And it throws away magnitude: after tiering and even
+      spacing, a trivial quality difference and a large one produce the same gap in advantage. The optimizer
+      ends up following a direction that changes from batch to batch, which looks the same from the inside
+      as the sparsity of a binary reward. Dense is not enough. The reward has to be a consistent measurement
+      of the response.</p>
+
+      <h3>Capacity</h3>
+      <p>Going from 68% to about 70% was fast and reliable in every run. Going from 70% to 72% was slow, and
+      nothing got past 72%. The official Qwen3 0.6B thinking model, distilled from a much larger teacher, is
+      reported at about 73%, and exploration-focused RL starting from that distilled model has reached about
+      75%. Starting from a model trained without distillation, no objective or reward in this study found
+      that headroom.</p>
+      <p>This fits the view that RLVR does not teach a model new knowledge; it reshapes the policy so the
+      model makes better use of what it learned in pretraining. The set of behaviors RL can reach is bounded
+      by what the model can already represent, and at 0.6B that set is small. It is also why the standard
+      recipe is to do RL at scale and distill down. A brief DoRA run in phase 2 points the same way: even at
+      high rank the policy barely moved and sometimes regressed, because at 0.6B the adapter holds too few
+      parameters to change behavior that full fine-tuning can only just shift.</p>
+      <p>At this scale the reward is a first-order design decision. Exploration is too limited to recover
+      from a noisy signal, so the signal has to be good from the start.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="next">
+  <div class="wrap">
+    <h2>In progress</h2>
+    <div class="prose">
+      <p>These are early results and the evaluation is still being extended. What is being added:</p>
+      <ul class="list">
+        <li><b>Seeds and intervals.</b> Multiple seeds per cell and bootstrap confidence intervals, so the
+        final-accuracy comparisons can carry weight on their own.</li>
+        <li><b>Separating DAPO&rsquo;s components.</b> KL, clip range, and loss normalization ablated one at a
+        time instead of as a bundle, following up the KL-regularized DAPO run.</li>
+        <li><b>Larger models.</b> The same two phases at 3B and 7B, to test whether the ceiling moves with
+        parameter count and whether the reward effect survives once exploration is less constrained.</li>
+        <li><b>Learned reasoning rewards.</b> Replacing the hand-built structure score with a learned model of
+        reasoning quality, since a fixed layout will not be the right structure for every task.</li>
+      </ul>
     </div>
   </div>
 </section>

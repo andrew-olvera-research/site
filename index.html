@@ -60,12 +60,13 @@
 
   <h2>Research</h2>
   <a class="project" href="token-level-rewards/">
-    <span class="name">An Empirical Analysis of Token-Level Rewards and Advantages</span>
+    <span class="name">Learning Dynamics in RLVR Near Capacity</span>
     <span class="meta">Andrew Olvera &middot; Preprint forthcoming, 2026</span>
-    <span class="desc">An ablation study of GRPO against DAPO under varying reward formulations, using a
-      small Qwen3-0.6B model on GSM8K-level mathematics. We find that dense, token-level rewards
-      targeted specifically at reasoning structure stabilize learning and improve the policy&rsquo;s ability
-      to explore toward new global maxima.</span>
+    <span class="desc">A controlled study of RLVR on a 0.6B model already close to its ceiling on grade
+      school math. Phase 1 fixes a stable optimization baseline across GRPO, DAPO, and group size; phase 2
+      holds it fixed and varies only the reward. Rewards that consistently separate completions within a
+      group keep the learning signal alive after binary rewards run dry, and every configuration stalls
+      between 70 and 72%, a limit of the model rather than the objective.</span>
   </a>
   <a class="project" href="flowdreamer-microrts/">
     <span class="name">FlowDreamer&nbsp;MicroRTS</span>
