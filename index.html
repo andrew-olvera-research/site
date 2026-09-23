@@ -81,11 +81,12 @@
   <a class="project" href="starscream/">
     <span class="name">Starscream</span>
     <span class="meta">Andrew Olvera &middot; Preprint forthcoming, 2026</span>
-    <span class="desc">Supervised-only pretraining for high-speed agile drone racing: DAgger and DART on an
-      MPCC expert, an auxiliary dynamics head, and a causal transformer that reads the next six gates as
-      ordered route tokens. Before any RL, the policy completes 45 to 61% of attempts on unseen course
-      layouts under randomized dynamics, and recovers from missed gates by turning back and taking them
-      again.</span>
+    <span class="desc">A pretrained, course- and vehicle-general policy for agile drone racing, learned
+      entirely from supervised labels. DAgger and DART on an MPCC expert, an auxiliary dynamics head, and a
+      causal transformer that reads the next six gates as ordered route tokens. Every episode flies a freshly
+      randomized vehicle the policy is not told about. Before any RL it completes 45 to 61% of attempts on
+      unseen layouts, recovers from missed gates, and takes a commanded speed that works as an aggressiveness
+      knob. The privileged teacher is distilled into deployment-observation and vision-based students.</span>
   </a>
   <a class="project" href="manippo/">
     <span class="name">ManiPPO</span>

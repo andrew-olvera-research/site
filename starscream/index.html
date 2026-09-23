@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Starscream</title>
-<meta name="description" content="Starscream, Andrew Olvera, 2026.">
+<meta name="description" content="Starscream: a pretrained, course- and vehicle-general policy for agile drone racing. Andrew Olvera, 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -322,6 +322,7 @@
       <li class="opt"><a href="#training">Pretraining</a></li>
       <li><a href="#results">Results</a></li>
       <li class="opt"><a href="#behavior">Behavior</a></li>
+      <li class="opt"><a href="#student">Student</a></li>
       <li class="opt"><a href="#before-rl">Before RL</a></li>
       <li><a href="../">Home</a></li>
     </ul>
@@ -334,7 +335,7 @@
   <div class="venue">Preprint forthcoming &middot; 2026</div>
   <h1 class="title">
     Starscream
-    <span class="sub">Sample-efficient generalization for high-speed agile drone racing</span>
+    <span class="sub">A pretrained, course- and vehicle-general policy for agile drone racing</span>
   </h1>
   <p class="authors"><a href="../">Andrew Olvera</a></p>
   <p class="affil">York College of Pennsylvania</p>
@@ -364,14 +365,19 @@
     <h2>Abstract</h2>
     <div class="abstract prose">
       <p>We pretrain an agile drone-racing policy entirely from supervised labels, with no reinforcement
-      learning. An MPCC expert labels the states the learner actually reaches (DAgger), DART noise and expert-prefix
-      roll-ins widen where those states come from, and an auxiliary one-step dynamics head shapes the representation
-      the policy acts from. The policy is a 5.49&nbsp;M-parameter causal transformer that reads the next six gates as
-      ordered route tokens, so its control is conditioned on the route ahead rather than on the next gate alone.
-      Before any RL, it completes 60.6% of attempts on 52 unseen course layouts and 45.5% on 92 unseen hard layouts,
-      under randomized vehicle dynamics; when it misses a gate, it can turn back to the approach side and take the
-      gate again. We characterize what this pretraining provides, and what it does not yet show, as the starting
-      point for reinforcement learning.</p>
+      learning, and treat it as a foundation for everything downstream. An MPCC expert labels the states the
+      learner actually reaches (DAgger), DART noise and expert-prefix roll-ins widen where those states come from,
+      and an auxiliary one-step dynamics head shapes the representation the policy acts from. Every episode flies
+      a freshly sampled vehicle: mass, geometry-derived inertia, actuator limits and thrust mapping, aerodynamic
+      force coefficients, wind and center-of-mass offset are all randomized, and the policy is never told which
+      vehicle it has. The policy is a 5.49&nbsp;M-parameter causal transformer that reads the next six gates as
+      ordered route tokens and takes a commanded speed as a separate input. Before any RL, it completes 60.6% of
+      attempts on 52 unseen course layouts and 45.5% on 92 unseen hard layouts; when it misses a gate, it can turn
+      back to the approach side and take the gate again. The commanded speed, learned from the expert&rsquo;s
+      time-optimal pace for each course, becomes an aggressiveness knob at deployment. This privileged teacher is
+      then distilled into students that fly from deployment observations and from vision, which must infer the
+      vehicle from their own history. We characterize what this pretraining provides, and what it does not yet
+      show, as the starting point for distillation and reinforcement learning.</p>
     </div>
   </div>
 </section>
@@ -444,6 +450,52 @@
       gate projection is shared across all six slots, so the network learns one notion of &ldquo;gate&rdquo;
       rather than six.</figcaption>
     </figure>
+
+    <h3>A different vehicle every episode</h3>
+    <div class="prose">
+      <p>A course is only half of what changes. At every reset the simulator samples a new plant and holds it
+      fixed for that episode, so the policy never flies the same vehicle twice in a row. It is not given the
+      sampled parameters: nothing in its observation says how heavy the vehicle is, how strong its motors are or
+      which way the wind is blowing. Whatever it knows about the vehicle, it has to read from how the vehicle
+      responds.</p>
+    </div>
+    <figure class="fig">
+      <div class="scroll-x">
+        <table class="data">
+          <thead><tr><th>Parameter</th><th>Sampled range, per episode</th></tr></thead>
+          <tbody>
+            <tr><td>Vehicle mass</td><td>0.62&ndash;0.84 kg (0.73 kg &plusmn;15%)</td></tr>
+            <tr><td>Arm length</td><td>0.156&ndash;0.184 m (&plusmn;8%); inertia follows mass &times; arm length&sup2;</td></tr>
+            <tr><td>Thrust map</td><td>0.90&ndash;1.10&times;, one shared multiplier on all three coefficients</td></tr>
+            <tr><td>Maximum motor speed</td><td>2850&ndash;3150 (&plusmn;5%)</td></tr>
+            <tr><td>Body-rate limit</td><td>5.1&ndash;6 rad/s per axis</td></tr>
+            <tr><td>Linear drag coefficient</td><td>0.04&ndash;0.16 horizontal, 0.06&ndash;0.22 vertical</td></tr>
+            <tr><td>Quadratic drag coefficient</td><td>0.008&ndash;0.030 horizontal, 0.010&ndash;0.040 vertical</td></tr>
+            <tr><td>Mean wind</td><td>&plusmn;1.2 m/s horizontal, &plusmn;0.25 m/s vertical</td></tr>
+            <tr><td>Gust amplitude</td><td>up to 0.8 m/s horizontal, 0.2 m/s vertical</td></tr>
+            <tr><td>Center-of-mass offset</td><td>&plusmn;6 mm horizontal, &plusmn;3 mm vertical</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption><b>Table 1.</b> Plant randomization in the v6.21.1 run. Rotor-speed-dependent drag, angular
+      drag, the torque coefficient, minimum motor speed and gust frequency are also varied. Aerodynamics are
+      randomized through effective force coefficients, not through a physical cross-section or body shape. The
+      motor time constant is also sampled, but at 0.1&nbsp;ms nominal it is effectively instantaneous at the
+      130&nbsp;Hz control rate. Because the thrust command is a mass-normalized collective acceleration, &plusmn;15%
+      mass and &plusmn;10% thrust mapping do not translate one-for-one into achieved acceleration; they act through
+      the motor mapping and where the actuators saturate.</figcaption>
+    </figure>
+
+    <h3>Speed as an input</h3>
+    <div class="prose">
+      <p>How fast to fly is not left for the network to guess. For each course, the MPCC expert&rsquo;s plan
+      fixes a time-optimal average speed, and that number is given to the policy as a commanded speed,
+      <em>v_cmd</em>. It enters after the backbone through a zero-initialized conditioner, so the features that
+      read the route and the vehicle are shared across speeds, and speed only shifts what is done with them.
+      Trained this way, the command generalizes and behaves as an aggressiveness knob: the same policy can be
+      asked to fly a course harder or more conservatively than the expert&rsquo;s pace for it. Mapping that
+      trade-off between speed and completion is part of the evaluation in progress.</p>
+    </div>
   </div>
 </section>
 
@@ -561,7 +613,7 @@
               <div class="facts pad">
                 <div><b>360</b> episodes per round</div>
                 <div><b>16</b> parallel envs at <b>130 Hz</b></div>
-                <div>dynamics randomization on</div>
+                <div>a new randomized <b>plant</b> every episode</div>
               </div>
             </div>
           </li>
@@ -571,7 +623,7 @@
               <p>acados, solved at every visited state</p></div></div>
             <div class="facts">
               <div>the label is the first command of the plan, <b>a*</b></div>
-              <div>the plan&rsquo;s speed becomes <b>v_cmd</b>, which conditions the policy</div>
+              <div>its time-optimal average speed for the course becomes <b>v_cmd</b>, which conditions the policy</div>
               <div>its one-step prediction becomes <b>&#916;s*</b>, the dynamics target</div>
               <div>failed solves and crashed episodes are dropped</div>
             </div>
@@ -663,14 +715,15 @@
     <div class="prose">
       <p>Everything in this section comes from a single checkpoint: the pretrained actor selected at
       121,343,545 collected environment steps, <b>before any reinforcement learning</b>. It flies from
-      privileged true vehicle state, the ordered next six gates, three steps of history and its own previous
-      commands, and it outputs one collective-thrust-and-body-rate command per control step.</p>
+      privileged true vehicle state, the ordered next six gates, three steps of history, its own previous
+      commands and a commanded speed, and it outputs one collective-thrust-and-body-rate command per control
+      step. It is not given the parameters of the vehicle it is flying.</p>
     </div>
 
     <h3>Completion on layouts it has never seen</h3>
     <div class="prose">
-      <p>We evaluate on two suites of fresh course geometry. Every course is flown eight times, each time with
-      a freshly randomized vehicle model, and an attempt counts only if the vehicle
+      <p>We evaluate on two suites of fresh course geometry. Every course is flown eight times, each time on a
+      freshly sampled vehicle from Table 1, and an attempt counts only if the vehicle
       clears every gate in order without crashing.</p>
     </div>
     <div class="runstat" style="margin-top:24px">
@@ -684,7 +737,7 @@
     suite has too few courses for a useful interval.</figcaption>
 
     <div class="prose" style="margin-top:22px">
-      <p>Read plainly: on a layout it has never seen, with a randomized vehicle, the pretrained policy
+      <p>Read plainly: on a layout it has never seen, flying a vehicle it has not been told about, the pretrained policy
       finishes between 45% and 61% of its attempts, more often on the easier suite than the hard one. That is a
       capable policy, not a solved problem. Two caveats keep the numbers honest. The hard suite is
       benchmark-informed development geometry, not a protected final test. And the eight public reference
@@ -844,18 +897,67 @@
   </div>
 </section>
 
+<!-- ================= STUDENT ================= -->
+<section class="block" id="student">
+  <div class="wrap">
+    <h2>From teacher to deployable student</h2>
+    <div class="prose">
+      <p>Everything above is a <b>privileged teacher</b>. It reads true vehicle state and exact gate geometry,
+      which a real racing drone does not get. That is deliberate: privileged inputs make the teacher cheap to
+      train and easy to analyse, and the teacher&rsquo;s job is to be distilled.</p>
+      <p>We distill it into two students. One flies from <b>deployment observations</b>, the signals an onboard
+      stack actually has. The other flies from <b>vision</b>. In both, the teacher supplies the targets, as the
+      MPCC expert did for the teacher. Neither teacher nor student is given the plant parameters of Table 1, so a student that flies a randomized vehicle well has
+      to infer enough about that vehicle from its own recent history of observations and commands.</p>
+      <p>The first distillation runs carry meaningful success rate and speed over from the teacher to both the
+      deployment-observation and the vision-based student. Ablations and full evaluations are being processed and
+      will be released with the preprint.</p>
+    </div>
+
+    <div class="cols-3">
+      <div>
+        <h4>One policy, many vehicles</h4>
+        <p class="prose">The teacher is trained across a randomized family of quadrotors, from mass and inertia to
+        thrust mapping, aerodynamic response, wind and center-of-mass offset, without being told which one it is
+        flying.</p>
+      </div>
+      <div>
+        <h4>Inferred, not given</h4>
+        <p class="prose">Because the plant is hidden from teacher and student alike, distillation asks the student
+        to fly many vehicles from what it can observe. Whether it forms an explicit estimate of the plant is an
+        ablation in progress.</p>
+      </div>
+      <div>
+        <h4>Speed on a dial</h4>
+        <p class="prose">Students are trained to keep the teacher&rsquo;s pace as well as its success rate.
+        Whether the aggressiveness knob carries through to deployment intact is part of what the pending
+        evaluations measure.</p>
+      </div>
+    </div>
+
+    <div class="ret" style="text-align:left;margin-top:32px">
+      <b>Claim boundary.</b> The randomization in Table 1 is broad but bounded: it covers a family of vehicles
+      around one nominal racing quadrotor, not arbitrary airframes, and aerodynamics are varied through effective
+      force coefficients rather than physical shape. Student results are preliminary and are summarized here
+      without numbers until the ablations are complete. That the policy explicitly identifies the plant, rather
+      than acting robustly across it, is a hypothesis for those ablations.
+    </div>
+  </div>
+</section>
+
 <!-- ================= BEFORE RL ================= -->
 <section class="block" id="before-rl">
   <div class="wrap">
     <h2>Why stop before reinforcement learning</h2>
     <div class="prose">
-      <p>This paper is scoped to pretraining, deliberately. Reinforcement learning comes next, and the
-      question this work answers is what an RL run should start from.</p>
+      <p>This paper is scoped to pretraining and distillation, deliberately. Reinforcement learning comes next,
+      and the question this work answers is what an RL run should start from: a policy that already flies unseen
+      courses, on vehicles it is not told about, at a speed it can be asked for.</p>
       <p>Racing is unforgiving of a bad command: progress comes only from crossing gates in order, at speed,
       and one wrong command at 16&nbsp;m/s ends the episode. Even with a dense progress reward, a randomly
       initialized controller spends its early experience learning to stay airborne and to find the gates at all,
-      before reward can say anything about pace. This checkpoint starts past that point. It already completes 45% to 61% of its attempts on layouts it has never seen, under
-      randomized dynamics, so an RL run built on it collects reward on completed routes from its first
+      before reward can say anything about pace. This checkpoint starts past that point. It already completes 45% to 61% of its attempts on
+      layouts it has never seen, on randomized vehicles, so an RL run built on it collects reward on completed routes from its first
       episodes. And because a missed gate is not the end of an attempt, some of the failures that would
       otherwise end an episode are already followed by corrective actions inside the policy&rsquo;s own
       distribution. RL can spend its samples on refining pace and consistency, rather than on finding the
