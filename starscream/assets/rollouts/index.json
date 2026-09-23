@@ -736,7 +736,8 @@
     "time": 3.23,
     "detour": 5.96,
     "extra_path": 17.6,
-    "min_speed": 0.86
+    "min_speed": 0.86,
+    "returns": 1
    }
   ],
   "recovery_share": 0.316
@@ -890,7 +891,8 @@
     "time": 1.61,
     "detour": 4.37,
     "extra_path": 10.4,
-    "min_speed": 2.7
+    "min_speed": 2.7,
+    "returns": 1
    }
   ],
   "recovery_share": 0.212
@@ -971,14 +973,16 @@
     "time": 5.92,
     "detour": 1.49,
     "extra_path": 20.9,
-    "min_speed": 3.44
+    "min_speed": 3.44,
+    "returns": 1
    },
    {
     "gate": 7,
     "time": 3.68,
     "detour": 3.89,
     "extra_path": 23.3,
-    "min_speed": 0.59
+    "min_speed": 0.59,
+    "returns": 1
    }
   ],
   "recovery_share": 0.515
@@ -1170,7 +1174,8 @@
     "time": 3.45,
     "detour": 6.64,
     "extra_path": 18.1,
-    "min_speed": 1.92
+    "min_speed": 1.92,
+    "returns": 1
    }
   ],
   "recovery_share": 0.348
@@ -1214,7 +1219,7 @@
     "time": 1.762,
     "detour": 1.689,
     "min_speed": 3.77,
-    "recovery": true
+    "recovery": false
    },
    {
     "gate": 5,
@@ -1314,17 +1319,11 @@
     "time": 8.99,
     "detour": 2.26,
     "extra_path": 53.6,
-    "min_speed": 2.75
-   },
-   {
-    "gate": 4,
-    "time": 1.76,
-    "detour": 1.69,
-    "extra_path": 6.9,
-    "min_speed": 3.77
+    "min_speed": 2.75,
+    "returns": 2
    }
   ],
-  "recovery_share": 0.494
+  "recovery_share": 0.413
  },
  {
   "slug": "v622-hard-v2b-compound-reversal-020-05-fastest",
@@ -1510,7 +1509,8 @@
     "time": 15.06,
     "detour": 10.56,
     "extra_path": 103.2,
-    "min_speed": 1.11
+    "min_speed": 1.11,
+    "returns": 2
    }
   ],
   "recovery_share": 0.559
@@ -1661,21 +1661,24 @@
     "time": 5.11,
     "detour": 10.57,
     "extra_path": 34.8,
-    "min_speed": 2.99
+    "min_speed": 2.99,
+    "returns": 1
    },
    {
     "gate": 9,
     "time": 2.22,
     "detour": 2.48,
     "extra_path": 9.6,
-    "min_speed": 2.21
+    "min_speed": 2.21,
+    "returns": 1
    },
    {
     "gate": 18,
     "time": 9.88,
     "detour": 32.53,
     "extra_path": 75.8,
-    "min_speed": 1.85
+    "min_speed": 1.85,
+    "returns": 2
    }
   ],
   "recovery_share": 0.717

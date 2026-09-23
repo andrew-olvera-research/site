@@ -55,17 +55,16 @@
   const show = (ex, slug) => { ex.select(slug); ex.el.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
 
   /* ---------- headline stats ---------- */
-  const rl = tagged.flatMap(m => m.recoveries.map(r => ({ ...r, m })));
+  const rl = index.flatMap(m => m.recoveries.map(r => ({ ...r, m })));
   const slow = rl.map(r => r.min_speed);
-  const share = tagged.map(m => m.recovery_share * 100);
-  const stat = (v, label, em) => h('div', em ? { class: 'em' } : {}, h('b', {}, v), h('span', {}, label));
+  const stat = (v, label) => h('div', {}, h('b', {}, v), h('span', {}, label));
   document.getElementById('bstats').append(
-    stat(String(tagged.length), 'tagged rollouts, all finished'),
-    stat(String(rl.length), 'recovery legs detected'),
+    stat(String(rl.length), `recovery legs, all inside the ${tagged.length} tagged rollouts`),
+    stat('0', `in the ${fastest.reduce((a, m) => a + m.legs.length, 0)} legs of the fastest set`),
     stat(`${median(rl.map(r => r.time)).toFixed(1)} s`, 'median recovery leg'),
     stat(`${median(rl.map(r => r.extra_path)).toFixed(0)} m`, 'median extra path per recovery'),
     stat(`${Math.min(...slow).toFixed(1)}–${Math.max(...slow).toFixed(1)} m/s`,
-      `slowest point of a recovery leg (fastest set: median ${median(fastest.flatMap(m => m.legs.map(l => l.min_speed))).toFixed(1)} m/s)`, true),
+      `slowest point in a recovery leg; ${median(fastest.flatMap(m => m.legs.map(l => l.min_speed))).toFixed(1)} m/s typical in the fastest set`),
   );
 
   /* ---------- strip chart: detour ratio per leg (log x) ---------- */
@@ -127,7 +126,7 @@
 
   /* ---------- recovery table ---------- */
   const table = document.getElementById('rtable');
-  const cols = [['Course'], ['Tag'], ['Gate', 1], ['Leg time (s)', 1], ['Detour', 1], ['Extra path (m)', 1], ['Slowest (m/s)', 1]];
+  const cols = [['Course'], ['Tag'], ['Gate', 1], ['Leg time (s)', 1], ['Detour', 1], ['Extra path (m)', 1], ['Slowest (m/s)', 1]];  // tag as exported
   table.append(h('thead', {}, h('tr', {}, ...cols.map(([c, n]) => h('th', n ? { class: 'n' } : {}, c)))));
   const tbody = h('tbody');
   for (const r of rl) {
@@ -141,4 +140,78 @@
     tbody.append(tr);
   }
   table.append(tbody);
+  /* ---------- completion charts (numbers from the v6.21.1 evaluation brief) ---------- */
+  function dotChart(fig, { rows, series, label }) {
+    const W = 820, L = 170, R = 24, rowH = series.length > 1 ? 52 : 40, top = series.length > 1 ? 14 : 12;
+    const H = top + rows.length * rowH + 30;
+    const x = v => L + v / 100 * (W - L - R);
+    const svg = s('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': label });
+    const axisY = top + rows.length * rowH;
+    for (const v of [0, 25, 50, 75, 100]) {
+      svg.append(s('line', { class: 'ax', x1: x(v), x2: x(v), y1: top, y2: axisY }));
+      svg.append(s('text', { x: x(v), y: axisY + 18, 'text-anchor': 'middle' }, `${v}%`));
+    }
+    const tip = h('div', { class: 'tip' });
+    const hover = (el, html) => {
+      el.addEventListener('pointerenter', () => {
+        tip.innerHTML = html; tip.style.display = 'block';
+        const r = el.getBoundingClientRect(), f = fig.getBoundingClientRect();
+        tip.style.left = `${Math.max(0, Math.min(r.left - f.left + 12, f.width - tip.offsetWidth))}px`;
+        tip.style.top = `${r.top - f.top - tip.offsetHeight - 6}px`;
+      });
+      el.addEventListener('pointerleave', () => { tip.style.display = 'none'; });
+    };
+    rows.forEach((row, i) => {
+      const cy = top + i * rowH + rowH / 2;
+      svg.append(s('text', { class: 'row-l', x: 0, y: cy + 4 }, row.name));
+      const vals = row.values.filter(v => v);
+      if (vals.length > 1) {
+        const xs = vals.map(v => x(v.p));
+        svg.append(s('line', { x1: Math.min(...xs), x2: Math.max(...xs), y1: cy, y2: cy, stroke: 'var(--line-2)', 'stroke-width': 2 }));
+      }
+      row.values.forEach((v, k) => {
+        if (!v) return;
+        const g = s('g', {});
+        if (v.lo != null) {
+          g.append(s('line', { x1: x(v.lo), x2: x(v.hi), y1: cy, y2: cy, stroke: BLUE, 'stroke-width': 2 }));
+          for (const e of [v.lo, v.hi]) g.append(s('line', { x1: x(e), x2: x(e), y1: cy - 5, y2: cy + 5, stroke: BLUE, 'stroke-width': 2 }));
+        }
+        const hollow = series[k].hollow;
+        g.append(s('circle', { cx: x(v.p), cy, r: 5.5, fill: hollow ? '#fff' : BLUE, stroke: hollow ? BLUE : '#fff',
+          'stroke-width': 2 }));
+        // generous invisible hit target
+        g.append(s('circle', { cx: x(v.p), cy, r: 12, fill: 'transparent' }));
+        const below = vals.length > 1 && k === 1;
+        svg.append(g);
+        svg.append(s('text', { class: 'val', x: x(v.p), y: below ? cy + 19 : cy - 10, 'text-anchor': 'middle' }, `${v.p.toFixed(1)}`));
+        hover(g, `<b>${row.name}</b>${series[k].name ? `, ${series[k].name}` : ''}<br>${v.p.toFixed(1)}% completed${v.n ? ` · ${v.n}` : ''}` +
+          (v.lo != null ? `<br>95% interval ${v.lo}–${v.hi}%` : ''));
+      });
+    });
+    const legend = series.filter(x => x.name).length > 1 ? h('div', { class: 'legend' }, ...series.map(se =>
+      h('span', {}, h('i', { style: se.hollow ? `border:2px solid ${BLUE};width:7px;height:7px` : `background:${BLUE}` }), se.name))) : '';
+    fig.append(legend, h('div', { class: 'scroll-x' }, svg), tip);
+    svg.style.minWidth = '520px';
+  }
+
+  dotChart(document.getElementById('suites'), {
+    label: 'Completion rate by evaluation suite with 95% course-bootstrap intervals',
+    series: [{ name: '' }],
+    rows: [
+      { name: 'Fresh real60', values: [{ p: 60.6, lo: 52.4, hi: 68.5, n: '252/416, 52 courses' }] },
+      { name: 'Fresh hard-v2', values: [{ p: 45.5, lo: 39.4, hi: 51.6, n: '335/736, 92 courses' }] },
+      { name: 'Exposed reference', values: [{ p: 23.4, n: '15/64, 8 courses' }] },
+    ],
+  });
+  dotChart(document.getElementById('families'), {
+    label: 'Completion rate by route family, fresh real60 (filled) and fresh hard-v2 (hollow)',
+    series: [{ name: 'fresh real60' }, { name: 'fresh hard-v2', hollow: true }],
+    rows: [
+      { name: 'Go-around', values: [{ p: 97.5 }, { p: 83.3 }] },
+      { name: 'Compound reversal', values: [null, { p: 85.0 }] },
+      { name: 'Ordered 3D', values: [{ p: 85.4 }, { p: 77.5 }] },
+      { name: 'Slalom', values: [{ p: 81.2 }, null] },
+      { name: 'Long-low', values: [{ p: 18.8 }, { p: 6.2 }] },
+    ],
+  });
 })();

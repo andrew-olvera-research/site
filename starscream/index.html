@@ -144,17 +144,26 @@
   .tile b { display: block; font-size: 13.5px; font-weight: 500; margin-top: 6px; line-height: 1.35; }
   .tile span { display: block; font-size: 12.5px; color: var(--muted); font-family: var(--mono); }
 
+  /* ---------- DOT FIGURES ---------- */
+  .dots svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .dots text { font-family: var(--sans); font-size: 12px; fill: var(--muted); }
+  .dots .row-l { fill: var(--ink-2); font-size: 13px; }
+  .dots .val { fill: var(--ink); font-family: var(--mono); font-size: 12px; }
+  .dots .ax { stroke: var(--line); }
+  .dots .legend { display: flex; gap: 18px; font-size: 13px; color: var(--ink-2); margin-bottom: 6px; }
+  .dots .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+  .dots .tip, .strip .tip {
+    position: absolute; pointer-events: none; background: #fff; border: 1px solid var(--line-2); border-radius: 4px;
+    padding: 6px 9px; font-size: 12.5px; line-height: 1.45; color: var(--ink); box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    white-space: nowrap; display: none;
+  }
+
   /* ---------- BEHAVIOUR ---------- */
   .key { display: inline-block; width: 18px; height: 0; border-top: 2px solid var(--c); vertical-align: middle; margin-right: 6px; }
   .strip svg { width: 100%; height: auto; display: block; overflow: visible; }
   .strip text { font-family: var(--sans); font-size: 12px; fill: var(--muted); }
   .strip .row-l { fill: var(--ink-2); font-size: 13px; }
   .strip .ax { stroke: var(--line); }
-  .strip .tip {
-    position: absolute; pointer-events: none; background: #fff; border: 1px solid var(--line-2); border-radius: 4px;
-    padding: 6px 9px; font-size: 12.5px; line-height: 1.45; color: var(--ink); box-shadow: 0 2px 8px rgba(0,0,0,.06);
-    white-space: nowrap; display: none;
-  }
   .strip .legend { display: flex; gap: 18px; font-size: 13px; color: var(--ink-2); margin-bottom: 6px; }
   .strip .legend i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--c); margin-right: 6px; }
   table.data { width: 100%; border-collapse: collapse; font-size: 14px; }
@@ -313,6 +322,7 @@
       <li class="opt"><a href="#training">Pretraining</a></li>
       <li><a href="#results">Results</a></li>
       <li class="opt"><a href="#behavior">Behavior</a></li>
+      <li class="opt"><a href="#before-rl">Before RL</a></li>
       <li><a href="../">Home</a></li>
     </ul>
   </div>
@@ -353,12 +363,15 @@
   <div class="wrap">
     <h2>Abstract</h2>
     <div class="abstract prose">
-      <p>We introduce a hybrid DAgger + DART and dynamics-learning pretraining method for scaling
-      generalization of high-speed agile drone racing with extreme sample efficiency. We also introduce a
-      causal decoder transformer architecture leveraging a sequence design that forces geometric continuous
-      trajectory conditioning. We achieve high accuracy and extreme generalization at high speeds completely
-      from supervised labels produced by an MPCC teacher controller, enabling distillation of privileged,
-      scripted complex behavior at scale.</p>
+      <p>We pretrain an agile drone-racing policy entirely from supervised labels, with no reinforcement
+      learning. An MPCC expert labels the states the learner actually reaches (DAgger), DART noise and expert-prefix
+      roll-ins widen where those states come from, and an auxiliary one-step dynamics head shapes the representation
+      the policy acts from. The policy is a 5.49&nbsp;M-parameter causal transformer that reads the next six gates as
+      ordered route tokens, so its control is conditioned on the route ahead rather than on the next gate alone.
+      Before any RL, it completes 60.6% of attempts on 52 unseen course layouts and 45.5% on 92 unseen hard layouts,
+      under randomized vehicle dynamics; when it misses a gate, it can turn back to the approach side and take the
+      gate again. We characterize what this pretraining provides, and what it does not yet show, as the starting
+      point for reinforcement learning.</p>
     </div>
   </div>
 </section>
@@ -645,11 +658,65 @@
 
 <!-- ================= RESULTS ================= -->
 <section class="block" id="results">
-  <div class="wrap wide">
+  <div class="wrap">
     <h2>Results</h2>
-    <div class="wrap prose" style="width:100%;max-width:var(--wrap);text-align:center">
-      <p>The fastest completed rollout on each of twelve courses, replayed in real time from the recorded states.
-      Pick a course below. Drag to orbit, shift-drag to pan, click then scroll (or pinch) to zoom, double-click to reset.</p>
+    <div class="prose">
+      <p>Everything in this section comes from a single checkpoint: the pretrained actor selected at
+      121,343,545 collected environment steps, <b>before any reinforcement learning</b>. It flies from
+      privileged true vehicle state, the ordered next six gates, three steps of history and its own previous
+      commands, and it outputs one collective-thrust-and-body-rate command per control step.</p>
+    </div>
+
+    <h3>Completion on layouts it has never seen</h3>
+    <div class="prose">
+      <p>We evaluate on two suites of fresh course geometry. Every course is flown eight times, each time with
+      a freshly randomized vehicle model, and an attempt counts only if the vehicle
+      clears every gate in order without crashing.</p>
+    </div>
+    <div class="runstat" style="margin-top:24px">
+      <div><b>60.6%</b><span>fresh real60: 252 of 416 attempts on 52 courses</span></div>
+      <div><b>45.5%</b><span>fresh real100-hard-v2: 335 of 736 attempts on 92 courses</span></div>
+      <div><b>23.4%</b><span>previously exposed reference courses: 15 of 64 attempts on 8 courses</span></div>
+    </div>
+    <figure class="fig dots" id="suites" style="position:relative"></figure>
+    <figcaption>Completion rate per suite. Bars are 95% intervals from 20,000 bootstrap resamples of
+    <em>courses</em>, not timesteps, so they describe how much the rate moves across layouts. The exposed
+    suite has too few courses for a useful interval.</figcaption>
+
+    <div class="prose" style="margin-top:22px">
+      <p>Read plainly: on a layout it has never seen, with a randomized vehicle, the pretrained policy
+      finishes between 45% and 61% of its attempts, more often on the easier suite than the hard one. That is a
+      capable policy, not a solved problem. Two caveats keep the numbers honest. The hard suite is
+      benchmark-informed development geometry, not a protected final test. And the eight public reference
+      courses that both suites share are reported separately: the policy completed 15 of 64 attempts there, so
+      earlier exposure to those layouts did not make them easy, and they are excluded from the fresh-geometry
+      rates above.</p>
+    </div>
+
+    <h3>Where it succeeds, and where it does not</h3>
+    <div class="prose">
+      <p>Completion depends far more on the kind of route than on the suite. Courses that turn back
+      through gates are flown most reliably; long, low courses mostly are not.</p>
+    </div>
+    <figure class="fig dots" id="families" style="position:relative"></figure>
+    <figcaption>Completion by route family, 3 to 10 courses per family and 8 attempts per course. Families
+    with a single marker were only drawn in one suite.</figcaption>
+    <div class="prose" style="margin-top:22px">
+      <p>The spread is the useful part. The families flown best (go-around, compound reversal, ordered 3D)
+      are ones where the route doubles back or changes height across several gates, which is where reading the
+      ordered gates ahead should matter most. That is consistent with the design, though we have not tested it
+      directly. Long-low courses complete at only 18.8% and 6.2%. We have not isolated why; they are the clearest
+      target for what comes after pretraining.</p>
+    </div>
+  </div>
+
+  <div class="wrap wide">
+    <h3 class="wrap" style="width:100%;max-width:var(--wrap)">Selected rollouts</h3>
+    <div class="wrap prose" style="width:100%;max-width:var(--wrap)">
+      <p>For each of twelve courses, the fastest completed attempt, replayed in real time from the recorded
+      states. These are best cases, chosen to show what a finished lap looks like; the rates above are the
+      population numbers. Pick a course below. Drag to orbit, shift-drag to pan, click then scroll (or pinch) to
+      zoom, double-click to reset.</p>
     </div>
     <div class="explorer" data-set="fastest"></div>
   </div>
@@ -660,44 +727,165 @@
   <div class="wrap">
     <h2>Behavioral analysis</h2>
     <div class="prose">
-      <p>The rollouts above are the clean ones. The more telling behaviour is what the policy does when a gate
-      approach goes wrong. We tagged seven rollouts in which the policy recovers from a missed or aborted
-      approach and still finishes the course, and located each recovery in the recorded states.</p>
-      <p>A <b>recovery leg</b> is a gate-to-gate leg, inside a tagged rollout, that flies at least 5&nbsp;m further than
-      the straight line and either takes twice that rollout&rsquo;s median leg time or has a detour ratio
-      (path length over straight-line distance) of at least 3. Recovery legs are drawn in orange.</p>
+      <p>The clean laps show that the policy can fly a route. The more revealing question is what it does
+      when a gate goes wrong.</p>
+      <p>A gate only counts when the vehicle crosses it through its <b>directed aperture</b>: inside the frame,
+      in the direction of travel. Miss it, and the course does not advance. The missed gate stays the active
+      target, stays in the first lookahead slot, and remains the frame everything else is expressed in. Nothing
+      at deployment scripts what happens next: there is no recovery controller and no reset. Whatever the
+      vehicle does is the pretrained actor alone.</p>
+      <p>What it does, in every case we recorded, is the same thing a pilot would do. It turns back to the
+      approach side of the gate it missed and takes the gate again.</p>
     </div>
   </div>
+
+  <div class="wrap">
+    <h3>Two recoveries, read from the traces</h3>
+    <div class="prose">
+      <p>On <b>Go-around 017-040</b>, the actor missed the last gate&rsquo;s aperture, returned to its approach
+      side, and crossed successfully about 1.2&nbsp;s later. On <b>Long low braking 003-08</b>, it missed the
+      second gate twice, returned to the approach side after each miss, and eventually crossed; later in the
+      same lap it did the same after missing the seventh gate. A matched clean replay had no missed
+      crossings, and the gate tracker never advanced on a miss. These are selected examples, not an
+      estimate of how often the policy recovers.</p>
+    </div>
+  </div>
+
   <div class="wrap wide">
-    <div class="runstat" id="bstats" style="margin-top:32px"></div>
     <div class="explorer" data-set="recovery"></div>
   </div>
+
   <div class="wrap">
+    <h3>Locating every recovery</h3>
+    <div class="prose">
+      <p>To find recoveries without relying on how the rollouts were tagged, we look for one signature in the
+      recorded states: the vehicle crosses its target gate&rsquo;s plane near the gate, but the gate does not
+      register. That is a crossing outside the aperture or in the wrong direction, and it forces a return.
+      Across all nineteen rollouts the test flags ten gate-to-gate legs. All ten fall in the seven rollouts
+      tagged as recoveries, and none of the 92 legs in the fastest set trips it. Recovery legs are drawn in
+      orange throughout.</p>
+    </div>
+    <div class="runstat" id="bstats" style="margin-top:28px"></div>
+
     <h3>Detours, leg by leg</h3>
-    <p class="prose">Every gate-to-gate leg in all nineteen rollouts, placed by its detour ratio. Clean legs sit
-    close to 1 regardless of course. The worst recoveries sit far outside anything in clean flight; the milder ones
-    overlap it on detour alone and are flagged by the time they take instead.</p>
+    <p class="prose">Every gate-to-gate leg in all nineteen rollouts, placed by its detour ratio: path length
+    over straight-line distance. This measure is independent of the detector. Clean flight sits close to 1 on
+    every course. The worst recoveries are far outside anything in clean flight; the mildest overlap it, which
+    is why detour alone is not used to find them.</p>
     <figure class="fig strip" id="strip" style="position:relative"></figure>
 
     <h3>Every recovery</h3>
     <div class="scroll-x"><table class="data" id="rtable"></table></div>
-    <p class="prose" style="margin-top:10px;font-size:14px">Click a row to load that rollout above.</p>
+    <p class="prose" style="margin-top:10px;font-size:14px">Gates are numbered from 1 in pass order. Click a
+    row to load that rollout above.</p>
 
-    <h3>What the recoveries look like</h3>
+    <h3>What the recoveries have in common</h3>
     <ul class="list prose">
-      <li><b>It brakes rather than forcing the gate.</b> The slowest point of a recovery leg drops to between
-      0.6 and 3.8&nbsp;m/s, against a median of 7.4&nbsp;m/s for the slowest point of a leg in the fastest set.</li>
-      <li><b>It goes around and takes the gate again.</b> Recovery legs cost a median of about 21&nbsp;m of
-      extra path, and every tagged rollout still clears every gate in order.</li>
-      <li><b>The rest of the rollout is untouched.</b> Outside the recovery legs, tagged rollouts fly with a median
-      detour of 1.01, no looser than the fastest set (1.07). The recovery is local, not a degraded mode.</li>
-      <li><b>Same course, different episodes.</b> Flow 027-057 appears twice: one episode recovers once at gate 10,
-      the other three times (gates 5, 9 and 18) and takes more than twice as long, yet both finish.</li>
+      <li><b>It comes back through the plane.</b> In every flagged leg the vehicle crosses back to the approach
+      side of the missed gate before taking it. It does not skip the gate or chase the next one.</li>
+      <li><b>It sheds speed to do it.</b> The slowest point of a recovery leg is between 0.6 and 3.4&nbsp;m/s.
+      For comparison, the slowest point of a typical leg in the fastest set is 7.4&nbsp;m/s.</li>
+      <li><b>It costs distance, not the lap.</b> A recovery adds a median of about 22&nbsp;m of path and
+      4.4&nbsp;s, and every tagged rollout still clears every gate in order.</li>
+      <li><b>The rest of the lap looks clean.</b> Away from the missed gate, tagged rollouts fly with a median
+      detour of 1.01, no looser than the fastest set (1.07). Behaviorally, the disruption stays local to
+      the gate that was missed.</li>
+      <li><b>Same course, different episodes.</b> Flow 027-057 appears twice. One episode recovers once, at
+      gate 10; the other recovers three times, at gates 5, 9 and 18, and takes more than twice as long. Both
+      finish.</li>
     </ul>
 
-    <h3>What the representation is doing</h3>
-    <p class="prose todo">Pending: latent readouts around recovery onsets (encoder activations, probes for
-    gate-relative state and progress) will go here, aligned to the recovery legs above.</p>
+    <h3>Where the behavior likely comes from</h3>
+    <div class="prose">
+      <p>No part of training was a dedicated recovery teacher. The policy learned from one MPCC expert, in
+      closed loop. DAgger queried that expert on the states the learner itself reached, early DART noise and
+      expert-prefix handoffs pushed those states further from the clean line, and whenever the learner wandered
+      off-line or onto the wrong side of a gate, the same expert labelled the way back. The most plausible
+      account is that recovery was learned from those corrective labels, as ordinary imitation of the expert
+      from unusual states.</p>
+      <p>We are careful about how much weight that account can carry. The recipe requested a
+      40/35/25 split of nominal, critical and recovery states in replay, but those are sampling weights; they do
+      not establish that a quarter of the labels were recoveries. In three saved replay shards we inspected,
+      about half the rows come from expert-prefix roll-ins, and none carries a separate recovery-teacher tag.
+      Assigning a causal share of this behavior to corrective supervision needs an ablation that removes those
+      labels.</p>
+    </div>
+
+    <h3>What the representation carries</h3>
+    <div class="prose">
+      <p>Two measurements speak to what the shared latent at the readout token holds. Both are small and
+      exploratory; we report them because they point the same way.</p>
+    </div>
+    <div class="runstat" style="margin-top:24px">
+      <div><b>R² 0.48</b><span>one-step dynamics readout, pooled over 4,356 control steps on three hard-course laps</span></div>
+      <div><b>0.67 · 0.57 · 0.16</b><span>mean L2 change in the normalized command when only the route beyond the last gate is altered</span></div>
+    </div>
+    <div class="prose" style="margin-top:22px">
+      <p><b>It carries the local dynamics.</b> The dynamics head reads the same token the action head reads.
+      Out of sample, on three rendered hard-course laps, it predicts the normalized next change in task state
+      with a pooled R² of 0.483 (gate-frame transitions excluded). Roughly half the variance of the next task-state
+      change is recoverable from the representation the policy acts from. The laps were selected
+      successful ones, so this is evidence, not a population estimate.</p>
+      <p><b>It reads the route ahead, not just the next gate.</b> At the end of a lap, the lookahead slots past
+      the final gate are padded by repeating it. Holding the vehicle state fixed, we replaced that padding with a
+      synthetic straight-through route. The command moved, by mean L2 distances of 0.67, 0.57 and 0.16 on the
+      three laps. Gates the vehicle is not yet flying at change what it does now. This is an offline input
+      intervention; it shows the future slots matter, not that the altered route would fly better.</p>
+      <p>Together with the recoveries, the picture is of <b>ordered, route-conditioned control</b>: a policy
+      whose command depends on where it is relative to the active gate, how it is moving, and the ordered route
+      beyond, and which holds enough of the local dynamics to turn a miss into a second approach.</p>
+    </div>
+    <div class="ret" style="text-align:left;margin-top:22px">
+      <b>Not claimed.</b> These results do not show a discrete &ldquo;recovery mode&rdquo; in the latent, an
+      explicit model of which states are still viable, or state estimation: the policy is given true state.
+      Nor do they show topological understanding of a course. Each of these is a hypothesis for a targeted
+      ablation or probe.
+    </div>
+  </div>
+</section>
+
+<!-- ================= BEFORE RL ================= -->
+<section class="block" id="before-rl">
+  <div class="wrap">
+    <h2>Why stop before reinforcement learning</h2>
+    <div class="prose">
+      <p>This paper is scoped to pretraining, deliberately. Reinforcement learning comes next, and the
+      question this work answers is what an RL run should start from.</p>
+      <p>Racing is unforgiving of a bad command: progress comes only from crossing gates in order, at speed,
+      and one wrong command at 16&nbsp;m/s ends the episode. Even with a dense progress reward, a randomly
+      initialized controller spends its early experience learning to stay airborne and to find the gates at all,
+      before reward can say anything about pace. This checkpoint starts past that point. It already completes 45% to 61% of its attempts on layouts it has never seen, under
+      randomized dynamics, so an RL run built on it collects reward on completed routes from its first
+      episodes. And because a missed gate is not the end of an attempt, some of the failures that would
+      otherwise end an episode are already followed by corrective actions inside the policy&rsquo;s own
+      distribution. RL can spend its samples on refining pace and consistency, rather than on finding the
+      course.</p>
+    </div>
+
+    <div class="cols-3">
+      <div>
+        <h4>Supervision builds the skill</h4>
+        <p class="prose">Dense, per-state expert labels teach the hard part cheaply: how to commit to a line
+        through ordered gates, and how to come back from the wrong side of one. No reward shaping is involved.</p>
+      </div>
+      <div>
+        <h4>The representation is already shaped</h4>
+        <p class="prose">The dynamics head and the ordered route tokens give RL a latent that carries local
+        dynamics and the route ahead, instead of one it has to build from reward alone.</p>
+      </div>
+      <div>
+        <h4>The targets are measured</h4>
+        <p class="prose">Long-low courses (18.8% and 6.2%), consistency across randomized vehicles, and the cost
+        of a recovery (a median of about 22&nbsp;m of extra path) are specific, measurable things for RL to improve.</p>
+      </div>
+    </div>
+
+    <div class="ret" style="text-align:left;margin-top:32px">
+      <b>Claim boundary.</b> We have not run a matched comparison against RL from random initialization for
+      this checkpoint. The numbers here show substantial ability before RL; they do not establish that RL from
+      this starting point is more sample-efficient, or reaches better final performance, than RL from scratch.
+      The argument above is a mechanism hypothesis that the next stage of this work is designed to test.
+    </div>
   </div>
 </section>
 </main>

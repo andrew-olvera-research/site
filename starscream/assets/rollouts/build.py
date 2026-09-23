@@ -6,17 +6,16 @@ Outputs next to this file:
   <slug>.json   scene for scene3d.js; recovery legs carry trajectory.highlight + gates[k].mark
   index.json    per-rollout metrics used by the page
 
-A recovery leg is a gate-to-gate leg, inside a rollout tagged recovery*, that flies at least
-RECOVERY_EXTRA m further than the straight line and either takes RECOVERY_FACTOR x that rollout's
-median leg time or has a detour of at least RECOVERY_DETOUR. Detour = leg path length / straight-line distance.
+A recovery leg is a gate-to-gate leg in which the vehicle crosses its target gate's plane, within
+MISS_RADIUS gate sizes of the centre, without the gate tracker advancing: it went through the plane
+outside the aperture (or the wrong way) and had to come back. This uses only the recorded states,
+not the rollout tags. Detour = leg path length / straight-line distance.
 """
 import json, math, os, re, statistics
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DECIMATE = 2            # 130 Hz -> 65 Hz is plenty for drawing
-RECOVERY_FACTOR = 2.0
-RECOVERY_DETOUR = 3.0
-RECOVERY_EXTRA = 5.0      # m
+MISS_RADIUS = 2.5        # x gate size
 SMOOTH = 7              # frames for speed smoothing
 
 NAMES = {
@@ -56,15 +55,21 @@ def analyse(row):
     legs = []
     for k, (a, b) in enumerate(zip(starts, events)):
         L = path_len(p, a, b)
+        g = row["gates"][k]
+        nrm = (math.cos(g["yaw"]), math.sin(g["yaw"]), 0.0)
+        side = [sum((p[i][j] - g["pos"][j]) * nrm[j] for j in range(3)) for i in range(a, b)]
+        misses = []  # (frame, direction) of unregistered plane crossings near the gate
+        for i in range(1, len(side)):
+            if side[i - 1] * side[i] < 0:
+                off = [p[a + i][j] - g["pos"][j] - side[i] * nrm[j] for j in range(3)]
+                if math.hypot(*off) < MISS_RADIUS * g["size"]:
+                    misses.append((a + i, 1 if side[i] > 0 else -1))
         legs.append({"gate": k + 1, "a": a, "b": b, "time": (b - a) * dt, "path": L,
                      "detour": L / max(math.dist(p[a], p[b]), 1e-3),
-                     "min_speed": min(speed[a:b] or [0]),
+                     "min_speed": min(speed[a:b] or [0]), "misses": misses,
                      "offset": math.dist(p[b], row["gates"][k]["pos"])})
 
-    median = statistics.median(l["time"] for l in legs)
-    recovering = tag.startswith("recovery")
-    rec = [l for l in legs if recovering and l["path"] - math.dist(p[l["a"]], p[l["b"]]) >= RECOVERY_EXTRA
-           and (l["time"] >= RECOVERY_FACTOR * median or l["detour"] >= RECOVERY_DETOUR)]
+    rec = [l for l in legs if l["misses"]]
     T = (n - 1) * dt
     return track, tag, {
         "slug": re.sub(r"[^a-z0-9]+", "-", f"{track}-{tag}".lower()).strip("-"),
@@ -76,7 +81,9 @@ def analyse(row):
                   "min_speed": round(l["min_speed"], 2), "recovery": l in rec} for l in legs],
         "recoveries": [{"gate": l["gate"], "time": round(l["time"], 2), "detour": round(l["detour"], 2),
                         "extra_path": round(l["path"] - math.dist(p[l["a"]], p[l["b"]]), 1),
-                        "min_speed": round(l["min_speed"], 2), "a": l["a"], "b": l["b"]} for l in rec],
+                        "min_speed": round(l["min_speed"], 2),
+                        "returns": sum(1 for _, d in l["misses"] if d < 0),
+                        "a": l["a"], "b": l["b"]} for l in rec],
         "recovery_share": round(sum(l["time"] for l in rec) / T, 3),
     }
 
@@ -110,7 +117,7 @@ with open(os.path.join(HERE, "trajectories.jsonl")) as fh:
         for r in meta["recoveries"]:
             del r["a"], r["b"]
         index.append(meta)
-        print(f"{meta['tag']:<18} {meta['name']:<32} {meta['time']:6.2f}s  recoveries={[(r['gate'], r['time']) for r in meta['recoveries']]}")
+        print(f"{meta['tag']:<18} {meta['name']:<32} {meta['time']:6.2f}s  recoveries={[(r['gate'], r['returns']) for r in meta['recoveries']]}")
 
 with open(os.path.join(HERE, "index.json"), "w") as fh:
     json.dump(index, fh, indent=1)
