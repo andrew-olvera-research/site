@@ -377,8 +377,8 @@
       expert labels the states the learner actually reaches (DAgger), DART noise and expert-prefix roll-ins widen
       where those states come from, and an auxiliary one-step dynamics head shapes the representation the policy
       acts from. The policy is a 5.49&nbsp;M-parameter causal transformer that reads the next six gates as ordered
-      route tokens and takes a commanded speed, learned from the expert&rsquo;s time-optimal pace for each course,
-      that becomes an aggressiveness knob. Every episode flies a freshly sampled vehicle, with randomized mass,
+      route tokens and takes a commanded speed, trained on the expert&rsquo;s time-optimal pace for each
+      course and adjustable at test time. Every episode flies a freshly sampled vehicle, with randomized mass,
       inertia, thrust mapping, actuator limits, aerodynamic response, wind and center-of-mass offset. In the run
       reported here the policy was not given those parameters, and still, before any RL, it completes 60.6% of
       attempts on 52 unseen course layouts and 45.5% on 92 unseen hard layouts, and turns back to take a gate it
@@ -499,10 +499,16 @@
       <p>How fast to fly is not left for the network to guess. For each course, the MPCC expert&rsquo;s plan
       fixes a time-optimal average speed, and that number is given to the policy as a commanded speed,
       <em>v_cmd</em>. It enters after the backbone through a zero-initialized conditioner, so the features that
-      read the route and the vehicle are shared across speeds, and speed only shifts what is done with them.
-      Trained this way, the command generalizes and behaves as an aggressiveness knob: the same policy can be
-      asked to fly a course harder or more conservatively than the expert&rsquo;s pace for it. Mapping that
-      trade-off between speed and completion is part of the evaluation in progress.</p>
+      read the route and the vehicle are shared across speeds.</p>
+      <p>Because it is an input, it can be changed at test time, and the policy generalizes to values it was
+      not trained on for that course. Raising it above the nominal value has non-trivial effects on how the
+      policy flies, and on some courses a higher command even <em>raises</em> completion.</p>
+      <p>That second effect suggests the command carries more than a speed. In training, the courses with high
+      time-optimal speeds tend to be open ones, with fewer gates and fewer transitions, and they are also the
+      courses the policy completes most often; tight, technical courses with many gates get low speed targets and
+      complete less often. A high <em>v_cmd</em> may therefore also select the behavior mode learned on open,
+      high-success courses. We hypothesize that the command conditions a mode of flying, and with it a success
+      rate, as well as a pace. <a href="#next">Experiment 3</a> tests this directly.</p>
     </div>
   </div>
 </section>
@@ -924,7 +930,7 @@
       alongside the one-step dynamics head, the student carries an auxiliary head that predicts the plant
       parameters, so the representation it acts from is pushed to carry an estimate of the vehicle it is flying.
       The result is meant to be one student that flies many vehicles of different weight and capability, with
-      the commanded speed as its aggressiveness knob.</p>
+      the commanded speed still adjustable at test time.</p>
       <p>The first distillation runs carry meaningful success rate and speed over from the teacher to both the
       deployment-observation and the vision-based student. Full numbers will be released with the preprint.</p>
     </div>
@@ -958,7 +964,7 @@
       comes only from crossing gates in order, at speed, and one wrong command at 16&nbsp;m/s ends the episode.
       A randomly initialized controller spends its early experience learning to stay airborne and to find the
       gates at all. A base model that already completes 45% to 61% of unseen layouts, recovers from missed
-      gates and takes a speed command lets RL spend its samples on pace and consistency instead.</p>
+      gates and responds to a test-time speed command lets RL spend its samples on pace and consistency instead.</p>
     </div>
 
     <div class="cols-3">
@@ -1023,12 +1029,17 @@
         carries it only implicitly.</p>
       </li>
       <li>
-        <h4>3 &middot; Speed as an aggressiveness knob</h4>
-        <p class="prose"><b>Setup.</b> Sweep the commanded speed around each course&rsquo;s expert value, for
-        the teacher and for each student, across vehicles.</p>
-        <p class="prose"><b>Hypothesis.</b> Raising the command trades completion for lap time smoothly and
-        monotonically, and the same trade-off survives distillation, so a deployed student can be told how hard
-        to fly.</p>
+        <h4>3 &middot; What the speed command selects</h4>
+        <p class="prose"><b>Setup.</b> Sweep the commanded speed below and above each course&rsquo;s nominal
+        value, for the teacher and for each student, and measure completion, lap time and flight behavior
+        separately for open, low-gate-count courses and tight, technical ones. As a control, train a teacher on
+        per-episode rescaled speed targets, so that the command is no longer correlated with the kind of
+        course.</p>
+        <p class="prose"><b>Hypothesis.</b> Speed and mode are entangled in the as-run model: raising the command
+        pulls technical courses toward the behavior learned on open, high-success courses, which is why completion
+        can rise with it. With the correlation broken in training, the command should act more purely as pace,
+        trading completion for lap time. Either way, the response should survive distillation, so a deployed
+        student keeps a speed command that means something.</p>
       </li>
     </ol>
     <p class="prose" style="margin-top:24px">Final results for all three, together with the student evaluations, will be
