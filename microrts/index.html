@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tells</title>
+<meta name="description" content="Tells: inferring an opponent from play history in a MicroRTS world action model. Andrew Olvera, 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg-2: #f7f8fa; --ink: #1a1d23; --ink-2: #3b414b; --muted: #6b7280;
+    --line: #e5e7eb; --line-2: #d1d5db; --accent: #1f5a96; --accent-bg: #eef3f9;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --wrap: 880px;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--sans);
+    font-size: 16.5px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  img, video { max-width: 100%; display: block; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .wrap { width: min(var(--wrap), 100% - 32px); margin-inline: auto; }
+
+  /* ---------- NAV ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.94);
+    backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 52px; }
+  .brand { font-family: var(--serif); font-weight: 600; font-size: 17px; color: var(--ink); }
+  .brand:hover { text-decoration: none; }
+  .nav ul { list-style: none; display: flex; gap: 22px; }
+  .nav ul a { font-size: 14px; color: var(--muted); }
+  .nav ul a:hover, .nav ul a.active { color: var(--ink); text-decoration: none; }
+  @media (max-width: 720px) { .nav ul .opt { display: none; } }
+
+  /* ---------- MASTHEAD ---------- */
+  .masthead { text-align: center; padding: 64px 0 36px; }
+  .venue { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+  h1.title {
+    font-family: var(--serif); font-weight: 700; font-size: clamp(32px, 5.2vw, 48px);
+    line-height: 1.12; letter-spacing: -.01em; max-width: 26ch; margin-inline: auto;
+  }
+  h1.title .sub { display: block; font-weight: 400; font-size: .5em; color: var(--ink-2); margin-top: 12px; letter-spacing: 0; }
+  .authors { margin-top: 24px; font-size: 18px; }
+  .authors a { color: var(--ink); border-bottom: 1px solid var(--line-2); }
+  .authors a:hover { text-decoration: none; border-color: var(--accent); }
+  .affil { margin-top: 4px; font-size: 15px; color: var(--muted); }
+  .buttons { margin-top: 26px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500;
+    padding: 7px 16px; border-radius: 999px; color: var(--ink); border: 1px solid var(--line-2);
+  }
+  .btn:hover { text-decoration: none; border-color: var(--ink); }
+  .btn.soon { color: var(--muted); pointer-events: none; }
+  .btn svg { width: 15px; height: 15px; }
+
+  /* ---------- SECTIONS ---------- */
+  section.block { padding: 56px 0; }
+  section.block + section.block { border-top: 1px solid var(--line); }
+  h2 {
+    font-family: var(--serif); font-weight: 600; font-size: clamp(25px, 3.2vw, 30px);
+    line-height: 1.25; margin-bottom: 20px; text-align: center;
+  }
+  h3 { font-family: var(--serif); font-weight: 600; font-size: 20px; margin: 32px 0 10px; }
+  h4 { font-family: var(--serif); font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+  p + p { margin-top: 14px; }
+  .prose { color: var(--ink-2); }
+  .abstract { max-width: 70ch; margin-inline: auto; text-align: justify; hyphens: auto; }
+  ul.list { padding-left: 1.2em; }
+  ul.list li + li { margin-top: 8px; }
+  .scroll-x { overflow-x: auto; }
+
+  /* ---------- FIGURES ---------- */
+  figure.fig { margin-top: 28px; }
+  .fig-frame { border: 1px solid var(--line); border-radius: 6px; padding: clamp(14px, 3vw, 28px); background: #fff; }
+  figcaption { margin-top: 10px; font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
+  figcaption b { color: var(--ink); font-weight: 600; }
+
+  .arch svg { width: 100%; min-width: 660px; height: auto; display: block; }
+  .arch rect { fill: #fff; stroke: var(--line-2); stroke-width: 1.2; }
+  .arch .em rect { fill: var(--accent-bg); stroke: var(--accent); }
+  .arch .train rect { fill: none; stroke: var(--line-2); stroke-dasharray: 5 4; }
+  .arch .t { font-family: var(--sans); font-weight: 600; font-size: 14px; fill: var(--ink); }
+  .arch .s { font-family: var(--sans); font-size: 12px; fill: var(--muted); }
+  .arch .flow { fill: none; stroke: var(--muted); stroke-width: 1.3; }
+  .arch .flow.em { stroke: var(--accent); }
+  .arch .flow.train { stroke-dasharray: 5 4; }
+  .arch .lbl { font-family: var(--serif); font-style: italic; font-size: 13px; fill: var(--ink-2); }
+  .arch marker path { fill: var(--muted); }
+  .arch marker.acc path { fill: var(--accent); }
+
+  .chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .chart text { font-family: var(--sans); font-size: 12px; fill: var(--muted); }
+  .chart .row-l { fill: var(--ink-2); font-size: 13px; }
+  .chart .val { fill: var(--ink); font-family: var(--mono); font-size: 12px; }
+  .chart .ax { stroke: var(--line); }
+  .chart .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--ink-2); margin-bottom: 8px; }
+  .chart .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+  .chart .legend i.line { width: 18px; height: 0; border-radius: 0; border-top: 2px solid var(--accent); vertical-align: middle; }
+  .chart .legend i.line.dash { border-top-style: dashed; }
+  .tip {
+    position: absolute; pointer-events: none; background: #fff; border: 1px solid var(--line-2); border-radius: 4px;
+    padding: 6px 9px; font-size: 12.5px; line-height: 1.45; color: var(--ink); box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    white-space: nowrap; display: none; z-index: 5;
+  }
+
+  /* ---------- STATS, TABLES, NOTES ---------- */
+  .runstat { display: grid; grid-template-columns: repeat(auto-fit, minmax(172px, 1fr)); gap: 22px 28px; margin-top: 24px; }
+  .runstat div b { display: block; font-family: var(--mono); font-size: 23px; font-weight: 600;
+                   color: var(--ink); letter-spacing: -.02em; line-height: 1.2; }
+  .runstat div span { display: block; font-size: 13.5px; color: var(--muted); margin-top: 5px; line-height: 1.45; }
+  table.data { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.data th { text-align: left; font-weight: 600; color: var(--muted); font-size: 12.5px; padding: 6px 12px 6px 0;
+                  border-bottom: 1px solid var(--line-2); white-space: nowrap; }
+  table.data td { padding: 8px 12px 8px 0; border-bottom: 1px solid var(--line); color: var(--ink-2); vertical-align: top; }
+  table.data td.n, table.data th.n { text-align: right; font-family: var(--mono); font-size: 13px; white-space: nowrap; }
+  table.data tr.em td { color: var(--ink); }
+  table.data tr.em td:first-child { font-weight: 600; }
+  .ret { border: 1px dashed var(--line-2); border-radius: 6px; padding: 13px 18px; margin-top: 24px;
+         font-size: 14.5px; color: var(--ink-2); }
+  .quote { border-left: 3px solid var(--accent); padding: 4px 0 4px 16px; margin-top: 18px; font-family: var(--serif);
+           font-size: 18px; color: var(--ink); }
+  .cols-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 28px; }
+  @media (max-width: 820px) { .cols-3 { grid-template-columns: 1fr; gap: 18px; } }
+  .cols-3 p { font-size: 15px; }
+  .tag { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 13.5px; color: var(--muted); }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer a { color: var(--muted); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Tells</a>
+    <ul>
+      <li class="opt"><a href="#abstract">Abstract</a></li>
+      <li class="opt"><a href="#model">World model</a></li>
+      <li><a href="#opponent">Opponent</a></li>
+      <li><a href="#control">Control</a></li>
+      <li class="opt"><a href="#limits">Limits</a></li>
+      <li><a href="../">Home</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+<!-- ================= TITLE ================= -->
+<div class="masthead wrap">
+  <div class="venue">Preprint forthcoming &middot; 2026</div>
+  <h1 class="title">
+    Tells
+    <span class="sub">Inferring an opponent from play history in a MicroRTS world action model</span>
+  </h1>
+  <p class="authors"><a href="../">Andrew Olvera</a></p>
+  <p class="affil">York College of Pennsylvania</p>
+  <div class="buttons">
+    <span class="btn soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Paper (coming soon)</span>
+    <a class="btn" href="#control">Results</a>
+  </div>
+</div>
+
+<!-- ================= ABSTRACT ================= -->
+<section class="block" id="abstract">
+  <div class="wrap">
+    <h2>Abstract</h2>
+    <div class="abstract prose">
+      <p>A poker player never sees the other hand; they read tells. We ask whether a model-based agent in
+      MicroRTS can do the same under fog of war: infer a useful opponent behavior mode from information legally
+      available during play, use it in prediction and value estimation, and win more because of it. We first
+      build an auditable action-conditioned latent simulator from full engine state, then move its deployment
+      interface to fog-visible observations and the agent&rsquo;s own issued actions. A structured tokenizer with
+      exact categorical decoding and temporal JEPA reconstructs 99.85% of held-out frames exactly. A 103.1M-parameter
+      flow dynamics model learns strong one-step semantic and counterfactual prediction (0.973 changed-cell F1),
+      although only 11.7% of its predicted frames are exact. A 64-frame causal encoder distills a behavior-grounded
+      16-code opponent mode from privileged training targets, and that belief measurably improves long-horizon
+      return prediction. Policies trained by PMPO in the frozen model beat the held-out CoacAI bot in small match
+      panels, but the strongest of them uses no opponent belief at all, and matched belief-conditioned PMPO did not
+      outperform it. We report where opponent belief improved prediction, and why that has not yet translated into
+      better control.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUESTION ================= -->
+<section class="block" id="question">
+  <div class="wrap">
+    <h2>The question</h2>
+    <div class="prose">
+      <p>Real-time strategy is a game of hidden information. Most of the map is dark, and the opponent&rsquo;s
+      plan is visible only through what it has already done: where its workers went, what it built, when it
+      attacked. A strong player carries a running read of the opponent, a belief about what kind of game they
+      are in, and plays against that belief rather than against the board alone.</p>
+      <p>This project builds that read into a <b>world action model</b>: a latent transition queried with the
+      agent&rsquo;s own issued action, in which the opponent is not an input but hidden state to be inferred. The
+      work is unusually diagnostic by design. It measures separately whether the state is encoded exactly,
+      whether the model responds to the agent&rsquo;s actions, whether it predicts the effect of an intervention,
+      whether the opponent belief carries long-horizon information, and whether any of that wins games. Those
+      turn out to be different questions with different answers.</p>
+    </div>
+
+    <figure class="fig arch">
+      <div class="fig-frame scroll-x">
+        <svg viewBox="0 0 900 450" role="img" aria-label="Deployable inference path: fog observation and issued self actions are tokenized; a frozen transition predicts the arrival latent, reward and continuation; a causal history encoder produces a 16-code opponent belief that conditions the PMPO actor and critic. Privileged engine state and opponent actions are used only to train the belief teacher.">
+          <defs>
+            <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z"/></marker>
+            <marker id="aa" class="acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z"/></marker>
+          </defs>
+          <!-- row 1 -->
+          <g><rect x="0" y="20" width="180" height="66" rx="6"/><text class="t" x="14" y="47">Fog observation</text><text class="s" x="14" y="67">16×16 raster + visibility</text></g>
+          <g><rect x="230" y="20" width="190" height="66" rx="6"/><text class="t" x="244" y="47">Ego tokenizer</text><text class="s" x="244" y="67">64 spatial tokens × 320</text></g>
+          <g><rect x="470" y="20" width="190" height="66" rx="6"/><text class="t" x="484" y="47">World transition</text><text class="s" x="484" y="67">frozen for policy learning</text></g>
+          <g><rect x="710" y="20" width="190" height="66" rx="6"/><text class="t" x="724" y="47">Arrival latent</text><text class="s" x="724" y="67">reward · continuation</text></g>
+          <!-- row 2 -->
+          <g><rect x="0" y="130" width="180" height="66" rx="6"/><text class="t" x="14" y="157">Issued self actions</text><text class="s" x="14" y="177">up to 48 factored events</text></g>
+          <g><rect x="262" y="130" width="158" height="66" rx="6"/><text class="t" x="276" y="157">Action tokenizer</text><text class="s" x="276" y="177">event embeddings</text></g>
+          <!-- row 3 -->
+          <g class="em"><rect x="230" y="250" width="190" height="66" rx="6"/><text class="t" x="244" y="277">History encoder</text><text class="s" x="244" y="297">causal, up to 64 frames</text></g>
+          <g class="em"><rect x="470" y="250" width="190" height="66" rx="6"/><text class="t" x="484" y="277">Opponent belief z</text><text class="s" x="484" y="297">soft over 16 behavior codes</text></g>
+          <g><rect x="710" y="250" width="190" height="66" rx="6"/><text class="t" x="724" y="277">PMPO actor + critic</text><text class="s" x="724" y="297">behavior prior · return head</text></g>
+          <!-- training only -->
+          <g class="train"><rect x="0" y="370" width="660" height="66" rx="6"/><text class="t" x="14" y="397">Training only</text><text class="s" x="14" y="417">complete engine state · privileged opponent actions · conditional-policy codebook teacher</text></g>
+          <!-- flows -->
+          <path class="flow" d="M180 53H226" marker-end="url(#ah)"/>
+          <path class="flow" d="M420 53H466" marker-end="url(#ah)"/>
+          <path class="flow" d="M660 53H706" marker-end="url(#ah)"/>
+          <path class="flow" d="M180 163H258" marker-end="url(#ah)"/>
+          <path class="flow" d="M420 150L480 90" marker-end="url(#ah)"/>
+          <path class="flow" d="M805 86V246" marker-end="url(#ah)"/>
+          <path class="flow em" d="M246 86V246" marker-end="url(#aa)"/>
+          <path class="flow em" d="M341 196V246" marker-end="url(#aa)"/>
+          <path class="flow em" d="M420 283H466" marker-end="url(#aa)"/>
+          <path class="flow em" d="M660 283H706" marker-end="url(#aa)"/>
+          <path class="flow train" d="M565 370V320" marker-end="url(#ah)"/>
+          <text class="lbl" x="352" y="228">past actions, shifted</text>
+          <text class="lbl" x="575" y="350">distilled into</text>
+          <text class="lbl" x="812" y="170">imagined</text>
+          <text class="lbl" x="812" y="187">trajectories</text>
+        </svg>
+      </div>
+      <figcaption><b>Figure 1.</b> What runs at deployment, with the belief path in blue. The encoder reads only
+      fog-visible frames and the agent&rsquo;s own past actions, shifted one step so the action being chosen can
+      never leak into the belief that conditions it. Everything in the dashed box exists only to train the
+      belief, and is removed before play.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= DATA ================= -->
+<section class="block" id="data">
+  <div class="wrap">
+    <h2>Data built for interventions</h2>
+    <div class="prose">
+      <p>MicroRTS is played on 16&times;16 maps. Each cell carries 27 one-hot channels (hit points, resources,
+      owner, unit type, current action), and a visibility mask separates what is observed from what is hidden.
+      A unit command has eight fields, from source cell and action type to produced unit and relative attack
+      target, and a single game step can issue many of them. Raw engine unit IDs are dropped so the
+      representation stays tied to mechanics rather than to unstable identifiers.</p>
+      <p>The corpus is designed around one question a world model has to answer: <em>what would have
+      happened if I had acted differently?</em> For roughly a fifth of rows, the engine is cloned and the
+      agent&rsquo;s action is changed while the opponent&rsquo;s action is held fixed. That isolates the effect
+      of the agent&rsquo;s own action without pretending to model how the opponent would have responded. Train,
+      validation and evaluation use disjoint collection seeds and whole episodes, across four map variants, both
+      seats, self-play and scripted opponents. CoacAI, the hard scripted opponent used for the headline
+      comparison, appears only in evaluation.</p>
+    </div>
+    <figure class="fig">
+      <div class="scroll-x">
+        <table class="data">
+          <thead><tr><th>Split</th><th class="n">Transitions</th><th class="n">Episodes</th><th class="n">With counterfactual</th></tr></thead>
+          <tbody>
+            <tr><td>Train</td><td class="n">3,377,539</td><td class="n">4,096</td><td class="n">20.0%</td></tr>
+            <tr><td>Validation</td><td class="n">1,309,676</td><td class="n">1,552</td><td class="n">20.0%</td></tr>
+            <tr><td>Evaluation</td><td class="n">1,245,299</td><td class="n">1,567</td><td class="n">20.0%</td></tr>
+            <tr class="em"><td>Total</td><td class="n">5,932,514</td><td class="n">7,215</td><td class="n">&asymp;20.0%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Episode-disjoint splits. The counterfactual branch changes the agent&rsquo;s action and holds
+      the opponent&rsquo;s fixed.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= WORLD MODEL ================= -->
+<section class="block" id="model">
+  <div class="wrap">
+    <h2>A world model that is exact where it can be</h2>
+
+    <h3>Tokenizing a board without losing it</h3>
+    <div class="prose">
+      <p>A game board is mostly empty, and that makes average accuracy a liar. An early JEPA tokenizer scored
+      94.9% on cells overall, yet got only a quarter of <em>occupied</em> cells exactly right and never
+      reconstructed a whole frame. The fix was to stop treating the board as an image. The exact tokenizer
+      embeds every finite game field categorically and decodes it back by argmax, stores when each unit&rsquo;s current
+      action began as a bounded action age recovered with the global clock, and weights changed cells 8&times; in its
+      temporal JEPA objective. Its latent stays continuous so dynamics can operate on it; exact decoding acts as
+      a certificate that nothing was lost.</p>
+    </div>
+    <figure class="fig chart" id="tok" style="position:relative"></figure>
+    <figcaption><b>Figure 2.</b> Tokenizer round trips on held-out frames. Hollow: the earlier medium JEPA
+    tokenizer. Filled: exact temporal JEPA. These are encode-decode round trips, not dynamics rollouts.</figcaption>
+    <div class="prose" style="margin-top:20px">
+      <p>The deployable interfaces then drop the full engine state. An ego tokenizer encodes only the
+      fog-visible raster and visibility into 64 spatial tokens of width 320, reaching at least 99.9988% visible
+      category accuracy on held-out data. A self-action tokenizer reconstructs every evaluated action field
+      exactly and predicts how an issued action moves the ego latent (effect cosine 0.815).</p>
+    </div>
+
+    <h3>A semantic simulator, not an exact engine</h3>
+    <div class="prose">
+      <p>Game dynamics are easy to fake. Most cells never change, so copying the last frame is a strong
+      baseline, and a shaped reward can make an imagined rollout look profitable without the model ever
+      responding to the agent&rsquo;s actions. Early Dreamer-style models did exactly that: low teacher-forced
+      loss, plausible reward correlation, and failed policies. The program therefore judged dynamics on
+      changed-cell F1, action-shuffle gaps, counterfactual branches and real games, never on loss alone.</p>
+      <p>The final 103.1M-parameter flow dynamics model predicts a residual in latent space under both the
+      factual and the cloned-action branch, trained directly on factual, counterfactual and effect-geometry
+      objectives. At its selected checkpoint, on a fixed held-out evaluator:</p>
+    </div>
+    <div class="runstat">
+      <div><b>0.973</b><span>changed-cell F1, one step</span></div>
+      <div><b>98.3%</b><span>unit-type accuracy, one step</span></div>
+      <div><b>0.0703</b><span>factual latent MSE (0.0423 counterfactual)</span></div>
+      <div><b>11.7%</b><span>predicted frames that decode exactly</span></div>
+    </div>
+    <figure class="fig chart" id="roll" style="position:relative"></figure>
+    <figcaption><b>Figure 3.</b> Open-loop rollouts on eight fixed held-out trajectories. Changed-cell F1
+    holds up far better than unit-type accuracy as the model feeds on its own predictions. Horizon-8 values
+    are exact (0.840 and 0.716); horizons 1 to 4 are read from the draft figure and rounded.</figcaption>
+    <div class="prose" style="margin-top:20px">
+      <p>The model knows <em>what changes and where</em> far better than it knows the exact resulting state.
+      The reason is specific: the tokenizer learned exact decoding, but this dynamics run put zero weight on
+      decoded fields, so latent error can fall while a predicted point still sits on the wrong side of a
+      categorical boundary. Adding decoded-field losses, then self-rollout consistency, is the next clean
+      ablation.</p>
+      <p>Policy learning uses a separate, deployable transition: a roughly 100M-parameter model (14 blocks, width
+      768) trained from scratch on ego tokens and issued self actions only, with no opponent belief. One step
+      ahead it beats copying the last frame (mechanics MSE 0.0189 against 0.0300), degrades when its actions are
+      shuffled, and predicts reward and continuation closely (reward MAE 0.0011, continuation accuracy 1.0 on
+      its sampled evaluation). These are one-step numbers, not calibrated long-rollout reward, which is why it
+      is frozen during policy learning and imagination is kept to eight steps.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OPPONENT ================= -->
+<section class="block" id="opponent">
+  <div class="wrap">
+    <h2>Reading the opponent</h2>
+    <div class="prose">
+      <p>The obvious approach failed twice. An early four-mode conditioner collapsed onto a single hypothesis,
+      and a later jointly trained JEPA student collapsed too: it used one code, and predicted opponent behavior
+      no better than always guessing the average. A belief that is learned end-to-end has every reason to
+      become a constant.</p>
+      <p>What worked was to <b>define behavior first, then learn to see it</b>. A privileged teacher, with
+      access to full state and a short window of the opponent&rsquo;s real actions, learns a 16-code
+      conditional-policy codebook. Because each code is conditioned on the game situation, it names a local
+      behavior or intent in context, not a fixed player identity. A causal
+      student then learns to predict the teacher&rsquo;s soft code distribution from what the agent can legally
+      see: up to 64 frames of fog-visible observation and its own past actions. Balancing training anchors by
+      episode, so that long games stop dominating the target, is what finally stopped the student collapsing.</p>
+    </div>
+    <div class="runstat">
+      <div><b>0.367 nats</b><span>better than the fixed marginal at predicting the teacher (2.355 vs 2.722)</span></div>
+      <div><b>10.3 / 16</b><span>codes in effective use (the collapsed predecessor used 1)</span></div>
+      <div><b>+0.065 nats</b><span>worse with opponents shuffled across histories</span></div>
+    </div>
+
+    <h3>Where the belief pays off</h3>
+    <div class="prose">
+      <p>The belief carries little that helps predict the next 16 steps of the agent&rsquo;s own latent state:
+      shuffling it raised prediction error by only 0.40%. That is plausible, since the near future is decided
+      mostly by what is already on the board. Its value appears over longer horizons, where the opponent&rsquo;s plan has time to
+      matter. A strategic return head trained with and without z makes that concrete.</p>
+    </div>
+    <figure class="fig">
+      <div class="scroll-x">
+        <table class="data">
+          <thead><tr><th>Future-return loss</th><th class="n">With z</th><th class="n">z removed</th><th class="n">z shuffled</th><th class="n">State-only head</th></tr></thead>
+          <tbody>
+            <tr><td>32 steps ahead</td><td class="n">0.1537</td><td class="n">0.1707</td><td class="n">+0.0657</td><td class="n">0.1634</td></tr>
+            <tr><td>128 steps ahead</td><td class="n">0.3134</td><td class="n">0.3374</td><td class="n">+0.0817</td><td class="n">0.3236</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Validation loss of the strategic return head, lower is better; &ldquo;z shuffled&rdquo; is the
+      increase over the matched belief. Outcome macro AUC with z is 0.93. A separately trained state-only head
+      sits between the two.</figcaption>
+    </figure>
+    <div class="prose" style="margin-top:20px">
+      <p>With the belief, the head predicts the game&rsquo;s future return better at both horizons. That is what a
+      useful read of the opponent should do, and shuffling the belief hurts more at 128 steps than at 32. It is
+      also bounded. A separately trained head with no belief closes most of the gap, and across the full set of
+      return metrics z does not uniformly dominate that state-only system. The honest summary is that
+      the belief is a real, long-horizon signal of modest size, which justifies routing it into value
+      estimation under control, and leaves its effect on play to be tested in games.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTROL ================= -->
+<section class="block" id="control">
+  <div class="wrap">
+    <h2>From belief to control</h2>
+    <div class="prose">
+      <p>Policies are trained with PMPO entirely inside the frozen world model, on eight-step imagined
+      trajectories. The immediate reward head scores only arrivals; a separately validated return head, with or
+      without z, supplies the value at the end of the imagined horizon, so an uncertain strategic signal cannot
+      rewrite the one-step model. A frozen behavior prior keeps the actor close to commands that were actually
+      issued in the data. Sign-balanced PMPO then pushes up actions with non-negative advantage and pushes down
+      the rest, and the actor and critic can optionally receive the belief through FiLM conditioning.</p>
+    </div>
+    <figure class="fig">
+      <div class="scroll-x">
+        <table class="data">
+          <thead><tr><th>Policy (env steps at checkpoint)</th><th class="n">Four-bot win</th><th class="n">vs CoacAI</th><th>Reading</th></tr></thead>
+          <tbody>
+            <tr><td>Reward, with z (4.10M)</td><td class="n">60%</td><td class="n">3 / 5</td><td>Beat CoacAI in one selected panel; later checkpoints regressed.</td></tr>
+            <tr><td>Reward, no z (4.61M)</td><td class="n">75%</td><td class="n">0 / 5</td><td>A high average did not mean robustness against CoacAI.</td></tr>
+            <tr><td>Return bootstrap, with z (1.02M)</td><td class="n">70%</td><td class="n">0 / 5</td><td>The matched belief path did not beat CoacAI.</td></tr>
+            <tr class="em"><td>Return bootstrap, no z (1.74M)</td><td class="n">75%</td><td class="n">5 / 5</td><td>Strongest result; 5 / 5 again in a separate probe.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Best-checkpoint match panels: four scripted bots, five games each, greedy play, 2,000-step cap.
+      Selecting the best checkpoint on the same panel it is scored on is optimistic, and five games per bot is a
+      small sample.</figcaption>
+    </figure>
+
+    <div class="runstat">
+      <div><b>13 · 2 · 5</b><span>wins, draws, losses for the best policy in a separate 20-game probe (5 / 5 vs CoacAI, 0 / 5 vs workerRushAI)</span></div>
+      <div><b>0 · 20 · 20</b><span>belief-conditioned policy&rsquo;s wins, draws, losses head-to-head against the no-belief policy</span></div>
+      <div><b>0.49 → 0.73</b><span>offline preference accuracy of a belief-conditioned action ranker; it then collapsed in play</span></div>
+    </div>
+
+    <h3>What the matches say</h3>
+    <ul class="list prose">
+      <li><b>A world-model agent can beat CoacAI.</b> Selected PMPO checkpoints trained only in imagination won
+      small held-out panels against it, including 5 of 5 twice for the best policy. That is a meaningful
+      prototype result, not yet a robust one.</li>
+      <li><b>The belief did not cause the wins.</b> The strongest policy uses no belief. Its matched
+      belief-conditioned counterpart lost 20 and drew 20 of 40 games head-to-head, with a strong seat
+      asymmetry. The opponent read that predicts return better was not used well by the policy.</li>
+      <li><b>Good offline scores can break closed-loop play.</b> A residual ranker that re-scores actions using
+      the belief improved paired preference accuracy from 0.49 to 0.73 on held-out counterfactuals, and matched
+      belief beat shuffled belief (0.733 vs 0.715). Added to the best policy at full strength it won 0 of 20;
+      at a fifth of the strength, 8 of 20 against 13 for the unchanged policy, and CoacAI went from 5 of 5 to 0
+      of 5 at both scales.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= LIMITS ================= -->
+<section class="block" id="limits">
+  <div class="wrap">
+    <h2>What holds, and what does not yet</h2>
+    <div class="prose">
+      <p>The pieces work. Exact state reconstruction, a transition that responds to the agent&rsquo;s own
+      actions, and an opponent belief with real long-horizon predictive value all coexist in one system. What
+      the project shows most clearly is that they do not compose on their own. Exact tokenization did not force
+      exact dynamics. Reward prediction did not guarantee calibrated imagined returns. A belief that improves
+      return prediction did not guarantee that PMPO would use it well. Preference accuracy did not protect a
+      ranker from collapsing in play.</p>
+      <p>The response is modular. Keep a validated transition that does not see the belief. Route the belief
+      only through a separate long-horizon value or a gated residual. Require matched-versus-shuffled belief
+      tests and real-game ablations before anything is promoted.</p>
+    </div>
+    <p class="quote">We obtained selected PMPO checkpoints that beat CoacAI in small held-out match panels;
+    larger controlled evaluations are pending.</p>
+    <div class="ret">
+      <b>Not claimed.</b> That the agent robustly beats CoacAI across maps, seats and seeds: five games per
+      comparison and one seed cannot support it. That the opponent belief causes any win: the matched policy
+      ablation contradicts it. That the dynamics model is a near-exact engine: 11.7% of predicted frames decode
+      exactly.
+    </div>
+
+    <h3>Next</h3>
+    <div class="cols-3">
+      <div>
+        <h4>Robust match evaluation</h4>
+        <p class="prose">At least 100 pre-registered games per bot and policy, both seats and four maps, with
+        Wilson intervals. This decides the CoacAI claim.</p>
+      </div>
+      <div>
+        <h4>The causal value of belief</h4>
+        <p class="prose">Matched belief versus no-belief PMPO over at least three seeds, with the same checkpoint
+        rule and direct head-to-head, plus shuffled-z controls on every value and reward head.</p>
+      </div>
+      <div>
+        <h4>Exact dynamics</h4>
+        <p class="prose">Decoded-field grounding in the transition first, then multi-step self-rollout
+        consistency, so imagination stays on the right side of the board&rsquo;s discrete boundaries.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr"></span> Andrew Olvera</span>
+    <a href="../">&larr; Home</a>
+  </div>
+</footer>
+
+<script>
+(() => {
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const BLUE = '#1f5a96', NS = 'http://www.w3.org/2000/svg';
+  const s = (tag, attrs = {}, text) => {
+    const el = document.createElementNS(NS, tag);
+    for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+    if (text != null) el.textContent = text;
+    return el;
+  };
+  const h = (tag, attrs = {}, ...kids) => {
+    const el = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+    el.append(...kids);
+    return el;
+  };
+  function tipper(fig) {
+    const tip = h('div', { class: 'tip' });
+    fig.append(tip);
+    return (el, html) => {
+      el.addEventListener('pointerenter', () => {
+        tip.innerHTML = html; tip.style.display = 'block';
+        const r = el.getBoundingClientRect(), f = fig.getBoundingClientRect();
+        tip.style.left = `${Math.max(0, Math.min(r.left - f.left + 12, f.width - tip.offsetWidth))}px`;
+        tip.style.top = `${r.top - f.top - tip.offsetHeight - 6}px`;
+      });
+      el.addEventListener('pointerleave', () => { tip.style.display = 'none'; });
+    };
+  }
+  const legend = items => h('div', { class: 'legend' }, ...items.map(([style, cls, label]) =>
+    h('span', {}, h('i', { class: cls || '', style }), label)));
+
+  /* ---------- Figure 2: tokenizer round trips (dumbbell) ---------- */
+  {
+    const fig = document.getElementById('tok'), hover = tipper(fig);
+    const rows = [['All cells', 94.89, 99.9994], ['Occupied cells', 25.74, 99.9958], ['Whole frames', 0, 99.8535]];
+    const W = 820, L = 140, R = 30, rowH = 50, top = 16, H = top + rows.length * rowH + 30;
+    const x = v => L + v / 100 * (W - L - R);
+    const svg = s('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Exact round-trip accuracy, medium JEPA versus exact temporal JEPA' });
+    const axisY = top + rows.length * rowH;
+    for (const v of [0, 25, 50, 75, 100]) {
+      svg.append(s('line', { class: 'ax', x1: x(v), x2: x(v), y1: top, y2: axisY }));
+      svg.append(s('text', { x: x(v), y: axisY + 18, 'text-anchor': 'middle' }, `${v}%`));
+    }
+    rows.forEach(([name, a, b], i) => {
+      const cy = top + i * rowH + rowH / 2;
+      svg.append(s('text', { class: 'row-l', x: 0, y: cy + 4 }, name));
+      svg.append(s('line', { x1: x(a), x2: x(b), y1: cy, y2: cy, stroke: 'var(--line-2)', 'stroke-width': 2 }));
+      [[a, true, 'medium JEPA'], [b, false, 'exact temporal JEPA']].forEach(([v, hollow, who]) => {
+        const g = s('g');
+        g.append(s('circle', { cx: x(v), cy, r: 5.5, fill: hollow ? '#fff' : BLUE, stroke: hollow ? BLUE : '#fff', 'stroke-width': 2 }));
+        g.append(s('circle', { cx: x(v), cy, r: 12, fill: 'transparent' }));
+        svg.append(g);
+        hover(g, `<b>${name}</b>, ${who}<br>${v === 0 ? 'none' : v + '%'} exact`);
+      });
+      // labels: medium below the line when the two markers are close, exact value to 4 dp so 99.9994 never reads as 100
+      const near = x(b) - x(a) < 60;
+      svg.append(s('text', { class: 'val', x: x(a), y: near ? cy + 20 : cy - 11, 'text-anchor': 'middle' }, a ? `${a.toFixed(1)}` : '0'));
+      svg.append(s('text', { class: 'val', x: x(b), y: cy - 11, 'text-anchor': 'end' }, String(b)));
+    });
+    fig.prepend(legend([[`border:2px solid ${BLUE};width:7px;height:7px`, '', 'medium JEPA'], [`background:${BLUE}`, '', 'exact temporal JEPA']]),
+      h('div', { class: 'scroll-x' }, svg));
+    svg.style.minWidth = '520px';
+  }
+
+  /* ---------- Figure 3: open-loop rollout degradation ---------- */
+  {
+    const fig = document.getElementById('roll'), hover = tipper(fig);
+    const hs = [1, 2, 4, 8];
+    const series = [
+      { name: 'changed-cell F1', v: [96.5, 94.8, 91.1, 83.99], dash: false },
+      { name: 'unit-type accuracy', v: [97.8, 95.0, 91.5, 71.64], dash: true },
+    ];
+    const W = 820, L = 44, R = 70, top = 12, H = 280, bot = 36;
+    const x = t => L + (Math.log2(t) / 3) * (W - L - R);
+    const y = v => top + (100 - v) / 40 * (H - top - bot);
+    const svg = s('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Changed-cell F1 and unit-type accuracy against autoregressive horizon' });
+    for (const v of [60, 70, 80, 90, 100]) {
+      svg.append(s('line', { class: 'ax', x1: L, x2: W - R, y1: y(v), y2: y(v) }));
+      svg.append(s('text', { x: L - 8, y: y(v) + 4, 'text-anchor': 'end' }, `${v}%`));
+    }
+    for (const t of hs) svg.append(s('text', { x: x(t), y: H - bot + 20, 'text-anchor': 'middle' }, t));
+    svg.append(s('text', { x: (L + W - R) / 2, y: H - 2, 'text-anchor': 'middle' }, 'rollout horizon (steps, log scale)'));
+    for (const se of series) {
+      svg.append(s('path', { d: se.v.map((v, i) => `${i ? 'L' : 'M'}${x(hs[i])} ${y(v)}`).join(''), fill: 'none', stroke: BLUE,
+        'stroke-width': 2, 'stroke-dasharray': se.dash ? '6 4' : 'none', 'stroke-linejoin': 'round' }));
+      se.v.forEach((v, i) => {
+        const g = s('g');
+        g.append(s('circle', { cx: x(hs[i]), cy: y(v), r: 4.5, fill: se.dash ? '#fff' : BLUE, stroke: se.dash ? BLUE : '#fff', 'stroke-width': 2 }));
+        g.append(s('circle', { cx: x(hs[i]), cy: y(v), r: 12, fill: 'transparent' }));
+        svg.append(g);
+        hover(g, `<b>${se.name}</b>, horizon ${hs[i]}<br>${i === 3 ? v.toFixed(2) : '≈ ' + v.toFixed(1)}%`);
+      });
+      const last = se.v[3];
+      svg.append(s('text', { class: 'val', x: x(8) + 12, y: y(last) + 4 }, `${last.toFixed(1)}%`));
+    }
+    fig.prepend(legend([['', 'line', 'changed-cell F1'], ['', 'line dash', 'unit-type accuracy']]), h('div', { class: 'scroll-x' }, svg));
+    svg.style.minWidth = '560px';
+  }
+
+  /* ---------- active nav link ---------- */
+  const links = [...document.querySelectorAll('.nav ul a[href^="#"]')];
+  const obs = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('section.block').forEach(sec => obs.observe(sec));
+})();
+</script>
+</body>
+</html>

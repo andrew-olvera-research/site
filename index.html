@@ -68,23 +68,24 @@
       group keep the learning signal alive after binary rewards run dry, and every configuration stalls
       between 70 and 72%, a limit of the model rather than the objective.</span>
   </a>
-  <a class="project" href="flowdreamer-microrts/">
-    <span class="name">FlowDreamer&nbsp;MicroRTS</span>
+  <a class="project" href="microrts/">
+    <span class="name">Tells</span>
     <span class="meta">Andrew Olvera &middot; Preprint forthcoming, 2026</span>
-    <span class="desc">A flow-matching dynamics model of the MicroRTS game engine that attains high
-      reconstruction and future-state prediction accuracy, enabling an actor to be trained entirely in
-      imagination with PMPO and to beat CoacAI. A self-supervised clustering objective pretrains an
-      encoder whose latents decode into unsupervised clusters of opponent behavior; supplying these to
-      the critic yields a theory-of-mind-style critic that makes PMPO optimization substantially faster
-      and shifts behavior to be more predictive of the opponent, avoiding failure modes observed in a
-      direct ablation against the standard critic.</span>
+    <span class="desc">A MicroRTS world action model that infers the opponent from play history under fog of
+      war. An exact tokenizer and a flow dynamics model give a strong semantic simulator; a causal encoder
+      distills a 16-code opponent belief that improves long-horizon return prediction. PMPO policies trained
+      in imagination beat CoacAI in small held-out panels, but the best one uses no belief, and matched
+      belief-conditioned policies did not outperform it: opponent information that predicts well is not yet
+      used well.</span>
   </a>
   <a class="project" href="starscream/">
     <span class="name">Starscream</span>
     <span class="meta">Andrew Olvera &middot; Preprint forthcoming, 2026</span>
-    <span class="desc">A hybrid DAgger + DART and dynamics-learning pretraining method for scaling
-      generalization in high-speed agile drone racing with extreme sample efficiency, paired with a causal
-      decoder transformer whose sequence design forces geometric continuous trajectory conditioning.</span>
+    <span class="desc">Supervised-only pretraining for high-speed agile drone racing: DAgger and DART on an
+      MPCC expert, an auxiliary dynamics head, and a causal transformer that reads the next six gates as
+      ordered route tokens. Before any RL, the policy completes 45 to 61% of attempts on unseen course
+      layouts under randomized dynamics, and recovers from missed gates by turning back and taking them
+      again.</span>
   </a>
   <a class="project" href="manippo/">
     <span class="name">ManiPPO</span>
