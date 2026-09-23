@@ -16,48 +16,56 @@
     "gate": 1,
     "time": 0.562,
     "detour": 1.007,
+    "min_speed": 3.04,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 1.308,
     "detour": 1.303,
+    "min_speed": 7.21,
     "recovery": false
    },
    {
     "gate": 3,
     "time": 0.992,
     "detour": 1.093,
+    "min_speed": 6.74,
     "recovery": false
    },
    {
     "gate": 4,
     "time": 1.446,
     "detour": 1.237,
+    "min_speed": 7.01,
     "recovery": false
    },
    {
     "gate": 5,
     "time": 1.085,
     "detour": 1.177,
+    "min_speed": 7.77,
     "recovery": false
    },
    {
     "gate": 6,
     "time": 0.938,
     "detour": 1.063,
+    "min_speed": 5.57,
     "recovery": false
    },
    {
     "gate": 7,
     "time": 1.015,
     "detour": 1.213,
+    "min_speed": 5.55,
     "recovery": false
    },
    {
     "gate": 8,
     "time": 0.446,
     "detour": 1.107,
+    "min_speed": 6.9,
     "recovery": false
    }
   ],
@@ -81,42 +89,49 @@
     "gate": 1,
     "time": 0.562,
     "detour": 1.005,
+    "min_speed": 3.1,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 1.262,
     "detour": 1.665,
+    "min_speed": 5.17,
     "recovery": false
    },
    {
     "gate": 3,
     "time": 1.2,
     "detour": 1.235,
+    "min_speed": 4.0,
     "recovery": false
    },
    {
     "gate": 4,
     "time": 1.669,
     "detour": 2.097,
+    "min_speed": 3.33,
     "recovery": false
    },
    {
     "gate": 5,
     "time": 1.154,
     "detour": 1.137,
+    "min_speed": 4.89,
     "recovery": false
    },
    {
     "gate": 6,
     "time": 0.808,
     "detour": 1.04,
+    "min_speed": 5.12,
     "recovery": false
    },
    {
     "gate": 7,
     "time": 0.838,
     "detour": 1.154,
+    "min_speed": 8.02,
     "recovery": false
    }
   ],
@@ -140,30 +155,35 @@
     "gate": 1,
     "time": 0.6,
     "detour": 1.008,
+    "min_speed": 2.97,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 1.262,
     "detour": 1.045,
+    "min_speed": 6.53,
     "recovery": false
    },
    {
     "gate": 3,
     "time": 1.838,
     "detour": 1.363,
+    "min_speed": 1.48,
     "recovery": false
    },
    {
     "gate": 4,
     "time": 1.346,
     "detour": 1.106,
+    "min_speed": 7.87,
     "recovery": false
    },
    {
     "gate": 5,
     "time": 1.808,
     "detour": 1.064,
+    "min_speed": 7.05,
     "recovery": false
    }
   ],
@@ -187,54 +207,63 @@
     "gate": 1,
     "time": 0.562,
     "detour": 1.006,
+    "min_speed": 3.11,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 1.254,
     "detour": 1.081,
+    "min_speed": 9.14,
     "recovery": false
    },
    {
     "gate": 3,
     "time": 1.131,
     "detour": 1.076,
+    "min_speed": 8.47,
     "recovery": false
    },
    {
     "gate": 4,
     "time": 1.308,
     "detour": 1.096,
+    "min_speed": 9.1,
     "recovery": false
    },
    {
     "gate": 5,
     "time": 0.177,
     "detour": 1.0,
+    "min_speed": 13.14,
     "recovery": false
    },
    {
     "gate": 6,
     "time": 0.5,
     "detour": 1.101,
+    "min_speed": 8.09,
     "recovery": false
    },
    {
     "gate": 7,
     "time": 0.646,
     "detour": 1.008,
+    "min_speed": 9.54,
     "recovery": false
    },
    {
     "gate": 8,
     "time": 0.792,
     "detour": 1.134,
+    "min_speed": 8.25,
     "recovery": false
    },
    {
     "gate": 9,
     "time": 0.715,
     "detour": 1.076,
+    "min_speed": 8.01,
     "recovery": false
    }
   ],
@@ -258,60 +287,70 @@
     "gate": 1,
     "time": 0.585,
     "detour": 1.007,
+    "min_speed": 2.97,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 0.738,
     "detour": 1.005,
+    "min_speed": 8.75,
     "recovery": false
    },
    {
     "gate": 3,
     "time": 0.523,
     "detour": 1.015,
+    "min_speed": 10.93,
     "recovery": false
    },
    {
     "gate": 4,
     "time": 0.446,
     "detour": 1.019,
+    "min_speed": 10.53,
     "recovery": false
    },
    {
     "gate": 5,
     "time": 0.569,
     "detour": 1.024,
+    "min_speed": 9.88,
     "recovery": false
    },
    {
     "gate": 6,
     "time": 0.877,
     "detour": 1.006,
+    "min_speed": 8.63,
     "recovery": false
    },
    {
     "gate": 7,
     "time": 1.431,
     "detour": 1.01,
+    "min_speed": 5.05,
     "recovery": false
    },
    {
     "gate": 8,
     "time": 2.9,
     "detour": 1.107,
+    "min_speed": 4.18,
     "recovery": false
    },
    {
     "gate": 9,
     "time": 0.977,
     "detour": 1.132,
+    "min_speed": 7.16,
     "recovery": false
    },
    {
     "gate": 10,
     "time": 1.954,
     "detour": 1.012,
+    "min_speed": 10.46,
     "recovery": false
    }
   ],
@@ -335,48 +374,56 @@
     "gate": 1,
     "time": 0.554,
     "detour": 1.009,
+    "min_speed": 3.04,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 2.608,
     "detour": 1.219,
+    "min_speed": 7.18,
     "recovery": false
    },
    {
     "gate": 3,
     "time": 0.754,
     "detour": 1.496,
+    "min_speed": 4.27,
     "recovery": false
    },
    {
     "gate": 4,
     "time": 2.792,
     "detour": 1.296,
+    "min_speed": 5.33,
     "recovery": false
    },
    {
     "gate": 5,
     "time": 0.446,
     "detour": 1.067,
+    "min_speed": 4.26,
     "recovery": false
    },
    {
     "gate": 6,
     "time": 1.238,
     "detour": 1.266,
+    "min_speed": 3.71,
     "recovery": false
    },
    {
     "gate": 7,
     "time": 1.492,
     "detour": 1.051,
+    "min_speed": 9.1,
     "recovery": false
    },
    {
     "gate": 8,
     "time": 1.569,
     "detour": 1.029,
+    "min_speed": 11.04,
     "recovery": false
    }
   ],
@@ -400,60 +447,70 @@
     "gate": 1,
     "time": 0.523,
     "detour": 1.006,
+    "min_speed": 3.1,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 0.677,
     "detour": 1.004,
+    "min_speed": 10.47,
     "recovery": false
    },
    {
     "gate": 3,
     "time": 0.431,
     "detour": 1.019,
+    "min_speed": 10.92,
     "recovery": false
    },
    {
     "gate": 4,
     "time": 0.515,
     "detour": 1.164,
+    "min_speed": 7.69,
     "recovery": false
    },
    {
     "gate": 5,
     "time": 0.831,
     "detour": 1.011,
+    "min_speed": 9.59,
     "recovery": false
    },
    {
     "gate": 6,
     "time": 0.569,
     "detour": 1.002,
+    "min_speed": 11.13,
     "recovery": false
    },
    {
     "gate": 7,
     "time": 0.892,
     "detour": 1.026,
+    "min_speed": 9.77,
     "recovery": false
    },
    {
     "gate": 8,
     "time": 1.046,
     "detour": 1.353,
+    "min_speed": 5.2,
     "recovery": false
    },
    {
     "gate": 9,
     "time": 0.846,
     "detour": 1.458,
+    "min_speed": 6.53,
     "recovery": false
    },
    {
     "gate": 10,
     "time": 1.315,
     "detour": 2.638,
+    "min_speed": 1.71,
     "recovery": false
    }
   ],
@@ -477,48 +534,56 @@
     "gate": 1,
     "time": 0.546,
     "detour": 1.003,
+    "min_speed": 3.13,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 2.385,
     "detour": 1.557,
+    "min_speed": 1.29,
     "recovery": false
    },
    {
     "gate": 3,
     "time": 3.708,
     "detour": 2.205,
+    "min_speed": 2.95,
     "recovery": false
    },
    {
     "gate": 4,
     "time": 1.338,
     "detour": 1.081,
+    "min_speed": 5.94,
     "recovery": false
    },
    {
     "gate": 5,
     "time": 2.331,
     "detour": 1.34,
+    "min_speed": 8.16,
     "recovery": false
    },
    {
     "gate": 6,
     "time": 2.085,
     "detour": 1.269,
+    "min_speed": 8.05,
     "recovery": false
    },
    {
     "gate": 7,
     "time": 0.9,
     "detour": 1.022,
+    "min_speed": 8.61,
     "recovery": false
    },
    {
     "gate": 8,
     "time": 0.946,
     "detour": 1.106,
+    "min_speed": 8.2,
     "recovery": false
    }
   ],
@@ -542,108 +607,126 @@
     "gate": 1,
     "time": 0.585,
     "detour": 1.007,
+    "min_speed": 2.91,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 0.354,
     "detour": 1.022,
+    "min_speed": 8.42,
     "recovery": false
    },
    {
     "gate": 3,
     "time": 0.431,
     "detour": 1.022,
+    "min_speed": 9.84,
     "recovery": false
    },
    {
     "gate": 4,
     "time": 0.254,
     "detour": 1.0,
+    "min_speed": 9.74,
     "recovery": false
    },
    {
     "gate": 5,
     "time": 0.377,
     "detour": 1.001,
+    "min_speed": 9.13,
     "recovery": false
    },
    {
     "gate": 6,
     "time": 0.508,
     "detour": 1.059,
+    "min_speed": 9.53,
     "recovery": false
    },
    {
     "gate": 7,
     "time": 0.5,
     "detour": 1.004,
+    "min_speed": 10.82,
     "recovery": false
    },
    {
     "gate": 8,
     "time": 0.277,
     "detour": 1.002,
+    "min_speed": 9.21,
     "recovery": false
    },
    {
     "gate": 9,
     "time": 0.677,
     "detour": 1.004,
+    "min_speed": 8.29,
     "recovery": false
    },
    {
     "gate": 10,
     "time": 3.231,
     "detour": 5.956,
+    "min_speed": 0.86,
     "recovery": true
    },
    {
     "gate": 11,
     "time": 0.3,
     "detour": 1.004,
+    "min_speed": 7.88,
     "recovery": false
    },
    {
     "gate": 12,
     "time": 0.246,
     "detour": 1.003,
+    "min_speed": 11.75,
     "recovery": false
    },
    {
     "gate": 13,
     "time": 0.538,
     "detour": 1.077,
+    "min_speed": 9.03,
     "recovery": false
    },
    {
     "gate": 14,
     "time": 0.508,
     "detour": 1.031,
+    "min_speed": 11.21,
     "recovery": false
    },
    {
     "gate": 15,
     "time": 0.323,
     "detour": 1.006,
+    "min_speed": 11.2,
     "recovery": false
    },
    {
     "gate": 16,
     "time": 0.592,
     "detour": 1.003,
+    "min_speed": 10.52,
     "recovery": false
    },
    {
     "gate": 17,
     "time": 0.338,
     "detour": 1.078,
+    "min_speed": 7.02,
     "recovery": false
    },
    {
     "gate": 18,
     "time": 0.2,
     "detour": 1.0,
+    "min_speed": 8.4,
     "recovery": false
    }
   ],
@@ -675,48 +758,56 @@
     "gate": 1,
     "time": 0.538,
     "detour": 1.011,
+    "min_speed": 2.93,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 1.723,
     "detour": 1.026,
+    "min_speed": 10.41,
     "recovery": false
    },
    {
     "gate": 3,
     "time": 1.269,
     "detour": 1.017,
+    "min_speed": 12.3,
     "recovery": false
    },
    {
     "gate": 4,
     "time": 1.192,
     "detour": 1.044,
+    "min_speed": 14.52,
     "recovery": false
    },
    {
     "gate": 5,
     "time": 1.346,
     "detour": 1.02,
+    "min_speed": 13.87,
     "recovery": false
    },
    {
     "gate": 6,
     "time": 1.292,
     "detour": 1.02,
+    "min_speed": 10.15,
     "recovery": false
    },
    {
     "gate": 7,
     "time": 1.308,
     "detour": 1.019,
+    "min_speed": 9.14,
     "recovery": false
    },
    {
     "gate": 8,
     "time": 2.138,
     "detour": 1.034,
+    "min_speed": 10.53,
     "recovery": false
    }
   ],
@@ -740,48 +831,56 @@
     "gate": 1,
     "time": 0.531,
     "detour": 1.008,
+    "min_speed": 3.18,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 0.646,
     "detour": 1.031,
+    "min_speed": 10.4,
     "recovery": false
    },
    {
     "gate": 3,
     "time": 1.285,
     "detour": 1.043,
+    "min_speed": 8.53,
     "recovery": false
    },
    {
     "gate": 4,
     "time": 1.423,
     "detour": 1.201,
+    "min_speed": 8.22,
     "recovery": false
    },
    {
     "gate": 5,
     "time": 0.915,
     "detour": 1.115,
+    "min_speed": 8.74,
     "recovery": false
    },
    {
     "gate": 6,
     "time": 0.531,
     "detour": 1.152,
+    "min_speed": 7.79,
     "recovery": false
    },
    {
     "gate": 7,
     "time": 0.631,
     "detour": 1.006,
+    "min_speed": 10.34,
     "recovery": false
    },
    {
     "gate": 8,
     "time": 1.608,
     "detour": 4.371,
+    "min_speed": 2.7,
     "recovery": true
    }
   ],
@@ -813,48 +912,56 @@
     "gate": 1,
     "time": 0.562,
     "detour": 1.011,
+    "min_speed": 3.01,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 5.915,
     "detour": 1.49,
+    "min_speed": 3.44,
     "recovery": true
    },
    {
     "gate": 3,
     "time": 2.485,
     "detour": 1.265,
+    "min_speed": 9.17,
     "recovery": false
    },
    {
     "gate": 4,
     "time": 1.892,
     "detour": 1.393,
+    "min_speed": 5.76,
     "recovery": false
    },
    {
     "gate": 5,
     "time": 0.962,
     "detour": 1.003,
+    "min_speed": 8.67,
     "recovery": false
    },
    {
     "gate": 6,
     "time": 1.131,
     "detour": 1.031,
+    "min_speed": 9.85,
     "recovery": false
    },
    {
     "gate": 7,
     "time": 3.677,
     "detour": 3.889,
+    "min_speed": 0.59,
     "recovery": true
    },
    {
     "gate": 8,
     "time": 2.0,
     "detour": 1.169,
+    "min_speed": 5.45,
     "recovery": false
    }
   ],
@@ -893,36 +1000,42 @@
     "gate": 1,
     "time": 0.554,
     "detour": 1.008,
+    "min_speed": 2.88,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 0.5,
     "detour": 1.019,
+    "min_speed": 9.36,
     "recovery": false
    },
    {
     "gate": 3,
     "time": 1.231,
     "detour": 1.043,
+    "min_speed": 4.57,
     "recovery": false
    },
    {
     "gate": 4,
     "time": 0.531,
     "detour": 1.069,
+    "min_speed": 4.56,
     "recovery": false
    },
    {
     "gate": 5,
     "time": 1.292,
     "detour": 1.098,
+    "min_speed": 6.96,
     "recovery": false
    },
    {
     "gate": 6,
     "time": 0.654,
     "detour": 1.027,
+    "min_speed": 9.51,
     "recovery": false
    }
   ],
@@ -946,30 +1059,35 @@
     "gate": 1,
     "time": 0.546,
     "detour": 1.008,
+    "min_speed": 2.94,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 2.662,
     "detour": 1.123,
+    "min_speed": 9.61,
     "recovery": false
    },
    {
     "gate": 3,
     "time": 1.831,
     "detour": 1.116,
+    "min_speed": 9.88,
     "recovery": false
    },
    {
     "gate": 4,
     "time": 0.885,
     "detour": 1.022,
+    "min_speed": 10.4,
     "recovery": false
    },
    {
     "gate": 5,
     "time": 0.969,
     "detour": 1.029,
+    "min_speed": 9.34,
     "recovery": false
    }
   ],
@@ -993,48 +1111,56 @@
     "gate": 1,
     "time": 0.546,
     "detour": 1.004,
+    "min_speed": 3.08,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 0.754,
     "detour": 1.004,
+    "min_speed": 9.55,
     "recovery": false
    },
    {
     "gate": 3,
     "time": 3.454,
     "detour": 6.644,
+    "min_speed": 1.92,
     "recovery": true
    },
    {
     "gate": 4,
     "time": 0.846,
     "detour": 1.528,
+    "min_speed": 4.41,
     "recovery": false
    },
    {
     "gate": 5,
     "time": 0.869,
     "detour": 1.009,
+    "min_speed": 8.31,
     "recovery": false
    },
    {
     "gate": 6,
     "time": 1.077,
     "detour": 1.229,
+    "min_speed": 8.35,
     "recovery": false
    },
    {
     "gate": 7,
     "time": 1.277,
     "detour": 1.242,
+    "min_speed": 3.72,
     "recovery": false
    },
    {
     "gate": 8,
     "time": 1.108,
     "detour": 1.433,
+    "min_speed": 4.82,
     "recovery": false
    }
   ],
@@ -1066,102 +1192,119 @@
     "gate": 1,
     "time": 0.562,
     "detour": 1.005,
+    "min_speed": 3.04,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 0.877,
     "detour": 1.008,
+    "min_speed": 8.85,
     "recovery": false
    },
    {
     "gate": 3,
     "time": 8.992,
     "detour": 2.261,
+    "min_speed": 2.75,
     "recovery": true
    },
    {
     "gate": 4,
     "time": 1.762,
     "detour": 1.689,
+    "min_speed": 3.77,
     "recovery": true
    },
    {
     "gate": 5,
     "time": 2.762,
     "detour": 1.029,
+    "min_speed": 9.8,
     "recovery": false
    },
    {
     "gate": 6,
     "time": 0.946,
     "detour": 1.025,
+    "min_speed": 9.07,
     "recovery": false
    },
    {
     "gate": 7,
     "time": 0.692,
     "detour": 1.002,
+    "min_speed": 12.46,
     "recovery": false
    },
    {
     "gate": 8,
     "time": 0.715,
     "detour": 1.002,
+    "min_speed": 10.77,
     "recovery": false
    },
    {
     "gate": 9,
     "time": 0.677,
     "detour": 1.019,
+    "min_speed": 8.45,
     "recovery": false
    },
    {
     "gate": 10,
     "time": 0.485,
     "detour": 1.014,
+    "min_speed": 8.73,
     "recovery": false
    },
    {
     "gate": 11,
     "time": 0.423,
     "detour": 1.022,
+    "min_speed": 5.81,
     "recovery": false
    },
    {
     "gate": 12,
     "time": 0.392,
     "detour": 1.046,
+    "min_speed": 5.19,
     "recovery": false
    },
    {
     "gate": 13,
     "time": 0.231,
     "detour": 1.001,
+    "min_speed": 7.37,
     "recovery": false
    },
    {
     "gate": 14,
     "time": 0.415,
     "detour": 1.07,
+    "min_speed": 7.45,
     "recovery": false
    },
    {
     "gate": 15,
     "time": 0.492,
     "detour": 1.007,
+    "min_speed": 7.85,
     "recovery": false
    },
    {
     "gate": 16,
     "time": 0.615,
     "detour": 1.006,
+    "min_speed": 9.52,
     "recovery": false
    },
    {
     "gate": 17,
     "time": 0.746,
     "detour": 1.012,
+    "min_speed": 9.07,
     "recovery": false
    }
   ],
@@ -1200,48 +1343,56 @@
     "gate": 1,
     "time": 0.585,
     "detour": 1.007,
+    "min_speed": 2.96,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 0.985,
     "detour": 1.078,
+    "min_speed": 8.02,
     "recovery": false
    },
    {
     "gate": 3,
     "time": 1.323,
     "detour": 1.156,
+    "min_speed": 5.02,
     "recovery": false
    },
    {
     "gate": 4,
     "time": 1.246,
     "detour": 1.125,
+    "min_speed": 5.35,
     "recovery": false
    },
    {
     "gate": 5,
     "time": 1.377,
     "detour": 1.262,
+    "min_speed": 5.34,
     "recovery": false
    },
    {
     "gate": 6,
     "time": 1.023,
     "detour": 1.122,
+    "min_speed": 7.59,
     "recovery": false
    },
    {
     "gate": 7,
     "time": 0.823,
     "detour": 1.291,
+    "min_speed": 8.32,
     "recovery": false
    },
    {
     "gate": 8,
     "time": 1.331,
     "detour": 1.524,
+    "min_speed": 8.09,
     "recovery": false
    }
   ],
@@ -1265,78 +1416,91 @@
     "gate": 1,
     "time": 0.585,
     "detour": 1.009,
+    "min_speed": 2.89,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 1.123,
     "detour": 1.007,
+    "min_speed": 8.65,
     "recovery": false
    },
    {
     "gate": 3,
     "time": 0.954,
     "detour": 1.019,
+    "min_speed": 8.44,
     "recovery": false
    },
    {
     "gate": 4,
     "time": 15.062,
     "detour": 10.563,
+    "min_speed": 1.11,
     "recovery": true
    },
    {
     "gate": 5,
     "time": 1.015,
     "detour": 1.01,
+    "min_speed": 10.27,
     "recovery": false
    },
    {
     "gate": 6,
     "time": 1.115,
     "detour": 1.004,
+    "min_speed": 10.75,
     "recovery": false
    },
    {
     "gate": 7,
     "time": 0.977,
     "detour": 1.032,
+    "min_speed": 10.06,
     "recovery": false
    },
    {
     "gate": 8,
     "time": 1.123,
     "detour": 1.02,
+    "min_speed": 10.29,
     "recovery": false
    },
    {
     "gate": 9,
     "time": 1.123,
     "detour": 1.022,
+    "min_speed": 10.02,
     "recovery": false
    },
    {
     "gate": 10,
     "time": 0.946,
     "detour": 1.012,
+    "min_speed": 13.98,
     "recovery": false
    },
    {
     "gate": 11,
     "time": 0.923,
     "detour": 1.007,
+    "min_speed": 10.25,
     "recovery": false
    },
    {
     "gate": 12,
     "time": 0.869,
     "detour": 1.05,
+    "min_speed": 10.14,
     "recovery": false
    },
    {
     "gate": 13,
     "time": 1.123,
     "detour": 1.005,
+    "min_speed": 11.64,
     "recovery": false
    }
   ],
@@ -1368,108 +1532,126 @@
     "gate": 1,
     "time": 0.569,
     "detour": 1.006,
+    "min_speed": 2.98,
     "recovery": false
    },
    {
     "gate": 2,
     "time": 0.4,
     "detour": 1.049,
+    "min_speed": 8.06,
     "recovery": false
    },
    {
     "gate": 3,
     "time": 0.431,
     "detour": 1.007,
+    "min_speed": 10.23,
     "recovery": false
    },
    {
     "gate": 4,
     "time": 0.223,
     "detour": 1.002,
+    "min_speed": 11.71,
     "recovery": false
    },
    {
     "gate": 5,
     "time": 5.108,
     "detour": 10.568,
+    "min_speed": 2.99,
     "recovery": true
    },
    {
     "gate": 6,
     "time": 0.554,
     "detour": 1.006,
+    "min_speed": 6.83,
     "recovery": false
    },
    {
     "gate": 7,
     "time": 0.592,
     "detour": 1.01,
+    "min_speed": 9.35,
     "recovery": false
    },
    {
     "gate": 8,
     "time": 0.262,
     "detour": 1.01,
+    "min_speed": 10.87,
     "recovery": false
    },
    {
     "gate": 9,
     "time": 2.215,
     "detour": 2.476,
+    "min_speed": 2.21,
     "recovery": true
    },
    {
     "gate": 10,
     "time": 0.5,
     "detour": 1.038,
+    "min_speed": 3.65,
     "recovery": false
    },
    {
     "gate": 11,
     "time": 0.277,
     "detour": 1.002,
+    "min_speed": 9.57,
     "recovery": false
    },
    {
     "gate": 12,
     "time": 0.369,
     "detour": 1.01,
+    "min_speed": 8.44,
     "recovery": false
    },
    {
     "gate": 13,
     "time": 0.546,
     "detour": 1.016,
+    "min_speed": 8.72,
     "recovery": false
    },
    {
     "gate": 14,
     "time": 0.631,
     "detour": 1.116,
+    "min_speed": 9.17,
     "recovery": false
    },
    {
     "gate": 15,
     "time": 0.4,
     "detour": 1.026,
+    "min_speed": 9.49,
     "recovery": false
    },
    {
     "gate": 16,
     "time": 0.662,
     "detour": 1.014,
+    "min_speed": 9.8,
     "recovery": false
    },
    {
     "gate": 17,
     "time": 0.369,
     "detour": 1.023,
+    "min_speed": 7.2,
     "recovery": false
    },
    {
     "gate": 18,
     "time": 9.885,
     "detour": 32.531,
+    "min_speed": 1.85,
     "recovery": true
    }
   ],

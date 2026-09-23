@@ -73,7 +73,7 @@ def analyse(row):
         "mean_speed": round(statistics.fmean(raw), 2), "peak_speed": round(max(speed), 2),
         "peak_tilt": round(max(tilt), 1), "mean_offset": round(statistics.fmean(l["offset"] for l in legs), 2),
         "legs": [{"gate": l["gate"], "time": round(l["time"], 3), "detour": round(l["detour"], 3),
-                  "recovery": l in rec} for l in legs],
+                  "min_speed": round(l["min_speed"], 2), "recovery": l in rec} for l in legs],
         "recoveries": [{"gate": l["gate"], "time": round(l["time"], 2), "detour": round(l["detour"], 2),
                         "extra_path": round(l["path"] - math.dist(p[l["a"]], p[l["b"]]), 1),
                         "min_speed": round(l["min_speed"], 2), "a": l["a"], "b": l["b"]} for l in rec],

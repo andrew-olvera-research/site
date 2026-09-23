@@ -119,31 +119,51 @@
   ul.list { padding-left: 1.2em; }
   ul.list li + li { margin-top: 8px; }
 
-  /* ---------- RESULTS GALLERY ---------- */
-  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 24px; margin-top: 28px; }
-  @media (max-width: 720px) { .gallery { grid-template-columns: 1fr; } }
-  .clip { cursor: zoom-in; }
-  .clip figcaption { font-size: 15px; color: var(--ink); }
-
-  .lightbox {
-    position: fixed; inset: 0; z-index: 100; display: none; place-items: center; padding: 16px;
-    background: rgba(255,255,255,.96); cursor: zoom-out;
-  }
-  .lightbox.open { display: grid; }
-  .lightbox video { max-height: 84vh; width: min(1280px, 100%); border: 1px solid var(--line); border-radius: 4px; background: #fff; }
-  .lightbox p { margin-top: 12px; text-align: center; font-size: 15px; color: var(--ink-2); }
-
-  /* ---------- 3D SCENE (prototype) ---------- */
+  /* ---------- 3D EXPLORER ---------- */
+  .explorer { margin-top: 28px; }
   .scene3d { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: #fff; }
   .scene3d canvas { display: block; width: 100%; aspect-ratio: 16 / 9; cursor: grab; touch-action: none; outline: none; }
   .scene3d canvas:active { cursor: grabbing; }
-  .scene3d-bar { display: flex; align-items: center; gap: 12px; padding: 8px 12px; border-top: 1px solid var(--line); font-size: 13px; }
+  .scene3d-bar { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-top: 1px solid var(--line); font-size: 13px; }
   .scene3d-bar button {
     font: inherit; color: var(--ink); background: none; border: 1px solid var(--line-2);
-    border-radius: 999px; padding: 2px 12px; cursor: pointer; min-width: 64px;
+    border-radius: 999px; padding: 2px 12px; cursor: pointer; min-width: 44px;
   }
   .scene3d-bar button:hover { border-color: var(--ink); }
   .scene3d-bar input[type=range] { flex: 1; min-width: 0; accent-color: var(--accent); }
+  @media (max-width: 520px) { .scene3d-bar button:last-child { display: none; } }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 14px; margin-top: 16px; }
+  .tile {
+    font: inherit; text-align: left; background: none; border: 0; padding: 0; cursor: pointer; color: var(--ink);
+    display: flex; flex-direction: column; justify-content: flex-start; align-self: start;
+  }
+  .tile .still { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: #fff; }
+  .tile .still canvas { display: block; width: 100%; aspect-ratio: 4 / 3; }
+  .tile:hover .still { border-color: var(--line-2); }
+  .tile[aria-pressed=true] .still { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .tile b { display: block; font-size: 13.5px; font-weight: 500; margin-top: 6px; line-height: 1.35; }
+  .tile span { display: block; font-size: 12.5px; color: var(--muted); font-family: var(--mono); }
+
+  /* ---------- BEHAVIOUR ---------- */
+  .key { display: inline-block; width: 18px; height: 0; border-top: 2px solid var(--c); vertical-align: middle; margin-right: 6px; }
+  .strip svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .strip text { font-family: var(--sans); font-size: 12px; fill: var(--muted); }
+  .strip .row-l { fill: var(--ink-2); font-size: 13px; }
+  .strip .ax { stroke: var(--line); }
+  .strip .tip {
+    position: absolute; pointer-events: none; background: #fff; border: 1px solid var(--line-2); border-radius: 4px;
+    padding: 6px 9px; font-size: 12.5px; line-height: 1.45; color: var(--ink); box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    white-space: nowrap; display: none;
+  }
+  .strip .legend { display: flex; gap: 18px; font-size: 13px; color: var(--ink-2); margin-bottom: 6px; }
+  .strip .legend i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--c); margin-right: 6px; }
+  table.data { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.data th { text-align: left; font-weight: 600; color: var(--muted); font-size: 12.5px; padding: 6px 10px 6px 0; border-bottom: 1px solid var(--line-2); white-space: nowrap; }
+  table.data td { padding: 7px 10px 7px 0; border-bottom: 1px solid var(--line); color: var(--ink-2); }
+  table.data td.n, table.data th.n { text-align: right; font-family: var(--mono); font-size: 13px; }
+  table.data tbody tr { cursor: pointer; }
+  table.data tbody tr:hover td { background: var(--bg-2); }
+  .tag { font-family: var(--mono); font-size: 12px; color: var(--muted); }
 
   footer { border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 13.5px; color: var(--muted); }
   footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -292,6 +312,7 @@
       <li class="opt"><a href="#method">Architecture</a></li>
       <li class="opt"><a href="#training">Pretraining</a></li>
       <li><a href="#results">Results</a></li>
+      <li class="opt"><a href="#behavior">Behavior</a></li>
       <li><a href="../">Home</a></li>
     </ul>
   </div>
@@ -627,14 +648,56 @@
   <div class="wrap wide">
     <h2>Results</h2>
     <div class="wrap prose" style="width:100%;max-width:var(--wrap);text-align:center">
-      <p>Full-course rollouts on eight courses. Real-time playback. Click a clip to enlarge.</p>
+      <p>The fastest completed rollout on each of twelve courses, replayed in real time from the recorded states.
+      Pick a course below. Drag to orbit, shift-drag to pan, click then scroll (or pinch) to zoom, double-click to reset.</p>
     </div>
-    <figure class="fig" style="max-width:var(--wrap);margin-inline:auto">
-      <div class="scene3d" data-scene3d="assets/scene3d/demo.json"></div>
-      <figcaption><b>Interactive rollout.</b> Drag to orbit, shift-drag to pan, click then scroll (or pinch) to zoom,
-      double-click to reset. Placeholder course while the real rollouts are exported.</figcaption>
-    </figure>
-    <div class="gallery" id="gallery"></div>
+    <div class="explorer" data-set="fastest"></div>
+  </div>
+</section>
+
+<!-- ================= BEHAVIOUR ================= -->
+<section class="block" id="behavior">
+  <div class="wrap">
+    <h2>Behavioral analysis</h2>
+    <div class="prose">
+      <p>The rollouts above are the clean ones. The more telling behaviour is what the policy does when a gate
+      approach goes wrong. We tagged seven rollouts in which the policy recovers from a missed or aborted
+      approach and still finishes the course, and located each recovery in the recorded states.</p>
+      <p>A <b>recovery leg</b> is a gate-to-gate leg, inside a tagged rollout, that flies at least 5&nbsp;m further than
+      the straight line and either takes twice that rollout&rsquo;s median leg time or has a detour ratio
+      (path length over straight-line distance) of at least 3. Recovery legs are drawn in orange.</p>
+    </div>
+  </div>
+  <div class="wrap wide">
+    <div class="runstat" id="bstats" style="margin-top:32px"></div>
+    <div class="explorer" data-set="recovery"></div>
+  </div>
+  <div class="wrap">
+    <h3>Detours, leg by leg</h3>
+    <p class="prose">Every gate-to-gate leg in all nineteen rollouts, placed by its detour ratio. Clean legs sit
+    close to 1 regardless of course. The worst recoveries sit far outside anything in clean flight; the milder ones
+    overlap it on detour alone and are flagged by the time they take instead.</p>
+    <figure class="fig strip" id="strip" style="position:relative"></figure>
+
+    <h3>Every recovery</h3>
+    <div class="scroll-x"><table class="data" id="rtable"></table></div>
+    <p class="prose" style="margin-top:10px;font-size:14px">Click a row to load that rollout above.</p>
+
+    <h3>What the recoveries look like</h3>
+    <ul class="list prose">
+      <li><b>It brakes rather than forcing the gate.</b> The slowest point of a recovery leg drops to between
+      0.6 and 3.8&nbsp;m/s, against a median of 7.4&nbsp;m/s for the slowest point of a leg in the fastest set.</li>
+      <li><b>It goes around and takes the gate again.</b> Recovery legs cost a median of about 21&nbsp;m of
+      extra path, and every tagged rollout still clears every gate in order.</li>
+      <li><b>The rest of the rollout is untouched.</b> Outside the recovery legs, tagged rollouts fly with a median
+      detour of 1.01, no looser than the fastest set (1.07). The recovery is local, not a degraded mode.</li>
+      <li><b>Same course, different episodes.</b> Flow 027-057 appears twice: one episode recovers once at gate 10,
+      the other three times (gates 5, 9 and 18) and takes more than twice as long, yet both finish.</li>
+    </ul>
+
+    <h3>What the representation is doing</h3>
+    <p class="prose todo">Pending: latent readouts around recovery onsets (encoder activations, probes for
+    gate-relative state and progress) will go here, aligned to the recovery legs above.</p>
   </div>
 </section>
 </main>
@@ -646,72 +709,19 @@
   </div>
 </footer>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged clip">
-  <div><video muted loop playsinline controls></video><p></p></div>
-</div>
 
 <script>
 (() => {
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  /* ---------- Clips: edit names / order here ---------- */
-  const DIR = 'assets/research-gifs-v6211-update-fix-refined/';
-  const CLIPS = [
-    ['01-v622-hard-v2b-vertical-chain-008-06',          'Vertical chain'],
-    ['02-v622-hard-v2b-compound-reversal-021-03',       'Compound reversal'],
-    ['03-v622-hard-diving-hairpin-039-011-arena1',      'Diving hairpin'],
-    ['04-v622-hard-slalom-028-029',                     'Slalom'],
-    ['05-v622-hard-long-braking-023-005-arena1-mirror1', 'Long braking'],
-    ['06-v622-hard-v2b-radius-switch-029-21',           'Changing-radius turns'],
-    ['07-v622-hard-ordered-3d-042-003-mirror1',         'Ordered 3D'],
-    ['08-v622-hard-v2b-wrong-side-incidence-015-15',    'Oblique gate approaches'],
-  ];
-
-  const gallery = document.getElementById('gallery');
-  CLIPS.forEach(([f, name]) => {
-    const fig = document.createElement('figure');
-    fig.className = 'clip';
-    const frame = document.createElement('div');
-    frame.className = 'frame';
-    const v = document.createElement('video');
-    Object.assign(v, { muted: true, loop: true, playsInline: true, preload: 'metadata', poster: `${DIR}${f}-poster.jpg` });
-    const src = document.createElement('source');
-    src.src = `${DIR}${f}.mp4`; src.type = 'video/mp4';
-    // If the mp4 can't be played, fall back to the GIF.
-    src.addEventListener('error', () => {
-      const img = new Image(); img.src = `${DIR}${f}.gif`; img.alt = name; img.loading = 'lazy';
-      v.replaceWith(img);
-    });
-    v.appendChild(src);
-    frame.appendChild(v);
-    const cap = document.createElement('figcaption');
-    cap.textContent = name;
-    fig.append(frame, cap);
-    fig.addEventListener('click', () => openBox(f, name));
-    gallery.appendChild(fig);
-  });
-
-  /* Play clips only while on screen */
+  /* Hero clip plays only while on screen */
   const vis = new IntersectionObserver(entries => {
     entries.forEach(e => {
       const v = e.target;
       if (e.isIntersecting) { const p = v.play(); if (p) p.catch(() => {}); } else v.pause();
     });
   }, { threshold: .25 });
-  document.querySelectorAll('.clip video, .teaser video').forEach(v => vis.observe(v));
-
-  /* ---------- Lightbox ---------- */
-  const lb = document.getElementById('lightbox'), lbVid = lb.querySelector('video'), lbCap = lb.querySelector('p');
-  function openBox(f, name) {
-    lbVid.poster = `${DIR}${f}-poster.jpg`;
-    lbVid.src = `${DIR}${f}.mp4`;
-    lbCap.textContent = name;
-    lb.classList.add('open');
-    const p = lbVid.play(); if (p) p.catch(() => {});
-  }
-  const close = () => { lb.classList.remove('open'); lbVid.pause(); lbVid.removeAttribute('src'); lbVid.load(); };
-  lb.addEventListener('click', e => { if (e.target !== lbVid) close(); });
-  addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('open')) close(); });
+  document.querySelectorAll('.teaser video').forEach(v => vis.observe(v));
 
   /* ---------- Active nav link ---------- */
   const links = [...document.querySelectorAll('.nav ul a[href^="#"]')];
@@ -723,6 +733,7 @@
   document.querySelectorAll('section.block').forEach(s => secObs.observe(s));
 })();
 </script>
-<script src="scene3d.js" defer></script>
+<script src="scene3d.js"></script>
+<script src="results.js"></script>
 </body>
 </html>
