@@ -1,0 +1,1501 @@
+[
+ {
+  "slug": "v622-hard-v2b-vertical-chain-008-06-fastest",
+  "name": "Vertical chain 008-06",
+  "track": "v622_hard_v2b_vertical_chain_008_06",
+  "tag": "fastest",
+  "gates": 8,
+  "time": 7.79,
+  "path": 72.9,
+  "mean_speed": 9.35,
+  "peak_speed": 14.47,
+  "peak_tilt": 93.7,
+  "mean_offset": 0.39,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.562,
+    "detour": 1.007,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 1.308,
+    "detour": 1.303,
+    "recovery": false
+   },
+   {
+    "gate": 3,
+    "time": 0.992,
+    "detour": 1.093,
+    "recovery": false
+   },
+   {
+    "gate": 4,
+    "time": 1.446,
+    "detour": 1.237,
+    "recovery": false
+   },
+   {
+    "gate": 5,
+    "time": 1.085,
+    "detour": 1.177,
+    "recovery": false
+   },
+   {
+    "gate": 6,
+    "time": 0.938,
+    "detour": 1.063,
+    "recovery": false
+   },
+   {
+    "gate": 7,
+    "time": 1.015,
+    "detour": 1.213,
+    "recovery": false
+   },
+   {
+    "gate": 8,
+    "time": 0.446,
+    "detour": 1.107,
+    "recovery": false
+   }
+  ],
+  "recoveries": [],
+  "recovery_share": 0.0
+ },
+ {
+  "slug": "v622-hard-v2b-compound-reversal-021-03-fastest",
+  "name": "Compound reversal 021-03",
+  "track": "v622_hard_v2b_compound_reversal_021_03",
+  "tag": "fastest",
+  "gates": 7,
+  "time": 7.49,
+  "path": 62.9,
+  "mean_speed": 8.4,
+  "peak_speed": 14.23,
+  "peak_tilt": 99.5,
+  "mean_offset": 0.22,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.562,
+    "detour": 1.005,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 1.262,
+    "detour": 1.665,
+    "recovery": false
+   },
+   {
+    "gate": 3,
+    "time": 1.2,
+    "detour": 1.235,
+    "recovery": false
+   },
+   {
+    "gate": 4,
+    "time": 1.669,
+    "detour": 2.097,
+    "recovery": false
+   },
+   {
+    "gate": 5,
+    "time": 1.154,
+    "detour": 1.137,
+    "recovery": false
+   },
+   {
+    "gate": 6,
+    "time": 0.808,
+    "detour": 1.04,
+    "recovery": false
+   },
+   {
+    "gate": 7,
+    "time": 0.838,
+    "detour": 1.154,
+    "recovery": false
+   }
+  ],
+  "recoveries": [],
+  "recovery_share": 0.0
+ },
+ {
+  "slug": "v622-hard-diving-hairpin-039-011-arena1-fastest",
+  "name": "Diving hairpin 039-011",
+  "track": "v622_hard_diving_hairpin_039_011_arena1",
+  "tag": "fastest",
+  "gates": 5,
+  "time": 6.85,
+  "path": 74.5,
+  "mean_speed": 10.88,
+  "peak_speed": 18.63,
+  "peak_tilt": 108.0,
+  "mean_offset": 0.22,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.6,
+    "detour": 1.008,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 1.262,
+    "detour": 1.045,
+    "recovery": false
+   },
+   {
+    "gate": 3,
+    "time": 1.838,
+    "detour": 1.363,
+    "recovery": false
+   },
+   {
+    "gate": 4,
+    "time": 1.346,
+    "detour": 1.106,
+    "recovery": false
+   },
+   {
+    "gate": 5,
+    "time": 1.808,
+    "detour": 1.064,
+    "recovery": false
+   }
+  ],
+  "recoveries": [],
+  "recovery_share": 0.0
+ },
+ {
+  "slug": "v622-hard-slalom-028-029-fastest",
+  "name": "Slalom 028-029",
+  "track": "v622_hard_slalom_028_029",
+  "tag": "fastest",
+  "gates": 9,
+  "time": 7.08,
+  "path": 79.0,
+  "mean_speed": 11.16,
+  "peak_speed": 18.49,
+  "peak_tilt": 101.9,
+  "mean_offset": 0.53,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.562,
+    "detour": 1.006,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 1.254,
+    "detour": 1.081,
+    "recovery": false
+   },
+   {
+    "gate": 3,
+    "time": 1.131,
+    "detour": 1.076,
+    "recovery": false
+   },
+   {
+    "gate": 4,
+    "time": 1.308,
+    "detour": 1.096,
+    "recovery": false
+   },
+   {
+    "gate": 5,
+    "time": 0.177,
+    "detour": 1.0,
+    "recovery": false
+   },
+   {
+    "gate": 6,
+    "time": 0.5,
+    "detour": 1.101,
+    "recovery": false
+   },
+   {
+    "gate": 7,
+    "time": 0.646,
+    "detour": 1.008,
+    "recovery": false
+   },
+   {
+    "gate": 8,
+    "time": 0.792,
+    "detour": 1.134,
+    "recovery": false
+   },
+   {
+    "gate": 9,
+    "time": 0.715,
+    "detour": 1.076,
+    "recovery": false
+   }
+  ],
+  "recoveries": [],
+  "recovery_share": 0.0
+ },
+ {
+  "slug": "v622-hard-long-braking-023-005-arena1-mirror1-fastest",
+  "name": "Long braking 023-005",
+  "track": "v622_hard_long_braking_023_005_arena1_mirror1",
+  "tag": "fastest",
+  "gates": 10,
+  "time": 11.0,
+  "path": 126.6,
+  "mean_speed": 11.51,
+  "peak_speed": 19.2,
+  "peak_tilt": 92.7,
+  "mean_offset": 0.46,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.585,
+    "detour": 1.007,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 0.738,
+    "detour": 1.005,
+    "recovery": false
+   },
+   {
+    "gate": 3,
+    "time": 0.523,
+    "detour": 1.015,
+    "recovery": false
+   },
+   {
+    "gate": 4,
+    "time": 0.446,
+    "detour": 1.019,
+    "recovery": false
+   },
+   {
+    "gate": 5,
+    "time": 0.569,
+    "detour": 1.024,
+    "recovery": false
+   },
+   {
+    "gate": 6,
+    "time": 0.877,
+    "detour": 1.006,
+    "recovery": false
+   },
+   {
+    "gate": 7,
+    "time": 1.431,
+    "detour": 1.01,
+    "recovery": false
+   },
+   {
+    "gate": 8,
+    "time": 2.9,
+    "detour": 1.107,
+    "recovery": false
+   },
+   {
+    "gate": 9,
+    "time": 0.977,
+    "detour": 1.132,
+    "recovery": false
+   },
+   {
+    "gate": 10,
+    "time": 1.954,
+    "detour": 1.012,
+    "recovery": false
+   }
+  ],
+  "recoveries": [],
+  "recovery_share": 0.0
+ },
+ {
+  "slug": "v622-hard-v2b-radius-switch-029-21-fastest",
+  "name": "Changing-radius turns 029-21",
+  "track": "v622_hard_v2b_radius_switch_029_21",
+  "tag": "fastest",
+  "gates": 8,
+  "time": 11.45,
+  "path": 136.5,
+  "mean_speed": 11.92,
+  "peak_speed": 19.96,
+  "peak_tilt": 97.5,
+  "mean_offset": 0.35,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.554,
+    "detour": 1.009,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 2.608,
+    "detour": 1.219,
+    "recovery": false
+   },
+   {
+    "gate": 3,
+    "time": 0.754,
+    "detour": 1.496,
+    "recovery": false
+   },
+   {
+    "gate": 4,
+    "time": 2.792,
+    "detour": 1.296,
+    "recovery": false
+   },
+   {
+    "gate": 5,
+    "time": 0.446,
+    "detour": 1.067,
+    "recovery": false
+   },
+   {
+    "gate": 6,
+    "time": 1.238,
+    "detour": 1.266,
+    "recovery": false
+   },
+   {
+    "gate": 7,
+    "time": 1.492,
+    "detour": 1.051,
+    "recovery": false
+   },
+   {
+    "gate": 8,
+    "time": 1.569,
+    "detour": 1.029,
+    "recovery": false
+   }
+  ],
+  "recoveries": [],
+  "recovery_share": 0.0
+ },
+ {
+  "slug": "v622-hard-ordered-3d-042-003-mirror1-fastest",
+  "name": "Ordered 3D 042-003",
+  "track": "v622_hard_ordered_3d_042_003_mirror1",
+  "tag": "fastest",
+  "gates": 10,
+  "time": 7.65,
+  "path": 72.1,
+  "mean_speed": 9.42,
+  "peak_speed": 15.78,
+  "peak_tilt": 104.7,
+  "mean_offset": 0.57,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.523,
+    "detour": 1.006,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 0.677,
+    "detour": 1.004,
+    "recovery": false
+   },
+   {
+    "gate": 3,
+    "time": 0.431,
+    "detour": 1.019,
+    "recovery": false
+   },
+   {
+    "gate": 4,
+    "time": 0.515,
+    "detour": 1.164,
+    "recovery": false
+   },
+   {
+    "gate": 5,
+    "time": 0.831,
+    "detour": 1.011,
+    "recovery": false
+   },
+   {
+    "gate": 6,
+    "time": 0.569,
+    "detour": 1.002,
+    "recovery": false
+   },
+   {
+    "gate": 7,
+    "time": 0.892,
+    "detour": 1.026,
+    "recovery": false
+   },
+   {
+    "gate": 8,
+    "time": 1.046,
+    "detour": 1.353,
+    "recovery": false
+   },
+   {
+    "gate": 9,
+    "time": 0.846,
+    "detour": 1.458,
+    "recovery": false
+   },
+   {
+    "gate": 10,
+    "time": 1.315,
+    "detour": 2.638,
+    "recovery": false
+   }
+  ],
+  "recoveries": [],
+  "recovery_share": 0.0
+ },
+ {
+  "slug": "v622-hard-v2b-wrong-side-incidence-015-15-fastest",
+  "name": "Oblique gate approaches 015-15",
+  "track": "v622_hard_v2b_wrong_side_incidence_015_15",
+  "tag": "fastest",
+  "gates": 8,
+  "time": 14.24,
+  "path": 183.0,
+  "mean_speed": 12.85,
+  "peak_speed": 21.4,
+  "peak_tilt": 163.4,
+  "mean_offset": 0.34,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.546,
+    "detour": 1.003,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 2.385,
+    "detour": 1.557,
+    "recovery": false
+   },
+   {
+    "gate": 3,
+    "time": 3.708,
+    "detour": 2.205,
+    "recovery": false
+   },
+   {
+    "gate": 4,
+    "time": 1.338,
+    "detour": 1.081,
+    "recovery": false
+   },
+   {
+    "gate": 5,
+    "time": 2.331,
+    "detour": 1.34,
+    "recovery": false
+   },
+   {
+    "gate": 6,
+    "time": 2.085,
+    "detour": 1.269,
+    "recovery": false
+   },
+   {
+    "gate": 7,
+    "time": 0.9,
+    "detour": 1.022,
+    "recovery": false
+   },
+   {
+    "gate": 8,
+    "time": 0.946,
+    "detour": 1.106,
+    "recovery": false
+   }
+  ],
+  "recoveries": [],
+  "recovery_share": 0.0
+ },
+ {
+  "slug": "v622-hard-flow-027-057-mirror1-recovery-fallback",
+  "name": "Flow 027-057",
+  "track": "v622_hard_flow_027_057_mirror1",
+  "tag": "recovery_fallback",
+  "gates": 18,
+  "time": 10.24,
+  "path": 92.4,
+  "mean_speed": 9.02,
+  "peak_speed": 13.05,
+  "peak_tilt": 98.9,
+  "mean_offset": 0.53,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.585,
+    "detour": 1.007,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 0.354,
+    "detour": 1.022,
+    "recovery": false
+   },
+   {
+    "gate": 3,
+    "time": 0.431,
+    "detour": 1.022,
+    "recovery": false
+   },
+   {
+    "gate": 4,
+    "time": 0.254,
+    "detour": 1.0,
+    "recovery": false
+   },
+   {
+    "gate": 5,
+    "time": 0.377,
+    "detour": 1.001,
+    "recovery": false
+   },
+   {
+    "gate": 6,
+    "time": 0.508,
+    "detour": 1.059,
+    "recovery": false
+   },
+   {
+    "gate": 7,
+    "time": 0.5,
+    "detour": 1.004,
+    "recovery": false
+   },
+   {
+    "gate": 8,
+    "time": 0.277,
+    "detour": 1.002,
+    "recovery": false
+   },
+   {
+    "gate": 9,
+    "time": 0.677,
+    "detour": 1.004,
+    "recovery": false
+   },
+   {
+    "gate": 10,
+    "time": 3.231,
+    "detour": 5.956,
+    "recovery": true
+   },
+   {
+    "gate": 11,
+    "time": 0.3,
+    "detour": 1.004,
+    "recovery": false
+   },
+   {
+    "gate": 12,
+    "time": 0.246,
+    "detour": 1.003,
+    "recovery": false
+   },
+   {
+    "gate": 13,
+    "time": 0.538,
+    "detour": 1.077,
+    "recovery": false
+   },
+   {
+    "gate": 14,
+    "time": 0.508,
+    "detour": 1.031,
+    "recovery": false
+   },
+   {
+    "gate": 15,
+    "time": 0.323,
+    "detour": 1.006,
+    "recovery": false
+   },
+   {
+    "gate": 16,
+    "time": 0.592,
+    "detour": 1.003,
+    "recovery": false
+   },
+   {
+    "gate": 17,
+    "time": 0.338,
+    "detour": 1.078,
+    "recovery": false
+   },
+   {
+    "gate": 18,
+    "time": 0.2,
+    "detour": 1.0,
+    "recovery": false
+   }
+  ],
+  "recoveries": [
+   {
+    "gate": 10,
+    "time": 3.23,
+    "detour": 5.96,
+    "extra_path": 17.6,
+    "min_speed": 0.86
+   }
+  ],
+  "recovery_share": 0.316
+ },
+ {
+  "slug": "v622-hard-long-low-058-007-arena1-mirror1-fastest",
+  "name": "Long low 058-007",
+  "track": "v622_hard_long_low_058_007_arena1_mirror1",
+  "tag": "fastest",
+  "gates": 8,
+  "time": 10.81,
+  "path": 160.0,
+  "mean_speed": 14.81,
+  "peak_speed": 20.5,
+  "peak_tilt": 92.5,
+  "mean_offset": 0.42,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.538,
+    "detour": 1.011,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 1.723,
+    "detour": 1.026,
+    "recovery": false
+   },
+   {
+    "gate": 3,
+    "time": 1.269,
+    "detour": 1.017,
+    "recovery": false
+   },
+   {
+    "gate": 4,
+    "time": 1.192,
+    "detour": 1.044,
+    "recovery": false
+   },
+   {
+    "gate": 5,
+    "time": 1.346,
+    "detour": 1.02,
+    "recovery": false
+   },
+   {
+    "gate": 6,
+    "time": 1.292,
+    "detour": 1.02,
+    "recovery": false
+   },
+   {
+    "gate": 7,
+    "time": 1.308,
+    "detour": 1.019,
+    "recovery": false
+   },
+   {
+    "gate": 8,
+    "time": 2.138,
+    "detour": 1.034,
+    "recovery": false
+   }
+  ],
+  "recoveries": [],
+  "recovery_share": 0.0
+ },
+ {
+  "slug": "v622-hard-go-around-017-040-mirror1-recovery-fallback",
+  "name": "Go-around 017-040",
+  "track": "v622_hard_go_around_017_040_mirror1",
+  "tag": "recovery_fallback",
+  "gates": 8,
+  "time": 7.57,
+  "path": 82.4,
+  "mean_speed": 10.89,
+  "peak_speed": 19.54,
+  "peak_tilt": 117.6,
+  "mean_offset": 0.39,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.531,
+    "detour": 1.008,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 0.646,
+    "detour": 1.031,
+    "recovery": false
+   },
+   {
+    "gate": 3,
+    "time": 1.285,
+    "detour": 1.043,
+    "recovery": false
+   },
+   {
+    "gate": 4,
+    "time": 1.423,
+    "detour": 1.201,
+    "recovery": false
+   },
+   {
+    "gate": 5,
+    "time": 0.915,
+    "detour": 1.115,
+    "recovery": false
+   },
+   {
+    "gate": 6,
+    "time": 0.531,
+    "detour": 1.152,
+    "recovery": false
+   },
+   {
+    "gate": 7,
+    "time": 0.631,
+    "detour": 1.006,
+    "recovery": false
+   },
+   {
+    "gate": 8,
+    "time": 1.608,
+    "detour": 4.371,
+    "recovery": true
+   }
+  ],
+  "recoveries": [
+   {
+    "gate": 8,
+    "time": 1.61,
+    "detour": 4.37,
+    "extra_path": 10.4,
+    "min_speed": 2.7
+   }
+  ],
+  "recovery_share": 0.212
+ },
+ {
+  "slug": "v622-hard-v2b-long-low-braking-003-08-recovery-fallback",
+  "name": "Long low braking 003-08",
+  "track": "v622_hard_v2b_long_low_braking_003_08",
+  "tag": "recovery_fallback",
+  "gates": 8,
+  "time": 18.62,
+  "path": 201.3,
+  "mean_speed": 10.81,
+  "peak_speed": 19.13,
+  "peak_tilt": 121.8,
+  "mean_offset": 0.38,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.562,
+    "detour": 1.011,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 5.915,
+    "detour": 1.49,
+    "recovery": true
+   },
+   {
+    "gate": 3,
+    "time": 2.485,
+    "detour": 1.265,
+    "recovery": false
+   },
+   {
+    "gate": 4,
+    "time": 1.892,
+    "detour": 1.393,
+    "recovery": false
+   },
+   {
+    "gate": 5,
+    "time": 0.962,
+    "detour": 1.003,
+    "recovery": false
+   },
+   {
+    "gate": 6,
+    "time": 1.131,
+    "detour": 1.031,
+    "recovery": false
+   },
+   {
+    "gate": 7,
+    "time": 3.677,
+    "detour": 3.889,
+    "recovery": true
+   },
+   {
+    "gate": 8,
+    "time": 2.0,
+    "detour": 1.169,
+    "recovery": false
+   }
+  ],
+  "recoveries": [
+   {
+    "gate": 2,
+    "time": 5.92,
+    "detour": 1.49,
+    "extra_path": 20.9,
+    "min_speed": 3.44
+   },
+   {
+    "gate": 7,
+    "time": 3.68,
+    "detour": 3.89,
+    "extra_path": 23.3,
+    "min_speed": 0.59
+   }
+  ],
+  "recovery_share": 0.515
+ },
+ {
+  "slug": "v622-hard-stacked-reversal-016-033-fastest",
+  "name": "Stacked reversal 016-033",
+  "track": "v622_hard_stacked_reversal_016_033",
+  "tag": "fastest",
+  "gates": 6,
+  "time": 4.76,
+  "path": 47.4,
+  "mean_speed": 9.96,
+  "peak_speed": 14.9,
+  "peak_tilt": 143.6,
+  "mean_offset": 0.44,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.554,
+    "detour": 1.008,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 0.5,
+    "detour": 1.019,
+    "recovery": false
+   },
+   {
+    "gate": 3,
+    "time": 1.231,
+    "detour": 1.043,
+    "recovery": false
+   },
+   {
+    "gate": 4,
+    "time": 0.531,
+    "detour": 1.069,
+    "recovery": false
+   },
+   {
+    "gate": 5,
+    "time": 1.292,
+    "detour": 1.098,
+    "recovery": false
+   },
+   {
+    "gate": 6,
+    "time": 0.654,
+    "detour": 1.027,
+    "recovery": false
+   }
+  ],
+  "recoveries": [],
+  "recovery_share": 0.0
+ },
+ {
+  "slug": "multigp-utt05-nautilus-fastest",
+  "name": "MultiGP Nautilus",
+  "track": "multigp_utt05_nautilus",
+  "tag": "fastest",
+  "gates": 5,
+  "time": 6.89,
+  "path": 101.5,
+  "mean_speed": 14.72,
+  "peak_speed": 20.3,
+  "peak_tilt": 99.2,
+  "mean_offset": 0.39,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.546,
+    "detour": 1.008,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 2.662,
+    "detour": 1.123,
+    "recovery": false
+   },
+   {
+    "gate": 3,
+    "time": 1.831,
+    "detour": 1.116,
+    "recovery": false
+   },
+   {
+    "gate": 4,
+    "time": 0.885,
+    "detour": 1.022,
+    "recovery": false
+   },
+   {
+    "gate": 5,
+    "time": 0.969,
+    "detour": 1.029,
+    "recovery": false
+   }
+  ],
+  "recoveries": [],
+  "recovery_share": 0.0
+ },
+ {
+  "slug": "v622-hard-hairpin-chain-047-038-mirror1-recovery-fallback",
+  "name": "Hairpin chain 047-038",
+  "track": "v622_hard_hairpin_chain_047_038_mirror1",
+  "tag": "recovery_fallback",
+  "gates": 8,
+  "time": 9.93,
+  "path": 84.8,
+  "mean_speed": 8.54,
+  "peak_speed": 14.77,
+  "peak_tilt": 110.0,
+  "mean_offset": 0.35,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.546,
+    "detour": 1.004,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 0.754,
+    "detour": 1.004,
+    "recovery": false
+   },
+   {
+    "gate": 3,
+    "time": 3.454,
+    "detour": 6.644,
+    "recovery": true
+   },
+   {
+    "gate": 4,
+    "time": 0.846,
+    "detour": 1.528,
+    "recovery": false
+   },
+   {
+    "gate": 5,
+    "time": 0.869,
+    "detour": 1.009,
+    "recovery": false
+   },
+   {
+    "gate": 6,
+    "time": 1.077,
+    "detour": 1.229,
+    "recovery": false
+   },
+   {
+    "gate": 7,
+    "time": 1.277,
+    "detour": 1.242,
+    "recovery": false
+   },
+   {
+    "gate": 8,
+    "time": 1.108,
+    "detour": 1.433,
+    "recovery": false
+   }
+  ],
+  "recoveries": [
+   {
+    "gate": 3,
+    "time": 3.45,
+    "detour": 6.64,
+    "extra_path": 18.1,
+    "min_speed": 1.92
+   }
+  ],
+  "recovery_share": 0.348
+ },
+ {
+  "slug": "v622-hard-long-braking-032-010-arena1-mirror1-recovery-fallback",
+  "name": "Long braking 032-010",
+  "track": "v622_hard_long_braking_032_010_arena1_mirror1",
+  "tag": "recovery_fallback",
+  "gates": 17,
+  "time": 21.78,
+  "path": 236.0,
+  "mean_speed": 10.83,
+  "peak_speed": 20.95,
+  "peak_tilt": 115.5,
+  "mean_offset": 0.44,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.562,
+    "detour": 1.005,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 0.877,
+    "detour": 1.008,
+    "recovery": false
+   },
+   {
+    "gate": 3,
+    "time": 8.992,
+    "detour": 2.261,
+    "recovery": true
+   },
+   {
+    "gate": 4,
+    "time": 1.762,
+    "detour": 1.689,
+    "recovery": true
+   },
+   {
+    "gate": 5,
+    "time": 2.762,
+    "detour": 1.029,
+    "recovery": false
+   },
+   {
+    "gate": 6,
+    "time": 0.946,
+    "detour": 1.025,
+    "recovery": false
+   },
+   {
+    "gate": 7,
+    "time": 0.692,
+    "detour": 1.002,
+    "recovery": false
+   },
+   {
+    "gate": 8,
+    "time": 0.715,
+    "detour": 1.002,
+    "recovery": false
+   },
+   {
+    "gate": 9,
+    "time": 0.677,
+    "detour": 1.019,
+    "recovery": false
+   },
+   {
+    "gate": 10,
+    "time": 0.485,
+    "detour": 1.014,
+    "recovery": false
+   },
+   {
+    "gate": 11,
+    "time": 0.423,
+    "detour": 1.022,
+    "recovery": false
+   },
+   {
+    "gate": 12,
+    "time": 0.392,
+    "detour": 1.046,
+    "recovery": false
+   },
+   {
+    "gate": 13,
+    "time": 0.231,
+    "detour": 1.001,
+    "recovery": false
+   },
+   {
+    "gate": 14,
+    "time": 0.415,
+    "detour": 1.07,
+    "recovery": false
+   },
+   {
+    "gate": 15,
+    "time": 0.492,
+    "detour": 1.007,
+    "recovery": false
+   },
+   {
+    "gate": 16,
+    "time": 0.615,
+    "detour": 1.006,
+    "recovery": false
+   },
+   {
+    "gate": 17,
+    "time": 0.746,
+    "detour": 1.012,
+    "recovery": false
+   }
+  ],
+  "recoveries": [
+   {
+    "gate": 3,
+    "time": 8.99,
+    "detour": 2.26,
+    "extra_path": 53.6,
+    "min_speed": 2.75
+   },
+   {
+    "gate": 4,
+    "time": 1.76,
+    "detour": 1.69,
+    "extra_path": 6.9,
+    "min_speed": 3.77
+   }
+  ],
+  "recovery_share": 0.494
+ },
+ {
+  "slug": "v622-hard-v2b-compound-reversal-020-05-fastest",
+  "name": "Compound reversal 020-05",
+  "track": "v622_hard_v2b_compound_reversal_020_05",
+  "tag": "fastest",
+  "gates": 8,
+  "time": 8.69,
+  "path": 76.4,
+  "mean_speed": 8.79,
+  "peak_speed": 12.87,
+  "peak_tilt": 104.1,
+  "mean_offset": 0.3,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.585,
+    "detour": 1.007,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 0.985,
+    "detour": 1.078,
+    "recovery": false
+   },
+   {
+    "gate": 3,
+    "time": 1.323,
+    "detour": 1.156,
+    "recovery": false
+   },
+   {
+    "gate": 4,
+    "time": 1.246,
+    "detour": 1.125,
+    "recovery": false
+   },
+   {
+    "gate": 5,
+    "time": 1.377,
+    "detour": 1.262,
+    "recovery": false
+   },
+   {
+    "gate": 6,
+    "time": 1.023,
+    "detour": 1.122,
+    "recovery": false
+   },
+   {
+    "gate": 7,
+    "time": 0.823,
+    "detour": 1.291,
+    "recovery": false
+   },
+   {
+    "gate": 8,
+    "time": 1.331,
+    "detour": 1.524,
+    "recovery": false
+   }
+  ],
+  "recoveries": [],
+  "recovery_share": 0.0
+ },
+ {
+  "slug": "v622-hard-flow-036-027-recovery-fallback",
+  "name": "Flow 036-027",
+  "track": "v622_hard_flow_036_027",
+  "tag": "recovery_fallback",
+  "gates": 13,
+  "time": 26.94,
+  "path": 263.1,
+  "mean_speed": 9.77,
+  "peak_speed": 15.67,
+  "peak_tilt": 116.9,
+  "mean_offset": 0.47,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.585,
+    "detour": 1.009,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 1.123,
+    "detour": 1.007,
+    "recovery": false
+   },
+   {
+    "gate": 3,
+    "time": 0.954,
+    "detour": 1.019,
+    "recovery": false
+   },
+   {
+    "gate": 4,
+    "time": 15.062,
+    "detour": 10.563,
+    "recovery": true
+   },
+   {
+    "gate": 5,
+    "time": 1.015,
+    "detour": 1.01,
+    "recovery": false
+   },
+   {
+    "gate": 6,
+    "time": 1.115,
+    "detour": 1.004,
+    "recovery": false
+   },
+   {
+    "gate": 7,
+    "time": 0.977,
+    "detour": 1.032,
+    "recovery": false
+   },
+   {
+    "gate": 8,
+    "time": 1.123,
+    "detour": 1.02,
+    "recovery": false
+   },
+   {
+    "gate": 9,
+    "time": 1.123,
+    "detour": 1.022,
+    "recovery": false
+   },
+   {
+    "gate": 10,
+    "time": 0.946,
+    "detour": 1.012,
+    "recovery": false
+   },
+   {
+    "gate": 11,
+    "time": 0.923,
+    "detour": 1.007,
+    "recovery": false
+   },
+   {
+    "gate": 12,
+    "time": 0.869,
+    "detour": 1.05,
+    "recovery": false
+   },
+   {
+    "gate": 13,
+    "time": 1.123,
+    "detour": 1.005,
+    "recovery": false
+   }
+  ],
+  "recoveries": [
+   {
+    "gate": 4,
+    "time": 15.06,
+    "detour": 10.56,
+    "extra_path": 103.2,
+    "min_speed": 1.11
+   }
+  ],
+  "recovery_share": 0.559
+ },
+ {
+  "slug": "v622-hard-flow-027-057-mirror1-recovery",
+  "name": "Flow 027-057",
+  "track": "v622_hard_flow_027_057_mirror1",
+  "tag": "recovery",
+  "gates": 18,
+  "time": 23.99,
+  "path": 197.6,
+  "mean_speed": 8.23,
+  "peak_speed": 15.98,
+  "peak_tilt": 116.8,
+  "mean_offset": 0.53,
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.569,
+    "detour": 1.006,
+    "recovery": false
+   },
+   {
+    "gate": 2,
+    "time": 0.4,
+    "detour": 1.049,
+    "recovery": false
+   },
+   {
+    "gate": 3,
+    "time": 0.431,
+    "detour": 1.007,
+    "recovery": false
+   },
+   {
+    "gate": 4,
+    "time": 0.223,
+    "detour": 1.002,
+    "recovery": false
+   },
+   {
+    "gate": 5,
+    "time": 5.108,
+    "detour": 10.568,
+    "recovery": true
+   },
+   {
+    "gate": 6,
+    "time": 0.554,
+    "detour": 1.006,
+    "recovery": false
+   },
+   {
+    "gate": 7,
+    "time": 0.592,
+    "detour": 1.01,
+    "recovery": false
+   },
+   {
+    "gate": 8,
+    "time": 0.262,
+    "detour": 1.01,
+    "recovery": false
+   },
+   {
+    "gate": 9,
+    "time": 2.215,
+    "detour": 2.476,
+    "recovery": true
+   },
+   {
+    "gate": 10,
+    "time": 0.5,
+    "detour": 1.038,
+    "recovery": false
+   },
+   {
+    "gate": 11,
+    "time": 0.277,
+    "detour": 1.002,
+    "recovery": false
+   },
+   {
+    "gate": 12,
+    "time": 0.369,
+    "detour": 1.01,
+    "recovery": false
+   },
+   {
+    "gate": 13,
+    "time": 0.546,
+    "detour": 1.016,
+    "recovery": false
+   },
+   {
+    "gate": 14,
+    "time": 0.631,
+    "detour": 1.116,
+    "recovery": false
+   },
+   {
+    "gate": 15,
+    "time": 0.4,
+    "detour": 1.026,
+    "recovery": false
+   },
+   {
+    "gate": 16,
+    "time": 0.662,
+    "detour": 1.014,
+    "recovery": false
+   },
+   {
+    "gate": 17,
+    "time": 0.369,
+    "detour": 1.023,
+    "recovery": false
+   },
+   {
+    "gate": 18,
+    "time": 9.885,
+    "detour": 32.531,
+    "recovery": true
+   }
+  ],
+  "recoveries": [
+   {
+    "gate": 5,
+    "time": 5.11,
+    "detour": 10.57,
+    "extra_path": 34.8,
+    "min_speed": 2.99
+   },
+   {
+    "gate": 9,
+    "time": 2.22,
+    "detour": 2.48,
+    "extra_path": 9.6,
+    "min_speed": 2.21
+   },
+   {
+    "gate": 18,
+    "time": 9.88,
+    "detour": 32.53,
+    "extra_path": 75.8,
+    "min_speed": 1.85
+   }
+  ],
+  "recovery_share": 0.717
+ }
+]
