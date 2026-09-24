@@ -46,26 +46,19 @@
   <h1>Andrew Olvera</h1>
   <p class="role">Deep Learning &middot; York College of Pennsylvania</p>
   <p class="bio">
-    Hello! My name is Andrew Olvera, a recent graduate from York College of Pennsylvania
-    with a BS in Computer Science. I conduct independent research in deep learning, specifically complex
-    goal-conditioned behavior, both continuous-valued and language-based, as well as high-speed
-    agile autonomous flight.
+    I'm a recent Computer Science graduate (BS, York College of Pennsylvania) working on agile,
+    generalist control policies, reinforcement learning, and generative world models. My current 
+    focus is scalable pretraining for control using scripted classical controllers for synthetic data 
+    generation. I'm applying to PhD programs for Fall 2027. I'm happy to talk about any of this work or 
+    potential collaborations. Feel free to reach out.
   </p>
   <div class="links">
     <a href="https://github.com/AndrewOlvera-byte">GitHub</a>
-    <a href="www.linkedin.com/in/andrew-olvera-589130331">LinkedIn</a>
+    <a href="https://www.linkedin.com/in/andrew-olvera-589130331">LinkedIn</a>
     <!-- <a href="#">CV</a> -->
   </div>
 
   <h2>Research</h2>
-  <a class="project" href="manippo/">
-    <span class="name">ManiPPO</span>
-    <span class="meta">Andrew Olvera &middot; Work in progress, 2026</span>
-    <span class="desc">A flow-matching VAE trained over a corpus of synthetically generated, highly diverse
-      drone racing courses models the course manifold in latent space. Learning a compass over that latent
-      space, keyed to the behavioral requirements of successful flight through the course, allows manifold-constrained search and
-      traversal to generate synthetic courses that teach the actor specific targeted behaviors.</span>
-  </a>
   <a class="project" href="starscream/">
     <span class="name">Starscream</span>
     <span class="meta">Andrew Olvera &middot; Preprint forthcoming, 2026</span>
@@ -82,8 +75,8 @@
     <span class="meta">Andrew Olvera &middot; Preprint forthcoming, 2026</span>
     <span class="desc">A MicroRTS world action model that infers the opponent from play history under fog of
       war. An exact tokenizer and a flow dynamics model give a strong semantic simulator; a causal encoder
-      distills a 16 code opponent belief that improves long horizon return prediction. PMPO policies trained
-      in imagination beat CoacAI in small held out panels, but the best one uses no belief, and matched
+      distills a 16-code opponent belief that improves long-horizon return prediction. PMPO policies trained
+      in imagination beat CoacAI in small held-out panels, but the best one uses no belief, and matched
       belief-conditioned policies did not outperform it.</span>
   </a>
   <a class="project" href="token-level-rewards/">
@@ -93,7 +86,15 @@
       school math. Phase 1 fixes a stable optimization baseline across GRPO, DAPO, and group size; phase 2
       holds it fixed and varies only the reward. Rewards that consistently separate completions within a
       group keep the learning signal alive after binary rewards run dry, and every configuration stalls
-      between 70 and 72%, which points to a limit of the model itself.</span>
+      between 69 and 72%, which points to a limit of the model itself.</span>
+  </a>
+  <a class="project" href="manippo/">
+    <span class="name">ManiPPO</span>
+    <span class="meta">Andrew Olvera &middot; Work in progress, 2026</span>
+    <span class="desc">A flow-matching VAE trained over a corpus of synthetically generated, highly diverse
+      drone racing courses models the course manifold in latent space. Learning a compass over that latent
+      space, keyed to the behavioral requirements of successful flight through the course, allows manifold-constrained search and
+      traversal to generate synthetic courses that teach the actor specific targeted behaviors.</span>
   </a>
   
 </main>
