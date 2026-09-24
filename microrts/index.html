@@ -203,11 +203,10 @@
       attacked. A strong player carries a running read of the opponent, a belief about what kind of game they
       are in, and plays against that belief rather than against the board alone.</p>
       <p>This project builds that read into a <b>world action model</b>: a latent transition queried with the
-      agent&rsquo;s own issued action, in which the opponent is not an input but hidden state to be inferred. The
-      work is unusually diagnostic by design. It measures separately whether the state is encoded exactly,
-      whether the model responds to the agent&rsquo;s actions, whether it predicts the effect of an intervention,
-      whether the opponent belief carries long-horizon information, and whether any of that wins games. Those
-      turn out to be different questions with different answers.</p>
+      agent&rsquo;s own issued action, in which the opponent is hidden state to be inferred. The work is
+      diagnostic by design. It measures separately whether the state is encoded exactly, whether the model
+      responds to the agent&rsquo;s actions, whether it predicts the effect of an intervention, whether the
+      opponent belief carries long-horizon information, and whether any of that wins games.</p>
     </div>
 
     <figure class="fig arch">
@@ -270,7 +269,7 @@
       <p>The corpus is designed around one question a world model has to answer: <em>what would have
       happened if I had acted differently?</em> For roughly a fifth of rows, the engine is cloned and the
       agent&rsquo;s action is changed while the opponent&rsquo;s action is held fixed. That isolates the effect
-      of the agent&rsquo;s own action without pretending to model how the opponent would have responded. Train,
+      of the agent&rsquo;s own action without modeling how the opponent would have responded. Train,
       validation and evaluation use disjoint collection seeds and whole episodes, across four map variants, both
       seats, self-play and scripted opponents. CoacAI, the hard scripted opponent used for the headline
       comparison, appears only in evaluation.</p>
@@ -300,7 +299,7 @@
 
     <h3>Tokenizing a board without losing it</h3>
     <div class="prose">
-      <p>A game board is mostly empty, and that makes average accuracy a liar. An early JEPA tokenizer scored
+      <p>A game board is mostly empty, so average cell accuracy is misleading. An early JEPA tokenizer scored
       94.9% on cells overall, yet got only a quarter of <em>occupied</em> cells exactly right and never
       reconstructed a whole frame. The fix was to stop treating the board as an image. The exact tokenizer
       embeds every finite game field categorically and decodes it back by argmax, stores when each unit&rsquo;s current
@@ -310,7 +309,8 @@
     </div>
     <figure class="fig chart" id="tok" style="position:relative"></figure>
     <figcaption><b>Figure 2.</b> Tokenizer round trips on held-out frames. Hollow: the earlier medium JEPA
-    tokenizer. Filled: exact temporal JEPA. These are encode-decode round trips, not dynamics rollouts.</figcaption>
+    tokenizer. Filled: exact temporal JEPA. These are encode-decode round trips; dynamics rollouts are in
+    Figure 3.</figcaption>
     <div class="prose" style="margin-top:20px">
       <p>The deployable interfaces then drop the full engine state. An ego tokenizer encodes only the
       fog-visible raster and visibility into 64 spatial tokens of width 320, reaching at least 99.9988% visible
@@ -318,13 +318,13 @@
       exactly and predicts how an issued action moves the ego latent (effect cosine 0.815).</p>
     </div>
 
-    <h3>A semantic simulator, not an exact engine</h3>
+    <h3>Learning the dynamics</h3>
     <div class="prose">
-      <p>Game dynamics are easy to fake. Most cells never change, so copying the last frame is a strong
+      <p>Several easy metrics overstate how good a dynamics model is. Most cells never change, so copying the last frame is a strong
       baseline, and a shaped reward can make an imagined rollout look profitable without the model ever
       responding to the agent&rsquo;s actions. Early Dreamer-style models did exactly that: low teacher-forced
       loss, plausible reward correlation, and failed policies. The program therefore judged dynamics on
-      changed-cell F1, action-shuffle gaps, counterfactual branches and real games, never on loss alone.</p>
+      changed-cell F1, action-shuffle gaps, counterfactual branches and real games in addition to loss.</p>
       <p>The final 103.1M-parameter flow dynamics model predicts a residual in latent space under both the
       factual and the cloned-action branch, trained directly on factual, counterfactual and effect-geometry
       objectives. At its selected checkpoint, on a fixed held-out evaluator:</p>
@@ -343,14 +343,14 @@
       <p>The model knows <em>what changes and where</em> far better than it knows the exact resulting state.
       The reason is specific: the tokenizer learned exact decoding, but this dynamics run put zero weight on
       decoded fields, so latent error can fall while a predicted point still sits on the wrong side of a
-      categorical boundary. Adding decoded-field losses, then self-rollout consistency, is the next clean
+      categorical boundary. Adding decoded-field losses, then self-rollout consistency, is the next
       ablation.</p>
       <p>Policy learning uses a separate, deployable transition: a roughly 100M-parameter model (14 blocks, width
       768) trained from scratch on ego tokens and issued self actions only, with no opponent belief. One step
       ahead it beats copying the last frame (mechanics MSE 0.0189 against 0.0300), degrades when its actions are
       shuffled, and predicts reward and continuation closely (reward MAE 0.0011, continuation accuracy 1.0 on
-      its sampled evaluation). These are one-step numbers, not calibrated long-rollout reward, which is why it
-      is frozen during policy learning and imagination is kept to eight steps.</p>
+      its sampled evaluation). These are one-step numbers and do not show calibrated reward over long rollouts,
+      which is why the model is frozen during policy learning and imagination is kept to eight steps.</p>
     </div>
   </div>
 </section>
@@ -362,15 +362,14 @@
     <div class="prose">
       <p>The obvious approach failed twice. An early four-mode conditioner collapsed onto a single hypothesis,
       and a later jointly trained JEPA student collapsed too: it used one code, and predicted opponent behavior
-      no better than always guessing the average. A belief that is learned end-to-end has every reason to
-      become a constant.</p>
+      no better than always guessing the average.</p>
       <p>What worked was to <b>define behavior first, then learn to see it</b>. A privileged teacher, with
       access to full state and a short window of the opponent&rsquo;s real actions, learns a 16-code
       conditional-policy codebook. Because each code is conditioned on the game situation, it names a local
-      behavior or intent in context, not a fixed player identity. A causal
+      behavior or intent in context rather than a fixed player identity. A causal
       student then learns to predict the teacher&rsquo;s soft code distribution from what the agent can legally
       see: up to 64 frames of fog-visible observation and its own past actions. Balancing training anchors by
-      episode, so that long games stop dominating the target, is what finally stopped the student collapsing.</p>
+      episode, so that long games stop dominating the target, stopped the student from collapsing.</p>
     </div>
     <div class="runstat">
       <div><b>0.367 nats</b><span>better than the fixed marginal at predicting the teacher (2.355 vs 2.722)</span></div>
@@ -383,7 +382,7 @@
       <p>The belief carries little that helps predict the next 16 steps of the agent&rsquo;s own latent state:
       shuffling it raised prediction error by only 0.40%. That is plausible, since the near future is decided
       mostly by what is already on the board. Its value appears over longer horizons, where the opponent&rsquo;s plan has time to
-      matter. A strategic return head trained with and without z makes that concrete.</p>
+      matter. A strategic return head trained with and without z measures this.</p>
     </div>
     <figure class="fig">
       <div class="scroll-x">
@@ -400,12 +399,11 @@
       sits between the two.</figcaption>
     </figure>
     <div class="prose" style="margin-top:20px">
-      <p>With the belief, the head predicts the game&rsquo;s future return better at both horizons. That is what a
-      useful read of the opponent should do, and shuffling the belief hurts more at 128 steps than at 32. It is
-      also bounded. A separately trained head with no belief closes most of the gap, and across the full set of
-      return metrics z does not uniformly dominate that state-only system. The honest summary is that
-      the belief is a real, long-horizon signal of modest size, which justifies routing it into value
-      estimation under control, and leaves its effect on play to be tested in games.</p>
+      <p>With the belief, the head predicts the game&rsquo;s future return better at both horizons, and
+      shuffling the belief hurts more at 128 steps than at 32. The effect is bounded. A separately trained head
+      with no belief closes most of the gap, and across the full set of return metrics z does not uniformly
+      dominate that state-only system. The belief is a real long-horizon signal of modest size. That justifies
+      routing it into value estimation under control; its effect on play has to be tested in games.</p>
     </div>
   </div>
 </section>
@@ -448,11 +446,11 @@
     <h3>What the matches say</h3>
     <ul class="list prose">
       <li><b>A world-model agent can beat CoacAI.</b> Selected PMPO checkpoints trained only in imagination won
-      small held-out panels against it, including 5 of 5 twice for the best policy. That is a meaningful
-      prototype result, not yet a robust one.</li>
+      small held-out panels against it, including 5 of 5 twice for the best policy. The panels are small,
+      and robustness has not been established.</li>
       <li><b>The belief did not cause the wins.</b> The strongest policy uses no belief. Its matched
       belief-conditioned counterpart lost 20 and drew 20 of 40 games head-to-head, with a strong seat
-      asymmetry. The opponent read that predicts return better was not used well by the policy.</li>
+      asymmetry.</li>
       <li><b>Good offline scores can break closed-loop play.</b> A residual ranker that re-scores actions using
       the belief improved paired preference accuracy from 0.49 to 0.73 on held-out counterfactuals, and matched
       belief beat shuffled belief (0.733 vs 0.715). Added to the best policy at full strength it won 0 of 20;
@@ -467,13 +465,13 @@
   <div class="wrap">
     <h2>What holds, and what does not yet</h2>
     <div class="prose">
-      <p>The pieces work. Exact state reconstruction, a transition that responds to the agent&rsquo;s own
-      actions, and an opponent belief with real long-horizon predictive value all coexist in one system. What
-      the project shows most clearly is that they do not compose on their own. Exact tokenization did not force
+      <p>Exact state reconstruction, a transition that responds to the agent&rsquo;s own actions, and an
+      opponent belief with real long-horizon predictive value all work within one system, but they did not
+      compose on their own. Exact tokenization did not force
       exact dynamics. Reward prediction did not guarantee calibrated imagined returns. A belief that improves
       return prediction did not guarantee that PMPO would use it well. Preference accuracy did not protect a
       ranker from collapsing in play.</p>
-      <p>The response is modular. Keep a validated transition that does not see the belief. Route the belief
+      <p>The next version keeps these parts separate. Keep a validated transition that does not see the belief. Route the belief
       only through a separate long-horizon value or a gated residual. Require matched-versus-shuffled belief
       tests and real-game ablations before anything is promoted.</p>
     </div>

@@ -496,7 +496,7 @@
 
     <h3>Speed as an input</h3>
     <div class="prose">
-      <p>How fast to fly is not left for the network to guess. For each course, the MPCC expert&rsquo;s plan
+      <p>The policy is told how fast to fly. For each course, the MPCC expert&rsquo;s plan
       fixes a time-optimal average speed, and that number is given to the policy as a commanded speed,
       <em>v_cmd</em>. It enters after the backbone through a zero-initialized conditioner, so the features that
       read the route and the vehicle are shared across speeds.</p>
@@ -520,15 +520,15 @@
     <div class="prose abstract">
       <p>The actor is one causal transformer reading thirteen tokens: three steps of state and control
       history, the six gates ahead, and a learned readout token.</p>
-      <p>Position is carried by what a token is, not by where it sits. A gate is only ever readable through
-      the slot for its place in the route, so &ldquo;the gate two ahead&rdquo; becomes something the network
-      holds a representation of rather than an offset it has to recover from an index. The ordering of the
-      route is structural, and the continuous line through it is what the readout has to attend over. That
-      is where the geometric conditioning comes from.</p>
+      <p>Position is encoded in what each token is. A gate is only ever readable through the slot for its
+      place in the route, so the network holds a representation of &ldquo;the gate two ahead&rdquo; directly
+      and does not have to recover it from an index. The route&rsquo;s order is built into the input, and the
+      readout attends over the continuous line through it, which is where the geometric conditioning comes
+      from.</p>
       <p>Everything the policy decides is formed at that one readout token. Both heads read it, which forces
       a single representation to answer two different questions: what to command now, and where the vehicle
-      will be a step from now. The dynamics head is thrown away after training, but the pressure it puts on
-      the shared latent is the reason it is there.</p>
+      will be a step from now. The dynamics head is discarded after training; it exists to shape the shared
+      latent.</p>
     </div>
 
     <figure class="fig">
@@ -589,10 +589,10 @@
     <div class="prose abstract">
       <p>Every label comes from an MPCC expert solved with acados. It labels each visited state with the
       first command of its own plan, so the policy learns the teacher&rsquo;s intent rather than whatever
-      the rollout happened to execute. That one choice is what lets DAgger, DART noise and expert-prefix
+      the rollout happened to execute. This lets DAgger, DART noise and expert-prefix
       roll-ins all write into the same replay without contradicting each other.</p>
       <p>It also fixes the dynamics target. The auxiliary predicts the state MPCC expects after its own
-      first command, not the transition that actually occurred, so the target stays correct when the
+      first command instead of the transition that actually occurred, so the target stays correct when the
       learner or the injected noise chose the executed action, and at gate crossings when the frame
       switches underneath it.</p>
     </div>
@@ -701,13 +701,12 @@
       </div>
     </div>
     <div class="prose runnote">
-      <p>Every rollout on this page comes from that one run. The shape of those numbers is the interesting
-      part: a 5.49 M-parameter policy is pushed through more than a million updates against a pool of states
+      <p>Every rollout on this page comes from that one run. A 5.49 M-parameter policy is pushed through more than a million updates against a pool of states
       that is small by comparison, because very little of what the rollouts produce ever becomes a label.
       The expert has to solve at every visited state, failed solves and crashed episodes are discarded
       outright, and a third of every batch is reserved for clean expert behaviour.</p>
-      <p>What survives that filtering is expensive, so it gets used hard. Spending this much compute per
-      retained sample is the trade being made, and it is what buys the sample efficiency.</p>
+      <p>Each retained sample is expensive to produce, so each one is trained on many times. The run spends
+      a lot of compute per retained sample in exchange for sample efficiency.</p>
     </div>
 
     <h3>Design decisions</h3>
@@ -748,14 +747,14 @@
     </div>
     <figure class="fig dots" id="suites" style="position:relative"></figure>
     <figcaption>Completion rate per suite. Bars are 95% intervals from 20,000 bootstrap resamples of
-    <em>courses</em>, not timesteps, so they describe how much the rate moves across layouts. The exposed
+    <em>courses</em> rather than timesteps, so they describe how much the rate moves across layouts. The exposed
     suite has too few courses for a useful interval.</figcaption>
 
     <div class="prose" style="margin-top:22px">
-      <p>Read plainly: on a layout it has never seen, flying a vehicle it has not been told about, the pretrained policy
-      finishes between 45% and 61% of its attempts, more often on the easier suite than the hard one. That is a
-      capable policy, not a solved problem. Two caveats keep the numbers honest. The hard suite is
-      benchmark-informed development geometry, not a protected final test. And the eight public reference
+      <p>On a layout it has never seen, flying a vehicle it has not been told about, the pretrained policy
+      finishes between 45% and 61% of its attempts, more often on the easier suite than the hard one. Two
+      caveats apply. The hard suite is benchmark-informed development geometry and was not held out as a
+      protected final test. And the eight public reference
       courses that both suites share are reported separately: the policy completed 15 of 64 attempts there, so
       earlier exposure to those layouts did not make them easy, and they are excluded from the fresh-geometry
       rates above.</p>
@@ -770,7 +769,7 @@
     <figcaption>Completion by route family, 3 to 10 courses per family and 8 attempts per course. Families
     with a single marker were only drawn in one suite.</figcaption>
     <div class="prose" style="margin-top:22px">
-      <p>The spread is the useful part. The families flown best (go-around, compound reversal, ordered 3D)
+      <p>The families flown best (go-around, compound reversal, ordered 3D)
       are ones where the route doubles back or changes height across several gates, which is where reading the
       ordered gates ahead should matter most. That is consistent with the design, though we have not tested it
       directly. Long-low courses complete at only 18.8% and 6.2%. We have not isolated why; they are the clearest
@@ -795,15 +794,15 @@
   <div class="wrap">
     <h2>Behavioral analysis</h2>
     <div class="prose">
-      <p>The clean laps show that the policy can fly a route. The more revealing question is what it does
-      when a gate goes wrong.</p>
+      <p>The clean laps show that the policy can fly a route. This section looks at what it does when it
+      misses a gate.</p>
       <p>A gate only counts when the vehicle crosses it through its <b>directed aperture</b>: inside the frame,
       in the direction of travel. Miss it, and the course does not advance. The missed gate stays the active
       target, stays in the first lookahead slot, and remains the frame everything else is expressed in. Nothing
       at deployment scripts what happens next: there is no recovery controller and no reset. Whatever the
       vehicle does is the pretrained actor alone.</p>
-      <p>What it does, in every case we recorded, is the same thing a pilot would do. It turns back to the
-      approach side of the gate it missed and takes the gate again.</p>
+      <p>In every case we recorded, it does what a pilot would do: it turns back to the approach side of the
+      gate it missed and takes the gate again.</p>
     </div>
   </div>
 
@@ -814,8 +813,8 @@
       side, and crossed successfully about 1.2&nbsp;s later. On <b>Long low braking 003-08</b>, it missed the
       second gate twice, returned to the approach side after each miss, and eventually crossed; later in the
       same lap it did the same after missing the seventh gate. A matched clean replay had no missed
-      crossings, and the gate tracker never advanced on a miss. These are selected examples, not an
-      estimate of how often the policy recovers.</p>
+      crossings, and the gate tracker never advanced on a miss. These are selected examples and do not
+      estimate how often the policy recovers.</p>
     </div>
   </div>
 
@@ -853,7 +852,7 @@
       side of the missed gate before taking it. It does not skip the gate or chase the next one.</li>
       <li><b>It sheds speed to do it.</b> The slowest point of a recovery leg is between 0.6 and 3.4&nbsp;m/s.
       For comparison, the slowest point of a typical leg in the fastest set is 7.4&nbsp;m/s.</li>
-      <li><b>It costs distance, not the lap.</b> A recovery adds a median of about 22&nbsp;m of path and
+      <li><b>It costs distance and time.</b> A recovery adds a median of about 22&nbsp;m of path and
       4.4&nbsp;s, and every tagged rollout still clears every gate in order.</li>
       <li><b>The rest of the lap looks clean.</b> Away from the missed gate, tagged rollouts fly with a median
       detour of 1.01, no looser than the fastest set (1.07). Behaviorally, the disruption stays local to
@@ -871,7 +870,7 @@
       off-line or onto the wrong side of a gate, the same expert labelled the way back. The most plausible
       account is that recovery was learned from those corrective labels, as ordinary imitation of the expert
       from unusual states.</p>
-      <p>We are careful about how much weight that account can carry. The recipe requested a
+      <p>The evidence for this is indirect. The recipe requested a
       40/35/25 split of nominal, critical and recovery states in replay, but those are sampling weights; they do
       not establish that a quarter of the labels were recoveries. In three saved replay shards we inspected,
       about half the rows come from expert-prefix roll-ins, and none carries a separate recovery-teacher tag.
@@ -893,12 +892,13 @@
       Out of sample, on three rendered hard-course laps, it predicts the normalized next change in task state
       with a pooled R² of 0.483 (gate-frame transitions excluded). Roughly half the variance of the next task-state
       change is recoverable from the representation the policy acts from. The laps were selected
-      successful ones, so this is evidence, not a population estimate.</p>
-      <p><b>It reads the route ahead, not just the next gate.</b> At the end of a lap, the lookahead slots past
+      successful ones, so the figure may not hold across all laps.</p>
+      <p><b>It reads the route beyond the next gate.</b> At the end of a lap, the lookahead slots past
       the final gate are padded by repeating it. Holding the vehicle state fixed, we replaced that padding with a
       synthetic straight-through route. The command moved, by mean L2 distances of 0.67, 0.57 and 0.16 on the
-      three laps. Gates the vehicle is not yet flying at change what it does now. This is an offline input
-      intervention; it shows the future slots matter, not that the altered route would fly better.</p>
+      three laps, so gates the vehicle has not reached yet affect its current command. This was an offline
+      input intervention: it shows the future slots influence the command, and says nothing about whether the
+      altered route would fly better.</p>
       <p>Together with the recoveries, the picture is of <b>ordered, route-conditioned control</b>: a policy
       whose command depends on where it is relative to the active gate, how it is moving, and the ordered route
       beyond, and which holds enough of the local dynamics to turn a miss into a second approach.</p>
@@ -919,7 +919,7 @@
     <div class="prose">
       <p>The method has two stages. The first is the pretrained model on this page: a <b>privileged
       teacher</b>. It reads true vehicle state and exact gate geometry, which a real racing drone does not get.
-      That is deliberate. Privileged inputs make the teacher cheap to train and easy to analyse, and its job is to
+      Privileged inputs make the teacher cheap to train and easy to analyse, and its job is to
       be distilled. By design, the teacher also reads the <b>sampled plant parameters</b> of the vehicle it is
       flying, so that it can learn the best way to fly each vehicle without having to discover which one it
       has.</p>
@@ -944,12 +944,10 @@
     <div class="ret" style="text-align:left;margin-top:28px">
       <b>A note on the run reported here.</b> In the v6.21.1 run behind every teacher result on this page,
       plant randomization was left enabled by mistake, and the plant parameters were <em>not</em> part of the
-      teacher&rsquo;s observation. We report it as it ran. It means those results were obtained under a harder
-      condition than the method intends: a policy that flies unseen courses at 45 to 61% completion
-      <em>without</em> being told which vehicle it has, from true state, three steps of history and its own
-      previous commands. That the architecture copes with an unobserved plant at all is itself informative. Whether
-      giving the teacher the plant helps or changes what it learns is exactly what the first experiment below
-      measures.
+      teacher&rsquo;s observation. Those results were therefore obtained under a harder condition than the
+      method intends: a policy that flies unseen courses at 45 to 61% completion <em>without</em> being told
+      which vehicle it has, from true state, three steps of history and its own previous commands. The first
+      experiment below measures whether giving the teacher the plant helps or changes what it learns.
     </div>
   </div>
 </section>
@@ -964,7 +962,7 @@
       comes next in this line of work. This paper leaves it out on purpose, to isolate one question: how much of
       a general flight controller can be learned as a <b>base model</b>, from supervision alone, and what that
       model&rsquo;s representation carries.</p>
-      <p>Keeping RL out keeps the answer clean. Every behavior on this page, from flying unseen layouts to
+      <p>Every behavior on this page, from flying unseen layouts to
       turning back through a missed gate, came from supervised labels, so none of it can be attributed to reward
       shaping or policy-gradient fine-tuning. It also sets up the RL stage well. Racing is unforgiving: progress
       comes only from crossing gates in order, at speed, and one wrong command at 16&nbsp;m/s ends the episode.

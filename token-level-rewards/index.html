@@ -164,8 +164,8 @@
       <p>Two things come out of it. Rewards that separate completions <i>within</i> a group, rather than
       only pass from fail, keep the learning signal alive once the model starts solving most prompts.
       And every configuration lands between 69 and 72% from a 68% start, with the first two points coming
-      quickly and nothing ever passing 72. At this scale RLVR sharpens the policy the model already has;
-      it does not find a new one.</p>
+      quickly and nothing ever passing 72. At this scale RLVR sharpens the policy the model already
+      has.</p>
     </div>
   </div>
 </section>
@@ -181,8 +181,8 @@
       <p>Everything below descends from REINFORCE. A response is a sequence of tokens, so the log-likelihood
       factorizes and the one sequence-level reward multiplies the gradient of every token in it:</p>
       $$\nabla_\theta J = \mathbb{E}\Big[\big(r(x,y) - b\big) \sum_{t=1}^{|y|} \nabla_\theta \log \pi_\theta\big(y_t \mid x, y_{&lt;t}\big)\Big]$$
-      <p>That sum is the thing to keep in mind for the rest of the page. The verifier scores the answer,
-      but the gradient lands on every token of the reasoning that produced it.</p>
+      <p>This sum matters for the rest of the page: the verifier scores only the answer, but the gradient
+      lands on every token of the reasoning that produced it.</p>
 
       <h3>GRPO</h3>
       <p>GRPO drops PPO&rsquo;s value network and gets its baseline from the group instead. Sample \(G\)
@@ -201,8 +201,8 @@
       <p>Three differences matter here. The KL term is gone, so the policy is free to move away from where
       it started. The clip range is decoupled, which leaves more room to raise the probability of unlikely
       tokens. And the loss is normalized over every token in the group rather than per response.</p>
-      <p>It is worth being exact about that last one, because &ldquo;token-level&rdquo; is easy to overread.
-      In both objectives the advantage is a single number per response, \(\hat A_{i,t} = \hat A_i\) for every
+      <p>The last difference is often described as &ldquo;token-level,&rdquo; which is easy to overread. In
+      both objectives the advantage is a single number per response, \(\hat A_{i,t} = \hat A_i\) for every
       \(t\), and in both the ratio and the clip act per token. What changes is the weight each token gets:</p>
       $$w_{i,t}^{\text{GRPO}} = \frac{1}{G\,|y_i|} \qquad\qquad w_{i,t}^{\text{DAPO}} = \frac{1}{\sum_{j}|y_j|}$$
       <p>Under GRPO a token in a long response counts for less than a token in a short one, so a long wrong
@@ -268,8 +268,8 @@
       <p>Everything starts from the same checkpoint: Qwen3 0.6B base, fine-tuned on math chain-of-thought
       traces ranging from grade school to competition problems. It scores 68.0% on the GSM8K test set before
       any RL. Training uses <code>allenai/RLVR-GSM</code>, which is GSM8K problem and answer pairs. Grade
-      school math is deliberate. It is well inside what the model can answer, so the thing being measured is
-      the optimization, not whether the task is reachable at all.</p>
+      school math was chosen because it is well inside what the model can answer, so the experiment isolates
+      the optimization.</p>
       <p>All runs are full-parameter fine-tuning on a single RTX 5070 Ti with 16 GB, which is what sets the
       model size and the batch. Training uses TRL&rsquo;s <code>GRPOTrainer</code> with vLLM for rollouts.</p>
 
@@ -342,14 +342,14 @@
     </figure>
 
     <div class="prose">
-      <p>The error bars set the tone for reading everything else. Most gaps between runs are under two points,
-      about the size of the noise on a single run, and each cell is one seed. The final numbers say that RL moved the model two to
-      four points and then stopped. They do not rank the configurations. The ranking, where there is one,
-      comes from the training dynamics.</p>
+      <p>Most gaps between runs are under two points, about the size of the noise on a single run, and each
+      cell is one seed. The final numbers show RL moving the model two to four points and then stopping, but
+      they are too close to rank the configurations. Where there is a ranking, it comes from the training
+      dynamics.</p>
 
       <h3>Phase 1: choosing a baseline</h3>
-      <p>Phase 1 is not a verdict on GRPO versus DAPO. The best 780-step number is GRPO at \(G = 16\), 71.7%.
-      The point of the phase is to fix one configuration whose behavior over a long run is clean enough that
+      <p>Phase 1 was designed to pick a baseline. The best 780-step number is GRPO at \(G = 16\), 71.7%, but
+      the goal was one configuration whose behavior over a long run is clean enough that
       phase 2&rsquo;s reward changes can be read off it. The two objectives also differ in more than one way
       at once (KL penalty, clip range, loss normalization), so this comparison cannot say which component
       is responsible for what.</p>
@@ -367,13 +367,13 @@
     </figure>
 
     <div class="prose">
-      <p>The entropy plot has a simple reading. GRPO&rsquo;s KL term anchors it to the reference policy, so
+      <p>GRPO&rsquo;s KL term anchors it to the reference policy, so
       entropy stays where the reference left it. DAPO has no anchor, so it sharpens. Sharpening on its own
       is how a policy collapses, which is why the recoveries in the \(G = 32\) run matter: it narrows,
       reopens, and narrows again rather than locking in. Consistent with that, in a side run DAPO trained
       with a KL term and symmetric clipping reproduced GRPO&rsquo;s flat entropy and broke down before 1,000
-      steps. That points at the KL anchor and the decoupled clip, not loss normalization, as what separates
-      the two dynamics here.</p>
+      steps. Since that run kept DAPO&rsquo;s loss normalization, the KL anchor and the decoupled clip are
+      the likelier cause of the difference in dynamics.</p>
     </div>
 
     <figure class="fig">
@@ -400,7 +400,7 @@
     <figure class="fig">
       <div class="fig-frame" style="max-width:640px;margin-inline:auto"><img src="assets/phase2-reward.png" alt="Average per-prompt reward over 1,000 steps for binary, structure, and ranked dense rewards"></div>
       <figcaption>Mean reward per prompt group over training, DAPO at \(G = 32\). The rewards live on
-      different scales, so compare shapes, not heights. Binary and ranked dense hold a flat band from the
+      different scales, so compare the shapes of the curves. Binary and ranked dense hold a flat band from the
       start. Structure starts low, since the SFT model rarely hits the full layout, and climbs through the
       whole run.</figcaption>
     </figure>
@@ -418,7 +418,7 @@
       </div>
       <p style="margin-top:18px">Structure + correctness is the only formulation whose reward keeps rising
       for the whole run, and it reaches 72.0% in 1,000 steps where the binary baseline needed 1,500 to reach
-      71.9%. The accuracy gaps are inside the noise; the difference in the curves is not.</p>
+      71.9%. The accuracy gaps are within the noise, but the reward curves differ clearly.</p>
     </div>
   </div>
 </section>
@@ -431,7 +431,7 @@
       <p>Back to the REINFORCE sum. Whatever \(\hat A_i\) is, it multiplies every token in response \(i\).
       Take a response that makes an early mistake, writes something incoherent, and still lands on the right
       number. Under a binary reward it gets exactly the same credit as a clean derivation, and the optimizer
-      is told to make the bad section more likely. At the start of a trace that is worse than it sounds: a
+      is told to make the bad section more likely. This does the most damage at the start of a trace, where a
       corrosive early section conditions every token after it, pushing the model into text that looks
       nothing like what it saw in pretraining and fine-tuning.</p>
       <p>The structure reward does not reach inside a response either. What it does is give the clean
@@ -449,8 +449,8 @@
       pushed up on one step and down on the next. And it throws away magnitude: after tiering and even
       spacing, a trivial quality difference and a large one produce the same gap in advantage. The optimizer
       ends up following a direction that changes from batch to batch, which looks the same from the inside
-      as the sparsity of a binary reward. Dense is not enough. The reward has to be a consistent measurement
-      of the response.</p>
+      as the sparsity of a binary reward. For the reward to help, it also has to measure each response
+      consistently.</p>
 
       <h3>Capacity</h3>
       <p>Going from 68% to about 70% was fast and reliable in every run. Going from 70% to 72% was slow, and
@@ -458,14 +458,14 @@
       reported at about 73%, and exploration-focused RL starting from that distilled model has reached about
       75%. Starting from a model trained without distillation, no objective or reward in this study found
       that headroom.</p>
-      <p>This fits the view that RLVR does not teach a model new knowledge; it reshapes the policy so the
-      model makes better use of what it learned in pretraining. The set of behaviors RL can reach is bounded
+      <p>This fits the view that RLVR reshapes the policy so the model makes better use of what it learned
+      in pretraining, without adding new knowledge. The set of behaviors RL can reach is bounded
       by what the model can already represent, and at 0.6B that set is small. It is also why the standard
       recipe is to do RL at scale and distill down. A brief DoRA run in phase 2 points the same way: even at
       high rank the policy barely moved and sometimes regressed, because at 0.6B the adapter holds too few
       parameters to change behavior that full fine-tuning can only just shift.</p>
-      <p>At this scale the reward is a first-order design decision. Exploration is too limited to recover
-      from a noisy signal, so the signal has to be good from the start.</p>
+      <p>At this scale exploration is too limited to recover from a noisy signal, which makes the reward
+      design one of the most consequential choices in the setup.</p>
     </div>
   </div>
 </section>
