@@ -1,0 +1,660 @@
+[
+  {
+    "step": 0,
+    "selection_suite_success": 0.0,
+    "selection_suite_timely_success": 0.0,
+    "selection_suite_clean_success": 0.0,
+    "selection_suite_clean_timely_success": 0.0
+  },
+  {
+    "step": 708393,
+    "selection_suite_success": 0.0,
+    "selection_suite_timely_success": 0.0,
+    "selection_suite_clean_success": 0.0,
+    "selection_suite_clean_timely_success": 0.0
+  },
+  {
+    "step": 1183709,
+    "selection_suite_success": 0.0,
+    "selection_suite_timely_success": 0.0,
+    "selection_suite_clean_success": 0.0,
+    "selection_suite_clean_timely_success": 0.0
+  },
+  {
+    "step": 1677163,
+    "selection_suite_success": 0.010624999999999999,
+    "selection_suite_timely_success": 0.0,
+    "selection_suite_clean_success": 0.0,
+    "selection_suite_clean_timely_success": 0.0
+  },
+  {
+    "step": 2613471,
+    "selection_suite_success": 0.11937500000000001,
+    "selection_suite_timely_success": 0.0,
+    "selection_suite_clean_success": 0.0,
+    "selection_suite_clean_timely_success": 0.0
+  },
+  {
+    "step": 3380191,
+    "selection_suite_success": 0.22875000000000004,
+    "selection_suite_timely_success": 0.0,
+    "selection_suite_clean_success": 0.0,
+    "selection_suite_clean_timely_success": 0.0
+  },
+  {
+    "step": 4089949,
+    "selection_suite_success": 0.3193750000000001,
+    "selection_suite_timely_success": 0.024375,
+    "selection_suite_clean_success": 0.00625,
+    "selection_suite_clean_timely_success": 0.00625
+  },
+  {
+    "step": 4737469,
+    "selection_suite_success": 0.326875,
+    "selection_suite_timely_success": 0.03375,
+    "selection_suite_clean_success": 0.015,
+    "selection_suite_clean_timely_success": 0.01125
+  },
+  {
+    "step": 5297100,
+    "selection_suite_success": 0.45187499999999997,
+    "selection_suite_timely_success": 0.059375,
+    "selection_suite_clean_success": 0.01,
+    "selection_suite_clean_timely_success": 0.00375
+  },
+  {
+    "step": 5853170,
+    "selection_suite_success": 0.43062500000000004,
+    "selection_suite_timely_success": 0.066875,
+    "selection_suite_clean_success": 0.038125,
+    "selection_suite_clean_timely_success": 0.020624999999999998
+  },
+  {
+    "step": 6372451,
+    "selection_suite_success": 0.5700000000000001,
+    "selection_suite_timely_success": 0.11500000000000002,
+    "selection_suite_clean_success": 0.066875,
+    "selection_suite_clean_timely_success": 0.03
+  },
+  {
+    "step": 6826688,
+    "selection_suite_success": 0.540625,
+    "selection_suite_timely_success": 0.120625,
+    "selection_suite_clean_success": 0.04375,
+    "selection_suite_clean_timely_success": 0.031875
+  },
+  {
+    "step": 7289624,
+    "selection_suite_success": 0.5600000000000002,
+    "selection_suite_timely_success": 0.15250000000000002,
+    "selection_suite_clean_success": 0.10062499999999999,
+    "selection_suite_clean_timely_success": 0.055625
+  },
+  {
+    "step": 7746879,
+    "selection_suite_success": 0.5718750000000001,
+    "selection_suite_timely_success": 0.148125,
+    "selection_suite_clean_success": 0.11562500000000002,
+    "selection_suite_clean_timely_success": 0.045625000000000006
+  },
+  {
+    "step": 8200589,
+    "selection_suite_success": 0.625,
+    "selection_suite_timely_success": 0.18562499999999998,
+    "selection_suite_clean_success": 0.11875000000000002,
+    "selection_suite_clean_timely_success": 0.06375
+  },
+  {
+    "step": 8640179,
+    "selection_suite_success": 0.6206250000000001,
+    "selection_suite_timely_success": 0.16125,
+    "selection_suite_clean_success": 0.12562500000000001,
+    "selection_suite_clean_timely_success": 0.066875
+  },
+  {
+    "step": 9079069,
+    "selection_suite_success": 0.6474999999999999,
+    "selection_suite_timely_success": 0.26187499999999997,
+    "selection_suite_clean_success": 0.17312500000000003,
+    "selection_suite_clean_timely_success": 0.1075
+  },
+  {
+    "step": 9525971,
+    "selection_suite_success": 0.656875,
+    "selection_suite_timely_success": 0.26062500000000005,
+    "selection_suite_clean_success": 0.16000000000000003,
+    "selection_suite_clean_timely_success": 0.095625
+  },
+  {
+    "step": 9945822,
+    "selection_suite_success": 0.67875,
+    "selection_suite_timely_success": 0.25562500000000005,
+    "selection_suite_clean_success": 0.18750000000000003,
+    "selection_suite_clean_timely_success": 0.106875
+  },
+  {
+    "step": 10356719,
+    "selection_suite_success": 0.6999999999999998,
+    "selection_suite_timely_success": 0.3087500000000001,
+    "selection_suite_clean_success": 0.23687500000000006,
+    "selection_suite_clean_timely_success": 0.139375
+  },
+  {
+    "step": 10778742,
+    "selection_suite_success": 0.6937500000000001,
+    "selection_suite_timely_success": 0.26749999999999996,
+    "selection_suite_clean_success": 0.25375,
+    "selection_suite_clean_timely_success": 0.13187500000000002
+  },
+  {
+    "step": 11207826,
+    "selection_suite_success": 0.7425,
+    "selection_suite_timely_success": 0.355,
+    "selection_suite_clean_success": 0.2325,
+    "selection_suite_clean_timely_success": 0.15374999999999997
+  },
+  {
+    "step": 11580700,
+    "selection_suite_success": 0.8168750000000001,
+    "selection_suite_timely_success": 0.33999999999999997,
+    "selection_suite_clean_success": 0.33,
+    "selection_suite_clean_timely_success": 0.21312499999999998
+  },
+  {
+    "step": 11977005,
+    "selection_suite_success": 0.8112500000000001,
+    "selection_suite_timely_success": 0.411875,
+    "selection_suite_clean_success": 0.3162499999999999,
+    "selection_suite_clean_timely_success": 0.2
+  },
+  {
+    "step": 12374063,
+    "selection_suite_success": 0.8500000000000002,
+    "selection_suite_timely_success": 0.37187500000000007,
+    "selection_suite_clean_success": 0.33562499999999995,
+    "selection_suite_clean_timely_success": 0.2125
+  },
+  {
+    "step": 12749484,
+    "selection_suite_success": 0.7925000000000001,
+    "selection_suite_timely_success": 0.38062500000000005,
+    "selection_suite_clean_success": 0.330625,
+    "selection_suite_clean_timely_success": 0.23500000000000001
+  },
+  {
+    "step": 13118616,
+    "selection_suite_success": 0.759375,
+    "selection_suite_timely_success": 0.33999999999999997,
+    "selection_suite_clean_success": 0.328125,
+    "selection_suite_clean_timely_success": 0.199375
+  },
+  {
+    "step": 13495400,
+    "selection_suite_success": 0.800625,
+    "selection_suite_timely_success": 0.39749999999999996,
+    "selection_suite_clean_success": 0.306875,
+    "selection_suite_clean_timely_success": 0.2
+  },
+  {
+    "step": 13870848,
+    "selection_suite_success": 0.8406250000000002,
+    "selection_suite_timely_success": 0.43250000000000005,
+    "selection_suite_clean_success": 0.39249999999999996,
+    "selection_suite_clean_timely_success": 0.270625
+  },
+  {
+    "step": 14251581,
+    "selection_suite_success": 0.8206250000000002,
+    "selection_suite_timely_success": 0.446875,
+    "selection_suite_clean_success": 0.46625000000000005,
+    "selection_suite_clean_timely_success": 0.343125
+  },
+  {
+    "step": 14620953,
+    "selection_suite_success": 0.794375,
+    "selection_suite_timely_success": 0.44062499999999993,
+    "selection_suite_clean_success": 0.37500000000000006,
+    "selection_suite_clean_timely_success": 0.2775
+  },
+  {
+    "step": 14987559,
+    "selection_suite_success": 0.8243750000000002,
+    "selection_suite_timely_success": 0.43187499999999995,
+    "selection_suite_clean_success": 0.40375000000000005,
+    "selection_suite_clean_timely_success": 0.30312500000000003
+  },
+  {
+    "step": 15357495,
+    "selection_suite_success": 0.8093750000000002,
+    "selection_suite_timely_success": 0.470625,
+    "selection_suite_clean_success": 0.47375000000000006,
+    "selection_suite_clean_timely_success": 0.374375
+  },
+  {
+    "step": 15719321,
+    "selection_suite_success": 0.8668750000000002,
+    "selection_suite_timely_success": 0.44437499999999996,
+    "selection_suite_clean_success": 0.4425,
+    "selection_suite_clean_timely_success": 0.33375
+  },
+  {
+    "step": 16067861,
+    "selection_suite_success": 0.8462500000000002,
+    "selection_suite_timely_success": 0.500625,
+    "selection_suite_clean_success": 0.47750000000000004,
+    "selection_suite_clean_timely_success": 0.37937499999999996
+  },
+  {
+    "step": 16437146,
+    "selection_suite_success": 0.8331250000000001,
+    "selection_suite_timely_success": 0.528125,
+    "selection_suite_clean_success": 0.48500000000000004,
+    "selection_suite_clean_timely_success": 0.3875
+  },
+  {
+    "step": 16808470,
+    "selection_suite_success": 0.8618750000000002,
+    "selection_suite_timely_success": 0.4912499999999999,
+    "selection_suite_clean_success": 0.4806249999999999,
+    "selection_suite_clean_timely_success": 0.37374999999999997
+  },
+  {
+    "step": 17168498,
+    "selection_suite_success": 0.8537500000000001,
+    "selection_suite_timely_success": 0.47937499999999994,
+    "selection_suite_clean_success": 0.45500000000000007,
+    "selection_suite_clean_timely_success": 0.359375
+  },
+  {
+    "step": 17546748,
+    "selection_suite_success": 0.8500000000000002,
+    "selection_suite_timely_success": 0.5662499999999999,
+    "selection_suite_clean_success": 0.5193749999999999,
+    "selection_suite_clean_timely_success": 0.429375
+  },
+  {
+    "step": 17900269,
+    "selection_suite_success": 0.8787500000000001,
+    "selection_suite_timely_success": 0.5425,
+    "selection_suite_clean_success": 0.4593750000000001,
+    "selection_suite_clean_timely_success": 0.374375
+  },
+  {
+    "step": 18271184,
+    "selection_suite_success": 0.8675000000000002,
+    "selection_suite_timely_success": 0.5374999999999999,
+    "selection_suite_clean_success": 0.5081249999999999,
+    "selection_suite_clean_timely_success": 0.438125
+  },
+  {
+    "step": 18628243,
+    "selection_suite_success": 0.8756250000000002,
+    "selection_suite_timely_success": 0.545625,
+    "selection_suite_clean_success": 0.4756250000000001,
+    "selection_suite_clean_timely_success": 0.39312500000000006
+  },
+  {
+    "step": 19002141,
+    "selection_suite_success": 0.8850000000000002,
+    "selection_suite_timely_success": 0.624375,
+    "selection_suite_clean_success": 0.5543750000000001,
+    "selection_suite_clean_timely_success": 0.46937500000000004
+  },
+  {
+    "step": 19354867,
+    "selection_suite_success": 0.8662500000000002,
+    "selection_suite_timely_success": 0.56375,
+    "selection_suite_clean_success": 0.5506249999999999,
+    "selection_suite_clean_timely_success": 0.45312500000000006
+  },
+  {
+    "step": 19710136,
+    "selection_suite_success": 0.894375,
+    "selection_suite_timely_success": 0.6068749999999999,
+    "selection_suite_clean_success": 0.5312499999999999,
+    "selection_suite_clean_timely_success": 0.45875
+  },
+  {
+    "step": 20097401,
+    "selection_suite_success": 0.8756250000000001,
+    "selection_suite_timely_success": 0.5906250000000001,
+    "selection_suite_clean_success": 0.564375,
+    "selection_suite_clean_timely_success": 0.4931249999999999
+  },
+  {
+    "step": 20470402,
+    "selection_suite_success": 0.8900000000000002,
+    "selection_suite_timely_success": 0.6256250000000001,
+    "selection_suite_clean_success": 0.53375,
+    "selection_suite_clean_timely_success": 0.48749999999999993
+  },
+  {
+    "step": 20837927,
+    "selection_suite_success": 0.9075000000000001,
+    "selection_suite_timely_success": 0.59,
+    "selection_suite_clean_success": 0.5787500000000001,
+    "selection_suite_clean_timely_success": 0.48749999999999993
+  },
+  {
+    "step": 21202248,
+    "selection_suite_success": 0.8975000000000002,
+    "selection_suite_timely_success": 0.59125,
+    "selection_suite_clean_success": 0.5725,
+    "selection_suite_clean_timely_success": 0.4837499999999999
+  },
+  {
+    "step": 21571239,
+    "selection_suite_success": 0.8712500000000001,
+    "selection_suite_timely_success": 0.5825000000000001,
+    "selection_suite_clean_success": 0.54875,
+    "selection_suite_clean_timely_success": 0.49375
+  },
+  {
+    "step": 21929371,
+    "selection_suite_success": 0.8737500000000001,
+    "selection_suite_timely_success": 0.5750000000000001,
+    "selection_suite_clean_success": 0.500625,
+    "selection_suite_clean_timely_success": 0.450625
+  },
+  {
+    "step": 22286647,
+    "selection_suite_success": 0.9162500000000001,
+    "selection_suite_timely_success": 0.6600000000000001,
+    "selection_suite_clean_success": 0.5625,
+    "selection_suite_clean_timely_success": 0.50625
+  },
+  {
+    "step": 22652667,
+    "selection_suite_success": 0.9175,
+    "selection_suite_timely_success": 0.6556250000000001,
+    "selection_suite_clean_success": 0.5956250000000001,
+    "selection_suite_clean_timely_success": 0.5256249999999999
+  },
+  {
+    "step": 23019731,
+    "selection_suite_success": 0.8900000000000002,
+    "selection_suite_timely_success": 0.6043750000000001,
+    "selection_suite_clean_success": 0.525,
+    "selection_suite_clean_timely_success": 0.45875
+  },
+  {
+    "step": 23373546,
+    "selection_suite_success": 0.87875,
+    "selection_suite_timely_success": 0.6075,
+    "selection_suite_clean_success": 0.5462499999999999,
+    "selection_suite_clean_timely_success": 0.48250000000000004
+  },
+  {
+    "step": 23723311,
+    "selection_suite_success": 0.8875000000000001,
+    "selection_suite_timely_success": 0.62875,
+    "selection_suite_clean_success": 0.54875,
+    "selection_suite_clean_timely_success": 0.51625
+  },
+  {
+    "step": 24076902,
+    "selection_suite_success": 0.8525000000000001,
+    "selection_suite_timely_success": 0.6112500000000001,
+    "selection_suite_clean_success": 0.5674999999999999,
+    "selection_suite_clean_timely_success": 0.49375
+  },
+  {
+    "step": 24433226,
+    "selection_suite_success": 0.8968750000000001,
+    "selection_suite_timely_success": 0.6618750000000001,
+    "selection_suite_clean_success": 0.610625,
+    "selection_suite_clean_timely_success": 0.5456249999999999
+  },
+  {
+    "step": 24784966,
+    "selection_suite_success": 0.8675,
+    "selection_suite_timely_success": 0.605,
+    "selection_suite_clean_success": 0.551875,
+    "selection_suite_clean_timely_success": 0.4843749999999999
+  },
+  {
+    "step": 25141268,
+    "selection_suite_success": 0.8912500000000002,
+    "selection_suite_timely_success": 0.6375000000000002,
+    "selection_suite_clean_success": 0.6012500000000001,
+    "selection_suite_clean_timely_success": 0.5275
+  },
+  {
+    "step": 25484441,
+    "selection_suite_success": 0.8937500000000002,
+    "selection_suite_timely_success": 0.6350000000000001,
+    "selection_suite_clean_success": 0.575,
+    "selection_suite_clean_timely_success": 0.5125000000000001
+  },
+  {
+    "step": 25837105,
+    "selection_suite_success": 0.905,
+    "selection_suite_timely_success": 0.62875,
+    "selection_suite_clean_success": 0.5574999999999999,
+    "selection_suite_clean_timely_success": 0.49375
+  },
+  {
+    "step": 26216836,
+    "selection_suite_success": 0.8912500000000001,
+    "selection_suite_timely_success": 0.64375,
+    "selection_suite_clean_success": 0.589375,
+    "selection_suite_clean_timely_success": 0.521875
+  },
+  {
+    "step": 26580533,
+    "selection_suite_success": 0.88875,
+    "selection_suite_timely_success": 0.60375,
+    "selection_suite_clean_success": 0.55375,
+    "selection_suite_clean_timely_success": 0.50625
+  },
+  {
+    "step": 26963009,
+    "selection_suite_success": 0.8437500000000002,
+    "selection_suite_timely_success": 0.59,
+    "selection_suite_clean_success": 0.5287499999999999,
+    "selection_suite_clean_timely_success": 0.47250000000000003
+  },
+  {
+    "step": 27312919,
+    "selection_suite_success": 0.9137500000000003,
+    "selection_suite_timely_success": 0.6375000000000001,
+    "selection_suite_clean_success": 0.578125,
+    "selection_suite_clean_timely_success": 0.530625
+  },
+  {
+    "step": 27666031,
+    "selection_suite_success": 0.8606250000000001,
+    "selection_suite_timely_success": 0.670625,
+    "selection_suite_clean_success": 0.5506249999999999,
+    "selection_suite_clean_timely_success": 0.5018750000000001
+  },
+  {
+    "step": 28039972,
+    "selection_suite_success": 0.8950000000000001,
+    "selection_suite_timely_success": 0.685,
+    "selection_suite_clean_success": 0.57375,
+    "selection_suite_clean_timely_success": 0.5275
+  },
+  {
+    "step": 28396582,
+    "selection_suite_success": 0.8937500000000003,
+    "selection_suite_timely_success": 0.6818750000000001,
+    "selection_suite_clean_success": 0.55125,
+    "selection_suite_clean_timely_success": 0.52875
+  },
+  {
+    "step": 28746176,
+    "selection_suite_success": 0.87125,
+    "selection_suite_timely_success": 0.6725,
+    "selection_suite_clean_success": 0.5687499999999999,
+    "selection_suite_clean_timely_success": 0.52
+  },
+  {
+    "step": 29104354,
+    "selection_suite_success": 0.8650000000000001,
+    "selection_suite_timely_success": 0.655,
+    "selection_suite_clean_success": 0.5487500000000001,
+    "selection_suite_clean_timely_success": 0.5150000000000001
+  },
+  {
+    "step": 29465874,
+    "selection_suite_success": 0.90375,
+    "selection_suite_timely_success": 0.7375,
+    "selection_suite_clean_success": 0.62875,
+    "selection_suite_clean_timely_success": 0.60375
+  },
+  {
+    "step": 29824807,
+    "selection_suite_success": 0.8912500000000001,
+    "selection_suite_timely_success": 0.7075,
+    "selection_suite_clean_success": 0.6275000000000001,
+    "selection_suite_clean_timely_success": 0.5775
+  },
+  {
+    "step": 30162454,
+    "selection_suite_success": 0.9050000000000001,
+    "selection_suite_timely_success": 0.6900000000000001,
+    "selection_suite_clean_success": 0.62125,
+    "selection_suite_clean_timely_success": 0.5775
+  },
+  {
+    "step": 30502333,
+    "selection_suite_success": 0.8725,
+    "selection_suite_timely_success": 0.6625000000000001,
+    "selection_suite_clean_success": 0.5568749999999999,
+    "selection_suite_clean_timely_success": 0.5081249999999999
+  },
+  {
+    "step": 30853654,
+    "selection_suite_success": 0.9000000000000002,
+    "selection_suite_timely_success": 0.70625,
+    "selection_suite_clean_success": 0.62375,
+    "selection_suite_clean_timely_success": 0.5725000000000001
+  },
+  {
+    "step": 31206409,
+    "selection_suite_success": 0.8762500000000001,
+    "selection_suite_timely_success": 0.7037500000000001,
+    "selection_suite_clean_success": 0.5849999999999999,
+    "selection_suite_clean_timely_success": 0.5399999999999999
+  },
+  {
+    "step": 31575765,
+    "selection_suite_success": 0.9125000000000002,
+    "selection_suite_timely_success": 0.7150000000000001,
+    "selection_suite_clean_success": 0.615625,
+    "selection_suite_clean_timely_success": 0.5868749999999999
+  },
+  {
+    "step": 31926587,
+    "selection_suite_success": 0.87625,
+    "selection_suite_timely_success": 0.675,
+    "selection_suite_clean_success": 0.54125,
+    "selection_suite_clean_timely_success": 0.4987500000000001
+  },
+  {
+    "step": 32292882,
+    "selection_suite_success": 0.87875,
+    "selection_suite_timely_success": 0.6825000000000001,
+    "selection_suite_clean_success": 0.55875,
+    "selection_suite_clean_timely_success": 0.5275000000000001
+  },
+  {
+    "step": 32650919,
+    "selection_suite_success": 0.8812500000000003,
+    "selection_suite_timely_success": 0.70375,
+    "selection_suite_clean_success": 0.5975,
+    "selection_suite_clean_timely_success": 0.54625
+  },
+  {
+    "step": 32982700,
+    "selection_suite_success": 0.8675,
+    "selection_suite_timely_success": 0.6875000000000001,
+    "selection_suite_clean_success": 0.5712500000000001,
+    "selection_suite_clean_timely_success": 0.5325
+  },
+  {
+    "step": 33353299,
+    "selection_suite_success": 0.9225000000000001,
+    "selection_suite_timely_success": 0.6837500000000001,
+    "selection_suite_clean_success": 0.58,
+    "selection_suite_clean_timely_success": 0.5349999999999999
+  },
+  {
+    "step": 33704806,
+    "selection_suite_success": 0.8737500000000001,
+    "selection_suite_timely_success": 0.68,
+    "selection_suite_clean_success": 0.5637500000000001,
+    "selection_suite_clean_timely_success": 0.50875
+  },
+  {
+    "step": 34061535,
+    "selection_suite_success": 0.8487500000000001,
+    "selection_suite_timely_success": 0.5975,
+    "selection_suite_clean_success": 0.5125000000000001,
+    "selection_suite_clean_timely_success": 0.46875
+  },
+  {
+    "step": 34422241,
+    "selection_suite_success": 0.8868750000000001,
+    "selection_suite_timely_success": 0.6706250000000001,
+    "selection_suite_clean_success": 0.5862499999999999,
+    "selection_suite_clean_timely_success": 0.5262499999999999
+  },
+  {
+    "step": 34783578,
+    "selection_suite_success": 0.8550000000000002,
+    "selection_suite_timely_success": 0.6450000000000001,
+    "selection_suite_clean_success": 0.5487500000000001,
+    "selection_suite_clean_timely_success": 0.51125
+  },
+  {
+    "step": 35112211,
+    "selection_suite_success": 0.8837500000000001,
+    "selection_suite_timely_success": 0.665,
+    "selection_suite_clean_success": 0.5875,
+    "selection_suite_clean_timely_success": 0.54625
+  },
+  {
+    "step": 35500440,
+    "selection_suite_success": 0.8912500000000002,
+    "selection_suite_timely_success": 0.7212500000000001,
+    "selection_suite_clean_success": 0.58125,
+    "selection_suite_clean_timely_success": 0.555
+  },
+  {
+    "step": 35840616,
+    "selection_suite_success": 0.8912500000000001,
+    "selection_suite_timely_success": 0.5812499999999999,
+    "selection_suite_clean_success": 0.54375,
+    "selection_suite_clean_timely_success": 0.45499999999999996
+  },
+  {
+    "step": 36200649,
+    "selection_suite_success": 0.8775000000000001,
+    "selection_suite_timely_success": 0.66,
+    "selection_suite_clean_success": 0.5506249999999999,
+    "selection_suite_clean_timely_success": 0.5006250000000001
+  },
+  {
+    "step": 36559647,
+    "selection_suite_success": 0.8825,
+    "selection_suite_timely_success": 0.685,
+    "selection_suite_clean_success": 0.58375,
+    "selection_suite_clean_timely_success": 0.5275000000000001
+  },
+  {
+    "step": 36890705,
+    "selection_suite_success": 0.9012500000000001,
+    "selection_suite_timely_success": 0.6750000000000002,
+    "selection_suite_clean_success": 0.580625,
+    "selection_suite_clean_timely_success": 0.558125
+  },
+  {
+    "step": 37257027,
+    "selection_suite_success": 0.8625000000000002,
+    "selection_suite_timely_success": 0.63375,
+    "selection_suite_clean_success": 0.57,
+    "selection_suite_clean_timely_success": 0.50375
+  }
+]

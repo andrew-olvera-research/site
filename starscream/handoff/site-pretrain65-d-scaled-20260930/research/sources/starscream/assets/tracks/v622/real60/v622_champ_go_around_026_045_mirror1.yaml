@@ -1,0 +1,101 @@
+name: v622_champ_go_around_026_045_mirror1
+loop: true
+bounds:
+- - -13.44953441619873
+  - 13.61075210571289
+- - -27.071760177612305
+  - 5.0
+- - 0.0
+  - 10.393168449401855
+metadata:
+  source: v622-requirements-1
+  seed: 622260045
+  intended_transition: go_around
+  hard: false
+  behavior_certified: false
+  handedness_balance:
+    source_name: v622_champ_go_around_026_045
+    source_fingerprint: 8280d4c0c2f5cd5d17eefb840f792a01783244d1e5126bcf266d43af05c23ed2
+    desired_dominant_sign: 1
+    independent_course_count: 1
+gates:
+- name: gate_00
+  position:
+  - 0.0
+  - -0.0
+  - 5.046878337860107
+  quaternion_wxyz:
+  - 0.3029758632183075
+  - 0.0
+  - 0.0
+  - 0.9529982209205627
+  size:
+  - 2.2122626304626465
+  - 1.55765700340271
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_01
+  position:
+  - -8.44953441619873
+  - -9.412392616271973
+  - 5.3931684494018555
+  quaternion_wxyz:
+  - 0.3029758632183075
+  - 0.0
+  - 0.0
+  - 0.9529982209205627
+  size:
+  - 1.7175166606903076
+  - 2.1292564868927
+  enter_from_opposite_side: true
+  kind: gate
+  render: true
+- name: gate_02
+  position:
+  - -8.2289457321167
+  - -17.139450073242188
+  - 4.453740119934082
+  quaternion_wxyz:
+  - 0.9403102993965149
+  - -0.0
+  - 0.0
+  - -0.34031835198402405
+  size:
+  - 2.3031413555145264
+  - 1.888193130493164
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_03
+  position:
+  - -3.2232258319854736
+  - -22.071760177612305
+  - 5.337509632110596
+  quaternion_wxyz:
+  - 0.999708890914917
+  - -0.0
+  - 0.0
+  - -0.024129623547196388
+  size:
+  - 2.1112449169158936
+  - 2.0304641723632812
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_04
+  position:
+  - 8.61075210571289
+  - -11.263900756835938
+  - 5.220869064331055
+  quaternion_wxyz:
+  - 0.8703076243400574
+  - 0.0
+  - 0.0
+  - 0.49250850081443787
+  size:
+  - 1.6384519338607788
+  - 2.1289374828338623
+  enter_from_opposite_side: false
+  kind: gate
+  render: true

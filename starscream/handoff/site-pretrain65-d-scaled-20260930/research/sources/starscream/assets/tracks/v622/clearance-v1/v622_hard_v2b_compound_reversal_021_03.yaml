@@ -1,0 +1,187 @@
+name: v622_hard_v2b_compound_reversal_021_03
+loop: true
+bounds:
+- - -7.572558403015137
+  - 14.234465599060059
+- - -11.872678756713867
+  - 10.001700401306152
+- - 0.0
+  - 12.043808937072754
+metadata:
+  source: v622-hard-v2-behavior-program
+  behavior_signature:
+    compound_edges:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    stratum: compound_reversal
+    seed: 72221003
+    count: 8
+    signed_turns:
+    - -134.22499806262093
+    - 131.78802878925126
+    - 154.83920057623408
+    - -126.74537615906719
+    - -116.12908604838438
+    - 13.701675892267403
+    center_heights:
+    - 4.9583651844727665
+    - 2.464124336467311
+    - 4.435054000856544
+    - 1.9911714747272082
+    - 3.0495064295440537
+    - 4.648920556883562
+    - 5.043809146665115
+    - 5.001087165568941
+    program_seed: 72221003
+    realization_attempt: 0
+  hard: true
+  behavior_certified: false
+  gate_clearance_revision:
+    revision: gate-clearance-v1
+    source_path: starscream/assets/tracks/v622/clearance-v1-sources/v622_hard_v2b_compound_reversal_021_03.yaml
+    source_fingerprint: aa5091def759bf82430ce600d326ea92459e830c2d4207405d5bc8358071c7fc
+    source_sha256: 4aa5fdd781fc69fd7d0e4808c1ea0548a18d28a411b96a8ca39675dcbfa68d65
+    removed_gates:
+    - index_1based: 8
+      gate:
+        name: gate_07
+        position:
+        - 5.045219898223877
+        - 1.2867892980575562
+        - 5.001087188720703
+        quaternion_wxyz:
+        - 0.2023126631975174
+        - 0.0
+        - 0.0
+        - 0.9793210029602051
+        size:
+        - 1.5844365358352661
+        - 1.5677942037582397
+        enter_from_opposite_side: false
+        kind: gate
+        render: true
+    original_gate_count: 8
+    gate_count: 7
+    crowded_pairs:
+    - gates_1based:
+      - 3
+      - 8
+      center_distance_m: 0.90574049949646
+      aperture_clearance_m: 2.2887833992611187e-16
+    original_source_path: outputs/v622-hard-v2/candidates/v622_hard_v2b_compound_reversal_021_03.yaml
+gates:
+- name: gate_00
+  position:
+  - 0.0
+  - 0.0
+  - 4.958364963531494
+  quaternion_wxyz:
+  - 0.4767240583896637
+  - -0.0
+  - -0.0
+  - -0.879052996635437
+  size:
+  - 1.6661804914474487
+  - 1.966511845588684
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_01
+  position:
+  - 1.3934237957000732
+  - -4.872678279876709
+  - 2.4641244411468506
+  quaternion_wxyz:
+  - 0.9998955130577087
+  - -0.0
+  - 0.0
+  - -0.014455783180892467
+  size:
+  - 1.574224829673767
+  - 1.9108692407608032
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_02
+  position:
+  - 5.301065444946289
+  - 1.9459669589996338
+  - 4.435053825378418
+  quaternion_wxyz:
+  - 0.9996712803840637
+  - -0.0
+  - 0.0
+  - -0.02563943900167942
+  size:
+  - 1.5289630889892578
+  - 1.5124754905700684
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_03
+  position:
+  - 7.234465599060059
+  - -3.867493152618408
+  - 1.9911714792251587
+  quaternion_wxyz:
+  - 0.1939125508069992
+  - -0.0
+  - -0.0
+  - -0.9810188412666321
+  size:
+  - 1.7300150394439697
+  - 1.850486159324646
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_04
+  position:
+  - 0.7029504776000977
+  - 3.0017001628875732
+  - 3.049506425857544
+  quaternion_wxyz:
+  - 0.13948504626750946
+  - -0.0
+  - -0.0
+  - -0.9902241826057434
+  size:
+  - 1.538928747177124
+  - 1.805284023284912
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_05
+  position:
+  - -0.5725584626197815
+  - -4.461833477020264
+  - 4.64892053604126
+  quaternion_wxyz:
+  - 0.9376223087310791
+  - -0.0
+  - 0.0
+  - -0.34765565395355225
+  size:
+  - 1.7325353622436523
+  - 1.76063072681427
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_06
+  position:
+  - 6.994846820831299
+  - -2.230175495147705
+  - 5.043808937072754
+  quaternion_wxyz:
+  - 0.8302114605903625
+  - 0.0
+  - 0.0
+  - 0.55744868516922
+  size:
+  - 1.6386950016021729
+  - 2.172541379928589
+  enter_from_opposite_side: false
+  kind: gate
+  render: true

@@ -1,0 +1,119 @@
+name: multigp_cdra_2026_reconstructed_arena1
+loop: true
+bounds:
+- - -5.4057159423828125
+  - 26.448997497558594
+- - -9.499237060546875
+  - 18.841581344604492
+- - 0.0
+  - 6.0
+metadata:
+  provenance: official-build-guide-reconstruction-v1
+  geometry_status: gate-center-reconstructed_from_official_trilateration
+  description: Five-gate 2025-2026 MultiGP Collegiate Drone Racing Association qualification
+    course. Gate centers are reconstructed in metric ENU from the organizer's foot-based
+    rebar trilateration guide. Gate normals use the ordered gate-path bisectors because
+    the guide specifies gate legs and adjacent flags rather than surveyed six-DoF
+    gate poses.
+  source: https://www.multigp.com/wp-content/uploads/2025/08/2026-CDRA-Track-Diagram.pdf
+  source_organization: MultiGP
+  source_gate_opening_m:
+  - 2.1336
+  - 1.8288
+  reconstruction_uncertainty_m: 0.75
+  reconstruction_uncertainty_degrees: 12.0
+  flags_not_modeled: true
+  scientific_scope: competition-layout-adaptation-not-exact-benchmark
+  training_exclusion: immutable_reference_only
+  arena_correction:
+    source_name: multigp_cdra_2026_reconstructed
+    source_fingerprint: 3a238d96c4631e560abfa3824ea0ed4d3937b4f45ded5d45e55e42ecb3e160de
+    source_bounds:
+    - - -3.0
+      - 23.0
+    - - -3.0
+      - 17.0
+    - - 0.0
+      - 6.0
+    reason: reference-path containment plus 6m maneuver margin; gates unchanged
+gates:
+- name: G1_timing
+  position:
+  - 1.0667999982833862
+  - 0.0
+  - 0.9143999814987183
+  quaternion_wxyz:
+  - 0.8479358553886414
+  - 0.0
+  - 0.0
+  - -0.5300989151000977
+  size:
+  - 2.1335999965667725
+  - 1.8287999629974365
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: G2
+  position:
+  - 18.440399169921875
+  - 0.0
+  - 0.9143999814987183
+  quaternion_wxyz:
+  - 0.9238795638084412
+  - 0.0
+  - 0.0
+  - 0.3826834559440613
+  size:
+  - 2.1335999965667725
+  - 1.8287999629974365
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: G3
+  position:
+  - 18.440399169921875
+  - 10.05840015411377
+  - 0.9143999814987183
+  quaternion_wxyz:
+  - 0.22889000177383423
+  - 0.0
+  - 0.0
+  - 0.9734523296356201
+  size:
+  - 2.1335999965667725
+  - 1.8287999629974365
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: G4
+  position:
+  - 11.58240032196045
+  - 4.876800060272217
+  - 0.9143999814987183
+  quaternion_wxyz:
+  - 0.20960859954357147
+  - 0.0
+  - 0.0
+  - 0.9777854084968567
+  size:
+  - 2.1335999965667725
+  - 1.8287999629974365
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: G5
+  position:
+  - 10.966699600219727
+  - 12.649200439453125
+  - 0.9143999814987183
+  quaternion_wxyz:
+  - 0.1457345187664032
+  - 0.0
+  - 0.0
+  - 0.9893237352371216
+  size:
+  - 2.1335999965667725
+  - 1.8287999629974365
+  enter_from_opposite_side: false
+  kind: gate
+  render: true

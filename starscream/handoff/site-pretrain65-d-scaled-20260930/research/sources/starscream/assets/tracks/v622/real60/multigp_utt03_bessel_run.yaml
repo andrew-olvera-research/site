@@ -1,0 +1,163 @@
+name: multigp_utt03_bessel_run
+loop: true
+bounds:
+- - -8.0
+  - 64.0
+- - -8.0
+  - 22.0
+- - 0.0
+  - 10.0
+metadata:
+  series: MultiGP Universal Time Trial
+  utt_number: 3
+  title: Bessel Run
+  source: https://www.multigp.com/wp-content/uploads/2017/05/MultiGP-universal-time-trial-track-3-BesselRun-002.pdf
+  source_authority: MultiGP official field implementation guide
+  geometry_fidelity: official_dimensioned_plan
+  five_inch: true
+  dagger_eligible_5inch: true
+  leaderboard_comparison_eligible: true
+  physical_obstacles:
+  - name: gate_1
+    kind: gate
+    position_m:
+    - 28
+    - 14
+    - 0.762
+  - name: gate_2
+    kind: gate
+    position_m:
+    - 56
+    - 0
+    - 0.762
+  - name: gate_3
+    kind: gate
+    position_m:
+    - 28
+    - 0
+    - 0.762
+  - name: gate_4
+    kind: gate
+    position_m:
+    - 7
+    - 0
+    - 0.762
+  - name: gate_5
+    kind: gate
+    position_m:
+    - 0
+    - 0
+    - 0.762
+  notes:
+  - Obstacle centers and field dimensions are official; planner normals follow the
+    ordered route because the guide diagram does not numerically encode yaw.
+  source_geometry_fingerprint: 5c7e4769e23f870ba3dfcb53850e5d2b7d6f5ba7b50b0f3871a318726a477cfd
+  route_checkpoint_count: 5
+  route_semantics:
+  - index: 0
+    name: obstacle_1_gate
+    kind: gate
+    physical_obstacle: 1
+  - index: 1
+    name: obstacle_2_gate
+    kind: gate
+    physical_obstacle: 2
+  - index: 2
+    name: obstacle_3_gate
+    kind: gate
+    physical_obstacle: 3
+  - index: 3
+    name: obstacle_4_gate
+    kind: gate
+    physical_obstacle: 4
+  - index: 4
+    name: obstacle_5_gate
+    kind: gate
+    physical_obstacle: 5
+  benchmark_key: multigp_utt03
+  benchmark_display_name: "MultiGP UTT 3 \u2014 Bessel Run"
+  benchmark_modality: fast planar offsets
+  benchmark_provenance_class: official_dimensioned_plan
+  benchmark_source_url: https://www.multigp.com/wp-content/uploads/2017/05/MultiGP-universal-time-trial-track-3-BesselRun-002.pdf
+  benchmark_timing_comparison_eligible: true
+gates:
+- name: obstacle_1_gate
+  position:
+  - 28.0
+  - 14.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 1.0
+  - 0.0
+  - 0.0
+  - 0.0
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: obstacle_2_gate
+  position:
+  - 56.0
+  - 0.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.6205832362174988
+  - 0.0
+  - 0.0
+  - -0.7841405868530273
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: obstacle_3_gate
+  position:
+  - 28.0
+  - 0.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: obstacle_4_gate
+  position:
+  - 7.0
+  - 0.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: obstacle_5_gate
+  position:
+  - 0.0
+  - 0.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.6205832362174988
+  - 0.0
+  - 0.0
+  - 0.7841405868530273
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true

@@ -1,0 +1,96 @@
+name: v622_hard_hairpin_chain_020_051
+loop: true
+bounds:
+- - -5.0
+  - 18.348026275634766
+- - -5.0
+  - 12.130355834960938
+- - 0.0
+  - 8.76208209991455
+metadata:
+  source: v622-requirements-1
+  seed: 632200051
+  intended_transition: hairpin_chain
+  hard: true
+  behavior_certified: false
+gates:
+- name: gate_04
+  position:
+  - 4.493960857391357
+  - 7.130355358123779
+  - 2.8486173152923584
+  quaternion_wxyz:
+  - 0.41969621181488037
+  - -0.0
+  - -0.0
+  - -0.9076646566390991
+  size:
+  - 1.622139573097229
+  - 1.954913854598999
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_00
+  position:
+  - 0.0
+  - 0.0
+  - 1.157940149307251
+  quaternion_wxyz:
+  - 0.7477479577064514
+  - -0.0
+  - 0.0
+  - -0.6639827489852905
+  size:
+  - 1.59755539894104
+  - 1.5476431846618652
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_01
+  position:
+  - 8.289292335510254
+  - 0.6995682120323181
+  - 1.157940149307251
+  quaternion_wxyz:
+  - 0.7987352609634399
+  - 0.0
+  - 0.0
+  - 0.6016826629638672
+  size:
+  - 1.590259075164795
+  - 1.755880355834961
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_02
+  position:
+  - 4.069540500640869
+  - 4.708963394165039
+  - 1.7677792310714722
+  quaternion_wxyz:
+  - 0.7932969927787781
+  - 0.0
+  - 0.0
+  - 0.6088348627090454
+  size:
+  - 1.5287662744522095
+  - 1.6477009057998657
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_03
+  position:
+  - 13.348026275634766
+  - 5.414324760437012
+  - 3.7620818614959717
+  quaternion_wxyz:
+  - 0.7550314664840698
+  - 0.0
+  - 0.0
+  - 0.6556885838508606
+  size:
+  - 1.604036569595337
+  - 1.7314708232879639
+  enter_from_opposite_side: false
+  kind: gate
+  render: true

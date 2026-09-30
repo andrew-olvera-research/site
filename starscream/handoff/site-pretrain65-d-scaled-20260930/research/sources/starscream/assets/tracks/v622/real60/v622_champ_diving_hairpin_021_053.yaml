@@ -1,0 +1,112 @@
+name: v622_champ_diving_hairpin_021_053
+loop: true
+bounds:
+- - -6.633905410766602
+  - 11.488883972167969
+- - -14.944244384765625
+  - 19.081092834472656
+- - 0.0
+  - 9.182802200317383
+metadata:
+  source: v622-requirements-1
+  seed: 622210053
+  intended_transition: diving_hairpin
+  hard: false
+  behavior_certified: false
+gates:
+- name: gate_00
+  position:
+  - 0.0
+  - 0.0
+  - 1.0345484018325806
+  quaternion_wxyz:
+  - 0.987037181854248
+  - -0.0
+  - 0.0
+  - -0.16049200296401978
+  size:
+  - 2.4207162857055664
+  - 1.5090967416763306
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_01
+  position:
+  - 6.4888834953308105
+  - 1.8307832479476929
+  - 4.182802677154541
+  quaternion_wxyz:
+  - 0.9508198499679565
+  - -0.0
+  - 0.0
+  - -0.3097444772720337
+  size:
+  - 1.7905755043029785
+  - 1.4716960191726685
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_02
+  position:
+  - 3.6592531204223633
+  - -9.944244384765625
+  - 1.0948315858840942
+  quaternion_wxyz:
+  - 0.04761490598320961
+  - -0.0
+  - -0.0
+  - -0.9988657832145691
+  size:
+  - 1.7722628116607666
+  - 1.629663109779358
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_03
+  position:
+  - 1.306336760520935
+  - 4.163206577301025
+  - 1.1731624603271484
+  quaternion_wxyz:
+  - 0.2858106791973114
+  - 0.0
+  - 0.0
+  - 0.9582861065864563
+  size:
+  - 2.030791759490967
+  - 1.7863249778747559
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_04
+  position:
+  - -1.6014447212219238
+  - 14.081093788146973
+  - 1.533423662185669
+  quaternion_wxyz:
+  - 0.048750512301921844
+  - 0.0
+  - 0.0
+  - 0.9988110065460205
+  size:
+  - 1.6084901094436646
+  - 2.2465522289276123
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_05
+  position:
+  - -1.6339054107666016
+  - 2.065105438232422
+  - 1.0252618789672852
+  quaternion_wxyz:
+  - 0.9493432641029358
+  - -0.0
+  - 0.0
+  - -0.31424108147621155
+  size:
+  - 2.1193926334381104
+  - 1.4905238151550293
+  enter_from_opposite_side: false
+  kind: gate
+  render: true

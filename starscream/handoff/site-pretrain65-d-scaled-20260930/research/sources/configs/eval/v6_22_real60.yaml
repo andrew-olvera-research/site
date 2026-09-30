@@ -1,0 +1,319 @@
+schema: starscream-real-course-suite-v1
+description: 'real60: shared public anchors and independently generated courses; see
+  manifest exposure policy Gate-clearance-v1 removes accidental physical crowding;
+  prior benchmark scores are historical.'
+active:
+- name: v622_champ_flow_000_015
+  track: starscream/assets/tracks/v622/real60/v622_champ_flow_000_015.yaml
+  geometry_fingerprint: 96189aefb221106b033a25bea5e5c4224a65f5607d9440f0a2dad1ff4a0cd10e
+  exposure: fresh geometry
+  family: flow
+- name: v622_champ_slalom_001_037_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_slalom_001_037_mirror1.yaml
+  geometry_fingerprint: cd754369918d274f069bdd26b5bd95e5d2ffb90486aff3d26af0fd61cfb5f99e
+  exposure: fresh geometry
+  family: slalom
+- name: v622_champ_hairpin_chain_002_027
+  track: starscream/assets/tracks/v622/real60/v622_champ_hairpin_chain_002_027.yaml
+  geometry_fingerprint: 8e62db1d870232a50540830c18e0cd76fb4ca16e4617d506070c93fd70105739
+  exposure: fresh geometry
+  family: hairpin_chain
+- name: v622_champ_diving_hairpin_003_035_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_diving_hairpin_003_035_mirror1.yaml
+  geometry_fingerprint: 70227ee3a7ed43e99a09d565ae94de17596d135f3ae239b49ca1f0d9fae7156f
+  exposure: fresh geometry
+  family: diving_hairpin
+- name: v622_champ_long_low_004_044
+  track: starscream/assets/tracks/v622/real60/v622_champ_long_low_004_044.yaml
+  geometry_fingerprint: 23d8c1c00e82e2ac6d93fbb9f795ef6090fe658787fd24116691daea9b9f436a
+  exposure: fresh geometry
+  family: long_low
+- name: v622_champ_long_braking_005_004_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_long_braking_005_004_mirror1.yaml
+  geometry_fingerprint: 6500fdb3547f6ce9e25b4beaf9c89932be274e840915d6cd1f8e26bdede52a8c
+  exposure: fresh geometry
+  family: long_braking
+- name: v622_champ_ordered_3d_006_018_mirror1
+  track: starscream/assets/tracks/v622/clearance-v1/v622_champ_ordered_3d_006_018_mirror1.yaml
+  geometry_fingerprint: 8618f03d6712f7af10f8203a5120275b4033192b501110bc2aa50c8d0e236de0
+  exposure: fresh geometry
+  family: ordered_3d
+  geometry_revision: gate-clearance-v1
+- name: v622_champ_stacked_reversal_007_051_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_stacked_reversal_007_051_mirror1.yaml
+  geometry_fingerprint: 042ad0c304789574fb1a6f605d809c0deb02ec12cbd1455edff6f702e2971f43
+  exposure: fresh geometry
+  family: stacked_reversal
+- name: v622_champ_go_around_008_023_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_go_around_008_023_mirror1.yaml
+  geometry_fingerprint: 56eec8607ea30b829bc896d061acf73256fddc077819cd248706da1612a598f0
+  exposure: fresh geometry
+  family: go_around
+- name: v622_champ_flow_009_000_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_flow_009_000_mirror1.yaml
+  geometry_fingerprint: 14a551ecaa2ae700a49c1f8d26a92d57e3b233968a46340976dcdfe065932b00
+  exposure: fresh geometry
+  family: flow
+- name: v622_champ_slalom_010_024_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_slalom_010_024_mirror1.yaml
+  geometry_fingerprint: 402b762b72b12a93488047bc45bcac8035f4ef5c946121021727a824de4f9405
+  exposure: fresh geometry
+  family: slalom
+- name: v622_champ_hairpin_chain_011_018
+  track: starscream/assets/tracks/v622/clearance-v1/v622_champ_hairpin_chain_011_018.yaml
+  geometry_fingerprint: 7347b19d8bd2e333718e6c2b53810af137755fc74eba9a718231ddeae04efe0e
+  exposure: fresh geometry
+  family: hairpin_chain
+  geometry_revision: gate-clearance-v1
+- name: v622_champ_diving_hairpin_012_034
+  track: starscream/assets/tracks/v622/real60/v622_champ_diving_hairpin_012_034.yaml
+  geometry_fingerprint: ab6497bcab867ae1d16a92c22a25a6669c3366c5ba661984ab0d73bad26efb2e
+  exposure: fresh geometry
+  family: diving_hairpin
+- name: v622_champ_long_low_013_059_arena1
+  track: starscream/assets/tracks/v622/real60/v622_champ_long_low_013_059_arena1.yaml
+  geometry_fingerprint: 64dff8611649dff04f4dce9dc71a34d6f34eb21fcb0e86d2f7866943e423b68d
+  exposure: fresh geometry
+  family: long_low
+- name: v622_champ_long_braking_014_023
+  track: starscream/assets/tracks/v622/clearance-v1/v622_champ_long_braking_014_023.yaml
+  geometry_fingerprint: f81f67fa3c301e23e647860220453ed7c804c4b8a12b206454eaac2a30305235
+  exposure: fresh geometry
+  family: long_braking
+  geometry_revision: gate-clearance-v1
+- name: v622_champ_ordered_3d_015_002_mirror1
+  track: starscream/assets/tracks/v622/clearance-v1/v622_champ_ordered_3d_015_002_mirror1.yaml
+  geometry_fingerprint: 4595b5756e178ebc30211e9bb333e4dbde8da995e20f54be6c012aff285f83db
+  exposure: fresh geometry
+  family: ordered_3d
+  geometry_revision: gate-clearance-v1
+- name: v622_champ_stacked_reversal_016_032_mirror1
+  track: starscream/assets/tracks/v622/clearance-v1/v622_champ_stacked_reversal_016_032_mirror1.yaml
+  geometry_fingerprint: 76401789c38da33f5c71e09a359faf6113c911856d305909c20c2a8deb9f90ba
+  exposure: fresh geometry
+  family: stacked_reversal
+  geometry_revision: gate-clearance-v1
+- name: v622_champ_go_around_017_053
+  track: starscream/assets/tracks/v622/real60/v622_champ_go_around_017_053.yaml
+  geometry_fingerprint: 8997739344f63c9b32f9dc57c12111929092a4acaf890449cc13231761718293
+  exposure: fresh geometry
+  family: go_around
+- name: v622_champ_flow_018_028
+  track: starscream/assets/tracks/v622/real60/v622_champ_flow_018_028.yaml
+  geometry_fingerprint: e2422fca1fd7444aaa6254116a9a3693ff4ac62c9136ba099a40534f60d27ddd
+  exposure: fresh geometry
+  family: flow
+- name: v622_champ_slalom_019_030
+  track: starscream/assets/tracks/v622/real60/v622_champ_slalom_019_030.yaml
+  geometry_fingerprint: 94d4b48798ad75e3069754bad8893e6a6ce6886216995b087e435544b5993e7b
+  exposure: fresh geometry
+  family: slalom
+- name: v622_champ_hairpin_chain_020_050
+  track: starscream/assets/tracks/v622/clearance-v1/v622_champ_hairpin_chain_020_050.yaml
+  geometry_fingerprint: 6ea41f9ed5b449887e61a5f4385202f8a8e6190f7bea87968a605db3d3212ead
+  exposure: fresh geometry
+  family: hairpin_chain
+  geometry_revision: gate-clearance-v1
+- name: v622_champ_diving_hairpin_021_053
+  track: starscream/assets/tracks/v622/real60/v622_champ_diving_hairpin_021_053.yaml
+  geometry_fingerprint: f9e9015b946c62c2197b2a33035579f49f8224259bcf23b041da3e6020e590ac
+  exposure: fresh geometry
+  family: diving_hairpin
+- name: v622_champ_long_low_022_012_arena1_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_long_low_022_012_arena1_mirror1.yaml
+  geometry_fingerprint: e051053edb6b0358b29dcfd174a48fa3aae50357a95426d519d0f8418e834e00
+  exposure: fresh geometry
+  family: long_low
+- name: v622_champ_long_braking_023_017_arena1_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_long_braking_023_017_arena1_mirror1.yaml
+  geometry_fingerprint: 0d1a0d50dd7b872656b6c9e7a5e26062b1025a31935003b13994b1184458a944
+  exposure: fresh geometry
+  family: long_braking
+- name: v622_champ_ordered_3d_024_006_mirror1
+  track: starscream/assets/tracks/v622/clearance-v1/v622_champ_ordered_3d_024_006_mirror1.yaml
+  geometry_fingerprint: 756c34a456279ca82d3c15a47c57a11d2336675037fa315aca529574ff0803f9
+  exposure: fresh geometry
+  family: ordered_3d
+  geometry_revision: gate-clearance-v1
+- name: v622_champ_stacked_reversal_025_019_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_stacked_reversal_025_019_mirror1.yaml
+  geometry_fingerprint: 340bc56993ba9699e3c784bd7e8a56b2b33f5302fe7f93a8d1791d759f46fcdb
+  exposure: fresh geometry
+  family: stacked_reversal
+- name: v622_champ_go_around_026_045_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_go_around_026_045_mirror1.yaml
+  geometry_fingerprint: 20c943746768816695dd007894fbc8c878893ab2a25e4b2d904ba5e7e17b8f8d
+  exposure: fresh geometry
+  family: go_around
+- name: v622_champ_flow_027_011_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_flow_027_011_mirror1.yaml
+  geometry_fingerprint: 609176c4a861994b8b25ae1abffc187b91596d9fc0280308b84807ee9dafcd7d
+  exposure: fresh geometry
+  family: flow
+- name: v622_champ_slalom_028_021
+  track: starscream/assets/tracks/v622/real60/v622_champ_slalom_028_021.yaml
+  geometry_fingerprint: 9b34330dfbc229f4fe5380375f23718a88944eca064c43ea2f562e9d4a29037d
+  exposure: fresh geometry
+  family: slalom
+- name: v622_champ_hairpin_chain_029_034_mirror1
+  track: starscream/assets/tracks/v622/clearance-v1/v622_champ_hairpin_chain_029_034_mirror1.yaml
+  geometry_fingerprint: 11584a60e375d0388e722160ac06cc6e97449d2cb86508d63bab62ef4de64495
+  exposure: fresh geometry
+  family: hairpin_chain
+  geometry_revision: gate-clearance-v1
+- name: v622_champ_diving_hairpin_030_038_mirror1
+  track: starscream/assets/tracks/v622/clearance-v1/v622_champ_diving_hairpin_030_038_mirror1.yaml
+  geometry_fingerprint: 2372fb985c4af871924a9970abb27ae5dd1886e0f29ad46576ea403dcc25fc87
+  exposure: fresh geometry
+  family: diving_hairpin
+  geometry_revision: gate-clearance-v1
+- name: v622_champ_long_low_031_029
+  track: starscream/assets/tracks/v622/clearance-v1/v622_champ_long_low_031_029.yaml
+  geometry_fingerprint: 014204092c75ce3fa1bdbcb2104e2e07a3474a98a56faf0053d89c10a7df5e5c
+  exposure: fresh geometry
+  family: long_low
+  geometry_revision: gate-clearance-v1
+- name: v622_extension1_real60-032_000
+  track: starscream/assets/tracks/v622/real60/v622_extension1_real60-032_000.yaml
+  geometry_fingerprint: 5ed7f91a0808474409808a344f3b60724a040dc9a67a18646366980ae0791f6f
+  exposure: fresh geometry
+  family: long_braking
+- name: v622_champ_ordered_3d_033_024_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_ordered_3d_033_024_mirror1.yaml
+  geometry_fingerprint: 58d5882639a19c881ef7526741089fcdbc90b618b8016878dfe3567107777428
+  exposure: fresh geometry
+  family: ordered_3d
+- name: v622_champ_stacked_reversal_034_006_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_stacked_reversal_034_006_mirror1.yaml
+  geometry_fingerprint: f9a9c582a9d1ae27d7df419b5747ad31d593b6173795b6d1de71a6937ec25cc6
+  exposure: fresh geometry
+  family: stacked_reversal
+- name: v622_champ_go_around_035_039
+  track: starscream/assets/tracks/v622/real60/v622_champ_go_around_035_039.yaml
+  geometry_fingerprint: f4cdaf9b006488af1b4315a7de687c11749f2a9f2b8a803a9687e9b27868adae
+  exposure: fresh geometry
+  family: go_around
+- name: v622_champ_flow_036_029
+  track: starscream/assets/tracks/v622/real60/v622_champ_flow_036_029.yaml
+  geometry_fingerprint: 5ceb3539858e3e04c740a4e2b66314c0333207750a0012da718685317fb952cd
+  exposure: fresh geometry
+  family: flow
+- name: v622_champ_slalom_037_024
+  track: starscream/assets/tracks/v622/real60/v622_champ_slalom_037_024.yaml
+  geometry_fingerprint: 706474540673231936391c3686a138d583feb64db4e6130a12d8fea3ce5352c5
+  exposure: fresh geometry
+  family: slalom
+- name: v622_champ_hairpin_chain_038_040_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_hairpin_chain_038_040_mirror1.yaml
+  geometry_fingerprint: c7495d8d7dcd95394b98569a01266c5adbe771c4364ad3a3f206feeda5da87fa
+  exposure: fresh geometry
+  family: hairpin_chain
+- name: v622_champ_diving_hairpin_039_047
+  track: starscream/assets/tracks/v622/real60/v622_champ_diving_hairpin_039_047.yaml
+  geometry_fingerprint: 22decd68f93359bac2633583b9e97ceb6b95fcf9d7aad582b73c198b7eb1d07f
+  exposure: fresh geometry
+  family: diving_hairpin
+- name: v622_repair_real60-040_100_arena1
+  track: starscream/assets/tracks/v622/real60/v622_repair_real60-040_100_arena1.yaml
+  geometry_fingerprint: 1faff44107bd7b1286d0909f0ea87997f7ee645ef4848dd0d48607cd96ff79c5
+  exposure: fresh geometry
+  family: long_low
+- name: v622_champ_long_braking_041_035_mirror1
+  track: starscream/assets/tracks/v622/clearance-v1/v622_champ_long_braking_041_035_mirror1.yaml
+  geometry_fingerprint: 55e9df6d00538c4bd4916801ff3130072cee467b623530889dadd053431fb6a7
+  exposure: fresh geometry
+  family: long_braking
+  geometry_revision: gate-clearance-v1
+- name: v622_champ_ordered_3d_042_031_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_ordered_3d_042_031_mirror1.yaml
+  geometry_fingerprint: 5cd04bd75027f2e455913630b00862e44170f83742c6f97858e2ebab477732a4
+  exposure: fresh geometry
+  family: ordered_3d
+- name: v622_champ_stacked_reversal_043_049_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_stacked_reversal_043_049_mirror1.yaml
+  geometry_fingerprint: 655b664bb6fe5deeae6b5647c6e016e5dce85797b3dd71b99c61053f07c6f1bb
+  exposure: fresh geometry
+  family: stacked_reversal
+- name: v622_champ_go_around_044_046
+  track: starscream/assets/tracks/v622/real60/v622_champ_go_around_044_046.yaml
+  geometry_fingerprint: b40a9cbcbb4824328433d41c936052d5331eb27375635bdc4101acb82a6c2442
+  exposure: fresh geometry
+  family: go_around
+- name: v622_champ_flow_045_059_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_flow_045_059_mirror1.yaml
+  geometry_fingerprint: 7a166e8bc6d36a65ac9203826a1b92c740247098b4bf445b89c7adebdbafb8c3
+  exposure: fresh geometry
+  family: flow
+- name: v622_champ_slalom_046_006_arena1_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_slalom_046_006_arena1_mirror1.yaml
+  geometry_fingerprint: cb633de1c8079bc8b3c0786868e4ee5fc5825271531f10e2356d276a6ed19bae
+  exposure: fresh geometry
+  family: slalom
+- name: v622_champ_hairpin_chain_047_052
+  track: starscream/assets/tracks/v622/real60/v622_champ_hairpin_chain_047_052.yaml
+  geometry_fingerprint: 1f3f140f70076746a2fa7c651cf9990306f342d5407f18bd691df3cdd111582d
+  exposure: fresh geometry
+  family: hairpin_chain
+- name: v622_champ_diving_hairpin_048_042_mirror1
+  track: starscream/assets/tracks/v622/real60/v622_champ_diving_hairpin_048_042_mirror1.yaml
+  geometry_fingerprint: a1696faa2a12f24c4c24c1c25868c1b08f9f85f8a8775093455878dd670d9eda
+  exposure: fresh geometry
+  family: diving_hairpin
+- name: v622_champ_long_low_049_044_arena1
+  track: starscream/assets/tracks/v622/real60/v622_champ_long_low_049_044_arena1.yaml
+  geometry_fingerprint: 98e993be168c23ec10e7d6079dfae28be1c12f12cd66afe904b32c4d75207586
+  exposure: fresh geometry
+  family: long_low
+- name: v622_champ_long_braking_050_042_arena1
+  track: starscream/assets/tracks/v622/real60/v622_champ_long_braking_050_042_arena1.yaml
+  geometry_fingerprint: 740edba13077851c399304aa454b6e75cd3e329661da4edbcddb6ba77551133f
+  exposure: fresh geometry
+  family: long_braking
+- name: v622_champ_ordered_3d_051_052
+  track: starscream/assets/tracks/v622/clearance-v1/v622_champ_ordered_3d_051_052.yaml
+  geometry_fingerprint: d14debf7bb8c9a286a83bb0859886b3de12c32fc0460446354d894ce077ea530
+  exposure: fresh geometry
+  family: ordered_3d
+  geometry_revision: gate-clearance-v1
+- name: swift_champion_2022_exact
+  track: starscream/assets/tracks/v622/real60/swift_champion_2022_exact.yaml
+  geometry_fingerprint: f35b1dfac1a67879f55741fb108b5e03a8256c4638a64dcee062d69909ea581d
+  exposure: real50 validation and distribution design
+  family: public_reference
+- name: multigp_cdra_2026_reconstructed_arena1
+  track: starscream/assets/tracks/v622/real60/multigp_cdra_2026_reconstructed_arena1.yaml
+  geometry_fingerprint: 167a8d1f7853ff105066a418f9458c7d92132557469f24c2865cccaf593de862
+  exposure: real50 validation and distribution design
+  family: public_reference
+- name: a2rl_s2_2026_source_consistent_v2_arena1
+  track: starscream/assets/tracks/v622/real60/a2rl_s2_2026_source_consistent_v2_arena1.yaml
+  geometry_fingerprint: 8af37ade6cb6380a62d447d6f25bed632104e64e3f70ffddd42f2ce464bcf17e
+  exposure: real50 validation and distribution design
+  family: public_reference
+- name: multigp_utt06_fury
+  track: starscream/assets/tracks/v622/real60/multigp_utt06_fury.yaml
+  geometry_fingerprint: ceb5ada903ce0d59b9681a3b38e339b707e9f08cf77259f635b5e438e0959ed6
+  exposure: real50 validation and distribution design
+  family: public_reference
+- name: multigp_utt08_revenge
+  track: starscream/assets/tracks/v622/real60/multigp_utt08_revenge.yaml
+  geometry_fingerprint: d2f6996ac710d9c177890fc685de43f6236668573e6a5b0664c210aa9bd9f128
+  exposure: real50 validation and distribution design
+  family: public_reference
+- name: multigp_utt04_high_voltage_arena1
+  track: starscream/assets/tracks/v622/real60/multigp_utt04_high_voltage_arena1.yaml
+  geometry_fingerprint: fb6b69f56c32850aaa28f8c56697461b7ddbf96788506619108139b3432812f1
+  exposure: real50 validation and distribution design
+  family: public_reference
+- name: multigp_utt03_bessel_run
+  track: starscream/assets/tracks/v622/real60/multigp_utt03_bessel_run.yaml
+  geometry_fingerprint: 357535f778b38c75ac9b07a89b43aa0db37fbba47164a830ec8b097c4be3c0f0
+  exposure: real50 validation and distribution design
+  family: public_reference
+- name: multigp_utt05_nautilus
+  track: starscream/assets/tracks/v622/real60/multigp_utt05_nautilus.yaml
+  geometry_fingerprint: 540ceb10a62b82573ae2729f3231072ca1f4630c7349b47bf6085aa2237e4dc3
+  exposure: real50 validation and distribution design
+  family: public_reference
+pending_geometry: []
+geometry_revision: gate-clearance-v1

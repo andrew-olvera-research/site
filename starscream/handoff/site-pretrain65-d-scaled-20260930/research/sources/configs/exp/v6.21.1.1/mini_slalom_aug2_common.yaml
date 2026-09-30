@@ -1,0 +1,76 @@
+{
+  "inherits": "mini_slalom_2_common.yaml",
+  "dagger": {
+    "rounds": 24,
+    "episodes_per_round": 64,
+    "updates_per_round": 626,
+    "dagger_online_replay_rows_per_round": 8334,
+    "online_replay_capacity": 260000,
+    "dagger_permanent_expert_capacity": 52086,
+    "dagger_permanent_expert_rounds": 1,
+    "dagger_dart_expert_rounds": 1,
+    "teacher_beta_schedule_rounds": 3,
+    "initial_checkpoint": "/workspace/outputs/checkpoints/starscream-v6.21.1.1-plant-selection25-dagger/best-step-150819355-selection_suite_success-0.57875.pt",
+    "dagger_initialization_stats_checkpoint": null,
+    "resume_checkpoint": null,
+    "learning_rate": 3e-05,
+    "dagger_learning_rate_schedule": {
+      "__replace__": true,
+      "type": "constant"
+    },
+    "track_manifest": "/workspace/outputs/diagnostics/mini-slalom-aug2/train-manifest.json",
+    "curriculum": {
+      "tracks": [
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_10_slalom_0.yaml",
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_4_slalom_1.yaml",
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_10_slalom_000_2026092911.yaml",
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_10_slalom_001_2026093920.yaml",
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_10_slalom_003_2026095938.yaml",
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_4_slalom_000_2027092914.yaml",
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_4_slalom_001_2027093923.yaml",
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_4_slalom_002_2027094932.yaml",
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_4_slalom_003_2027095941.yaml"
+      ]
+    },
+    "evaluation_suite_manifest": "/workspace/outputs/diagnostics/mini-slalom-aug2/validation-suite.json",
+    "evaluation_suite_sha256": "742453551fb8b0279e422920ffdc2dc34006789a904bb62e64418994007dff19",
+    "evaluation_suite_episodes_per_track": 4,
+    "evaluation_curriculum": {
+      "tracks": [
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/family_validation/named_aug_family_validation_10_slalom_001_2036093920.yaml",
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/family_validation/named_aug_family_validation_4_slalom_000_2037092914.yaml",
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/family_validation/named_aug_family_validation_4_slalom_001_2037093923.yaml",
+        "starscream/assets/tracks/v622/real100-hard/v622_hard_slalom_010_024_mirror1.yaml",
+        "starscream/assets/tracks/v622/real100-hard/v622_hard_slalom_019_012.yaml"
+      ],
+      "max_steps": 6000
+    },
+    "evaluation_clean_deadlines": {
+      "named_aug_family_validation_10_slalom_001_2036093920": 1264,
+      "named_aug_family_validation_4_slalom_000_2037092914": 982,
+      "named_aug_family_validation_4_slalom_001_2037093923": 975,
+      "v622_hard_slalom_010_024_mirror1": 1515,
+      "v622_hard_slalom_019_012": 1896
+    },
+    "evaluation_workers": 4,
+    "evaluation_envs_per_worker": 6
+  },
+  "experiment_notes": {
+    "augmented_two_course": {
+      "parents": [
+        "v6201_train_10_slalom_0",
+        "v6201_train_4_slalom_1"
+      ],
+      "train_augmentations": 7,
+      "heldout_augmentations": 3,
+      "hard_external_courses": [
+        "v622_hard_slalom_010_024_mirror1",
+        "v622_hard_slalom_019_012"
+      ],
+      "warm_start": "/workspace/outputs/checkpoints/starscream-v6.21.1.1-plant-selection25-dagger/best-step-150819355-selection_suite_success-0.57875.pt",
+      "fresh_replay": true,
+      "budget": "24 rounds x 64 episodes; 626 updates/round; beta .35 by r3",
+      "qualification": "nominal and randomized canonical MPCC pass; rejected variants excluded"
+    }
+  }
+}

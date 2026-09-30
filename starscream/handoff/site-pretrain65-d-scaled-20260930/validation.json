@@ -1,0 +1,198 @@
+{
+  "status": "passed",
+  "assets": [
+    {
+      "name": "v622_hard_v2b_vertical_chain_008_06",
+      "kind": "clean",
+      "frames": 1011,
+      "gif_frames": 156,
+      "mp4_duration_s": 7.8,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "v622_hard_v2b_compound_reversal_021_03",
+      "kind": "clean",
+      "frames": 805,
+      "gif_frames": 125,
+      "mp4_duration_s": 6.25,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "v622_hard_diving_hairpin_039_011_arena1",
+      "kind": "clean",
+      "frames": 780,
+      "gif_frames": 121,
+      "mp4_duration_s": 6.05,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "v622_hard_slalom_028_029",
+      "kind": "clean",
+      "frames": 967,
+      "gif_frames": 150,
+      "mp4_duration_s": 7.5,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "v622_hard_long_braking_023_005_arena1_mirror1",
+      "kind": "clean",
+      "frames": 1229,
+      "gif_frames": 190,
+      "mp4_duration_s": 9.5,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "v622_hard_v2b_radius_switch_029_21",
+      "kind": "clean",
+      "frames": 1366,
+      "gif_frames": 211,
+      "mp4_duration_s": 10.55,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "v622_hard_ordered_3d_042_003_mirror1",
+      "kind": "clean",
+      "frames": 892,
+      "gif_frames": 138,
+      "mp4_duration_s": 6.9,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "v622_hard_v2b_wrong_side_incidence_015_15",
+      "kind": "clean",
+      "frames": 1713,
+      "gif_frames": 264,
+      "mp4_duration_s": 13.2,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "v622_hard_flow_027_057_mirror1",
+      "kind": "clean",
+      "frames": 923,
+      "gif_frames": 143,
+      "mp4_duration_s": 7.15,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "v622_hard_long_low_058_007_arena1_mirror1",
+      "kind": "clean",
+      "frames": 1361,
+      "gif_frames": 210,
+      "mp4_duration_s": 10.5,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "v622_hard_go_around_017_040_mirror1",
+      "kind": "clean",
+      "frames": 817,
+      "gif_frames": 127,
+      "mp4_duration_s": 6.35,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "v622_hard_v2b_long_low_braking_003_08",
+      "kind": "clean",
+      "frames": 1628,
+      "gif_frames": 251,
+      "mp4_duration_s": 12.55,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "v622_hard_stacked_reversal_016_033",
+      "kind": "clean",
+      "frames": 620,
+      "gif_frames": 96,
+      "mp4_duration_s": 4.8,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "multigp_utt05_nautilus",
+      "kind": "clean",
+      "frames": 947,
+      "gif_frames": 147,
+      "mp4_duration_s": 7.35,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "v622_hard_hairpin_chain_047_038_mirror1",
+      "kind": "clean",
+      "frames": 809,
+      "gif_frames": 125,
+      "mp4_duration_s": 6.25,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "v622_hard_long_braking_032_010_arena1_mirror1",
+      "kind": "clean",
+      "frames": 1666,
+      "gif_frames": 257,
+      "mp4_duration_s": 12.85,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "v622_hard_v2b_compound_reversal_020_05",
+      "kind": "clean",
+      "frames": 989,
+      "gif_frames": 153,
+      "mp4_duration_s": 7.65,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "v622_hard_flow_036_027",
+      "kind": "clean",
+      "frames": 1472,
+      "gif_frames": 227,
+      "mp4_duration_s": 11.35,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "a2rl_s2_2026_source_consistent_v2_arena1",
+      "kind": "recovery",
+      "frames": 1891,
+      "gif_frames": 292,
+      "mp4_duration_s": 14.6,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "a2rl_s2_2026_source_consistent_v2_arena1",
+      "kind": "failure",
+      "frames": 1283,
+      "gif_frames": 198,
+      "mp4_duration_s": 9.9,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "v622_hard_slalom_055_040_arena1",
+      "kind": "late_recovery",
+      "frames": 5025,
+      "gif_frames": 774,
+      "mp4_duration_s": 38.7,
+      "canonical_outcomes_exact": true
+    },
+    {
+      "name": "v622_hard_go_around_017_040_mirror1",
+      "kind": "recovery",
+      "frames": 1112,
+      "gif_frames": 172,
+      "mp4_duration_s": 8.6,
+      "canonical_outcomes_exact": true
+    }
+  ],
+  "canonical_replays": 22,
+  "benchmark_episodes": 3200,
+  "checkpoint_sha256": "cee73ce74fdfcfd64adb7b10d374ff143ef07980a61feff53112641d7a56eb3a",
+  "checks": [
+    "outcome totals",
+    "finite JSON values",
+    "no fabricated student or real60 timed results",
+    "full-length trajectories",
+    "130 Hz monotonic timestamps",
+    "unit quaternions",
+    "all media references",
+    "GIF dimensions/frame counts",
+    "MP4 real-time duration",
+    "exact checkpoint hash",
+    "requested pretraining scope"
+  ],
+  "package_variant": "site-only; model weight bytes excluded; provenance and all eval/media evidence retained"
+}

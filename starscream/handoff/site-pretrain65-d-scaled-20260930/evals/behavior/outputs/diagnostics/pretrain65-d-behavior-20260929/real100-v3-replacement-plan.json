@@ -1,0 +1,280 @@
+{
+  "status": "DRAFT_NOT_GENERATED_OR_QUALIFIED",
+  "original_suite_untouched": true,
+  "selection_rule": "Geometry-only medoid then farthest-point selection within each family, cap five, retain eight public references. No policy success rates used to choose removals.",
+  "retained_slots": [
+    "a2rl_s2_2026_source_consistent_v2",
+    "multigp_cdra_2026_reconstructed",
+    "multigp_utt03_bessel_run",
+    "multigp_utt04_high_voltage",
+    "multigp_utt05_nautilus",
+    "multigp_utt06_fury",
+    "multigp_utt08_revenge",
+    "real100-hard-000",
+    "real100-hard-002",
+    "real100-hard-004",
+    "real100-hard-006",
+    "real100-hard-007",
+    "real100-hard-009",
+    "real100-hard-010",
+    "real100-hard-011",
+    "real100-hard-012",
+    "real100-hard-013",
+    "real100-hard-014",
+    "real100-hard-015",
+    "real100-hard-016",
+    "real100-hard-017",
+    "real100-hard-018",
+    "real100-hard-020",
+    "real100-hard-021",
+    "real100-hard-024",
+    "real100-hard-026",
+    "real100-hard-028",
+    "real100-hard-029",
+    "real100-hard-030",
+    "real100-hard-031",
+    "real100-hard-033",
+    "real100-hard-034",
+    "real100-hard-035",
+    "real100-hard-036",
+    "real100-hard-038",
+    "real100-hard-039",
+    "real100-hard-040",
+    "real100-hard-041",
+    "real100-hard-042",
+    "real100-hard-043",
+    "real100-hard-044",
+    "real100-hard-046",
+    "real100-hard-050",
+    "real100-hard-051",
+    "real100-hard-053",
+    "real100-hard-054",
+    "real100-hard-055",
+    "real100-hard-056",
+    "real100-hard-057",
+    "real100-hard-060",
+    "real100-hard-061",
+    "real100-hard-062",
+    "real100-hard-063",
+    "real100-hard-064",
+    "real100-hard-065",
+    "real100-hard-066",
+    "real100-hard-067",
+    "real100-hard-068",
+    "real100-hard-069",
+    "real100-hard-070",
+    "real100-hard-071",
+    "real100-hard-072",
+    "real100-hard-073",
+    "real100-hard-074",
+    "real100-hard-075",
+    "real100-hard-077",
+    "real100-hard-078",
+    "real100-hard-079",
+    "real100-hard-080",
+    "real100-hard-083",
+    "real100-hard-086",
+    "real100-hard-087",
+    "real100-hard-088",
+    "real100-hard-090",
+    "real100-hard-091",
+    "swift_champion_2022_exact"
+  ],
+  "replacement_slots": [
+    {
+      "slot": "real100-hard-027",
+      "family": "flow",
+      "nearest_retained_slot": "real100-hard-063",
+      "chain4_distance": 0.2865225042042191
+    },
+    {
+      "slot": "real100-hard-045",
+      "family": "flow",
+      "nearest_retained_slot": "real100-hard-063",
+      "chain4_distance": 0.2783431453720355
+    },
+    {
+      "slot": "real100-hard-081",
+      "family": "flow",
+      "nearest_retained_slot": "real100-hard-063",
+      "chain4_distance": 0.27581436770838264
+    },
+    {
+      "slot": "real100-hard-001",
+      "family": "behavior:wrong_side_incidence",
+      "nearest_retained_slot": "real100-hard-078",
+      "chain4_distance": 0.6087813814692454
+    },
+    {
+      "slot": "real100-hard-003",
+      "family": "diving_hairpin",
+      "nearest_retained_slot": "real100-hard-030",
+      "chain4_distance": 0.503803906794484
+    },
+    {
+      "slot": "real100-hard-048",
+      "family": "diving_hairpin",
+      "nearest_retained_slot": "real100-hard-030",
+      "chain4_distance": 0.419424741315055
+    },
+    {
+      "slot": "real100-hard-084",
+      "family": "diving_hairpin",
+      "nearest_retained_slot": "real100-hard-030",
+      "chain4_distance": 0.3826417163973092
+    },
+    {
+      "slot": "real100-hard-022",
+      "family": "long_low",
+      "nearest_retained_slot": "real100-hard-040",
+      "chain4_distance": 0.21008913675744134
+    },
+    {
+      "slot": "real100-hard-049",
+      "family": "long_low",
+      "nearest_retained_slot": "real100-hard-013",
+      "chain4_distance": 0.3251209008609173
+    },
+    {
+      "slot": "real100-hard-058",
+      "family": "long_low",
+      "nearest_retained_slot": "real100-hard-040",
+      "chain4_distance": 0.3265710601471459
+    },
+    {
+      "slot": "real100-hard-076",
+      "family": "long_low",
+      "nearest_retained_slot": "real100-hard-040",
+      "chain4_distance": 0.33306441611265136
+    },
+    {
+      "slot": "real100-hard-085",
+      "family": "long_low",
+      "nearest_retained_slot": "real100-hard-031",
+      "chain4_distance": 0.29328079781704297
+    },
+    {
+      "slot": "real100-hard-005",
+      "family": "long_braking",
+      "nearest_retained_slot": "real100-hard-086",
+      "chain4_distance": 0.29556071639025744
+    },
+    {
+      "slot": "real100-hard-023",
+      "family": "long_braking",
+      "nearest_retained_slot": "real100-hard-077",
+      "chain4_distance": 0.31284347278936286
+    },
+    {
+      "slot": "real100-hard-032",
+      "family": "long_braking",
+      "nearest_retained_slot": "real100-hard-086",
+      "chain4_distance": 0.2592970025005982
+    },
+    {
+      "slot": "real100-hard-059",
+      "family": "long_braking",
+      "nearest_retained_slot": "real100-hard-086",
+      "chain4_distance": 0.3212855346196044
+    },
+    {
+      "slot": "real100-hard-008",
+      "family": "behavior:long_low_braking",
+      "nearest_retained_slot": "real100-hard-018",
+      "chain4_distance": 0.6760509464837041
+    },
+    {
+      "slot": "real100-hard-052",
+      "family": "behavior:long_low_braking",
+      "nearest_retained_slot": "real100-hard-026",
+      "chain4_distance": 0.6267146150322151
+    },
+    {
+      "slot": "real100-hard-089",
+      "family": "behavior:long_low_braking",
+      "nearest_retained_slot": "real100-hard-018",
+      "chain4_distance": 0.6936683698167027
+    },
+    {
+      "slot": "real100-hard-019",
+      "family": "slalom",
+      "nearest_retained_slot": "real100-hard-091",
+      "chain4_distance": 0.3719695678479685
+    },
+    {
+      "slot": "real100-hard-037",
+      "family": "slalom",
+      "nearest_retained_slot": "real100-hard-091",
+      "chain4_distance": 0.3831846513936307
+    },
+    {
+      "slot": "real100-hard-082",
+      "family": "slalom",
+      "nearest_retained_slot": "real100-hard-010",
+      "chain4_distance": 0.3529107923621049
+    },
+    {
+      "slot": "real100-hard-047",
+      "family": "hairpin_chain",
+      "nearest_retained_slot": "real100-hard-029",
+      "chain4_distance": 0.43936587149354356
+    },
+    {
+      "slot": "real100-hard-025",
+      "family": "behavior:vertical_chain",
+      "nearest_retained_slot": "real100-hard-073",
+      "chain4_distance": 0.5092953851394368
+    }
+  ],
+  "new_course_specifications": [
+    {
+      "family": "long_low_braking_chain",
+      "count": 3,
+      "construction": "25-45 m approach into 1.45-1.65 m low apertures, followed by 120-175 degree braking turns; sweep speed and height jointly."
+    },
+    {
+      "family": "ordered_split_s_ladder",
+      "count": 3,
+      "construction": "Three to six ordered turns with alternating 1.5-3.5 m drops/climbs, retaining finite approach space and feasible thrust margins."
+    },
+    {
+      "family": "short_reversal_exit",
+      "count": 3,
+      "construction": "High-speed approach followed by 3-6 m exit and 150-180 degree reversal; asymmetric left/right variants."
+    },
+    {
+      "family": "stacked_wrong_side_chain",
+      "count": 3,
+      "construction": "Stacked gates and ordered wrong-side approaches requiring a valid go-around; separate unavoidable planned crossings from misses."
+    },
+    {
+      "family": "radius_switch_chain",
+      "count": 3,
+      "construction": "Tight-wide-tight consecutive turns with changing vertical demands rather than a repeated radius motif."
+    },
+    {
+      "family": "oblique_narrow_chain",
+      "count": 3,
+      "construction": "Narrow gates with oblique incidence, varying plane orientation, and alternating signed turns."
+    },
+    {
+      "family": "mixed_scale_endurance",
+      "count": 3,
+      "construction": "16-24 gates composing technical motifs with long acceleration sections; measure late-course survival and multilap boundary separately."
+    },
+    {
+      "family": "altitude_braking_exit",
+      "count": 3,
+      "construction": "Climb toward bounded ceiling then descending turn to a low aperture; qualify complete consecutive transitions, not isolated gates."
+    }
+  ],
+  "release_gates": [
+    "Generate all 24 candidates and alternates; qualify under the same plant and CTBR limits as the actor.",
+    "Audit exact/continuous anti-clone distances against train65, selection25, v2, and other v3 candidates; inspect gate normals, aperture and ordered-chain novelty.",
+    "Require nominal and perturbed full-course teacher evidence with multiple starts; save trajectory clearance and actuator margins, not success alone.",
+    "Freeze reference times and deadlines from independent teacher evidence before actor results; disclose command/profile differences.",
+    "Assign family weights before policy evaluation; retain v2 regression and a separate sealed new-geometry panel.",
+    "Report eventual, timely, clean/timely, continuous reference-normalized lap times, p95/CVaR recovery duration, and worst-family rates."
+  ],
+  "caution": "Exploratory chain distance is a redundancy ranking, not proof of equivalence; these are proposed removals, not identified duplicates."
+}

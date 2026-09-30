@@ -1,0 +1,241 @@
+name: a2rl_s2_2026_source_consistent_v2_arena1
+loop: true
+bounds:
+- - -22.61668586730957
+  - 22.4373722076416
+- - -14.543082237243652
+  - 14.039949417114258
+- - 0.0
+  - 7.5
+metadata:
+  provenance: author-released-metric-figure-reconstruction-v2
+  geometry_status: source_consistent_adaptation_not_organizer_survey
+  description: Twelve-gate A2RL Season 2 adaptation reconstructed from the KAIST metric
+    figure. Gate order, maneuver topology, 35 x 20 x 7 m envelope, Split-S, and ladder-down
+    are source-backed. Centers, plane angles, offsets, and the 2.0 m aperture are
+    explicit reconstruction assumptions, not organizer survey geometry.
+  paper: https://arxiv.org/abs/2603.02742
+  source_figure: a2rl_result_3d.pdf
+  source_track_volume_m:
+  - 35.0
+  - 20.0
+  - 7.0
+  source_gate_count_per_lap: 12
+  reconstruction_uncertainty_m: 0.75
+  reconstruction_uncertainty_degrees: 8.0
+  assumed_gate_aperture_m: 2.0
+  benchmark_fastest_lap_seconds: 12.032
+  v1_repairs:
+  - removed unsupported 1.5 m aperture assumption
+  - removed unsupported exact XY co-location of vertical gate pairs
+  - recomputed directed gate planes from the repaired centerline
+  dynamic_qualification:
+    controller: mpcc_high_authority_profile_14
+    canonical_start_complete: true
+    gates: 12
+    lap_seconds: 14.467
+  training_exclusion: adaptation_allowed_not_heldout_evidence
+  arena_correction:
+    source_name: a2rl_s2_2026_source_consistent_v2
+    source_fingerprint: 47ff289107937767baf281ae7efc22707a0924155e3a5dac425fd7978d5d110e
+    source_bounds:
+    - - -18.5
+      - 18.5
+    - - -11.0
+      - 11.0
+    - - 0.0
+      - 7.5
+    reason: reference-path containment plus 6m maneuver margin; gates unchanged
+gates:
+- name: G1
+  position:
+  - -16.0
+  - -6.0
+  - 1.5
+  quaternion_wxyz:
+  - 0.3862656056880951
+  - 0.0
+  - 0.0
+  - 0.9223875999450684
+  size:
+  - 2.0
+  - 2.0
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: G2
+  position:
+  - -11.5
+  - 2.799999952316284
+  - 1.5
+  quaternion_wxyz:
+  - 0.9195283651351929
+  - 0.0013708999613299966
+  - -0.0032075997442007065
+  - 0.3930082619190216
+  size:
+  - 2.0
+  - 2.0
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: G3_ladder_setup
+  position:
+  - -5.0
+  - 6.5
+  - 1.600000023841858
+  quaternion_wxyz:
+  - 0.9746968746185303
+  - 0.02349339984357357
+  - -0.12421540170907974
+  - 0.18434900045394897
+  size:
+  - 2.0
+  - 2.0
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: G4_ladder_high
+  position:
+  - 2.0
+  - 8.0
+  - 5.400000095367432
+  quaternion_wxyz:
+  - 0.9977535009384155
+  - -0.00030929999775253236
+  - -0.0668317973613739
+  - -0.004617400001734495
+  size:
+  - 2.0
+  - 2.0
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: G5_ladder_mid
+  position:
+  - 10.5
+  - 6.199999809265137
+  - 3.4000000953674316
+  quaternion_wxyz:
+  - 0.7956990599632263
+  - 0.14323972165584564
+  - 0.2068697214126587
+  - -0.5509540438652039
+  size:
+  - 2.0
+  - 2.0
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: G6_ladder_low
+  position:
+  - 7.0
+  - 2.0
+  - 1.5
+  quaternion_wxyz:
+  - 0.8124794960021973
+  - -0.0025917000602930784
+  - -0.003612099913880229
+  - -0.5829728245735168
+  size:
+  - 2.0
+  - 2.0
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: G7_split_s_high
+  position:
+  - 16.0
+  - 0.0
+  - 4.800000190734863
+  quaternion_wxyz:
+  - 0.9262304306030273
+  - 0.058886103332042694
+  - 0.3347982168197632
+  - -0.16291041672229767
+  size:
+  - 2.0
+  - 2.0
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: G8_split_s_low
+  position:
+  - 15.350000381469727
+  - -0.20000000298023224
+  - 1.5
+  quaternion_wxyz:
+  - 0.8835096955299377
+  - 0.11647839844226837
+  - -0.3183682858943939
+  - 0.3232414126396179
+  size:
+  - 2.0
+  - 2.0
+  enter_from_opposite_side: true
+  kind: gate
+  render: true
+- name: G9
+  position:
+  - 10.0
+  - -5.5
+  - 1.5
+  quaternion_wxyz:
+  - 0.2810334861278534
+  - -0.002871599979698658
+  - -0.0008409000001847744
+  - -0.9596933126449585
+  size:
+  - 2.0
+  - 2.0
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: G10
+  position:
+  - 2.0
+  - -8.5
+  - 1.600000023841858
+  quaternion_wxyz:
+  - 0.031452398747205734
+  - 0.07177429646253586
+  - -0.0022644000127911568
+  - 0.9969223141670227
+  size:
+  - 2.0
+  - 2.0
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: G11_ladder_down_high
+  position:
+  - -9.0
+  - -2.5
+  - 4.800000190734863
+  quaternion_wxyz:
+  - 0.1424390971660614
+  - -0.27480390667915344
+  - 0.041203100234270096
+  - 0.9499980211257935
+  size:
+  - 2.0
+  - 2.0
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: G12_ladder_down_low
+  position:
+  - -9.800000190734863
+  - -2.950000047683716
+  - 1.5
+  quaternion_wxyz:
+  - 0.9217507243156433
+  - 0.07415539771318436
+  - -0.3105185925960541
+  - 0.2201244980096817
+  size:
+  - 2.0
+  - 2.0
+  enter_from_opposite_side: true
+  kind: gate
+  render: true

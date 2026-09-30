@@ -1,0 +1,163 @@
+name: multigp_utt05_nautilus
+loop: true
+bounds:
+- - -8.0
+  - 53.5
+- - -36.0
+  - 8.0
+- - 0.0
+  - 10.0
+metadata:
+  series: MultiGP Universal Time Trial
+  utt_number: 5
+  title: Nautilus
+  source: https://www.multigp.com/wp-content/uploads/2017/05/MultiGP-universal-time-trial-track-5-nautilus-manual-001.pdf
+  source_authority: MultiGP official field implementation guide
+  geometry_fidelity: official_dimensioned_plan
+  five_inch: true
+  dagger_eligible_5inch: true
+  leaderboard_comparison_eligible: true
+  physical_obstacles:
+  - name: gate_1
+    kind: gate
+    position_m:
+    - 0
+    - 0
+    - 0.762
+  - name: gate_2
+    kind: gate
+    position_m:
+    - 28
+    - -28
+    - 0.762
+  - name: gate_3
+    kind: gate
+    position_m:
+    - 45.5
+    - -10.5
+    - 0.762
+  - name: gate_4
+    kind: gate
+    position_m:
+    - 38.5
+    - 0
+    - 0.762
+  - name: gate_5
+    kind: gate
+    position_m:
+    - 28
+    - -7
+    - 0.762
+  notes:
+  - Metric centers are reconstructed from the official chained 28 m, 17.5 m, 10.5
+    m, and 7 m setup dimensions.
+  source_geometry_fingerprint: eea94e15a4252134e4569a7c92dcbe3da124145c9a3b310698125bdd40c008a9
+  route_checkpoint_count: 5
+  route_semantics:
+  - index: 0
+    name: obstacle_1_gate
+    kind: gate
+    physical_obstacle: 1
+  - index: 1
+    name: obstacle_2_gate
+    kind: gate
+    physical_obstacle: 2
+  - index: 2
+    name: obstacle_3_gate
+    kind: gate
+    physical_obstacle: 3
+  - index: 3
+    name: obstacle_4_gate
+    kind: gate
+    physical_obstacle: 4
+  - index: 4
+    name: obstacle_5_gate
+    kind: gate
+    physical_obstacle: 5
+  benchmark_key: multigp_utt05
+  benchmark_display_name: "MultiGP UTT 5 \u2014 Nautilus"
+  benchmark_modality: logarithmic spiral
+  benchmark_provenance_class: official_dimensioned_plan
+  benchmark_source_url: https://www.multigp.com/wp-content/uploads/2017/05/MultiGP-universal-time-trial-track-5-nautilus-manual-001.pdf
+  benchmark_timing_comparison_eligible: true
+gates:
+- name: obstacle_1_gate
+  position:
+  - 0.0
+  - 0.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.5036373734474182
+  - 0.0
+  - 0.0
+  - -0.8639151453971863
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: obstacle_2_gate
+  position:
+  - 28.0
+  - -28.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 1.0
+  - -0.0
+  - 0.0
+  - -3.925231079531968e-17
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: obstacle_3_gate
+  position:
+  - 45.5
+  - -10.5
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.7411267757415771
+  - 0.0
+  - 0.0
+  - 0.6713652014732361
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: obstacle_4_gate
+  position:
+  - 38.5
+  - 0.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.0985376164317131
+  - 0.0
+  - 0.0
+  - 0.9951333403587341
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: obstacle_5_gate
+  position:
+  - 28.0
+  - -7.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.08565091341733932
+  - -0.0
+  - -0.0
+  - -0.9963251948356628
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true

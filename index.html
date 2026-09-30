@@ -63,12 +63,13 @@
     <span class="name">Starscream</span>
     <span class="meta">Andrew Olvera &middot; Preprint forthcoming, 2026</span>
     <span class="desc">A supervised-only base model for agile drone racing, scoped without RL to isolate
-      representation learning. DAgger and DART on an MPCC expert, an auxiliary dynamics head, and a causal
-      transformer that reads the next six gates as ordered route tokens and takes a speed command that can be
-      changed at test time and generalizes beyond its training targets. Flying randomized vehicles it was not told about, it completes 45 to 61% of
-      attempts on unseen layouts and recovers from missed gates. The full method distills this privileged
-      teacher into a single student that adds camera gate-segmentation tokens to raw or estimated state and
-      infers the vehicle through an auxiliary plant head; final results with the preprint.</span>
+      representation learning. An MPCC expert labels the states a causal transformer reaches while flying
+      coherent segments on its own; the policy reads the next six gates as ordered route tokens, a settings token
+      for the randomized vehicle, and a test-time speed command. Before any RL it completes 92% of 3,200
+      randomized starts on 100 held-out hard courses and 91% on 60 championship-style courses, up from 44% and
+      56%, and reaches 50% on its selection panel with 17&times; fewer environment steps than the previous
+      recipe. Clean, on-time flight (69%) is the remaining gap. This privileged teacher is next distilled into a
+      single camera-token student that infers the vehicle through an auxiliary plant head.</span>
   </a>
   <a class="project" href="microrts/">
     <span class="name">Tells</span>

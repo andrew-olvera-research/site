@@ -1,0 +1,455 @@
+name: multigp_utt06_fury
+loop: true
+bounds:
+- - -36.0
+  - 12.0
+- - -26.0
+  - 26.0
+- - 0.0
+  - 10.0
+metadata:
+  series: MultiGP Universal Time Trial
+  utt_number: 6
+  title: Fury
+  source: https://www.multigp.com/wp-content/uploads/2017/05/MultiGP-universal-time-trial-track-6-fury.pdf
+  source_authority: MultiGP official field implementation guide
+  geometry_fidelity: official_dimensioned_plan
+  five_inch: true
+  dagger_eligible_5inch: true
+  leaderboard_comparison_eligible: true
+  physical_obstacles:
+  - name: gate_1
+    kind: gate
+    position_m:
+    - 0
+    - -14
+    - 0.762
+  - name: gate_2
+    kind: gate
+    position_m:
+    - 0
+    - 14
+    - 0.762
+  - name: gate_3
+    kind: gate
+    position_m:
+    - 0
+    - 0
+    - 0.762
+  - name: gate_4
+    kind: gate
+    position_m:
+    - -28
+    - 0
+    - 0.762
+  - name: gate_5
+    kind: gate
+    position_m:
+    - 0
+    - 0
+    - 0.762
+  - name: flag_left
+    kind: flag
+    position_m:
+    - -1.5
+    - 0
+    - 0.0
+  - name: flag_right
+    kind: flag
+    position_m:
+    - 1.5
+    - 0
+    - 0.0
+  notes:
+  - Both official over-gate/between-flags requirements use finite-radius invisible
+    power-loop/split-S planning checkpoints; all physical coordinates are unchanged.
+  source_geometry_fingerprint: 3461dd3239e55c8a87e31ddb40e5d628b824983eb479dfff5c720cd5ad49b469
+  route_checkpoint_count: 19
+  route_semantics:
+  - index: 0
+    name: obstacle_1_gate
+    kind: gate
+    physical_obstacle: 1
+  - index: 1
+    name: route_gate_1_reversal_south
+    kind: maneuver_route
+    physical_obstacle: 1
+  - index: 2
+    name: route_gate_1_reversal_west
+    kind: maneuver_route
+    physical_obstacle: 1
+  - index: 3
+    name: route_gate_1_reversal_north
+    kind: maneuver_route
+    physical_obstacle: 1
+  - index: 4
+    name: route_between_flags_to_gate_2
+    kind: maneuver_route
+    physical_obstacle: 2
+  - index: 5
+    name: obstacle_2_gate
+    kind: gate
+    physical_obstacle: 2
+  - index: 6
+    name: route_gate_2_reversal_north
+    kind: maneuver_route
+    physical_obstacle: 2
+  - index: 7
+    name: route_gate_2_reversal_east
+    kind: maneuver_route
+    physical_obstacle: 2
+  - index: 8
+    name: route_gate_2_reversal_south
+    kind: maneuver_route
+    physical_obstacle: 2
+  - index: 9
+    name: obstacle_3_gate
+    kind: gate
+    physical_obstacle: 3
+  - index: 10
+    name: route_gate_3_loop_south_low
+    kind: maneuver_route
+    physical_obstacle: 3
+  - index: 11
+    name: route_gate_3_loop_south_high
+    kind: maneuver_route
+    physical_obstacle: 3
+  - index: 12
+    name: route_after_gate_3_between_flags
+    kind: over_route
+    physical_obstacle: 3
+  - index: 13
+    name: obstacle_4_gate
+    kind: gate
+    physical_obstacle: 4
+  - index: 14
+    name: route_gate_5_climb_west
+    kind: maneuver_route
+    physical_obstacle: 5
+  - index: 15
+    name: obstacle_5_over_between_flags
+    kind: over_route
+    physical_obstacle: 5
+  - index: 16
+    name: route_gate_5_dive_east
+    kind: maneuver_route
+    physical_obstacle: 5
+  - index: 17
+    name: obstacle_5_through_gate
+    kind: gate
+    physical_obstacle: 5
+  - index: 18
+    name: route_clear_flags_after_gate_5
+    kind: maneuver_route
+    physical_obstacle: 5
+  benchmark_key: multigp_utt06
+  benchmark_display_name: "MultiGP UTT 6 \u2014 Fury"
+  benchmark_modality: over-under / flags / reversals
+  benchmark_provenance_class: official_dimensioned_plan_with_route_constraints
+  benchmark_source_url: https://www.multigp.com/wp-content/uploads/2017/05/MultiGP-universal-time-trial-track-6-fury.pdf
+  benchmark_timing_comparison_eligible: true
+gates:
+- name: obstacle_1_gate
+  position:
+  - 0.0
+  - -14.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.7071068286895752
+  - -0.0
+  - 0.0
+  - -0.7071068286895752
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: route_gate_1_reversal_south
+  position:
+  - 0.0
+  - -18.0
+  - 1.100000023841858
+  quaternion_wxyz:
+  - 0.3817623555660248
+  - -0.04609405994415283
+  - -0.019066767767071724
+  - -0.9229134917259216
+  size:
+  - 3.0
+  - 3.0
+  enter_from_opposite_side: false
+  kind: maneuver_route
+  render: false
+- name: route_gate_1_reversal_west
+  position:
+  - -3.5
+  - -18.0
+  - 1.2999999523162842
+  quaternion_wxyz:
+  - 0.3827703297138214
+  - 0.0023263574112206697
+  - -0.0009638687479309738
+  - 0.9238401055335999
+  size:
+  - 3.0
+  - 3.0
+  enter_from_opposite_side: false
+  kind: maneuver_route
+  render: false
+- name: route_gate_1_reversal_north
+  position:
+  - -3.5
+  - -14.0
+  - 1.100000023841858
+  quaternion_wxyz:
+  - 0.7490414977073669
+  - -0.0071800178848207
+  - 0.008118737488985062
+  - 0.6624345183372498
+  size:
+  - 3.0
+  - 3.0
+  enter_from_opposite_side: false
+  kind: maneuver_route
+  render: false
+- name: route_between_flags_to_gate_2
+  position:
+  - 0.0
+  - 0.0
+  - 1.2000000476837158
+  quaternion_wxyz:
+  - 0.7490559220314026
+  - -0.004062667489051819
+  - 0.004593606106936932
+  - 0.6624784469604492
+  size:
+  - 1.0
+  - 2.0
+  enter_from_opposite_side: false
+  kind: maneuver_route
+  render: false
+- name: obstacle_2_gate
+  position:
+  - 0.0
+  - 14.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.7071068286895752
+  - 0.0
+  - 0.0
+  - 0.7071068286895752
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: route_gate_2_reversal_north
+  position:
+  - 0.0
+  - 18.0
+  - 1.100000023841858
+  quaternion_wxyz:
+  - 0.9229134917259216
+  - 0.019066767767071724
+  - -0.04609405994415283
+  - 0.3817623555660248
+  size:
+  - 3.0
+  - 3.0
+  enter_from_opposite_side: false
+  kind: maneuver_route
+  render: false
+- name: route_gate_2_reversal_east
+  position:
+  - 3.5
+  - 18.0
+  - 1.2999999523162842
+  quaternion_wxyz:
+  - 0.9238401055335999
+  - -0.0009638687479309738
+  - -0.0023263574112206697
+  - -0.3827703297138214
+  size:
+  - 3.0
+  - 3.0
+  enter_from_opposite_side: false
+  kind: maneuver_route
+  render: false
+- name: route_gate_2_reversal_south
+  position:
+  - 3.5
+  - 14.0
+  - 1.100000023841858
+  quaternion_wxyz:
+  - 0.6623659729957581
+  - 0.013844002969563007
+  - 0.012243497185409069
+  - -0.7489524483680725
+  size:
+  - 3.0
+  - 3.0
+  enter_from_opposite_side: false
+  kind: maneuver_route
+  render: false
+- name: obstacle_3_gate
+  position:
+  - 0.0
+  - 0.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.7071068286895752
+  - -0.0
+  - 0.0
+  - -0.7071068286895752
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: route_gate_3_loop_south_low
+  position:
+  - 0.0
+  - -3.5
+  - 1.2000000476837158
+  quaternion_wxyz:
+  - 0.6445444226264954
+  - -0.2907964289188385
+  - -0.2907964289188385
+  - -0.6445444226264954
+  size:
+  - 3.0
+  - 3.0
+  enter_from_opposite_side: false
+  kind: maneuver_route
+  render: false
+- name: route_gate_3_loop_south_high
+  position:
+  - 0.0
+  - -3.5
+  - 3.5
+  quaternion_wxyz:
+  - 0.6513325572013855
+  - 0.2752561569213867
+  - -0.2752561569213867
+  - 0.6513325572013855
+  size:
+  - 3.0
+  - 3.0
+  enter_from_opposite_side: false
+  kind: maneuver_route
+  render: false
+- name: route_after_gate_3_between_flags
+  position:
+  - 0.0
+  - 0.0
+  - 3.5999999046325684
+  quaternion_wxyz:
+  - 0.3836435377597809
+  - -0.023640116676688194
+  - 0.009824632667005062
+  - 0.9231263995170593
+  size:
+  - 2.0
+  - 1.0
+  enter_from_opposite_side: false
+  kind: over_route
+  render: false
+- name: obstacle_4_gate
+  position:
+  - -28.0
+  - 0.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: route_gate_5_climb_west
+  position:
+  - -4.0
+  - 0.0
+  - 2.0
+  quaternion_wxyz:
+  - 0.9941725134849548
+  - -0.0
+  - -0.10780112445354462
+  - 0.0
+  size:
+  - 3.0
+  - 3.0
+  enter_from_opposite_side: false
+  kind: maneuver_route
+  render: false
+- name: obstacle_5_over_between_flags
+  position:
+  - 0.0
+  - 0.0
+  - 3.5999999046325684
+  quaternion_wxyz:
+  - 1.0
+  - 0.0
+  - 0.0
+  - 0.0
+  size:
+  - 2.0
+  - 1.0
+  enter_from_opposite_side: false
+  kind: over_route
+  render: false
+- name: route_gate_5_dive_east
+  position:
+  - 4.0
+  - 0.0
+  - 2.0
+  quaternion_wxyz:
+  - 0.0
+  - -0.6927598118782043
+  - 0.0
+  - 0.7211683988571167
+  size:
+  - 3.0
+  - 3.0
+  enter_from_opposite_side: false
+  kind: maneuver_route
+  render: false
+- name: obstacle_5_through_gate
+  position:
+  - 0.0
+  - 0.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.39140525460243225
+  - 0.07778105139732361
+  - 0.03322398662567139
+  - -0.916323184967041
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: route_clear_flags_after_gate_5
+  position:
+  - 0.0
+  - -4.0
+  - 1.0
+  quaternion_wxyz:
+  - 0.707078754901886
+  - -0.006299253087490797
+  - -0.006299253087490797
+  - -0.707078754901886
+  size:
+  - 1.5
+  - 2.0
+  enter_from_opposite_side: false
+  kind: maneuver_route
+  render: false

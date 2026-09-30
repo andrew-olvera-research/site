@@ -1,1686 +1,2208 @@
 [
  {
-  "slug": "v622-hard-v2b-vertical-chain-008-06-fastest",
+  "slug": "v622-hard-v2b-vertical-chain-008-06-clean",
   "name": "Vertical chain 008-06",
   "track": "v622_hard_v2b_vertical_chain_008_06",
-  "tag": "fastest",
+  "tag": "clean",
+  "family": "behavior:vertical_chain",
+  "slot": "real100-hard-025",
+  "seed": 2034338766,
   "gates": 8,
-  "time": 7.79,
-  "path": 72.9,
-  "mean_speed": 9.35,
-  "peak_speed": 14.47,
-  "peak_tilt": 93.7,
-  "mean_offset": 0.39,
+  "passed": 8,
+  "completed": true,
+  "timely": true,
+  "clean": true,
+  "course_sr": 1.0,
+  "time": 7.77,
+  "path": 73.9,
+  "mean_speed": 9.51,
+  "peak_speed": 14.59,
+  "peak_tilt": 108.1,
+  "mp4": "01-v622-hard-v2b-vertical-chain-008-06.mp4",
+  "poster": "01-v622-hard-v2b-vertical-chain-008-06-poster.jpg",
   "legs": [
    {
     "gate": 1,
-    "time": 0.562,
-    "detour": 1.007,
-    "min_speed": 3.04,
-    "recovery": false
+    "time": 0.592,
+    "detour": 1.006,
+    "min_speed": 2.87,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 2,
-    "time": 1.308,
-    "detour": 1.303,
-    "min_speed": 7.21,
-    "recovery": false
+    "time": 1.215,
+    "detour": 1.24,
+    "min_speed": 7.36,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 3,
-    "time": 0.992,
-    "detour": 1.093,
-    "min_speed": 6.74,
-    "recovery": false
+    "time": 0.969,
+    "detour": 1.138,
+    "min_speed": 7.37,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 4,
-    "time": 1.446,
-    "detour": 1.237,
-    "min_speed": 7.01,
-    "recovery": false
+    "time": 1.362,
+    "detour": 1.141,
+    "min_speed": 7.1,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 5,
-    "time": 1.085,
-    "detour": 1.177,
-    "min_speed": 7.77,
-    "recovery": false
+    "time": 1.115,
+    "detour": 1.136,
+    "min_speed": 5.56,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 6,
-    "time": 0.938,
-    "detour": 1.063,
-    "min_speed": 5.57,
-    "recovery": false
+    "time": 1.046,
+    "detour": 1.07,
+    "min_speed": 5.33,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 7,
-    "time": 1.015,
-    "detour": 1.213,
-    "min_speed": 5.55,
-    "recovery": false
+    "time": 0.962,
+    "detour": 1.135,
+    "min_speed": 6.51,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 8,
-    "time": 0.446,
-    "detour": 1.107,
-    "min_speed": 6.9,
-    "recovery": false
+    "time": 0.508,
+    "detour": 1.153,
+    "min_speed": 7.48,
+    "recovery": false,
+    "passed": true
    }
   ],
-  "recoveries": [],
-  "recovery_share": 0.0
+  "recoveries": []
  },
  {
-  "slug": "v622-hard-v2b-compound-reversal-021-03-fastest",
+  "slug": "v622-hard-v2b-compound-reversal-021-03-clean",
   "name": "Compound reversal 021-03",
   "track": "v622_hard_v2b_compound_reversal_021_03",
-  "tag": "fastest",
+  "tag": "clean",
+  "family": "behavior:compound_reversal",
+  "slot": "real100-hard-038",
+  "seed": 2034526247,
   "gates": 7,
-  "time": 7.49,
-  "path": 62.9,
-  "mean_speed": 8.4,
-  "peak_speed": 14.23,
-  "peak_tilt": 99.5,
-  "mean_offset": 0.22,
+  "passed": 7,
+  "completed": true,
+  "timely": true,
+  "clean": true,
+  "course_sr": 1.0,
+  "time": 6.18,
+  "path": 54.8,
+  "mean_speed": 8.86,
+  "peak_speed": 13.31,
+  "peak_tilt": 112.7,
+  "mp4": "02-v622-hard-v2b-compound-reversal-021-03.mp4",
+  "poster": "02-v622-hard-v2b-compound-reversal-021-03-poster.jpg",
   "legs": [
    {
     "gate": 1,
-    "time": 0.562,
-    "detour": 1.005,
-    "min_speed": 3.1,
-    "recovery": false
+    "time": 0.585,
+    "detour": 1.01,
+    "min_speed": 2.89,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 2,
-    "time": 1.262,
-    "detour": 1.665,
-    "min_speed": 5.17,
-    "recovery": false
+    "time": 0.869,
+    "detour": 1.222,
+    "min_speed": 6.39,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 3,
-    "time": 1.2,
-    "detour": 1.235,
-    "min_speed": 4.0,
-    "recovery": false
+    "time": 1.008,
+    "detour": 1.076,
+    "min_speed": 5.7,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 4,
-    "time": 1.669,
-    "detour": 2.097,
-    "min_speed": 3.33,
-    "recovery": false
+    "time": 1.0,
+    "detour": 1.232,
+    "min_speed": 5.6,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 5,
-    "time": 1.154,
-    "detour": 1.137,
-    "min_speed": 4.89,
-    "recovery": false
+    "time": 1.054,
+    "detour": 1.087,
+    "min_speed": 6.08,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 6,
-    "time": 0.808,
-    "detour": 1.04,
-    "min_speed": 5.12,
-    "recovery": false
+    "time": 0.877,
+    "detour": 1.148,
+    "min_speed": 6.13,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 7,
-    "time": 0.838,
-    "detour": 1.154,
-    "min_speed": 8.02,
-    "recovery": false
+    "time": 0.792,
+    "detour": 1.123,
+    "min_speed": 9.74,
+    "recovery": false,
+    "passed": true
    }
   ],
-  "recoveries": [],
-  "recovery_share": 0.0
+  "recoveries": []
  },
  {
-  "slug": "v622-hard-diving-hairpin-039-011-arena1-fastest",
+  "slug": "v622-hard-diving-hairpin-039-011-arena1-clean",
   "name": "Diving hairpin 039-011",
   "track": "v622_hard_diving_hairpin_039_011_arena1",
-  "tag": "fastest",
+  "tag": "clean",
+  "family": "diving_hairpin",
+  "slot": "real100-hard-039",
+  "seed": 2034871016,
   "gates": 5,
-  "time": 6.85,
-  "path": 74.5,
-  "mean_speed": 10.88,
-  "peak_speed": 18.63,
-  "peak_tilt": 108.0,
-  "mean_offset": 0.22,
+  "passed": 5,
+  "completed": true,
+  "timely": true,
+  "clean": true,
+  "course_sr": 1.0,
+  "time": 5.99,
+  "path": 72.6,
+  "mean_speed": 12.12,
+  "peak_speed": 17.6,
+  "peak_tilt": 102.2,
+  "mp4": "03-v622-hard-diving-hairpin-039-011-arena1.mp4",
+  "poster": "03-v622-hard-diving-hairpin-039-011-arena1-poster.jpg",
   "legs": [
    {
     "gate": 1,
-    "time": 0.6,
+    "time": 0.569,
     "detour": 1.008,
-    "min_speed": 2.97,
-    "recovery": false
+    "min_speed": 2.92,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 2,
-    "time": 1.262,
-    "detour": 1.045,
-    "min_speed": 6.53,
-    "recovery": false
+    "time": 1.108,
+    "detour": 1.04,
+    "min_speed": 8.56,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 3,
-    "time": 1.838,
-    "detour": 1.363,
-    "min_speed": 1.48,
-    "recovery": false
+    "time": 1.385,
+    "detour": 1.106,
+    "min_speed": 5.66,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 4,
-    "time": 1.346,
-    "detour": 1.106,
-    "min_speed": 7.87,
-    "recovery": false
+    "time": 1.277,
+    "detour": 1.11,
+    "min_speed": 7.23,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 5,
-    "time": 1.808,
-    "detour": 1.064,
-    "min_speed": 7.05,
-    "recovery": false
+    "time": 1.654,
+    "detour": 1.088,
+    "min_speed": 10.48,
+    "recovery": false,
+    "passed": true
    }
   ],
-  "recoveries": [],
-  "recovery_share": 0.0
+  "recoveries": []
  },
  {
-  "slug": "v622-hard-slalom-028-029-fastest",
+  "slug": "v622-hard-slalom-028-029-clean",
   "name": "Slalom 028-029",
   "track": "v622_hard_slalom_028_029",
-  "tag": "fastest",
+  "tag": "clean",
+  "family": "slalom",
+  "slot": "real100-hard-028",
+  "seed": 2034170759,
   "gates": 9,
-  "time": 7.08,
+  "passed": 9,
+  "completed": true,
+  "timely": true,
+  "clean": true,
+  "course_sr": 1.0,
+  "time": 7.43,
   "path": 79.0,
-  "mean_speed": 11.16,
-  "peak_speed": 18.49,
-  "peak_tilt": 101.9,
-  "mean_offset": 0.53,
+  "mean_speed": 10.63,
+  "peak_speed": 16.22,
+  "peak_tilt": 101.2,
+  "mp4": "04-v622-hard-slalom-028-029.mp4",
+  "poster": "04-v622-hard-slalom-028-029-poster.jpg",
   "legs": [
    {
     "gate": 1,
-    "time": 0.562,
-    "detour": 1.006,
-    "min_speed": 3.11,
-    "recovery": false
+    "time": 0.554,
+    "detour": 1.008,
+    "min_speed": 3.0,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 2,
-    "time": 1.254,
-    "detour": 1.081,
-    "min_speed": 9.14,
-    "recovery": false
+    "time": 1.208,
+    "detour": 1.058,
+    "min_speed": 9.47,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 3,
-    "time": 1.131,
-    "detour": 1.076,
-    "min_speed": 8.47,
-    "recovery": false
+    "time": 1.123,
+    "detour": 1.074,
+    "min_speed": 7.68,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 4,
-    "time": 1.308,
-    "detour": 1.096,
-    "min_speed": 9.1,
-    "recovery": false
+    "time": 1.477,
+    "detour": 1.08,
+    "min_speed": 7.88,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 5,
-    "time": 0.177,
-    "detour": 1.0,
-    "min_speed": 13.14,
-    "recovery": false
+    "time": 0.269,
+    "detour": 1.009,
+    "min_speed": 8.76,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 6,
-    "time": 0.5,
-    "detour": 1.101,
-    "min_speed": 8.09,
-    "recovery": false
+    "time": 0.538,
+    "detour": 1.005,
+    "min_speed": 8.38,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 7,
-    "time": 0.646,
-    "detour": 1.008,
-    "min_speed": 9.54,
-    "recovery": false
+    "time": 0.792,
+    "detour": 1.054,
+    "min_speed": 8.8,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 8,
-    "time": 0.792,
-    "detour": 1.134,
-    "min_speed": 8.25,
-    "recovery": false
+    "time": 0.785,
+    "detour": 1.033,
+    "min_speed": 8.22,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 9,
-    "time": 0.715,
-    "detour": 1.076,
-    "min_speed": 8.01,
-    "recovery": false
+    "time": 0.685,
+    "detour": 1.103,
+    "min_speed": 5.58,
+    "recovery": false,
+    "passed": true
    }
   ],
-  "recoveries": [],
-  "recovery_share": 0.0
+  "recoveries": []
  },
  {
-  "slug": "v622-hard-long-braking-023-005-arena1-mirror1-fastest",
+  "slug": "v622-hard-long-braking-023-005-arena1-mirror1-clean",
   "name": "Long braking 023-005",
   "track": "v622_hard_long_braking_023_005_arena1_mirror1",
-  "tag": "fastest",
+  "tag": "clean",
+  "family": "long_braking",
+  "slot": "real100-hard-023",
+  "seed": 2034263107,
   "gates": 10,
-  "time": 11.0,
-  "path": 126.6,
-  "mean_speed": 11.51,
-  "peak_speed": 19.2,
-  "peak_tilt": 92.7,
-  "mean_offset": 0.46,
+  "passed": 10,
+  "completed": true,
+  "timely": true,
+  "clean": true,
+  "course_sr": 1.0,
+  "time": 9.45,
+  "path": 127.2,
+  "mean_speed": 13.46,
+  "peak_speed": 18.79,
+  "peak_tilt": 106.0,
+  "mp4": "05-v622-hard-long-braking-023-005-arena1-mirror1.mp4",
+  "poster": "05-v622-hard-long-braking-023-005-arena1-mirror1-poster.jpg",
   "legs": [
    {
     "gate": 1,
-    "time": 0.585,
-    "detour": 1.007,
-    "min_speed": 2.97,
-    "recovery": false
-   },
-   {
-    "gate": 2,
-    "time": 0.738,
-    "detour": 1.005,
-    "min_speed": 8.75,
-    "recovery": false
-   },
-   {
-    "gate": 3,
-    "time": 0.523,
-    "detour": 1.015,
-    "min_speed": 10.93,
-    "recovery": false
-   },
-   {
-    "gate": 4,
-    "time": 0.446,
-    "detour": 1.019,
-    "min_speed": 10.53,
-    "recovery": false
-   },
-   {
-    "gate": 5,
-    "time": 0.569,
-    "detour": 1.024,
-    "min_speed": 9.88,
-    "recovery": false
-   },
-   {
-    "gate": 6,
-    "time": 0.877,
-    "detour": 1.006,
-    "min_speed": 8.63,
-    "recovery": false
-   },
-   {
-    "gate": 7,
-    "time": 1.431,
-    "detour": 1.01,
-    "min_speed": 5.05,
-    "recovery": false
-   },
-   {
-    "gate": 8,
-    "time": 2.9,
-    "detour": 1.107,
-    "min_speed": 4.18,
-    "recovery": false
-   },
-   {
-    "gate": 9,
-    "time": 0.977,
-    "detour": 1.132,
-    "min_speed": 7.16,
-    "recovery": false
-   },
-   {
-    "gate": 10,
-    "time": 1.954,
-    "detour": 1.012,
-    "min_speed": 10.46,
-    "recovery": false
-   }
-  ],
-  "recoveries": [],
-  "recovery_share": 0.0
- },
- {
-  "slug": "v622-hard-v2b-radius-switch-029-21-fastest",
-  "name": "Changing-radius turns 029-21",
-  "track": "v622_hard_v2b_radius_switch_029_21",
-  "tag": "fastest",
-  "gates": 8,
-  "time": 11.45,
-  "path": 136.5,
-  "mean_speed": 11.92,
-  "peak_speed": 19.96,
-  "peak_tilt": 97.5,
-  "mean_offset": 0.35,
-  "legs": [
-   {
-    "gate": 1,
-    "time": 0.554,
+    "time": 0.531,
     "detour": 1.009,
-    "min_speed": 3.04,
-    "recovery": false
-   },
-   {
-    "gate": 2,
-    "time": 2.608,
-    "detour": 1.219,
-    "min_speed": 7.18,
-    "recovery": false
-   },
-   {
-    "gate": 3,
-    "time": 0.754,
-    "detour": 1.496,
-    "min_speed": 4.27,
-    "recovery": false
-   },
-   {
-    "gate": 4,
-    "time": 2.792,
-    "detour": 1.296,
-    "min_speed": 5.33,
-    "recovery": false
-   },
-   {
-    "gate": 5,
-    "time": 0.446,
-    "detour": 1.067,
-    "min_speed": 4.26,
-    "recovery": false
-   },
-   {
-    "gate": 6,
-    "time": 1.238,
-    "detour": 1.266,
-    "min_speed": 3.71,
-    "recovery": false
-   },
-   {
-    "gate": 7,
-    "time": 1.492,
-    "detour": 1.051,
-    "min_speed": 9.1,
-    "recovery": false
-   },
-   {
-    "gate": 8,
-    "time": 1.569,
-    "detour": 1.029,
-    "min_speed": 11.04,
-    "recovery": false
-   }
-  ],
-  "recoveries": [],
-  "recovery_share": 0.0
- },
- {
-  "slug": "v622-hard-ordered-3d-042-003-mirror1-fastest",
-  "name": "Ordered 3D 042-003",
-  "track": "v622_hard_ordered_3d_042_003_mirror1",
-  "tag": "fastest",
-  "gates": 10,
-  "time": 7.65,
-  "path": 72.1,
-  "mean_speed": 9.42,
-  "peak_speed": 15.78,
-  "peak_tilt": 104.7,
-  "mean_offset": 0.57,
-  "legs": [
-   {
-    "gate": 1,
-    "time": 0.523,
-    "detour": 1.006,
-    "min_speed": 3.1,
-    "recovery": false
-   },
-   {
-    "gate": 2,
-    "time": 0.677,
-    "detour": 1.004,
-    "min_speed": 10.47,
-    "recovery": false
-   },
-   {
-    "gate": 3,
-    "time": 0.431,
-    "detour": 1.019,
-    "min_speed": 10.92,
-    "recovery": false
-   },
-   {
-    "gate": 4,
-    "time": 0.515,
-    "detour": 1.164,
-    "min_speed": 7.69,
-    "recovery": false
-   },
-   {
-    "gate": 5,
-    "time": 0.831,
-    "detour": 1.011,
-    "min_speed": 9.59,
-    "recovery": false
-   },
-   {
-    "gate": 6,
-    "time": 0.569,
-    "detour": 1.002,
-    "min_speed": 11.13,
-    "recovery": false
-   },
-   {
-    "gate": 7,
-    "time": 0.892,
-    "detour": 1.026,
-    "min_speed": 9.77,
-    "recovery": false
-   },
-   {
-    "gate": 8,
-    "time": 1.046,
-    "detour": 1.353,
-    "min_speed": 5.2,
-    "recovery": false
-   },
-   {
-    "gate": 9,
-    "time": 0.846,
-    "detour": 1.458,
-    "min_speed": 6.53,
-    "recovery": false
-   },
-   {
-    "gate": 10,
-    "time": 1.315,
-    "detour": 2.638,
-    "min_speed": 1.71,
-    "recovery": false
-   }
-  ],
-  "recoveries": [],
-  "recovery_share": 0.0
- },
- {
-  "slug": "v622-hard-v2b-wrong-side-incidence-015-15-fastest",
-  "name": "Oblique gate approaches 015-15",
-  "track": "v622_hard_v2b_wrong_side_incidence_015_15",
-  "tag": "fastest",
-  "gates": 8,
-  "time": 14.24,
-  "path": 183.0,
-  "mean_speed": 12.85,
-  "peak_speed": 21.4,
-  "peak_tilt": 163.4,
-  "mean_offset": 0.34,
-  "legs": [
-   {
-    "gate": 1,
-    "time": 0.546,
-    "detour": 1.003,
-    "min_speed": 3.13,
-    "recovery": false
-   },
-   {
-    "gate": 2,
-    "time": 2.385,
-    "detour": 1.557,
-    "min_speed": 1.29,
-    "recovery": false
-   },
-   {
-    "gate": 3,
-    "time": 3.708,
-    "detour": 2.205,
-    "min_speed": 2.95,
-    "recovery": false
-   },
-   {
-    "gate": 4,
-    "time": 1.338,
-    "detour": 1.081,
-    "min_speed": 5.94,
-    "recovery": false
-   },
-   {
-    "gate": 5,
-    "time": 2.331,
-    "detour": 1.34,
-    "min_speed": 8.16,
-    "recovery": false
-   },
-   {
-    "gate": 6,
-    "time": 2.085,
-    "detour": 1.269,
-    "min_speed": 8.05,
-    "recovery": false
-   },
-   {
-    "gate": 7,
-    "time": 0.9,
-    "detour": 1.022,
-    "min_speed": 8.61,
-    "recovery": false
-   },
-   {
-    "gate": 8,
-    "time": 0.946,
-    "detour": 1.106,
-    "min_speed": 8.2,
-    "recovery": false
-   }
-  ],
-  "recoveries": [],
-  "recovery_share": 0.0
- },
- {
-  "slug": "v622-hard-flow-027-057-mirror1-recovery-fallback",
-  "name": "Flow 027-057",
-  "track": "v622_hard_flow_027_057_mirror1",
-  "tag": "recovery_fallback",
-  "gates": 18,
-  "time": 10.24,
-  "path": 92.4,
-  "mean_speed": 9.02,
-  "peak_speed": 13.05,
-  "peak_tilt": 98.9,
-  "mean_offset": 0.53,
-  "legs": [
-   {
-    "gate": 1,
-    "time": 0.585,
-    "detour": 1.007,
-    "min_speed": 2.91,
-    "recovery": false
-   },
-   {
-    "gate": 2,
-    "time": 0.354,
-    "detour": 1.022,
-    "min_speed": 8.42,
-    "recovery": false
-   },
-   {
-    "gate": 3,
-    "time": 0.431,
-    "detour": 1.022,
-    "min_speed": 9.84,
-    "recovery": false
-   },
-   {
-    "gate": 4,
-    "time": 0.254,
-    "detour": 1.0,
-    "min_speed": 9.74,
-    "recovery": false
-   },
-   {
-    "gate": 5,
-    "time": 0.377,
-    "detour": 1.001,
-    "min_speed": 9.13,
-    "recovery": false
-   },
-   {
-    "gate": 6,
-    "time": 0.508,
-    "detour": 1.059,
-    "min_speed": 9.53,
-    "recovery": false
-   },
-   {
-    "gate": 7,
-    "time": 0.5,
-    "detour": 1.004,
-    "min_speed": 10.82,
-    "recovery": false
-   },
-   {
-    "gate": 8,
-    "time": 0.277,
-    "detour": 1.002,
-    "min_speed": 9.21,
-    "recovery": false
-   },
-   {
-    "gate": 9,
-    "time": 0.677,
-    "detour": 1.004,
-    "min_speed": 8.29,
-    "recovery": false
-   },
-   {
-    "gate": 10,
-    "time": 3.231,
-    "detour": 5.956,
-    "min_speed": 0.86,
-    "recovery": true
-   },
-   {
-    "gate": 11,
-    "time": 0.3,
-    "detour": 1.004,
-    "min_speed": 7.88,
-    "recovery": false
-   },
-   {
-    "gate": 12,
-    "time": 0.246,
-    "detour": 1.003,
-    "min_speed": 11.75,
-    "recovery": false
-   },
-   {
-    "gate": 13,
-    "time": 0.538,
-    "detour": 1.077,
-    "min_speed": 9.03,
-    "recovery": false
-   },
-   {
-    "gate": 14,
-    "time": 0.508,
-    "detour": 1.031,
-    "min_speed": 11.21,
-    "recovery": false
-   },
-   {
-    "gate": 15,
-    "time": 0.323,
-    "detour": 1.006,
-    "min_speed": 11.2,
-    "recovery": false
-   },
-   {
-    "gate": 16,
-    "time": 0.592,
-    "detour": 1.003,
-    "min_speed": 10.52,
-    "recovery": false
-   },
-   {
-    "gate": 17,
-    "time": 0.338,
-    "detour": 1.078,
-    "min_speed": 7.02,
-    "recovery": false
-   },
-   {
-    "gate": 18,
-    "time": 0.2,
-    "detour": 1.0,
-    "min_speed": 8.4,
-    "recovery": false
-   }
-  ],
-  "recoveries": [
-   {
-    "gate": 10,
-    "time": 3.23,
-    "detour": 5.96,
-    "extra_path": 17.6,
-    "min_speed": 0.86,
-    "returns": 1
-   }
-  ],
-  "recovery_share": 0.316
- },
- {
-  "slug": "v622-hard-long-low-058-007-arena1-mirror1-fastest",
-  "name": "Long low 058-007",
-  "track": "v622_hard_long_low_058_007_arena1_mirror1",
-  "tag": "fastest",
-  "gates": 8,
-  "time": 10.81,
-  "path": 160.0,
-  "mean_speed": 14.81,
-  "peak_speed": 20.5,
-  "peak_tilt": 92.5,
-  "mean_offset": 0.42,
-  "legs": [
-   {
-    "gate": 1,
-    "time": 0.538,
-    "detour": 1.011,
-    "min_speed": 2.93,
-    "recovery": false
-   },
-   {
-    "gate": 2,
-    "time": 1.723,
-    "detour": 1.026,
-    "min_speed": 10.41,
-    "recovery": false
-   },
-   {
-    "gate": 3,
-    "time": 1.269,
-    "detour": 1.017,
-    "min_speed": 12.3,
-    "recovery": false
-   },
-   {
-    "gate": 4,
-    "time": 1.192,
-    "detour": 1.044,
-    "min_speed": 14.52,
-    "recovery": false
-   },
-   {
-    "gate": 5,
-    "time": 1.346,
-    "detour": 1.02,
-    "min_speed": 13.87,
-    "recovery": false
-   },
-   {
-    "gate": 6,
-    "time": 1.292,
-    "detour": 1.02,
-    "min_speed": 10.15,
-    "recovery": false
-   },
-   {
-    "gate": 7,
-    "time": 1.308,
-    "detour": 1.019,
-    "min_speed": 9.14,
-    "recovery": false
-   },
-   {
-    "gate": 8,
-    "time": 2.138,
-    "detour": 1.034,
-    "min_speed": 10.53,
-    "recovery": false
-   }
-  ],
-  "recoveries": [],
-  "recovery_share": 0.0
- },
- {
-  "slug": "v622-hard-go-around-017-040-mirror1-recovery-fallback",
-  "name": "Go-around 017-040",
-  "track": "v622_hard_go_around_017_040_mirror1",
-  "tag": "recovery_fallback",
-  "gates": 8,
-  "time": 7.57,
-  "path": 82.4,
-  "mean_speed": 10.89,
-  "peak_speed": 19.54,
-  "peak_tilt": 117.6,
-  "mean_offset": 0.39,
-  "legs": [
-   {
-    "gate": 1,
-    "time": 0.531,
-    "detour": 1.008,
-    "min_speed": 3.18,
-    "recovery": false
-   },
-   {
-    "gate": 2,
-    "time": 0.646,
-    "detour": 1.031,
-    "min_speed": 10.4,
-    "recovery": false
-   },
-   {
-    "gate": 3,
-    "time": 1.285,
-    "detour": 1.043,
-    "min_speed": 8.53,
-    "recovery": false
-   },
-   {
-    "gate": 4,
-    "time": 1.423,
-    "detour": 1.201,
-    "min_speed": 8.22,
-    "recovery": false
-   },
-   {
-    "gate": 5,
-    "time": 0.915,
-    "detour": 1.115,
-    "min_speed": 8.74,
-    "recovery": false
-   },
-   {
-    "gate": 6,
-    "time": 0.531,
-    "detour": 1.152,
-    "min_speed": 7.79,
-    "recovery": false
-   },
-   {
-    "gate": 7,
-    "time": 0.631,
-    "detour": 1.006,
-    "min_speed": 10.34,
-    "recovery": false
-   },
-   {
-    "gate": 8,
-    "time": 1.608,
-    "detour": 4.371,
-    "min_speed": 2.7,
-    "recovery": true
-   }
-  ],
-  "recoveries": [
-   {
-    "gate": 8,
-    "time": 1.61,
-    "detour": 4.37,
-    "extra_path": 10.4,
-    "min_speed": 2.7,
-    "returns": 1
-   }
-  ],
-  "recovery_share": 0.212
- },
- {
-  "slug": "v622-hard-v2b-long-low-braking-003-08-recovery-fallback",
-  "name": "Long low braking 003-08",
-  "track": "v622_hard_v2b_long_low_braking_003_08",
-  "tag": "recovery_fallback",
-  "gates": 8,
-  "time": 18.62,
-  "path": 201.3,
-  "mean_speed": 10.81,
-  "peak_speed": 19.13,
-  "peak_tilt": 121.8,
-  "mean_offset": 0.38,
-  "legs": [
-   {
-    "gate": 1,
-    "time": 0.562,
-    "detour": 1.011,
-    "min_speed": 3.01,
-    "recovery": false
-   },
-   {
-    "gate": 2,
-    "time": 5.915,
-    "detour": 1.49,
-    "min_speed": 3.44,
-    "recovery": true
-   },
-   {
-    "gate": 3,
-    "time": 2.485,
-    "detour": 1.265,
-    "min_speed": 9.17,
-    "recovery": false
-   },
-   {
-    "gate": 4,
-    "time": 1.892,
-    "detour": 1.393,
-    "min_speed": 5.76,
-    "recovery": false
-   },
-   {
-    "gate": 5,
-    "time": 0.962,
-    "detour": 1.003,
-    "min_speed": 8.67,
-    "recovery": false
-   },
-   {
-    "gate": 6,
-    "time": 1.131,
-    "detour": 1.031,
-    "min_speed": 9.85,
-    "recovery": false
-   },
-   {
-    "gate": 7,
-    "time": 3.677,
-    "detour": 3.889,
-    "min_speed": 0.59,
-    "recovery": true
-   },
-   {
-    "gate": 8,
-    "time": 2.0,
-    "detour": 1.169,
-    "min_speed": 5.45,
-    "recovery": false
-   }
-  ],
-  "recoveries": [
-   {
-    "gate": 2,
-    "time": 5.92,
-    "detour": 1.49,
-    "extra_path": 20.9,
-    "min_speed": 3.44,
-    "returns": 1
-   },
-   {
-    "gate": 7,
-    "time": 3.68,
-    "detour": 3.89,
-    "extra_path": 23.3,
-    "min_speed": 0.59,
-    "returns": 1
-   }
-  ],
-  "recovery_share": 0.515
- },
- {
-  "slug": "v622-hard-stacked-reversal-016-033-fastest",
-  "name": "Stacked reversal 016-033",
-  "track": "v622_hard_stacked_reversal_016_033",
-  "tag": "fastest",
-  "gates": 6,
-  "time": 4.76,
-  "path": 47.4,
-  "mean_speed": 9.96,
-  "peak_speed": 14.9,
-  "peak_tilt": 143.6,
-  "mean_offset": 0.44,
-  "legs": [
-   {
-    "gate": 1,
-    "time": 0.554,
-    "detour": 1.008,
-    "min_speed": 2.88,
-    "recovery": false
-   },
-   {
-    "gate": 2,
-    "time": 0.5,
-    "detour": 1.019,
-    "min_speed": 9.36,
-    "recovery": false
-   },
-   {
-    "gate": 3,
-    "time": 1.231,
-    "detour": 1.043,
-    "min_speed": 4.57,
-    "recovery": false
-   },
-   {
-    "gate": 4,
-    "time": 0.531,
-    "detour": 1.069,
-    "min_speed": 4.56,
-    "recovery": false
-   },
-   {
-    "gate": 5,
-    "time": 1.292,
-    "detour": 1.098,
-    "min_speed": 6.96,
-    "recovery": false
-   },
-   {
-    "gate": 6,
-    "time": 0.654,
-    "detour": 1.027,
-    "min_speed": 9.51,
-    "recovery": false
-   }
-  ],
-  "recoveries": [],
-  "recovery_share": 0.0
- },
- {
-  "slug": "multigp-utt05-nautilus-fastest",
-  "name": "MultiGP Nautilus",
-  "track": "multigp_utt05_nautilus",
-  "tag": "fastest",
-  "gates": 5,
-  "time": 6.89,
-  "path": 101.5,
-  "mean_speed": 14.72,
-  "peak_speed": 20.3,
-  "peak_tilt": 99.2,
-  "mean_offset": 0.39,
-  "legs": [
-   {
-    "gate": 1,
-    "time": 0.546,
-    "detour": 1.008,
-    "min_speed": 2.94,
-    "recovery": false
-   },
-   {
-    "gate": 2,
-    "time": 2.662,
-    "detour": 1.123,
-    "min_speed": 9.61,
-    "recovery": false
-   },
-   {
-    "gate": 3,
-    "time": 1.831,
-    "detour": 1.116,
-    "min_speed": 9.88,
-    "recovery": false
-   },
-   {
-    "gate": 4,
-    "time": 0.885,
-    "detour": 1.022,
-    "min_speed": 10.4,
-    "recovery": false
-   },
-   {
-    "gate": 5,
-    "time": 0.969,
-    "detour": 1.029,
-    "min_speed": 9.34,
-    "recovery": false
-   }
-  ],
-  "recoveries": [],
-  "recovery_share": 0.0
- },
- {
-  "slug": "v622-hard-hairpin-chain-047-038-mirror1-recovery-fallback",
-  "name": "Hairpin chain 047-038",
-  "track": "v622_hard_hairpin_chain_047_038_mirror1",
-  "tag": "recovery_fallback",
-  "gates": 8,
-  "time": 9.93,
-  "path": 84.8,
-  "mean_speed": 8.54,
-  "peak_speed": 14.77,
-  "peak_tilt": 110.0,
-  "mean_offset": 0.35,
-  "legs": [
-   {
-    "gate": 1,
-    "time": 0.546,
-    "detour": 1.004,
-    "min_speed": 3.08,
-    "recovery": false
-   },
-   {
-    "gate": 2,
-    "time": 0.754,
-    "detour": 1.004,
-    "min_speed": 9.55,
-    "recovery": false
-   },
-   {
-    "gate": 3,
-    "time": 3.454,
-    "detour": 6.644,
-    "min_speed": 1.92,
-    "recovery": true
-   },
-   {
-    "gate": 4,
-    "time": 0.846,
-    "detour": 1.528,
-    "min_speed": 4.41,
-    "recovery": false
-   },
-   {
-    "gate": 5,
-    "time": 0.869,
-    "detour": 1.009,
-    "min_speed": 8.31,
-    "recovery": false
-   },
-   {
-    "gate": 6,
-    "time": 1.077,
-    "detour": 1.229,
-    "min_speed": 8.35,
-    "recovery": false
-   },
-   {
-    "gate": 7,
-    "time": 1.277,
-    "detour": 1.242,
-    "min_speed": 3.72,
-    "recovery": false
-   },
-   {
-    "gate": 8,
-    "time": 1.108,
-    "detour": 1.433,
-    "min_speed": 4.82,
-    "recovery": false
-   }
-  ],
-  "recoveries": [
-   {
-    "gate": 3,
-    "time": 3.45,
-    "detour": 6.64,
-    "extra_path": 18.1,
-    "min_speed": 1.92,
-    "returns": 1
-   }
-  ],
-  "recovery_share": 0.348
- },
- {
-  "slug": "v622-hard-long-braking-032-010-arena1-mirror1-recovery-fallback",
-  "name": "Long braking 032-010",
-  "track": "v622_hard_long_braking_032_010_arena1_mirror1",
-  "tag": "recovery_fallback",
-  "gates": 17,
-  "time": 21.78,
-  "path": 236.0,
-  "mean_speed": 10.83,
-  "peak_speed": 20.95,
-  "peak_tilt": 115.5,
-  "mean_offset": 0.44,
-  "legs": [
-   {
-    "gate": 1,
-    "time": 0.562,
-    "detour": 1.005,
-    "min_speed": 3.04,
-    "recovery": false
-   },
-   {
-    "gate": 2,
-    "time": 0.877,
-    "detour": 1.008,
-    "min_speed": 8.85,
-    "recovery": false
-   },
-   {
-    "gate": 3,
-    "time": 8.992,
-    "detour": 2.261,
-    "min_speed": 2.75,
-    "recovery": true
-   },
-   {
-    "gate": 4,
-    "time": 1.762,
-    "detour": 1.689,
-    "min_speed": 3.77,
-    "recovery": false
-   },
-   {
-    "gate": 5,
-    "time": 2.762,
-    "detour": 1.029,
-    "min_speed": 9.8,
-    "recovery": false
-   },
-   {
-    "gate": 6,
-    "time": 0.946,
-    "detour": 1.025,
-    "min_speed": 9.07,
-    "recovery": false
-   },
-   {
-    "gate": 7,
-    "time": 0.692,
-    "detour": 1.002,
-    "min_speed": 12.46,
-    "recovery": false
-   },
-   {
-    "gate": 8,
-    "time": 0.715,
-    "detour": 1.002,
-    "min_speed": 10.77,
-    "recovery": false
-   },
-   {
-    "gate": 9,
-    "time": 0.677,
-    "detour": 1.019,
-    "min_speed": 8.45,
-    "recovery": false
-   },
-   {
-    "gate": 10,
-    "time": 0.485,
-    "detour": 1.014,
-    "min_speed": 8.73,
-    "recovery": false
-   },
-   {
-    "gate": 11,
-    "time": 0.423,
-    "detour": 1.022,
-    "min_speed": 5.81,
-    "recovery": false
-   },
-   {
-    "gate": 12,
-    "time": 0.392,
-    "detour": 1.046,
-    "min_speed": 5.19,
-    "recovery": false
-   },
-   {
-    "gate": 13,
-    "time": 0.231,
-    "detour": 1.001,
-    "min_speed": 7.37,
-    "recovery": false
-   },
-   {
-    "gate": 14,
-    "time": 0.415,
-    "detour": 1.07,
-    "min_speed": 7.45,
-    "recovery": false
-   },
-   {
-    "gate": 15,
-    "time": 0.492,
-    "detour": 1.007,
-    "min_speed": 7.85,
-    "recovery": false
-   },
-   {
-    "gate": 16,
-    "time": 0.615,
-    "detour": 1.006,
-    "min_speed": 9.52,
-    "recovery": false
-   },
-   {
-    "gate": 17,
-    "time": 0.746,
-    "detour": 1.012,
-    "min_speed": 9.07,
-    "recovery": false
-   }
-  ],
-  "recoveries": [
-   {
-    "gate": 3,
-    "time": 8.99,
-    "detour": 2.26,
-    "extra_path": 53.6,
-    "min_speed": 2.75,
-    "returns": 2
-   }
-  ],
-  "recovery_share": 0.413
- },
- {
-  "slug": "v622-hard-v2b-compound-reversal-020-05-fastest",
-  "name": "Compound reversal 020-05",
-  "track": "v622_hard_v2b_compound_reversal_020_05",
-  "tag": "fastest",
-  "gates": 8,
-  "time": 8.69,
-  "path": 76.4,
-  "mean_speed": 8.79,
-  "peak_speed": 12.87,
-  "peak_tilt": 104.1,
-  "mean_offset": 0.3,
-  "legs": [
-   {
-    "gate": 1,
-    "time": 0.585,
-    "detour": 1.007,
     "min_speed": 2.96,
-    "recovery": false
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 2,
-    "time": 0.985,
-    "detour": 1.078,
-    "min_speed": 8.02,
-    "recovery": false
+    "time": 0.731,
+    "detour": 1.007,
+    "min_speed": 9.97,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 3,
-    "time": 1.323,
-    "detour": 1.156,
-    "min_speed": 5.02,
-    "recovery": false
+    "time": 0.538,
+    "detour": 1.01,
+    "min_speed": 10.95,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 4,
-    "time": 1.246,
-    "detour": 1.125,
-    "min_speed": 5.35,
-    "recovery": false
+    "time": 0.485,
+    "detour": 1.026,
+    "min_speed": 10.84,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 5,
-    "time": 1.377,
-    "detour": 1.262,
-    "min_speed": 5.34,
-    "recovery": false
+    "time": 0.538,
+    "detour": 1.015,
+    "min_speed": 10.7,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 6,
-    "time": 1.023,
-    "detour": 1.122,
-    "min_speed": 7.59,
-    "recovery": false
+    "time": 0.608,
+    "detour": 1.013,
+    "min_speed": 13.52,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 7,
     "time": 0.823,
-    "detour": 1.291,
-    "min_speed": 8.32,
-    "recovery": false
+    "detour": 1.003,
+    "min_speed": 14.33,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 8,
-    "time": 1.331,
-    "detour": 1.524,
-    "min_speed": 8.09,
-    "recovery": false
-   }
-  ],
-  "recoveries": [],
-  "recovery_share": 0.0
- },
- {
-  "slug": "v622-hard-flow-036-027-recovery-fallback",
-  "name": "Flow 036-027",
-  "track": "v622_hard_flow_036_027",
-  "tag": "recovery_fallback",
-  "gates": 13,
-  "time": 26.94,
-  "path": 263.1,
-  "mean_speed": 9.77,
-  "peak_speed": 15.67,
-  "peak_tilt": 116.9,
-  "mean_offset": 0.47,
-  "legs": [
-   {
-    "gate": 1,
-    "time": 0.585,
-    "detour": 1.009,
-    "min_speed": 2.89,
-    "recovery": false
-   },
-   {
-    "gate": 2,
-    "time": 1.123,
-    "detour": 1.007,
-    "min_speed": 8.65,
-    "recovery": false
-   },
-   {
-    "gate": 3,
-    "time": 0.954,
-    "detour": 1.019,
-    "min_speed": 8.44,
-    "recovery": false
-   },
-   {
-    "gate": 4,
-    "time": 15.062,
-    "detour": 10.563,
-    "min_speed": 1.11,
-    "recovery": true
-   },
-   {
-    "gate": 5,
-    "time": 1.015,
-    "detour": 1.01,
-    "min_speed": 10.27,
-    "recovery": false
-   },
-   {
-    "gate": 6,
-    "time": 1.115,
-    "detour": 1.004,
-    "min_speed": 10.75,
-    "recovery": false
-   },
-   {
-    "gate": 7,
-    "time": 0.977,
-    "detour": 1.032,
-    "min_speed": 10.06,
-    "recovery": false
-   },
-   {
-    "gate": 8,
-    "time": 1.123,
-    "detour": 1.02,
-    "min_speed": 10.29,
-    "recovery": false
+    "time": 2.331,
+    "detour": 1.072,
+    "min_speed": 8.74,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 9,
-    "time": 1.123,
-    "detour": 1.022,
-    "min_speed": 10.02,
-    "recovery": false
+    "time": 0.977,
+    "detour": 1.091,
+    "min_speed": 7.62,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 10,
-    "time": 0.946,
-    "detour": 1.012,
-    "min_speed": 13.98,
-    "recovery": false
+    "time": 1.885,
+    "detour": 1.014,
+    "min_speed": 11.22,
+    "recovery": false,
+    "passed": true
+   }
+  ],
+  "recoveries": []
+ },
+ {
+  "slug": "v622-hard-v2b-radius-switch-029-21-clean",
+  "name": "Changing-radius turns 029-21",
+  "track": "v622_hard_v2b_radius_switch_029_21",
+  "tag": "clean",
+  "family": "behavior:radius_switch",
+  "slot": "real100-hard-088",
+  "seed": 2034122368,
+  "gates": 8,
+  "passed": 8,
+  "completed": true,
+  "timely": true,
+  "clean": true,
+  "course_sr": 1.0,
+  "time": 10.5,
+  "path": 130.2,
+  "mean_speed": 12.4,
+  "peak_speed": 17.42,
+  "peak_tilt": 100.5,
+  "mp4": "06-v622-hard-v2b-radius-switch-029-21.mp4",
+  "poster": "06-v622-hard-v2b-radius-switch-029-21-poster.jpg",
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.554,
+    "detour": 1.01,
+    "min_speed": 2.94,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 2,
+    "time": 2.231,
+    "detour": 1.147,
+    "min_speed": 8.6,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 3,
+    "time": 0.677,
+    "detour": 1.494,
+    "min_speed": 6.75,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 4,
+    "time": 2.577,
+    "detour": 1.098,
+    "min_speed": 6.77,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 5,
+    "time": 0.569,
+    "detour": 1.175,
+    "min_speed": 6.18,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 6,
+    "time": 0.877,
+    "detour": 1.056,
+    "min_speed": 6.77,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 7,
+    "time": 1.577,
+    "detour": 1.028,
+    "min_speed": 9.22,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 8,
+    "time": 1.438,
+    "detour": 1.031,
+    "min_speed": 13.2,
+    "recovery": false,
+    "passed": true
+   }
+  ],
+  "recoveries": []
+ },
+ {
+  "slug": "v622-hard-ordered-3d-042-003-mirror1-clean",
+  "name": "Ordered 3D 042-003",
+  "track": "v622_hard_ordered_3d_042_003_mirror1",
+  "tag": "clean",
+  "family": "ordered_3d",
+  "slot": "real100-hard-042",
+  "seed": 2034657592,
+  "gates": 10,
+  "passed": 10,
+  "completed": true,
+  "timely": true,
+  "clean": true,
+  "course_sr": 0.9375,
+  "time": 6.85,
+  "path": 66.7,
+  "mean_speed": 9.73,
+  "peak_speed": 14.27,
+  "peak_tilt": 110.8,
+  "mp4": "07-v622-hard-ordered-3d-042-003-mirror1.mp4",
+  "poster": "07-v622-hard-ordered-3d-042-003-mirror1-poster.jpg",
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.508,
+    "detour": 1.009,
+    "min_speed": 2.88,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 2,
+    "time": 0.738,
+    "detour": 1.007,
+    "min_speed": 10.5,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 3,
+    "time": 0.538,
+    "detour": 1.011,
+    "min_speed": 7.92,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 4,
+    "time": 0.5,
+    "detour": 1.071,
+    "min_speed": 7.75,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 5,
+    "time": 0.785,
+    "detour": 1.021,
+    "min_speed": 10.26,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 6,
+    "time": 0.538,
+    "detour": 1.003,
+    "min_speed": 11.35,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 7,
+    "time": 0.846,
+    "detour": 1.014,
+    "min_speed": 8.99,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 8,
+    "time": 0.838,
+    "detour": 1.31,
+    "min_speed": 5.12,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 9,
+    "time": 0.908,
+    "detour": 1.248,
+    "min_speed": 6.22,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 10,
+    "time": 0.654,
+    "detour": 1.123,
+    "min_speed": 6.27,
+    "recovery": false,
+    "passed": true
+   }
+  ],
+  "recoveries": []
+ },
+ {
+  "slug": "v622-hard-v2b-wrong-side-incidence-015-15-clean",
+  "name": "Oblique gate approaches 015-15",
+  "track": "v622_hard_v2b_wrong_side_incidence_015_15",
+  "tag": "clean",
+  "family": "behavior:wrong_side_incidence",
+  "slot": "real100-hard-001",
+  "seed": 2034267774,
+  "gates": 8,
+  "passed": 8,
+  "completed": true,
+  "timely": true,
+  "clean": true,
+  "course_sr": 1.0,
+  "time": 13.17,
+  "path": 156.9,
+  "mean_speed": 11.91,
+  "peak_speed": 18.78,
+  "peak_tilt": 101.5,
+  "mp4": "08-v622-hard-v2b-wrong-side-incidence-015-15.mp4",
+  "poster": "08-v622-hard-v2b-wrong-side-incidence-015-15-poster.jpg",
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.538,
+    "detour": 1.005,
+    "min_speed": 3.05,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 2,
+    "time": 2.546,
+    "detour": 1.398,
+    "min_speed": 4.12,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 3,
+    "time": 1.931,
+    "detour": 1.181,
+    "min_speed": 2.83,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 4,
+    "time": 1.469,
+    "detour": 1.074,
+    "min_speed": 6.1,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 5,
+    "time": 2.515,
+    "detour": 1.195,
+    "min_speed": 7.28,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 6,
+    "time": 2.338,
+    "detour": 1.319,
+    "min_speed": 7.14,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 7,
+    "time": 0.915,
+    "detour": 1.101,
+    "min_speed": 9.76,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 8,
+    "time": 0.915,
+    "detour": 1.063,
+    "min_speed": 10.62,
+    "recovery": false,
+    "passed": true
+   }
+  ],
+  "recoveries": []
+ },
+ {
+  "slug": "v622-hard-flow-027-057-mirror1-clean",
+  "name": "Flow 027-057",
+  "track": "v622_hard_flow_027_057_mirror1",
+  "tag": "clean",
+  "family": "flow",
+  "slot": "real100-hard-027",
+  "seed": 2034493585,
+  "gates": 18,
+  "passed": 18,
+  "completed": true,
+  "timely": true,
+  "clean": true,
+  "course_sr": 0.875,
+  "time": 7.09,
+  "path": 74.9,
+  "mean_speed": 10.55,
+  "peak_speed": 13.41,
+  "peak_tilt": 117.9,
+  "mp4": "09-v622-hard-flow-027-057-mirror1.mp4",
+  "poster": "09-v622-hard-flow-027-057-mirror1-poster.jpg",
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.531,
+    "detour": 1.007,
+    "min_speed": 2.95,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 2,
+    "time": 0.362,
+    "detour": 1.031,
+    "min_speed": 8.54,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 3,
+    "time": 0.438,
+    "detour": 1.015,
+    "min_speed": 8.8,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 4,
+    "time": 0.2,
+    "detour": 1.001,
+    "min_speed": 12.66,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 5,
+    "time": 0.285,
+    "detour": 1.002,
+    "min_speed": 11.75,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 6,
+    "time": 0.5,
+    "detour": 1.014,
+    "min_speed": 10.44,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 7,
+    "time": 0.562,
+    "detour": 1.025,
+    "min_speed": 10.29,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 8,
+    "time": 0.238,
+    "detour": 1.009,
+    "min_speed": 10.93,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 9,
+    "time": 0.569,
+    "detour": 1.007,
+    "min_speed": 8.92,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 10,
+    "time": 0.431,
+    "detour": 1.117,
+    "min_speed": 7.92,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 11,
-    "time": 0.923,
+    "time": 0.308,
+    "detour": 1.001,
+    "min_speed": 8.6,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 12,
+    "time": 0.308,
+    "detour": 1.004,
+    "min_speed": 9.87,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 13,
+    "time": 0.438,
+    "detour": 1.028,
+    "min_speed": 10.67,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 14,
+    "time": 0.477,
+    "detour": 1.033,
+    "min_speed": 12.22,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 15,
+    "time": 0.3,
+    "detour": 1.004,
+    "min_speed": 12.36,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 16,
+    "time": 0.623,
+    "detour": 1.011,
+    "min_speed": 10.22,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 17,
+    "time": 0.308,
+    "detour": 1.028,
+    "min_speed": 9.95,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 18,
+    "time": 0.215,
     "detour": 1.007,
-    "min_speed": 10.25,
-    "recovery": false
+    "min_speed": 9.95,
+    "recovery": false,
+    "passed": true
+   }
+  ],
+  "recoveries": []
+ },
+ {
+  "slug": "v622-hard-long-low-058-007-arena1-mirror1-clean",
+  "name": "Long low 058-007",
+  "track": "v622_hard_long_low_058_007_arena1_mirror1",
+  "tag": "clean",
+  "family": "long_low",
+  "slot": "real100-hard-058",
+  "seed": 2034565744,
+  "gates": 8,
+  "passed": 8,
+  "completed": true,
+  "timely": true,
+  "clean": true,
+  "course_sr": 1.0,
+  "time": 10.46,
+  "path": 159.9,
+  "mean_speed": 15.29,
+  "peak_speed": 18.06,
+  "peak_tilt": 100.2,
+  "mp4": "10-v622-hard-long-low-058-007-arena1-mirror1.mp4",
+  "poster": "10-v622-hard-long-low-058-007-arena1-mirror1-poster.jpg",
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.538,
+    "detour": 1.01,
+    "min_speed": 2.96,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 2,
+    "time": 1.677,
+    "detour": 1.019,
+    "min_speed": 10.44,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 3,
+    "time": 1.315,
+    "detour": 1.043,
+    "min_speed": 14.38,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 4,
+    "time": 1.162,
+    "detour": 1.014,
+    "min_speed": 15.95,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 5,
+    "time": 1.208,
+    "detour": 1.018,
+    "min_speed": 14.81,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 6,
+    "time": 1.123,
+    "detour": 1.032,
+    "min_speed": 13.87,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 7,
+    "time": 1.223,
+    "detour": 1.026,
+    "min_speed": 13.64,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 8,
+    "time": 2.215,
+    "detour": 1.03,
+    "min_speed": 12.99,
+    "recovery": false,
+    "passed": true
+   }
+  ],
+  "recoveries": []
+ },
+ {
+  "slug": "v622-hard-go-around-017-040-mirror1-clean",
+  "name": "Go-around 017-040",
+  "track": "v622_hard_go_around_017_040_mirror1",
+  "tag": "clean",
+  "family": "go_around",
+  "slot": "real100-hard-017",
+  "seed": 2035025934,
+  "gates": 8,
+  "passed": 8,
+  "completed": true,
+  "timely": true,
+  "clean": true,
+  "course_sr": 1.0,
+  "time": 6.28,
+  "path": 73.4,
+  "mean_speed": 11.69,
+  "peak_speed": 17.9,
+  "peak_tilt": 106.7,
+  "mp4": "11-v622-hard-go-around-017-040-mirror1.mp4",
+  "poster": "11-v622-hard-go-around-017-040-mirror1-poster.jpg",
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.5,
+    "detour": 1.008,
+    "min_speed": 3.05,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 2,
+    "time": 0.577,
+    "detour": 1.009,
+    "min_speed": 10.76,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 3,
+    "time": 1.362,
+    "detour": 1.048,
+    "min_speed": 9.15,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 4,
+    "time": 1.515,
+    "detour": 1.221,
+    "min_speed": 8.19,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 5,
+    "time": 0.708,
+    "detour": 1.017,
+    "min_speed": 8.43,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 6,
+    "time": 0.446,
+    "detour": 1.037,
+    "min_speed": 7.76,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 7,
+    "time": 0.692,
+    "detour": 1.009,
+    "min_speed": 7.42,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 8,
+    "time": 0.477,
+    "detour": 1.081,
+    "min_speed": 5.56,
+    "recovery": false,
+    "passed": true
+   }
+  ],
+  "recoveries": []
+ },
+ {
+  "slug": "v622-hard-v2b-long-low-braking-003-08-clean",
+  "name": "Long low braking 003-08",
+  "track": "v622_hard_v2b_long_low_braking_003_08",
+  "tag": "clean",
+  "family": "behavior:long_low_braking",
+  "slot": "real100-hard-062",
+  "seed": 2034131399,
+  "gates": 8,
+  "passed": 8,
+  "completed": true,
+  "timely": true,
+  "clean": true,
+  "course_sr": 0.75,
+  "time": 12.52,
+  "path": 153.0,
+  "mean_speed": 12.23,
+  "peak_speed": 17.67,
+  "peak_tilt": 115.7,
+  "mp4": "12-v622-hard-v2b-long-low-braking-003-08.mp4",
+  "poster": "12-v622-hard-v2b-long-low-braking-003-08-poster.jpg",
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.538,
+    "detour": 1.009,
+    "min_speed": 2.94,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 2,
+    "time": 3.546,
+    "detour": 1.103,
+    "min_speed": 7.41,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 3,
+    "time": 2.423,
+    "detour": 1.104,
+    "min_speed": 7.05,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 4,
+    "time": 1.531,
+    "detour": 1.128,
+    "min_speed": 5.64,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 5,
+    "time": 0.838,
+    "detour": 1.002,
+    "min_speed": 11.15,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 6,
+    "time": 0.854,
+    "detour": 1.004,
+    "min_speed": 11.25,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 7,
+    "time": 0.869,
+    "detour": 1.058,
+    "min_speed": 5.52,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 8,
+    "time": 1.915,
+    "detour": 1.082,
+    "min_speed": 6.2,
+    "recovery": false,
+    "passed": true
+   }
+  ],
+  "recoveries": []
+ },
+ {
+  "slug": "v622-hard-stacked-reversal-016-033-clean",
+  "name": "Stacked reversal 016-033",
+  "track": "v622_hard_stacked_reversal_016_033",
+  "tag": "clean",
+  "family": "stacked_reversal",
+  "slot": "real100-hard-016",
+  "seed": 2034891838,
+  "gates": 6,
+  "passed": 6,
+  "completed": true,
+  "timely": true,
+  "clean": true,
+  "course_sr": 0.96875,
+  "time": 4.76,
+  "path": 48.2,
+  "mean_speed": 10.12,
+  "peak_speed": 15.51,
+  "peak_tilt": 161.2,
+  "mp4": "13-v622-hard-stacked-reversal-016-033.mp4",
+  "poster": "13-v622-hard-stacked-reversal-016-033-poster.jpg",
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.523,
+    "detour": 1.009,
+    "min_speed": 2.91,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 2,
+    "time": 0.577,
+    "detour": 1.028,
+    "min_speed": 8.36,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 3,
+    "time": 1.169,
+    "detour": 1.032,
+    "min_speed": 4.65,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 4,
+    "time": 0.723,
+    "detour": 1.109,
+    "min_speed": 4.55,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 5,
+    "time": 1.123,
+    "detour": 1.037,
+    "min_speed": 4.79,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 6,
+    "time": 0.646,
+    "detour": 1.029,
+    "min_speed": 8.91,
+    "recovery": false,
+    "passed": true
+   }
+  ],
+  "recoveries": []
+ },
+ {
+  "slug": "multigp-utt05-nautilus-clean",
+  "name": "MultiGP Nautilus",
+  "track": "multigp_utt05_nautilus",
+  "tag": "clean",
+  "family": "public_reference",
+  "slot": "multigp_utt05_nautilus",
+  "seed": 2034175070,
+  "gates": 5,
+  "passed": 5,
+  "completed": true,
+  "timely": true,
+  "clean": true,
+  "course_sr": 0.96875,
+  "time": 7.28,
+  "path": 100.5,
+  "mean_speed": 13.81,
+  "peak_speed": 17.12,
+  "peak_tilt": 95.6,
+  "mp4": "14-multigp-utt05-nautilus.mp4",
+  "poster": "14-multigp-utt05-nautilus-poster.jpg",
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.515,
+    "detour": 1.009,
+    "min_speed": 3.08,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 2,
+    "time": 2.908,
+    "detour": 1.116,
+    "min_speed": 10.4,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 3,
+    "time": 1.738,
+    "detour": 1.058,
+    "min_speed": 12.73,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 4,
+    "time": 1.008,
+    "detour": 1.087,
+    "min_speed": 9.11,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 5,
+    "time": 1.108,
+    "detour": 1.028,
+    "min_speed": 8.77,
+    "recovery": false,
+    "passed": true
+   }
+  ],
+  "recoveries": []
+ },
+ {
+  "slug": "v622-hard-hairpin-chain-047-038-mirror1-clean",
+  "name": "Hairpin chain 047-038",
+  "track": "v622_hard_hairpin_chain_047_038_mirror1",
+  "tag": "clean",
+  "family": "hairpin_chain",
+  "slot": "real100-hard-047",
+  "seed": 2034851597,
+  "gates": 8,
+  "passed": 8,
+  "completed": true,
+  "timely": true,
+  "clean": true,
+  "course_sr": 0.9375,
+  "time": 6.22,
+  "path": 59.8,
+  "mean_speed": 9.62,
+  "peak_speed": 15.14,
+  "peak_tilt": 94.2,
+  "mp4": "15-v622-hard-hairpin-chain-047-038-mirror1.mp4",
+  "poster": "15-v622-hard-hairpin-chain-047-038-mirror1-poster.jpg",
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.562,
+    "detour": 1.006,
+    "min_speed": 3.01,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 2,
+    "time": 0.769,
+    "detour": 1.003,
+    "min_speed": 8.65,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 3,
+    "time": 0.508,
+    "detour": 1.094,
+    "min_speed": 6.06,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 4,
+    "time": 0.762,
+    "detour": 1.327,
+    "min_speed": 6.74,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 5,
+    "time": 0.969,
+    "detour": 1.052,
+    "min_speed": 7.01,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 6,
+    "time": 0.9,
+    "detour": 1.056,
+    "min_speed": 6.84,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 7,
+    "time": 0.985,
+    "detour": 1.1,
+    "min_speed": 7.33,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 8,
+    "time": 0.762,
+    "detour": 1.029,
+    "min_speed": 5.55,
+    "recovery": false,
+    "passed": true
+   }
+  ],
+  "recoveries": []
+ },
+ {
+  "slug": "v622-hard-long-braking-032-010-arena1-mirror1-clean",
+  "name": "Long braking 032-010",
+  "track": "v622_hard_long_braking_032_010_arena1_mirror1",
+  "tag": "clean",
+  "family": "long_braking",
+  "slot": "real100-hard-032",
+  "seed": 2034510004,
+  "gates": 17,
+  "passed": 17,
+  "completed": true,
+  "timely": true,
+  "clean": true,
+  "course_sr": 1.0,
+  "time": 12.81,
+  "path": 176.5,
+  "mean_speed": 13.78,
+  "peak_speed": 17.29,
+  "peak_tilt": 118.6,
+  "mp4": "16-v622-hard-long-braking-032-010-arena1-mirror1.mp4",
+  "poster": "16-v622-hard-long-braking-032-010-arena1-mirror1-poster.jpg",
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.508,
+    "detour": 1.008,
+    "min_speed": 3.14,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 2,
+    "time": 0.769,
+    "detour": 1.001,
+    "min_speed": 11.93,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 3,
+    "time": 2.846,
+    "detour": 1.043,
+    "min_speed": 8.06,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 4,
+    "time": 1.015,
+    "detour": 1.092,
+    "min_speed": 6.58,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 5,
+    "time": 2.477,
+    "detour": 1.012,
+    "min_speed": 10.56,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 6,
+    "time": 0.677,
+    "detour": 1.006,
+    "min_speed": 15.81,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 7,
+    "time": 0.615,
+    "detour": 1.001,
+    "min_speed": 15.04,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 8,
+    "time": 0.554,
+    "detour": 1.004,
+    "min_speed": 13.52,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 9,
+    "time": 0.485,
+    "detour": 1.001,
+    "min_speed": 12.98,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 10,
+    "time": 0.369,
+    "detour": 1.014,
+    "min_speed": 12.12,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 11,
+    "time": 0.315,
+    "detour": 1.01,
+    "min_speed": 10.37,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 12,
+    "time": 0.238,
+    "detour": 1.01,
+    "min_speed": 9.04,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 13,
+    "time": 0.246,
+    "detour": 1.026,
+    "min_speed": 8.97,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 14,
+    "time": 0.3,
+    "detour": 1.009,
+    "min_speed": 9.76,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 15,
+    "time": 0.392,
+    "detour": 1.001,
+    "min_speed": 11.25,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 16,
+    "time": 0.454,
+    "detour": 1.002,
+    "min_speed": 12.67,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 17,
+    "time": 0.546,
+    "detour": 1.0,
+    "min_speed": 14.21,
+    "recovery": false,
+    "passed": true
+   }
+  ],
+  "recoveries": []
+ },
+ {
+  "slug": "v622-hard-v2b-compound-reversal-020-05-clean",
+  "name": "Compound reversal 020-05",
+  "track": "v622_hard_v2b_compound_reversal_020_05",
+  "tag": "clean",
+  "family": "behavior:compound_reversal",
+  "slot": "real100-hard-083",
+  "seed": 2034274955,
+  "gates": 8,
+  "passed": 8,
+  "completed": true,
+  "timely": true,
+  "clean": true,
+  "course_sr": 1.0,
+  "time": 7.6,
+  "path": 69.6,
+  "mean_speed": 9.16,
+  "peak_speed": 12.96,
+  "peak_tilt": 106.5,
+  "mp4": "17-v622-hard-v2b-compound-reversal-020-05.mp4",
+  "poster": "17-v622-hard-v2b-compound-reversal-020-05-poster.jpg",
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.538,
+    "detour": 1.009,
+    "min_speed": 2.95,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 2,
+    "time": 1.023,
+    "detour": 1.116,
+    "min_speed": 6.25,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 3,
+    "time": 1.131,
+    "detour": 1.112,
+    "min_speed": 5.51,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 4,
+    "time": 1.185,
+    "detour": 1.113,
+    "min_speed": 5.53,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 5,
+    "time": 0.946,
+    "detour": 1.17,
+    "min_speed": 6.58,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 6,
+    "time": 0.931,
+    "detour": 1.143,
+    "min_speed": 8.02,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 7,
+    "time": 0.754,
+    "detour": 1.144,
+    "min_speed": 6.46,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 8,
+    "time": 1.092,
+    "detour": 1.137,
+    "min_speed": 5.68,
+    "recovery": false,
+    "passed": true
+   }
+  ],
+  "recoveries": []
+ },
+ {
+  "slug": "v622-hard-flow-036-027-clean",
+  "name": "Flow 036-027",
+  "track": "v622_hard_flow_036_027",
+  "tag": "clean",
+  "family": "flow",
+  "slot": "real100-hard-036",
+  "seed": 2034514749,
+  "gates": 13,
+  "passed": 13,
+  "completed": true,
+  "timely": true,
+  "clean": true,
+  "course_sr": 0.96875,
+  "time": 11.32,
+  "path": 162.3,
+  "mean_speed": 14.34,
+  "peak_speed": 17.55,
+  "peak_tilt": 91.8,
+  "mp4": "18-v622-hard-flow-036-027.mp4",
+  "poster": "18-v622-hard-flow-036-027-poster.jpg",
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.6,
+    "detour": 1.009,
+    "min_speed": 2.85,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 2,
+    "time": 1.046,
+    "detour": 1.013,
+    "min_speed": 9.06,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 3,
+    "time": 0.785,
+    "detour": 1.014,
+    "min_speed": 11.98,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 4,
+    "time": 0.831,
+    "detour": 1.014,
+    "min_speed": 11.25,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 5,
+    "time": 0.992,
+    "detour": 1.017,
+    "min_speed": 11.08,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 6,
+    "time": 0.931,
+    "detour": 1.019,
+    "min_speed": 12.78,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 7,
+    "time": 0.8,
+    "detour": 1.016,
+    "min_speed": 12.59,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 8,
+    "time": 1.015,
+    "detour": 1.011,
+    "min_speed": 13.25,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 9,
+    "time": 0.877,
+    "detour": 1.025,
+    "min_speed": 13.23,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 10,
+    "time": 0.869,
+    "detour": 1.011,
+    "min_speed": 15.42,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 11,
+    "time": 0.769,
+    "detour": 1.014,
+    "min_speed": 12.59,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 12,
+    "time": 0.754,
+    "detour": 1.013,
+    "min_speed": 12.57,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 13,
+    "time": 1.046,
+    "detour": 1.011,
+    "min_speed": 12.28,
+    "recovery": false,
+    "passed": true
+   }
+  ],
+  "recoveries": []
+ },
+ {
+  "slug": "a2rl-s2-2026-source-consistent-v2-arena1-recovery",
+  "name": "A2RL S2 2026",
+  "track": "a2rl_s2_2026_source_consistent_v2_arena1",
+  "tag": "recovery",
+  "family": "public_reference",
+  "slot": "a2rl_s2_2026_source_consistent_v2",
+  "seed": 2034229307,
+  "gates": 12,
+  "passed": 12,
+  "completed": true,
+  "timely": true,
+  "clean": false,
+  "course_sr": 0.125,
+  "time": 14.54,
+  "path": 135.7,
+  "mean_speed": 9.33,
+  "peak_speed": 14.56,
+  "peak_tilt": 166.1,
+  "mp4": "19-a2rl-s2-2026-source-consistent-v2-arena1.mp4",
+  "poster": "19-a2rl-s2-2026-source-consistent-v2-arena1-poster.jpg",
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.554,
+    "detour": 1.012,
+    "min_speed": 2.93,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 2,
+    "time": 1.115,
+    "detour": 1.164,
+    "min_speed": 8.72,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 3,
+    "time": 0.808,
+    "detour": 1.039,
+    "min_speed": 8.29,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 4,
+    "time": 0.808,
+    "detour": 1.014,
+    "min_speed": 8.04,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 5,
+    "time": 0.892,
+    "detour": 1.039,
+    "min_speed": 8.44,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 6,
+    "time": 5.208,
+    "detour": 7.313,
+    "min_speed": 2.75,
+    "recovery": true,
+    "passed": true
+   },
+   {
+    "gate": 7,
+    "time": 0.892,
+    "detour": 1.065,
+    "min_speed": 6.84,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 8,
+    "time": 1.031,
+    "detour": 2.463,
+    "min_speed": 4.52,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 9,
+    "time": 0.708,
+    "detour": 1.036,
+    "min_speed": 8.86,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 10,
+    "time": 0.8,
+    "detour": 1.065,
+    "min_speed": 10.84,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 11,
+    "time": 1.015,
+    "detour": 1.023,
+    "min_speed": 10.94,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 12,
+    "time": 0.708,
+    "detour": 1.554,
+    "min_speed": 6.87,
+    "recovery": false,
+    "passed": true
+   }
+  ],
+  "recoveries": [
+   {
+    "gate": 6,
+    "passed": true,
+    "miss_to_pass": 4.55,
+    "time": 5.21,
+    "detour": 7.31,
+    "extra_path": 34.3,
+    "min_speed": 2.75
+   }
+  ]
+ },
+ {
+  "slug": "a2rl-s2-2026-source-consistent-v2-arena1-failure",
+  "name": "A2RL S2 2026",
+  "track": "a2rl_s2_2026_source_consistent_v2_arena1",
+  "tag": "failure",
+  "family": "public_reference",
+  "slot": "a2rl_s2_2026_source_consistent_v2",
+  "seed": 2034229296,
+  "gates": 12,
+  "passed": 11,
+  "completed": false,
+  "timely": false,
+  "clean": false,
+  "course_sr": 0.125,
+  "time": 9.86,
+  "path": 101.5,
+  "mean_speed": 10.3,
+  "peak_speed": 17.18,
+  "peak_tilt": 177.7,
+  "mp4": "20-a2rl-s2-2026-source-consistent-v2-arena1.mp4",
+  "poster": "20-a2rl-s2-2026-source-consistent-v2-arena1-poster.jpg",
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.492,
+    "detour": 1.011,
+    "min_speed": 3.02,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 2,
+    "time": 1.023,
+    "detour": 1.158,
+    "min_speed": 9.68,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 3,
+    "time": 0.823,
+    "detour": 1.058,
+    "min_speed": 8.45,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 4,
+    "time": 0.831,
+    "detour": 1.03,
+    "min_speed": 8.45,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 5,
+    "time": 0.885,
+    "detour": 1.049,
+    "min_speed": 8.66,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 6,
+    "time": 0.777,
+    "detour": 1.138,
+    "min_speed": 4.08,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 7,
+    "time": 1.038,
+    "detour": 1.072,
+    "min_speed": 3.63,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 8,
+    "time": 0.731,
+    "detour": 1.694,
+    "min_speed": 4.24,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 9,
+    "time": 0.769,
+    "detour": 1.041,
+    "min_speed": 7.86,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 10,
+    "time": 0.754,
+    "detour": 1.016,
+    "min_speed": 10.47,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 11,
+    "time": 0.869,
+    "detour": 1.01,
+    "min_speed": 10.45,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 12,
     "time": 0.869,
-    "detour": 1.05,
-    "min_speed": 10.14,
-    "recovery": false
-   },
-   {
-    "gate": 13,
-    "time": 1.123,
-    "detour": 1.005,
-    "min_speed": 11.64,
-    "recovery": false
+    "detour": 1.287,
+    "min_speed": 6.82,
+    "recovery": true,
+    "passed": false
    }
   ],
   "recoveries": [
    {
-    "gate": 4,
-    "time": 15.06,
-    "detour": 10.56,
-    "extra_path": 103.2,
-    "min_speed": 1.11,
-    "returns": 2
+    "gate": 12,
+    "passed": false,
+    "miss_to_pass": 0.5,
+    "time": 0.87,
+    "detour": 1.29,
+    "extra_path": 2.1,
+    "min_speed": 6.82
    }
-  ],
-  "recovery_share": 0.559
+  ]
  },
  {
-  "slug": "v622-hard-flow-027-057-mirror1-recovery",
-  "name": "Flow 027-057",
-  "track": "v622_hard_flow_027_057_mirror1",
-  "tag": "recovery",
-  "gates": 18,
-  "time": 23.99,
-  "path": 197.6,
-  "mean_speed": 8.23,
-  "peak_speed": 15.98,
-  "peak_tilt": 116.8,
-  "mean_offset": 0.53,
+  "slug": "v622-hard-slalom-055-040-arena1-late-recovery",
+  "name": "Slalom 055-040",
+  "track": "v622_hard_slalom_055_040_arena1",
+  "tag": "late_recovery",
+  "family": "slalom",
+  "slot": "real100-hard-055",
+  "seed": 2035006365,
+  "gates": 6,
+  "passed": 6,
+  "completed": true,
+  "timely": false,
+  "clean": false,
+  "course_sr": 0.9375,
+  "time": 38.65,
+  "path": 308.4,
+  "mean_speed": 7.98,
+  "peak_speed": 16.98,
+  "peak_tilt": 123.1,
+  "mp4": "21-v622-hard-slalom-055-040-arena1.mp4",
+  "poster": "21-v622-hard-slalom-055-040-arena1-poster.jpg",
   "legs": [
    {
     "gate": 1,
-    "time": 0.569,
-    "detour": 1.006,
-    "min_speed": 2.98,
-    "recovery": false
+    "time": 0.546,
+    "detour": 1.011,
+    "min_speed": 3.14,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 2,
-    "time": 0.4,
-    "detour": 1.049,
-    "min_speed": 8.06,
-    "recovery": false
+    "time": 1.208,
+    "detour": 1.088,
+    "min_speed": 6.22,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 3,
-    "time": 0.431,
-    "detour": 1.007,
-    "min_speed": 10.23,
-    "recovery": false
+    "time": 1.423,
+    "detour": 1.134,
+    "min_speed": 6.83,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 4,
-    "time": 0.223,
-    "detour": 1.002,
-    "min_speed": 11.71,
-    "recovery": false
+    "time": 1.831,
+    "detour": 1.145,
+    "min_speed": 7.34,
+    "recovery": false,
+    "passed": true
    },
    {
     "gate": 5,
-    "time": 5.108,
-    "detour": 10.568,
-    "min_speed": 2.99,
-    "recovery": true
+    "time": 32.985,
+    "detour": 37.469,
+    "min_speed": 1.01,
+    "recovery": true,
+    "passed": true
    },
    {
     "gate": 6,
-    "time": 0.554,
-    "detour": 1.006,
-    "min_speed": 6.83,
-    "recovery": false
-   },
-   {
-    "gate": 7,
-    "time": 0.592,
-    "detour": 1.01,
-    "min_speed": 9.35,
-    "recovery": false
-   },
-   {
-    "gate": 8,
-    "time": 0.262,
-    "detour": 1.01,
-    "min_speed": 10.87,
-    "recovery": false
-   },
-   {
-    "gate": 9,
-    "time": 2.215,
-    "detour": 2.476,
-    "min_speed": 2.21,
-    "recovery": true
-   },
-   {
-    "gate": 10,
-    "time": 0.5,
-    "detour": 1.038,
-    "min_speed": 3.65,
-    "recovery": false
-   },
-   {
-    "gate": 11,
-    "time": 0.277,
-    "detour": 1.002,
-    "min_speed": 9.57,
-    "recovery": false
-   },
-   {
-    "gate": 12,
-    "time": 0.369,
-    "detour": 1.01,
-    "min_speed": 8.44,
-    "recovery": false
-   },
-   {
-    "gate": 13,
-    "time": 0.546,
-    "detour": 1.016,
-    "min_speed": 8.72,
-    "recovery": false
-   },
-   {
-    "gate": 14,
-    "time": 0.631,
-    "detour": 1.116,
-    "min_speed": 9.17,
-    "recovery": false
-   },
-   {
-    "gate": 15,
-    "time": 0.4,
-    "detour": 1.026,
-    "min_speed": 9.49,
-    "recovery": false
-   },
-   {
-    "gate": 16,
-    "time": 0.662,
-    "detour": 1.014,
-    "min_speed": 9.8,
-    "recovery": false
-   },
-   {
-    "gate": 17,
-    "time": 0.369,
-    "detour": 1.023,
-    "min_speed": 7.2,
-    "recovery": false
-   },
-   {
-    "gate": 18,
-    "time": 9.885,
-    "detour": 32.531,
-    "min_speed": 1.85,
-    "recovery": true
+    "time": 0.654,
+    "detour": 1.009,
+    "min_speed": 6.78,
+    "recovery": false,
+    "passed": true
    }
   ],
   "recoveries": [
    {
     "gate": 5,
-    "time": 5.11,
-    "detour": 10.57,
-    "extra_path": 34.8,
-    "min_speed": 2.99,
-    "returns": 1
+    "passed": true,
+    "miss_to_pass": 32.21,
+    "time": 32.98,
+    "detour": 37.47,
+    "extra_path": 236.2,
+    "min_speed": 1.01
+   }
+  ]
+ },
+ {
+  "slug": "v622-hard-go-around-017-040-mirror1-recovery",
+  "name": "Go-around 017-040",
+  "track": "v622_hard_go_around_017_040_mirror1",
+  "tag": "recovery",
+  "family": "go_around",
+  "slot": "real100-hard-017",
+  "seed": 2035025938,
+  "gates": 8,
+  "passed": 8,
+  "completed": true,
+  "timely": true,
+  "clean": false,
+  "course_sr": 1.0,
+  "time": 8.55,
+  "path": 90.3,
+  "mean_speed": 10.56,
+  "peak_speed": 17.49,
+  "peak_tilt": 110.8,
+  "mp4": "22-v622-hard-go-around-017-040-mirror1.mp4",
+  "poster": "22-v622-hard-go-around-017-040-mirror1-poster.jpg",
+  "legs": [
+   {
+    "gate": 1,
+    "time": 0.523,
+    "detour": 1.012,
+    "min_speed": 2.94,
+    "recovery": false,
+    "passed": true
    },
    {
-    "gate": 9,
-    "time": 2.22,
-    "detour": 2.48,
-    "extra_path": 9.6,
-    "min_speed": 2.21,
-    "returns": 1
+    "gate": 2,
+    "time": 0.6,
+    "detour": 1.016,
+    "min_speed": 10.73,
+    "recovery": false,
+    "passed": true
    },
    {
-    "gate": 18,
-    "time": 9.88,
-    "detour": 32.53,
-    "extra_path": 75.8,
-    "min_speed": 1.85,
-    "returns": 2
+    "gate": 3,
+    "time": 1.385,
+    "detour": 1.049,
+    "min_speed": 9.02,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 4,
+    "time": 1.6,
+    "detour": 1.212,
+    "min_speed": 7.62,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 5,
+    "time": 0.731,
+    "detour": 1.013,
+    "min_speed": 7.64,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 6,
+    "time": 0.423,
+    "detour": 1.024,
+    "min_speed": 9.34,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 7,
+    "time": 0.715,
+    "detour": 1.008,
+    "min_speed": 9.19,
+    "recovery": false,
+    "passed": true
+   },
+   {
+    "gate": 8,
+    "time": 2.569,
+    "detour": 5.388,
+    "min_speed": 1.06,
+    "recovery": true,
+    "passed": true
    }
   ],
-  "recovery_share": 0.717
+  "recoveries": [
+   {
+    "gate": 8,
+    "passed": true,
+    "miss_to_pass": 2.15,
+    "time": 2.57,
+    "detour": 5.39,
+    "extra_path": 17.0,
+    "min_speed": 1.06
+   }
+  ]
  }
 ]

@@ -1,0 +1,41 @@
+{
+  "source_checkpoint": "outputs/checkpoints/starscream-pretrain65-d-scaled-20260929/best-step-029465874-selection_suite_timely_success-0.7375.pt",
+  "source_sha256": "cee73ce74fdfcfd64adb7b10d374ff143ef07980a61feff53112641d7a56eb3a",
+  "inference_checkpoint": "teacher-inference-only.pt",
+  "inference_sha256": "3fbbfe4bf398342962b43a45d5293f5b7cc186f89fb077842b48259b93ad2c5d",
+  "retained_keys": [
+    "contract",
+    "stage",
+    "track",
+    "model",
+    "model_config",
+    "normalizer",
+    "feature_dim",
+    "action_horizon",
+    "control_hz",
+    "plant_settings_schema",
+    "dynamics_target_mean",
+    "dynamics_target_std",
+    "round",
+    "environment_steps",
+    "initial_checkpoint",
+    "action_contract",
+    "training_config",
+    "step",
+    "metrics"
+  ],
+  "excluded_training_resume_keys": [
+    "dagger_async_pending",
+    "dagger_collection_requests",
+    "dagger_dynamic_sampler_state",
+    "dagger_learning_progress_task_bank_state",
+    "dagger_replay",
+    "dagger_safe_state",
+    "numpy_rng_state",
+    "optimizer",
+    "reporting_evaluation",
+    "rng_state"
+  ],
+  "all_model_tensors_and_normalizer_values_exactly_equal": true,
+  "use": "Inference and student distillation; not an exact optimizer/replay/RNG training resume artifact."
+}

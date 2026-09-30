@@ -1,0 +1,203 @@
+name: v622_repair_real60-040_100_arena1
+loop: true
+bounds:
+- - -28.324369430541992
+  - 33.841224670410156
+- - -10.017204284667969
+  - 29.313812255859375
+- - 0.0
+  - 6.527447700500488
+metadata:
+  source: v622-requirements-1
+  seed: 623400100
+  intended_transition: long_low
+  hard: false
+  behavior_certified: false
+  arena_correction:
+    source_name: v622_repair_real60-040_100
+    source_fingerprint: 8dbbbfc7207d2d3c60280ff3bdcf789ba76c3a80b0f8a0c32dda9b7af1c6c576
+    source_bounds:
+    - - -27.016891479492188
+      - 32.59673309326172
+    - - -5.347238540649414
+      - 27.632692337036133
+    - - 0.0
+      - 6.527447700500488
+    reason: reference-path containment plus 6m maneuver margin; gates unchanged
+gates:
+- name: gate_00
+  position:
+  - 0.0
+  - 0.0
+  - 0.9424445629119873
+  quaternion_wxyz:
+  - 0.9999696016311646
+  - 0.0
+  - 0.0
+  - 0.007801774423569441
+  size:
+  - 1.5095891952514648
+  - 1.5095891952514648
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_01
+  position:
+  - 27.59673500061035
+  - 0.0
+  - 0.9424445629119873
+  quaternion_wxyz:
+  - 0.7933533191680908
+  - 0.0
+  - 0.0
+  - 0.6087614297866821
+  size:
+  - 1.5871330499649048
+  - 1.5871330499649048
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_02
+  position:
+  - 22.384048461914062
+  - 3.0095458030700684
+  - 0.9424445629119873
+  quaternion_wxyz:
+  - 0.35968878865242004
+  - 0.0
+  - 0.0
+  - 0.9330723285675049
+  size:
+  - 1.525469183921814
+  - 1.525469183921814
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_03
+  position:
+  - 8.29602336883545
+  - 22.632692337036133
+  - 0.9424445629119873
+  quaternion_wxyz:
+  - 0.2065904140472412
+  - 0.0
+  - 0.0
+  - 0.978427529335022
+  size:
+  - 1.6181538105010986
+  - 1.6181538105010986
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_04
+  position:
+  - -3.482776403427124
+  - 21.25713539123535
+  - 1.4179041385650635
+  quaternion_wxyz:
+  - 0.11114917695522308
+  - -0.0
+  - -0.0
+  - -0.9938037395477295
+  size:
+  - 1.451964259147644
+  - 1.451964259147644
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_05
+  position:
+  - -12.595547676086426
+  - 18.143468856811523
+  - 1.070358395576477
+  quaternion_wxyz:
+  - 0.22805124521255493
+  - -0.0
+  - -0.0
+  - -0.9736491441726685
+  size:
+  - 1.593528389930725
+  - 1.593528389930725
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_06
+  position:
+  - -18.840763092041016
+  - 13.953100204467773
+  - 1.0
+  quaternion_wxyz:
+  - 0.3796679377555847
+  - -0.0
+  - -0.0
+  - -0.925122857093811
+  size:
+  - 1.5666728019714355
+  - 1.5666728019714355
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_07
+  position:
+  - -22.016891479492188
+  - 9.347436904907227
+  - 1.3204280138015747
+  quaternion_wxyz:
+  - 0.5970348715782166
+  - 0.0
+  - 0.0
+  - -0.8022152781486511
+  size:
+  - 1.5588195323944092
+  - 1.5588195323944092
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_08
+  position:
+  - -21.922409057617188
+  - 4.987887859344482
+  - 1.0
+  quaternion_wxyz:
+  - 0.8368607759475708
+  - -0.0
+  - 0.0
+  - -0.5474157333374023
+  size:
+  - 1.6271854639053345
+  - 1.6271854639053345
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_09
+  position:
+  - -18.355785369873047
+  - 1.5358601808547974
+  - 1.0
+  quaternion_wxyz:
+  - 0.9673995971679688
+  - -0.0
+  - 0.0
+  - -0.25325483083724976
+  size:
+  - 1.6199489831924438
+  - 1.6199489831924438
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_10
+  position:
+  - -11.115490913391113
+  - -0.3472384512424469
+  - 1.5274478197097778
+  quaternion_wxyz:
+  - 0.9984455108642578
+  - -0.0
+  - 0.0
+  - -0.05573653057217598
+  size:
+  - 1.5637160539627075
+  - 1.5637160539627075
+  enter_from_opposite_side: false
+  kind: gate
+  render: true

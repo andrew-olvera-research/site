@@ -1,0 +1,29 @@
+{
+  "inherits": "mini_slalom_aug2_common.yaml",
+  "dagger": {
+    "run_name": "starscream-v6.21.1.1-mini-slalom-aug2-broad-r24",
+    "tags": [
+      "mini-slalom-aug2",
+      "broad",
+      "warm-start",
+      "async-dagger"
+    ]
+  },
+  "wandb": {
+    "group": "v62111-mini-slalom-aug2-baselines",
+    "name": "starscream-v6.21.1.1-mini-slalom-aug2-broad-r24",
+    "local_event_path": "/workspace/outputs/logs/starscream-v6.21.1.1-mini-slalom-aug2-broad-r24.events.jsonl",
+    "local_full_event_path": "/workspace/outputs/logs/starscream-v6.21.1.1-mini-slalom-aug2-broad-r24.full.events.jsonl",
+    "eval_metric_allowlist": [
+      "selection_suite_success",
+      "selection_suite_timely_success",
+      "selection_suite_clean_success",
+      "selection_suite_clean_timely_success",
+      "full_course_success",
+      "crash_rate",
+      "mean_gates",
+      "mean_steps",
+      "dagger_policy_version"
+    ]
+  }
+}

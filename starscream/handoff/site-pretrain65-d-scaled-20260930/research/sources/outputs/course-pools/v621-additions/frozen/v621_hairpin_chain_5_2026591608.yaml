@@ -1,0 +1,104 @@
+name: v621_hairpin_chain_5_2026591608
+loop: true
+bounds:
+- - -4.0
+  - 16.499324798583984
+- - -7.102789878845215
+  - 7.293943881988525
+- - 0.0
+  - 6.7595014572143555
+metadata:
+  source: v621_directed_motif
+  revision: 5
+  seed: 2026591608
+  mirror: 1
+  intended_transition: hairpin_chain
+  transition_gate_indices:
+  - 3
+  - 4
+  - 0
+  - 1
+  low_gates: false
+  narrow_gates: false
+  behavior_certified: false
+gates:
+- name: gate_02
+  position:
+  - 2.7818801403045654
+  - 3.2939438819885254
+  - 1.2000000476837158
+  quaternion_wxyz:
+  - 0.8471620082855225
+  - 0.0
+  - 0.0
+  - 0.5313346982002258
+  size:
+  - 2.364597797393799
+  - 1.5638749599456787
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_03
+  position:
+  - 12.4993257522583
+  - 1.050681233406067
+  - 1.2000000476837158
+  quaternion_wxyz:
+  - 0.7481813430786133
+  - -0.0
+  - 0.0
+  - -0.6634942889213562
+  size:
+  - 2.03645920753479
+  - 1.670097827911377
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_04
+  position:
+  - 5.855990886688232
+  - -2.2505557537078857
+  - 2.4345014095306396
+  quaternion_wxyz:
+  - 0.07575171440839767
+  - 0.0
+  - 0.0
+  - 0.9971266984939575
+  size:
+  - 2.4472274780273438
+  - 2.2867629528045654
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_00
+  position:
+  - 0.0
+  - 0.0
+  - 2.7595014572143555
+  quaternion_wxyz:
+  - 0.2899329662322998
+  - -0.0
+  - -0.0
+  - -0.9570469856262207
+  size:
+  - 2.355593681335449
+  - 1.5544909238815308
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: gate_01
+  position:
+  - 5.216986656188965
+  - -3.102789878845215
+  - 1.2000000476837158
+  quaternion_wxyz:
+  - 0.9234335422515869
+  - 0.0
+  - 0.0
+  - 0.3837585151195526
+  size:
+  - 2.1760542392730713
+  - 1.542517066001892
+  enter_from_opposite_side: false
+  kind: gate
+  render: true

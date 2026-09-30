@@ -1,0 +1,81 @@
+name: a2rl_s2_2026_source_consistent_v2
+loop: true
+bounds: [[-18.5, 18.5], [-11.0, 11.0], [0.0, 7.5]]
+metadata:
+  provenance: author-released-metric-figure-reconstruction-v2
+  geometry_status: source_consistent_adaptation_not_organizer_survey
+  description: >-
+    Twelve-gate A2RL Season 2 adaptation reconstructed from the KAIST metric
+    figure. Gate order, maneuver topology, 35 x 20 x 7 m envelope, Split-S,
+    and ladder-down are source-backed. Centers, plane angles, offsets, and the
+    2.0 m aperture are explicit reconstruction assumptions, not organizer
+    survey geometry.
+  paper: https://arxiv.org/abs/2603.02742
+  source_figure: a2rl_result_3d.pdf
+  source_track_volume_m: [35.0, 20.0, 7.0]
+  source_gate_count_per_lap: 12
+  reconstruction_uncertainty_m: 0.75
+  reconstruction_uncertainty_degrees: 8.0
+  assumed_gate_aperture_m: 2.0
+  benchmark_fastest_lap_seconds: 12.032
+  v1_repairs:
+    - removed unsupported 1.5 m aperture assumption
+    - removed unsupported exact XY co-location of vertical gate pairs
+    - recomputed directed gate planes from the repaired centerline
+  dynamic_qualification:
+    controller: mpcc_high_authority_profile_14
+    canonical_start_complete: true
+    gates: 12
+    lap_seconds: 14.467
+  training_exclusion: adaptation_allowed_not_heldout_evidence
+gates:
+  - name: G1
+    position: [-16.0, -6.0, 1.5]
+    quaternion_wxyz: [0.3862656, 0.0, 0.0, 0.9223876]
+    size: [2.0, 2.0]
+  - name: G2
+    position: [-11.5, 2.8, 1.5]
+    quaternion_wxyz: [0.9195284, 0.0013709, -0.0032076, 0.3930083]
+    size: [2.0, 2.0]
+  - name: G3_ladder_setup
+    position: [-5.0, 6.5, 1.6]
+    quaternion_wxyz: [0.9746969, 0.0234934, -0.1242154, 0.1843490]
+    size: [2.0, 2.0]
+  - name: G4_ladder_high
+    position: [2.0, 8.0, 5.4]
+    quaternion_wxyz: [0.9977535, -0.0003093, -0.0668318, -0.0046174]
+    size: [2.0, 2.0]
+  - name: G5_ladder_mid
+    position: [10.5, 6.2, 3.4]
+    quaternion_wxyz: [0.7956990, 0.1432397, 0.2068697, -0.5509540]
+    size: [2.0, 2.0]
+  - name: G6_ladder_low
+    position: [7.0, 2.0, 1.5]
+    quaternion_wxyz: [0.8124795, -0.0025917, -0.0036121, -0.5829728]
+    size: [2.0, 2.0]
+  - name: G7_split_s_high
+    position: [16.0, 0.0, 4.8]
+    quaternion_wxyz: [0.9262304, 0.0588861, 0.3347982, -0.1629104]
+    size: [2.0, 2.0]
+  - name: G8_split_s_low
+    position: [15.35, -0.20, 1.5]
+    quaternion_wxyz: [0.8835097, 0.1164784, -0.3183683, 0.3232414]
+    size: [2.0, 2.0]
+    enter_from_opposite_side: true
+  - name: G9
+    position: [10.0, -5.5, 1.5]
+    quaternion_wxyz: [0.2810335, -0.0028716, -0.0008409, -0.9596933]
+    size: [2.0, 2.0]
+  - name: G10
+    position: [2.0, -8.5, 1.6]
+    quaternion_wxyz: [0.0314524, 0.0717743, -0.0022644, 0.9969223]
+    size: [2.0, 2.0]
+  - name: G11_ladder_down_high
+    position: [-9.0, -2.5, 4.8]
+    quaternion_wxyz: [0.1424391, -0.2748039, 0.0412031, 0.9499980]
+    size: [2.0, 2.0]
+  - name: G12_ladder_down_low
+    position: [-9.8, -2.95, 1.5]
+    quaternion_wxyz: [0.9217507, 0.0741554, -0.3105186, 0.2201245]
+    size: [2.0, 2.0]
+    enter_from_opposite_side: true

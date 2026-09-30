@@ -1,0 +1,37 @@
+name: swift_champion_2022_exact
+bounds: [[-15, 15], [-15, 15], [0, 8]]
+gate_size: [1.45, 1.45]
+loop: true
+auto_orient: false
+metadata:
+  provenance: exact-author-released-track-yaml
+  description: Exact seven-gate physical Swift champion-event course, including the vertically stacked split-S gates 4 and 5.
+  reference: https://doi.org/10.5281/zenodo.7955278
+  paper: https://doi.org/10.1038/s41586-023-06419-4
+  source_path: racing_data/3_quadrotor_racing_code/quadrotor_racing/params/track.yaml
+  source_gate_aperture_m: 1.45
+  published_lap_length_m: 75.0
+  published_volume_m: [30.0, 30.0, 8.0]
+  recording_dates: 2022-06-06_to_2022-10-05
+gates:
+  - name: Gate1
+    position: [-0.60, -0.86, 3.68]
+    quaternion_wxyz: [0.9848078, 0.0, 0.0, -0.1736482]
+  - name: Gate2
+    position: [9.00, 6.45, 1.05]
+    quaternion_wxyz: [1.0, 0.0, 0.0, 0.0]
+  - name: Gate3
+    position: [8.85, -3.80, 1.05]
+    quaternion_wxyz: [0.4226183, 0.0, 0.0, -0.9063078]
+  - name: Gate4
+    position: [-4.30, -5.60, 3.40]
+    quaternion_wxyz: [0.0, 0.0, 0.0, -1.0]
+  - name: Gate5
+    position: [-4.30, -5.60, 1.42]
+    quaternion_wxyz: [1.0, 0.0, 0.0, 0.0]
+  - name: Gate6
+    position: [4.50, -0.45, 1.05]
+    quaternion_wxyz: [0.7660444, 0.0, 0.0, 0.6427876]
+  - name: Gate7
+    position: [-1.95, 6.81, 1.05]
+    quaternion_wxyz: [0.258819, 0.0, 0.0, -0.9659258]

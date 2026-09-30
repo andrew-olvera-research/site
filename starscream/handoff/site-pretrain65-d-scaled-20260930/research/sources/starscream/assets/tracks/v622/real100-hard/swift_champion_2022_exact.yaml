@@ -1,0 +1,136 @@
+name: swift_champion_2022_exact
+loop: true
+bounds:
+- - -15.0
+  - 15.0
+- - -15.0
+  - 15.0
+- - 0.0
+  - 8.0
+metadata:
+  provenance: exact-author-released-track-yaml
+  description: Exact seven-gate physical Swift champion-event course, including the
+    vertically stacked split-S gates 4 and 5.
+  reference: https://doi.org/10.5281/zenodo.7955278
+  paper: https://doi.org/10.1038/s41586-023-06419-4
+  source_path: racing_data/3_quadrotor_racing_code/quadrotor_racing/params/track.yaml
+  source_gate_aperture_m: 1.45
+  published_lap_length_m: 75.0
+  published_volume_m:
+  - 30.0
+  - 30.0
+  - 8.0
+  recording_dates: 2022-06-06_to_2022-10-05
+gates:
+- name: Gate1
+  position:
+  - -0.6000000238418579
+  - -0.8600000143051147
+  - 3.680000066757202
+  quaternion_wxyz:
+  - 0.9848077893257141
+  - 0.0
+  - 0.0
+  - -0.1736481934785843
+  size:
+  - 1.4500000476837158
+  - 1.4500000476837158
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: Gate2
+  position:
+  - 9.0
+  - 6.449999809265137
+  - 1.0499999523162842
+  quaternion_wxyz:
+  - 1.0
+  - 0.0
+  - 0.0
+  - 0.0
+  size:
+  - 1.4500000476837158
+  - 1.4500000476837158
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: Gate3
+  position:
+  - 8.850000381469727
+  - -3.799999952316284
+  - 1.0499999523162842
+  quaternion_wxyz:
+  - 0.4226182997226715
+  - 0.0
+  - 0.0
+  - -0.9063078165054321
+  size:
+  - 1.4500000476837158
+  - 1.4500000476837158
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: Gate4
+  position:
+  - -4.300000190734863
+  - -5.599999904632568
+  - 3.4000000953674316
+  quaternion_wxyz:
+  - 0.0
+  - 0.0
+  - 0.0
+  - -1.0
+  size:
+  - 1.4500000476837158
+  - 1.4500000476837158
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: Gate5
+  position:
+  - -4.300000190734863
+  - -5.599999904632568
+  - 1.4199999570846558
+  quaternion_wxyz:
+  - 1.0
+  - 0.0
+  - 0.0
+  - 0.0
+  size:
+  - 1.4500000476837158
+  - 1.4500000476837158
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: Gate6
+  position:
+  - 4.5
+  - -0.44999998807907104
+  - 1.0499999523162842
+  quaternion_wxyz:
+  - 0.7660444378852844
+  - 0.0
+  - 0.0
+  - 0.6427876353263855
+  size:
+  - 1.4500000476837158
+  - 1.4500000476837158
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: Gate7
+  position:
+  - -1.9500000476837158
+  - 6.809999942779541
+  - 1.0499999523162842
+  quaternion_wxyz:
+  - 0.258819043636322
+  - 0.0
+  - 0.0
+  - -0.9659258723258972
+  size:
+  - 1.4500000476837158
+  - 1.4500000476837158
+  enter_from_opposite_side: false
+  kind: gate
+  render: true

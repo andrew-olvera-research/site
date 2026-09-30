@@ -1,0 +1,12 @@
+{
+  "state": "failed",
+  "launcher_pid": 3307,
+  "run_name": "starscream-pretrain65-d-scaled-20260929",
+  "started": 1790683310.418198,
+  "config": "/workspace/outputs/diagnostics/pretrain65-d-20260929/production-config.json",
+  "runtime": "/workspace/outputs/diagnostics/pretrain65-d-20260929/runtime",
+  "pid": 3308,
+  "log": "/workspace/outputs/diagnostics/pretrain65-d-20260929/train.console.log",
+  "error": "RuntimeError('Trainer exited -2')",
+  "finished": 1790707054.1581197
+}

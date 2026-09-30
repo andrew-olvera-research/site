@@ -1,0 +1,1951 @@
+[
+  {
+    "record": {
+      "slot": "real100-hard-025",
+      "name": "v622_hard_v2b_vertical_chain_008_06",
+      "family": "behavior:vertical_chain",
+      "path": "starscream/assets/tracks/v622/real100-hard-v2/v622_hard_v2b_vertical_chain_008_06.yaml",
+      "track_sha256": "e37c327914cf2fa8c35b72f71fd5fb4a060b0c107ba0b849c48c6fe2605e4727",
+      "geometry_fingerprint": "6bb559cf4a6e390109840061e476e911faf0e255d4a6e4c8376378c89a3f918e",
+      "reference_seconds": 7.726923076923077,
+      "reference_kind": "mpcc_nominal_cold_start_mean",
+      "evidence": "configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "evidence_sha256": "373efa3aaba31f84a7555033215ca8a74453ac1080fd3f4264278217394f7d80",
+      "evidence_field": "qualification/attempted_profiles/base/nominal",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 1506
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 1,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 1010,
+      "missed_crossings": 0,
+      "recovered_gates": 0,
+      "termination_reason": "success",
+      "slot": "real100-hard-025",
+      "family": "behavior:vertical_chain",
+      "seed": 2034338766,
+      "repeat": 20,
+      "gates": 8,
+      "target_gates": 8,
+      "reference_seconds": 7.726923076923077,
+      "deadline_steps": 1506,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 77,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 235,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 361,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 538,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 683,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 819,
+          "kind": "pass",
+          "gate": 5
+        },
+        {
+          "step": 944,
+          "kind": "pass",
+          "gate": 6
+        },
+        {
+          "step": 1010,
+          "kind": "pass",
+          "gate": 7
+        }
+      ]
+    },
+    "role": "established_gallery",
+    "kind": "clean",
+    "lane": 4
+  },
+  {
+    "record": {
+      "slot": "real100-hard-038",
+      "name": "v622_hard_v2b_compound_reversal_021_03",
+      "family": "behavior:compound_reversal",
+      "path": "starscream/assets/tracks/v622/clearance-v1/v622_hard_v2b_compound_reversal_021_03.yaml",
+      "track_sha256": "435fd80b73778273ca7702d8359787d7e70e4f6f1b288f9f7235a68d1eb588dd",
+      "geometry_fingerprint": "9f5062487298b189940ecb61bfef1f5110d54a89e4153b91ce35452570070bd4",
+      "reference_seconds": 6.4,
+      "reference_kind": "provisional_frozen_pretrain_fastest_lap",
+      "evidence": "outputs/evals/v62111-plant-student-final/best-real100-hard-v2-e8-paired.json",
+      "evidence_sha256": "8c1ac9ab9d4e309a18ca4cd5abe04b0e1690fb4adb5939b2d908d249959fd6fc",
+      "evidence_field": "teacher/tracks/real100-hard-038/minimum_successful_lap",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 1248
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 1,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 804,
+      "missed_crossings": 0,
+      "recovered_gates": 0,
+      "termination_reason": "success",
+      "slot": "real100-hard-038",
+      "family": "behavior:compound_reversal",
+      "seed": 2034526247,
+      "repeat": 6,
+      "gates": 7,
+      "target_gates": 7,
+      "reference_seconds": 6.4,
+      "deadline_steps": 1248,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 76,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 189,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 320,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 450,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 587,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 701,
+          "kind": "pass",
+          "gate": 5
+        },
+        {
+          "step": 804,
+          "kind": "pass",
+          "gate": 6
+        }
+      ]
+    },
+    "role": "established_gallery",
+    "kind": "clean",
+    "lane": 6
+  },
+  {
+    "record": {
+      "slot": "real100-hard-039",
+      "name": "v622_hard_diving_hairpin_039_011_arena1",
+      "family": "diving_hairpin",
+      "path": "starscream/assets/tracks/v622/real100-hard/v622_hard_diving_hairpin_039_011_arena1.yaml",
+      "track_sha256": "16030c1e8780ebda2691e72ef2fcb604d6a059f0478e091d50f343f8160daaf3",
+      "geometry_fingerprint": "5bf9d7db25b747eebeee58b337232bef0c1029f07f9252bf4e2085c23fc7ad45",
+      "reference_seconds": 6.207692307692308,
+      "reference_kind": "mpcc_nominal_cold_start_mean",
+      "evidence": "configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "evidence_sha256": "373efa3aaba31f84a7555033215ca8a74453ac1080fd3f4264278217394f7d80",
+      "evidence_field": "qualification/attempted_profiles/base/nominal",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 1210
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 1,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 779,
+      "missed_crossings": 0,
+      "recovered_gates": 0,
+      "termination_reason": "success",
+      "slot": "real100-hard-039",
+      "family": "diving_hairpin",
+      "seed": 2034871016,
+      "repeat": 24,
+      "gates": 5,
+      "target_gates": 5,
+      "reference_seconds": 6.207692307692308,
+      "deadline_steps": 1210,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 74,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 218,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 398,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 564,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 779,
+          "kind": "pass",
+          "gate": 4
+        }
+      ]
+    },
+    "role": "established_gallery",
+    "kind": "clean",
+    "lane": 8
+  },
+  {
+    "record": {
+      "slot": "real100-hard-028",
+      "name": "v622_hard_slalom_028_029",
+      "family": "slalom",
+      "path": "starscream/assets/tracks/v622/real100-hard/v622_hard_slalom_028_029.yaml",
+      "track_sha256": "d5ed56d1717cda102abe5b9f4b8337193a8571130b8c0a5b1a53f5b8d9e17aed",
+      "geometry_fingerprint": "ed10eb988f22cb5216bf2f7533da8455e5dc7c4ba5ac341aa8a05247b3b0f539",
+      "reference_seconds": 7.223076923076923,
+      "reference_kind": "mpcc_nominal_cold_start_mean",
+      "evidence": "configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "evidence_sha256": "373efa3aaba31f84a7555033215ca8a74453ac1080fd3f4264278217394f7d80",
+      "evidence_field": "qualification/attempted_profiles/fast/nominal",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 1408
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 1,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 966,
+      "missed_crossings": 0,
+      "recovered_gates": 0,
+      "termination_reason": "success",
+      "slot": "real100-hard-028",
+      "family": "slalom",
+      "seed": 2034170759,
+      "repeat": 24,
+      "gates": 9,
+      "target_gates": 9,
+      "reference_seconds": 7.223076923076923,
+      "deadline_steps": 1408,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 72,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 229,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 375,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 567,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 602,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 672,
+          "kind": "pass",
+          "gate": 5
+        },
+        {
+          "step": 775,
+          "kind": "pass",
+          "gate": 6
+        },
+        {
+          "step": 877,
+          "kind": "pass",
+          "gate": 7
+        },
+        {
+          "step": 966,
+          "kind": "pass",
+          "gate": 8
+        }
+      ]
+    },
+    "role": "established_gallery",
+    "kind": "clean",
+    "lane": 8
+  },
+  {
+    "record": {
+      "slot": "real100-hard-023",
+      "name": "v622_hard_long_braking_023_005_arena1_mirror1",
+      "family": "long_braking",
+      "path": "starscream/assets/tracks/v622/real100-hard/v622_hard_long_braking_023_005_arena1_mirror1.yaml",
+      "track_sha256": "bf290abbabd96aeadfc376576ab6278828519ddb9b42101096733944b866affb",
+      "geometry_fingerprint": "aba4f0d39f4f6505c3e905b584f5307a8db993f6099307c983d255d22353ea83",
+      "reference_seconds": 7.253846153846154,
+      "reference_kind": "mpcc_nominal_cold_start_mean",
+      "evidence": "configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "evidence_sha256": "373efa3aaba31f84a7555033215ca8a74453ac1080fd3f4264278217394f7d80",
+      "evidence_field": "qualification/attempted_profiles/fast/nominal",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 1414
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 1,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 1228,
+      "missed_crossings": 0,
+      "recovered_gates": 0,
+      "termination_reason": "success",
+      "slot": "real100-hard-023",
+      "family": "long_braking",
+      "seed": 2034263107,
+      "repeat": 25,
+      "gates": 10,
+      "target_gates": 10,
+      "reference_seconds": 7.253846153846154,
+      "deadline_steps": 1414,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 69,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 164,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 234,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 297,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 367,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 446,
+          "kind": "pass",
+          "gate": 5
+        },
+        {
+          "step": 553,
+          "kind": "pass",
+          "gate": 6
+        },
+        {
+          "step": 856,
+          "kind": "pass",
+          "gate": 7
+        },
+        {
+          "step": 983,
+          "kind": "pass",
+          "gate": 8
+        },
+        {
+          "step": 1228,
+          "kind": "pass",
+          "gate": 9
+        }
+      ]
+    },
+    "role": "established_gallery",
+    "kind": "clean",
+    "lane": 9
+  },
+  {
+    "record": {
+      "slot": "real100-hard-088",
+      "name": "v622_hard_v2b_radius_switch_029_21",
+      "family": "behavior:radius_switch",
+      "path": "starscream/assets/tracks/v622/real100-hard-v2/v622_hard_v2b_radius_switch_029_21.yaml",
+      "track_sha256": "7c5d9e6cf4c16fab336b819ee66258beee1d9738bc50aa2675afbb6890bf8eb4",
+      "geometry_fingerprint": "cf8493328cdac066b49e567adb1464bf9a6b4411865c6ea3748035332c3e391d",
+      "reference_seconds": 8.53076923076923,
+      "reference_kind": "mpcc_nominal_cold_start_mean",
+      "evidence": "configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "evidence_sha256": "373efa3aaba31f84a7555033215ca8a74453ac1080fd3f4264278217394f7d80",
+      "evidence_field": "qualification/attempted_profiles/fast/nominal",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 1663
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 1,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 1365,
+      "missed_crossings": 0,
+      "recovered_gates": 0,
+      "termination_reason": "success",
+      "slot": "real100-hard-088",
+      "family": "behavior:radius_switch",
+      "seed": 2034122368,
+      "repeat": 2,
+      "gates": 8,
+      "target_gates": 8,
+      "reference_seconds": 8.53076923076923,
+      "deadline_steps": 1663,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 72,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 362,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 450,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 785,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 859,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 973,
+          "kind": "pass",
+          "gate": 5
+        },
+        {
+          "step": 1178,
+          "kind": "pass",
+          "gate": 6
+        },
+        {
+          "step": 1365,
+          "kind": "pass",
+          "gate": 7
+        }
+      ]
+    },
+    "role": "established_gallery",
+    "kind": "clean",
+    "lane": 2
+  },
+  {
+    "record": {
+      "slot": "real100-hard-042",
+      "name": "v622_hard_ordered_3d_042_003_mirror1",
+      "family": "ordered_3d",
+      "path": "starscream/assets/tracks/v622/real100-hard/v622_hard_ordered_3d_042_003_mirror1.yaml",
+      "track_sha256": "56837d73d05561fd916a165e1aa4849e2cb4c545786663db8ff44ad75339b079",
+      "geometry_fingerprint": "e111ccc4378ac7689ecafbd2ba6c0d9d5cb0da65cbf33bddc2af6b1fbf28e5ba",
+      "reference_seconds": 7.407692307692308,
+      "reference_kind": "mpcc_nominal_cold_start_mean",
+      "evidence": "configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "evidence_sha256": "373efa3aaba31f84a7555033215ca8a74453ac1080fd3f4264278217394f7d80",
+      "evidence_field": "qualification/attempted_profiles/controlled/nominal",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 1444
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 1,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 891,
+      "missed_crossings": 0,
+      "recovered_gates": 0,
+      "termination_reason": "success",
+      "slot": "real100-hard-042",
+      "family": "ordered_3d",
+      "seed": 2034657592,
+      "repeat": 24,
+      "gates": 10,
+      "target_gates": 10,
+      "reference_seconds": 7.407692307692308,
+      "deadline_steps": 1444,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 66,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 162,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 232,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 297,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 399,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 469,
+          "kind": "pass",
+          "gate": 5
+        },
+        {
+          "step": 579,
+          "kind": "pass",
+          "gate": 6
+        },
+        {
+          "step": 688,
+          "kind": "pass",
+          "gate": 7
+        },
+        {
+          "step": 806,
+          "kind": "pass",
+          "gate": 8
+        },
+        {
+          "step": 891,
+          "kind": "pass",
+          "gate": 9
+        }
+      ]
+    },
+    "role": "established_gallery",
+    "kind": "clean",
+    "lane": 8
+  },
+  {
+    "record": {
+      "slot": "real100-hard-001",
+      "name": "v622_hard_v2b_wrong_side_incidence_015_15",
+      "family": "behavior:wrong_side_incidence",
+      "path": "starscream/assets/tracks/v622/real100-hard-v2/v622_hard_v2b_wrong_side_incidence_015_15.yaml",
+      "track_sha256": "5acec36f54b0a46a19d38d4908530a69a5b07e098ff87052229f29d685310c25",
+      "geometry_fingerprint": "5b01d6a869f17da5499765a1ea1b35a8f4737a70d4ff7ce59d08a3c86c714444",
+      "reference_seconds": 12.51153846153846,
+      "reference_kind": "mpcc_nominal_cold_start_mean",
+      "evidence": "configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "evidence_sha256": "373efa3aaba31f84a7555033215ca8a74453ac1080fd3f4264278217394f7d80",
+      "evidence_field": "qualification/attempted_profiles/fast/nominal",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 2439
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 1,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 1712,
+      "missed_crossings": 0,
+      "recovered_gates": 0,
+      "termination_reason": "success",
+      "slot": "real100-hard-001",
+      "family": "behavior:wrong_side_incidence",
+      "seed": 2034267774,
+      "repeat": 5,
+      "gates": 8,
+      "target_gates": 8,
+      "reference_seconds": 12.51153846153846,
+      "deadline_steps": 2439,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 70,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 401,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 652,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 843,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 1170,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 1474,
+          "kind": "pass",
+          "gate": 5
+        },
+        {
+          "step": 1593,
+          "kind": "pass",
+          "gate": 6
+        },
+        {
+          "step": 1712,
+          "kind": "pass",
+          "gate": 7
+        }
+      ]
+    },
+    "role": "established_gallery",
+    "kind": "clean",
+    "lane": 5
+  },
+  {
+    "record": {
+      "slot": "real100-hard-027",
+      "name": "v622_hard_flow_027_057_mirror1",
+      "family": "flow",
+      "path": "starscream/assets/tracks/v622/real100-hard/v622_hard_flow_027_057_mirror1.yaml",
+      "track_sha256": "d6d62e577f9116ba03710b202a9e21c7e5e853dcb1a3cb9beed0faf72a205954",
+      "geometry_fingerprint": "da466ed0439781ac2e75e64e2500a7f502592ecf7c000b25d724e7c22e75c447",
+      "reference_seconds": 9.48846153846154,
+      "reference_kind": "mpcc_nominal_cold_start_mean",
+      "evidence": "configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "evidence_sha256": "373efa3aaba31f84a7555033215ca8a74453ac1080fd3f4264278217394f7d80",
+      "evidence_field": "qualification/attempted_profiles/slow/nominal",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 1850
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 1,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 922,
+      "missed_crossings": 0,
+      "recovered_gates": 0,
+      "termination_reason": "success",
+      "slot": "real100-hard-027",
+      "family": "flow",
+      "seed": 2034493585,
+      "repeat": 13,
+      "gates": 18,
+      "target_gates": 18,
+      "reference_seconds": 9.48846153846154,
+      "deadline_steps": 1850,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 69,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 116,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 173,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 199,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 236,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 301,
+          "kind": "pass",
+          "gate": 5
+        },
+        {
+          "step": 374,
+          "kind": "pass",
+          "gate": 6
+        },
+        {
+          "step": 405,
+          "kind": "pass",
+          "gate": 7
+        },
+        {
+          "step": 479,
+          "kind": "pass",
+          "gate": 8
+        },
+        {
+          "step": 535,
+          "kind": "pass",
+          "gate": 9
+        },
+        {
+          "step": 575,
+          "kind": "pass",
+          "gate": 10
+        },
+        {
+          "step": 615,
+          "kind": "pass",
+          "gate": 11
+        },
+        {
+          "step": 672,
+          "kind": "pass",
+          "gate": 12
+        },
+        {
+          "step": 734,
+          "kind": "pass",
+          "gate": 13
+        },
+        {
+          "step": 773,
+          "kind": "pass",
+          "gate": 14
+        },
+        {
+          "step": 854,
+          "kind": "pass",
+          "gate": 15
+        },
+        {
+          "step": 894,
+          "kind": "pass",
+          "gate": 16
+        },
+        {
+          "step": 922,
+          "kind": "pass",
+          "gate": 17
+        }
+      ]
+    },
+    "role": "established_gallery",
+    "kind": "clean",
+    "lane": 13
+  },
+  {
+    "record": {
+      "slot": "real100-hard-058",
+      "name": "v622_hard_long_low_058_007_arena1_mirror1",
+      "family": "long_low",
+      "path": "starscream/assets/tracks/v622/real100-hard/v622_hard_long_low_058_007_arena1_mirror1.yaml",
+      "track_sha256": "3f2413cb0b41c817101884082c8fb2437266f409254517879e4ccb522292a605",
+      "geometry_fingerprint": "d52dcce167ed178f7cb6810703c9716a654bf2bf93f3cb88edddc3032fb66b93",
+      "reference_seconds": 7.530769230769231,
+      "reference_kind": "mpcc_nominal_cold_start_mean",
+      "evidence": "configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "evidence_sha256": "373efa3aaba31f84a7555033215ca8a74453ac1080fd3f4264278217394f7d80",
+      "evidence_field": "qualification/attempted_profiles/fast/nominal",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 1468
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 1,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 1360,
+      "missed_crossings": 0,
+      "recovered_gates": 0,
+      "termination_reason": "success",
+      "slot": "real100-hard-058",
+      "family": "long_low",
+      "seed": 2034565744,
+      "repeat": 28,
+      "gates": 8,
+      "target_gates": 8,
+      "reference_seconds": 7.530769230769231,
+      "deadline_steps": 1468,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 70,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 288,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 459,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 610,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 767,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 913,
+          "kind": "pass",
+          "gate": 5
+        },
+        {
+          "step": 1072,
+          "kind": "pass",
+          "gate": 6
+        },
+        {
+          "step": 1360,
+          "kind": "pass",
+          "gate": 7
+        }
+      ]
+    },
+    "role": "established_gallery",
+    "kind": "clean",
+    "lane": 12
+  },
+  {
+    "record": {
+      "slot": "real100-hard-017",
+      "name": "v622_hard_go_around_017_040_mirror1",
+      "family": "go_around",
+      "path": "starscream/assets/tracks/v622/clearance-v1/v622_hard_go_around_017_040_mirror1.yaml",
+      "track_sha256": "28e8aaf56d104b83b85b7cb347d9298579cf593365b16e040a90842059133308",
+      "geometry_fingerprint": "dc0f3662d6d111a797849a69fe19c7259b58a1374d3ce9b4edd1fe9de67115b4",
+      "reference_seconds": 7.3307692307692305,
+      "reference_kind": "provisional_frozen_pretrain_fastest_lap",
+      "evidence": "outputs/evals/v62111-plant-student-final/best-real100-hard-v2-e8-paired.json",
+      "evidence_sha256": "8c1ac9ab9d4e309a18ca4cd5abe04b0e1690fb4adb5939b2d908d249959fd6fc",
+      "evidence_field": "teacher/tracks/real100-hard-017/minimum_successful_lap",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 1429
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 1,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 816,
+      "missed_crossings": 0,
+      "recovered_gates": 0,
+      "termination_reason": "success",
+      "slot": "real100-hard-017",
+      "family": "go_around",
+      "seed": 2035025934,
+      "repeat": 10,
+      "gates": 8,
+      "target_gates": 8,
+      "reference_seconds": 7.3307692307692305,
+      "deadline_steps": 1429,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 65,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 140,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 317,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 514,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 606,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 664,
+          "kind": "pass",
+          "gate": 5
+        },
+        {
+          "step": 754,
+          "kind": "pass",
+          "gate": 6
+        },
+        {
+          "step": 816,
+          "kind": "pass",
+          "gate": 7
+        }
+      ]
+    },
+    "role": "established_gallery",
+    "kind": "clean",
+    "lane": 10
+  },
+  {
+    "record": {
+      "slot": "real100-hard-062",
+      "name": "v622_hard_v2b_long_low_braking_003_08",
+      "family": "behavior:long_low_braking",
+      "path": "starscream/assets/tracks/v622/real100-hard-v2/v622_hard_v2b_long_low_braking_003_08.yaml",
+      "track_sha256": "1eefc0706dfe3c473a8537cec4f0a5dc04b9aea1b403427933c1ba88434e9bf9",
+      "geometry_fingerprint": "bddc0721f2ba65994f94c12b3c1ff8cb060fa5f5bb6a7fa2dd66d8e1207c0d69",
+      "reference_seconds": 20.01923076923077,
+      "reference_kind": "mpcc_nominal_cold_start_mean",
+      "evidence": "configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "evidence_sha256": "373efa3aaba31f84a7555033215ca8a74453ac1080fd3f4264278217394f7d80",
+      "evidence_field": "qualification/attempted_profiles/slow/nominal",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 3903
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 1,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 1627,
+      "missed_crossings": 0,
+      "recovered_gates": 0,
+      "termination_reason": "success",
+      "slot": "real100-hard-062",
+      "family": "behavior:long_low_braking",
+      "seed": 2034131399,
+      "repeat": 8,
+      "gates": 8,
+      "target_gates": 8,
+      "reference_seconds": 20.01923076923077,
+      "deadline_steps": 3903,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 70,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 531,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 846,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 1045,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 1154,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 1265,
+          "kind": "pass",
+          "gate": 5
+        },
+        {
+          "step": 1378,
+          "kind": "pass",
+          "gate": 6
+        },
+        {
+          "step": 1627,
+          "kind": "pass",
+          "gate": 7
+        }
+      ]
+    },
+    "role": "established_gallery",
+    "kind": "clean",
+    "lane": 8
+  },
+  {
+    "record": {
+      "slot": "real100-hard-016",
+      "name": "v622_hard_stacked_reversal_016_033",
+      "family": "stacked_reversal",
+      "path": "starscream/assets/tracks/v622/real100-hard/v622_hard_stacked_reversal_016_033.yaml",
+      "track_sha256": "0e2dc1a9489406b6e517c3341e9bb0ff22c6538835c039c00092b074702512ed",
+      "geometry_fingerprint": "f6e1346bee724b04374edc41fb1738021b8bbc3a0f78396c89135fbfd1141f8a",
+      "reference_seconds": 4.615384615384615,
+      "reference_kind": "mpcc_nominal_cold_start_mean",
+      "evidence": "configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "evidence_sha256": "373efa3aaba31f84a7555033215ca8a74453ac1080fd3f4264278217394f7d80",
+      "evidence_field": "qualification/attempted_profiles/fast/nominal",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 990
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 1,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 619,
+      "missed_crossings": 0,
+      "recovered_gates": 0,
+      "termination_reason": "success",
+      "slot": "real100-hard-016",
+      "family": "stacked_reversal",
+      "seed": 2034891838,
+      "repeat": 10,
+      "gates": 6,
+      "target_gates": 6,
+      "reference_seconds": 4.615384615384615,
+      "deadline_steps": 990,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 68,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 143,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 295,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 389,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 535,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 619,
+          "kind": "pass",
+          "gate": 5
+        }
+      ]
+    },
+    "role": "established_gallery",
+    "kind": "clean",
+    "lane": 10
+  },
+  {
+    "record": {
+      "slot": "multigp_utt05_nautilus",
+      "name": "multigp_utt05_nautilus",
+      "family": "public_reference",
+      "path": "starscream/assets/tracks/v622/real100-hard/multigp_utt05_nautilus.yaml",
+      "track_sha256": "9d317474c717057a254021eeb2d006dbc42580bb26a0f3bf9f9b706f06aabf8a",
+      "geometry_fingerprint": "540ceb10a62b82573ae2729f3231072ca1f4630c7349b47bf6085aa2237e4dc3",
+      "reference_seconds": 5.65,
+      "reference_kind": "mpcc_nominal_cold_start_mean",
+      "evidence": "configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "evidence_sha256": "373efa3aaba31f84a7555033215ca8a74453ac1080fd3f4264278217394f7d80",
+      "evidence_field": "qualification/screens/fast",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 1124
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 1,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 946,
+      "missed_crossings": 0,
+      "recovered_gates": 0,
+      "termination_reason": "success",
+      "slot": "multigp_utt05_nautilus",
+      "family": "public_reference",
+      "seed": 2034175070,
+      "repeat": 20,
+      "gates": 5,
+      "target_gates": 5,
+      "reference_seconds": 5.65,
+      "deadline_steps": 1124,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 67,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 445,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 671,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 802,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 946,
+          "kind": "pass",
+          "gate": 4
+        }
+      ]
+    },
+    "role": "established_gallery",
+    "kind": "clean",
+    "lane": 4
+  },
+  {
+    "record": {
+      "slot": "real100-hard-047",
+      "name": "v622_hard_hairpin_chain_047_038_mirror1",
+      "family": "hairpin_chain",
+      "path": "starscream/assets/tracks/v622/clearance-v1/v622_hard_hairpin_chain_047_038_mirror1.yaml",
+      "track_sha256": "bd3300bf3e81ec89ca8729b7fbd29d10f6ec4fb21493e22c52e8a631a6125530",
+      "geometry_fingerprint": "908b8199b0354148287e14de1d627464aa3191beb8c91f700be3956f2be43d32",
+      "reference_seconds": 8.846153846153847,
+      "reference_kind": "provisional_frozen_pretrain_fastest_lap",
+      "evidence": "outputs/evals/v62111-plant-final/best-real100-hard-v2-e8.json",
+      "evidence_sha256": "e2e25e049d08e424e8ca1c40449d47fdbbac4d35b1ee662bfdb615345784a5f4",
+      "evidence_field": "metrics/track/v622_hard_hairpin_chain_047_038_mirror1/successful_minimum_steps",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 1725
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 1,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 808,
+      "missed_crossings": 0,
+      "recovered_gates": 0,
+      "termination_reason": "success",
+      "slot": "real100-hard-047",
+      "family": "hairpin_chain",
+      "seed": 2034851597,
+      "repeat": 28,
+      "gates": 8,
+      "target_gates": 8,
+      "reference_seconds": 8.846153846153847,
+      "deadline_steps": 1725,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 73,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 173,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 239,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 338,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 464,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 581,
+          "kind": "pass",
+          "gate": 5
+        },
+        {
+          "step": 709,
+          "kind": "pass",
+          "gate": 6
+        },
+        {
+          "step": 808,
+          "kind": "pass",
+          "gate": 7
+        }
+      ]
+    },
+    "role": "established_gallery",
+    "kind": "clean",
+    "lane": 12
+  },
+  {
+    "record": {
+      "slot": "real100-hard-032",
+      "name": "v622_hard_long_braking_032_010_arena1_mirror1",
+      "family": "long_braking",
+      "path": "starscream/assets/tracks/v622/real100-hard/v622_hard_long_braking_032_010_arena1_mirror1.yaml",
+      "track_sha256": "b3784e4ce5e938556d288879a55a65ebe4721d3fd7773afd8f93fc9fff248a24",
+      "geometry_fingerprint": "8f5ca155b72723de2af9e493ab6819fe3e5d89338f2fac9c803e13d84b8810f3",
+      "reference_seconds": 22.615384615384617,
+      "reference_kind": "mpcc_nominal_cold_start_mean",
+      "evidence": "configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "evidence_sha256": "373efa3aaba31f84a7555033215ca8a74453ac1080fd3f4264278217394f7d80",
+      "evidence_field": "qualification/attempted_profiles/slow/nominal",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 4410
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 1,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 1665,
+      "missed_crossings": 0,
+      "recovered_gates": 0,
+      "termination_reason": "success",
+      "slot": "real100-hard-032",
+      "family": "long_braking",
+      "seed": 2034510004,
+      "repeat": 10,
+      "gates": 17,
+      "target_gates": 17,
+      "reference_seconds": 22.615384615384617,
+      "deadline_steps": 4410,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 66,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 166,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 536,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 668,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 990,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 1078,
+          "kind": "pass",
+          "gate": 5
+        },
+        {
+          "step": 1158,
+          "kind": "pass",
+          "gate": 6
+        },
+        {
+          "step": 1230,
+          "kind": "pass",
+          "gate": 7
+        },
+        {
+          "step": 1293,
+          "kind": "pass",
+          "gate": 8
+        },
+        {
+          "step": 1341,
+          "kind": "pass",
+          "gate": 9
+        },
+        {
+          "step": 1382,
+          "kind": "pass",
+          "gate": 10
+        },
+        {
+          "step": 1413,
+          "kind": "pass",
+          "gate": 11
+        },
+        {
+          "step": 1445,
+          "kind": "pass",
+          "gate": 12
+        },
+        {
+          "step": 1484,
+          "kind": "pass",
+          "gate": 13
+        },
+        {
+          "step": 1535,
+          "kind": "pass",
+          "gate": 14
+        },
+        {
+          "step": 1594,
+          "kind": "pass",
+          "gate": 15
+        },
+        {
+          "step": 1665,
+          "kind": "pass",
+          "gate": 16
+        }
+      ]
+    },
+    "role": "established_gallery",
+    "kind": "clean",
+    "lane": 10
+  },
+  {
+    "record": {
+      "slot": "real100-hard-083",
+      "name": "v622_hard_v2b_compound_reversal_020_05",
+      "family": "behavior:compound_reversal",
+      "path": "starscream/assets/tracks/v622/real100-hard-v2/v622_hard_v2b_compound_reversal_020_05.yaml",
+      "track_sha256": "a6d03f47f07616b19a64ddd765b46247b37e07ca32bddba5ff27fdfe82d681bb",
+      "geometry_fingerprint": "600a8e98916a7475ac292ec84a83413660a2bb0ab435aebad527ae6432c2175b",
+      "reference_seconds": 7.111538461538461,
+      "reference_kind": "mpcc_nominal_cold_start_mean",
+      "evidence": "configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "evidence_sha256": "373efa3aaba31f84a7555033215ca8a74453ac1080fd3f4264278217394f7d80",
+      "evidence_field": "qualification/attempted_profiles/fast/nominal",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 1386
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 1,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 988,
+      "missed_crossings": 0,
+      "recovered_gates": 0,
+      "termination_reason": "success",
+      "slot": "real100-hard-083",
+      "family": "behavior:compound_reversal",
+      "seed": 2034274955,
+      "repeat": 7,
+      "gates": 8,
+      "target_gates": 8,
+      "reference_seconds": 7.111538461538461,
+      "deadline_steps": 1386,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 70,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 203,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 350,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 504,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 627,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 748,
+          "kind": "pass",
+          "gate": 5
+        },
+        {
+          "step": 846,
+          "kind": "pass",
+          "gate": 6
+        },
+        {
+          "step": 988,
+          "kind": "pass",
+          "gate": 7
+        }
+      ]
+    },
+    "role": "established_gallery",
+    "kind": "clean",
+    "lane": 7
+  },
+  {
+    "record": {
+      "slot": "real100-hard-036",
+      "name": "v622_hard_flow_036_027",
+      "family": "flow",
+      "path": "starscream/assets/tracks/v622/real100-hard/v622_hard_flow_036_027.yaml",
+      "track_sha256": "fd443c4039a2c87d04b53913b4277810a005d3c1a384514b1b74553fe68d80ae",
+      "geometry_fingerprint": "3c6af5cf104662299bf2da711f25113cde684294a64e3c627a6d506036d36b9f",
+      "reference_seconds": 10.76923076923077,
+      "reference_kind": "mpcc_nominal_cold_start_mean",
+      "evidence": "configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "evidence_sha256": "373efa3aaba31f84a7555033215ca8a74453ac1080fd3f4264278217394f7d80",
+      "evidence_field": "qualification/attempted_profiles/base/nominal",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 2100
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 1,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 1471,
+      "missed_crossings": 0,
+      "recovered_gates": 0,
+      "termination_reason": "success",
+      "slot": "real100-hard-036",
+      "family": "flow",
+      "seed": 2034514749,
+      "repeat": 10,
+      "gates": 13,
+      "target_gates": 13,
+      "reference_seconds": 10.76923076923077,
+      "deadline_steps": 2100,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 78,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 214,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 316,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 424,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 553,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 674,
+          "kind": "pass",
+          "gate": 5
+        },
+        {
+          "step": 778,
+          "kind": "pass",
+          "gate": 6
+        },
+        {
+          "step": 910,
+          "kind": "pass",
+          "gate": 7
+        },
+        {
+          "step": 1024,
+          "kind": "pass",
+          "gate": 8
+        },
+        {
+          "step": 1137,
+          "kind": "pass",
+          "gate": 9
+        },
+        {
+          "step": 1237,
+          "kind": "pass",
+          "gate": 10
+        },
+        {
+          "step": 1335,
+          "kind": "pass",
+          "gate": 11
+        },
+        {
+          "step": 1471,
+          "kind": "pass",
+          "gate": 12
+        }
+      ]
+    },
+    "role": "established_gallery",
+    "kind": "clean",
+    "lane": 10
+  },
+  {
+    "record": {
+      "slot": "a2rl_s2_2026_source_consistent_v2",
+      "name": "a2rl_s2_2026_source_consistent_v2_arena1",
+      "family": "public_reference",
+      "path": "starscream/assets/tracks/v622/real100-hard/a2rl_s2_2026_source_consistent_v2_arena1.yaml",
+      "track_sha256": "5d1ddb320dce0ecdad817a00d3a323bd19df6a27a496ba2b95c566f7ff9738c3",
+      "geometry_fingerprint": "8af37ade6cb6380a62d447d6f25bed632104e64e3f70ffddd42f2ce464bcf17e",
+      "reference_seconds": 17.692307692307693,
+      "reference_kind": "mpcc_nominal_cold_start_mean",
+      "evidence": "configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "evidence_sha256": "373efa3aaba31f84a7555033215ca8a74453ac1080fd3f4264278217394f7d80",
+      "evidence_field": "qualification/cohorts/nominal/summary",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 3450
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 0,
+      "recovered_success": 1,
+      "late_success": 0,
+      "steps": 1890,
+      "missed_crossings": 1,
+      "recovered_gates": 1,
+      "termination_reason": "success",
+      "slot": "a2rl_s2_2026_source_consistent_v2",
+      "family": "public_reference",
+      "seed": 2034229307,
+      "repeat": 11,
+      "gates": 12,
+      "target_gates": 12,
+      "reference_seconds": 17.692307692307693,
+      "deadline_steps": 3450,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 72,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 217,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 322,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 427,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 543,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 629,
+          "kind": "miss",
+          "gate": 5
+        },
+        {
+          "step": 1220,
+          "kind": "pass",
+          "gate": 5
+        },
+        {
+          "step": 1336,
+          "kind": "pass",
+          "gate": 6
+        },
+        {
+          "step": 1470,
+          "kind": "pass",
+          "gate": 7
+        },
+        {
+          "step": 1562,
+          "kind": "pass",
+          "gate": 8
+        },
+        {
+          "step": 1666,
+          "kind": "pass",
+          "gate": 9
+        },
+        {
+          "step": 1798,
+          "kind": "pass",
+          "gate": 10
+        },
+        {
+          "step": 1890,
+          "kind": "pass",
+          "gate": 11
+        }
+      ]
+    },
+    "role": "difficult_public_reference",
+    "kind": "recovery",
+    "lane": 11
+  },
+  {
+    "record": {
+      "slot": "a2rl_s2_2026_source_consistent_v2",
+      "name": "a2rl_s2_2026_source_consistent_v2_arena1",
+      "family": "public_reference",
+      "path": "starscream/assets/tracks/v622/real100-hard/a2rl_s2_2026_source_consistent_v2_arena1.yaml",
+      "track_sha256": "5d1ddb320dce0ecdad817a00d3a323bd19df6a27a496ba2b95c566f7ff9738c3",
+      "geometry_fingerprint": "8af37ade6cb6380a62d447d6f25bed632104e64e3f70ffddd42f2ce464bcf17e",
+      "reference_seconds": 17.692307692307693,
+      "reference_kind": "mpcc_nominal_cold_start_mean",
+      "evidence": "configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "evidence_sha256": "373efa3aaba31f84a7555033215ca8a74453ac1080fd3f4264278217394f7d80",
+      "evidence_field": "qualification/cohorts/nominal/summary",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 3450
+    },
+    "expected": {
+      "success": 0,
+      "timely_success": 0,
+      "clean_success": 0,
+      "recovered_success": 0,
+      "late_success": 0,
+      "steps": 1282,
+      "missed_crossings": 1,
+      "recovered_gates": 0,
+      "termination_reason": "crash",
+      "slot": "a2rl_s2_2026_source_consistent_v2",
+      "family": "public_reference",
+      "seed": 2034229296,
+      "repeat": 0,
+      "gates": 11,
+      "target_gates": 12,
+      "reference_seconds": 17.692307692307693,
+      "deadline_steps": 3450,
+      "crashed": 1,
+      "events": [
+        {
+          "step": 64,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 197,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 304,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 412,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 527,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 628,
+          "kind": "pass",
+          "gate": 5
+        },
+        {
+          "step": 763,
+          "kind": "pass",
+          "gate": 6
+        },
+        {
+          "step": 858,
+          "kind": "pass",
+          "gate": 7
+        },
+        {
+          "step": 958,
+          "kind": "pass",
+          "gate": 8
+        },
+        {
+          "step": 1056,
+          "kind": "pass",
+          "gate": 9
+        },
+        {
+          "step": 1169,
+          "kind": "pass",
+          "gate": 10
+        },
+        {
+          "step": 1217,
+          "kind": "miss",
+          "gate": 11
+        }
+      ]
+    },
+    "role": "difficult_public_reference",
+    "kind": "failure",
+    "lane": 0
+  },
+  {
+    "record": {
+      "slot": "real100-hard-055",
+      "name": "v622_hard_slalom_055_040_arena1",
+      "family": "slalom",
+      "path": "starscream/assets/tracks/v622/real100-hard/v622_hard_slalom_055_040_arena1.yaml",
+      "track_sha256": "ac5ffb954dc8ab8f0dc917090615522c11cd9de2e459315b6fa5a00ebf59c295",
+      "geometry_fingerprint": "427887f788291944879d87351963518063bf72825e9aaf6a225001a69e0de4f6",
+      "reference_seconds": 7.253846153846154,
+      "reference_kind": "mpcc_nominal_cold_start_mean",
+      "evidence": "configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "evidence_sha256": "373efa3aaba31f84a7555033215ca8a74453ac1080fd3f4264278217394f7d80",
+      "evidence_field": "qualification/attempted_profiles/base/nominal",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 1414
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 0,
+      "clean_success": 0,
+      "recovered_success": 1,
+      "late_success": 1,
+      "steps": 5024,
+      "missed_crossings": 1,
+      "recovered_gates": 1,
+      "termination_reason": "success",
+      "slot": "real100-hard-055",
+      "family": "slalom",
+      "seed": 2035006365,
+      "repeat": 0,
+      "gates": 6,
+      "target_gates": 6,
+      "reference_seconds": 7.253846153846154,
+      "deadline_steps": 1414,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 71,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 228,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 413,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 651,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 752,
+          "kind": "miss",
+          "gate": 4
+        },
+        {
+          "step": 4939,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 5024,
+          "kind": "pass",
+          "gate": 5
+        }
+      ]
+    },
+    "role": "long_recovery_witness",
+    "kind": "late_recovery",
+    "lane": 0
+  },
+  {
+    "record": {
+      "slot": "real100-hard-017",
+      "name": "v622_hard_go_around_017_040_mirror1",
+      "family": "go_around",
+      "path": "starscream/assets/tracks/v622/clearance-v1/v622_hard_go_around_017_040_mirror1.yaml",
+      "track_sha256": "28e8aaf56d104b83b85b7cb347d9298579cf593365b16e040a90842059133308",
+      "geometry_fingerprint": "dc0f3662d6d111a797849a69fe19c7259b58a1374d3ce9b4edd1fe9de67115b4",
+      "reference_seconds": 7.3307692307692305,
+      "reference_kind": "provisional_frozen_pretrain_fastest_lap",
+      "evidence": "outputs/evals/v62111-plant-student-final/best-real100-hard-v2-e8-paired.json",
+      "evidence_sha256": "8c1ac9ab9d4e309a18ca4cd5abe04b0e1690fb4adb5939b2d908d249959fd6fc",
+      "evidence_field": "teacher/tracks/real100-hard-017/minimum_successful_lap",
+      "reference_is_certified_optimal": false,
+      "deadline_steps": 1429
+    },
+    "expected": {
+      "success": 1,
+      "timely_success": 1,
+      "clean_success": 0,
+      "recovered_success": 1,
+      "late_success": 0,
+      "steps": 1111,
+      "missed_crossings": 1,
+      "recovered_gates": 1,
+      "termination_reason": "success",
+      "slot": "real100-hard-017",
+      "family": "go_around",
+      "seed": 2035025938,
+      "repeat": 14,
+      "gates": 8,
+      "target_gates": 8,
+      "reference_seconds": 7.3307692307692305,
+      "deadline_steps": 1429,
+      "crashed": 0,
+      "events": [
+        {
+          "step": 68,
+          "kind": "pass",
+          "gate": 0
+        },
+        {
+          "step": 146,
+          "kind": "pass",
+          "gate": 1
+        },
+        {
+          "step": 326,
+          "kind": "pass",
+          "gate": 2
+        },
+        {
+          "step": 534,
+          "kind": "pass",
+          "gate": 3
+        },
+        {
+          "step": 629,
+          "kind": "pass",
+          "gate": 4
+        },
+        {
+          "step": 684,
+          "kind": "pass",
+          "gate": 5
+        },
+        {
+          "step": 777,
+          "kind": "pass",
+          "gate": 6
+        },
+        {
+          "step": 832,
+          "kind": "miss",
+          "gate": 7
+        },
+        {
+          "step": 1111,
+          "kind": "pass",
+          "gate": 7
+        }
+      ]
+    },
+    "role": "short_recovery_witness",
+    "kind": "recovery",
+    "lane": 14
+  }
+]

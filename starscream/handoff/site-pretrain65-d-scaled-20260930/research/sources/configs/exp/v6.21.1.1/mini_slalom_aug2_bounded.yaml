@@ -1,0 +1,550 @@
+{
+  "inherits": "mini_slalom_aug2_common.yaml",
+  "dagger": {
+    "run_name": "starscream-v6.21.1.1-mini-slalom-aug2-bounded-r24",
+    "tags": [
+      "mini-slalom-aug2",
+      "bounded",
+      "warm-start",
+      "async-dagger"
+    ],
+    "dagger_trajectory_quality": {
+      "enabled": true,
+      "nominal_distance": 0.75,
+      "intervention_distance": 1.5,
+      "maximum_distance": 5.0,
+      "maximum_gate_seconds": 6.0,
+      "recovery_seconds": 3.0,
+      "recovery_gate_passes": 2,
+      "nominal_fraction": 0.7,
+      "corrective_fraction": 0.25,
+      "recovery_fraction": 0.05,
+      "implementation_version": 2,
+      "calibration_source": "/workspace/outputs/diagnostics/mini-slalom-aug2/parent-transferred-quality-calibration.json",
+      "calibration_sha256": "1a7bcbf42a2820bedaf207419fe636a40be176499f3c39f9897fcf9e711dcadf",
+      "track_bounds": {
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_10_banking_6.yaml": {
+          "nominal_distance": 1.0156351102590562,
+          "intervention_distance": 1.5077980756759644,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.0
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_10_braking_reversal_2.yaml": {
+          "nominal_distance": 1.7946339555978779,
+          "intervention_distance": 2.515155166387558,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.3230769230769233
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_10_go_around_1.yaml": {
+          "nominal_distance": 0.6645546648502348,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 4.084615384615384
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_10_slalom_0.yaml": {
+          "nominal_distance": 1.276426100730896,
+          "intervention_distance": 1.6595664024353027,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.7615384615384615
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_10_stacked_reversal_1.yaml": {
+          "nominal_distance": 1.8015802274942403,
+          "intervention_distance": 2.316008746623993,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.0
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_4_banking_2.yaml": {
+          "nominal_distance": 1.0308176934719087,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.8076923076923084
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_4_braking_reversal_1.yaml": {
+          "nominal_distance": 0.6311941203474999,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.638461538461539,
+          "recovery_seconds": 6.276923076923078
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_4_go_around_0.yaml": {
+          "nominal_distance": 1.6220916981697067,
+          "intervention_distance": 2.073219805955887,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.6000000000000005
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_4_slalom_1.yaml": {
+          "nominal_distance": 0.6039870488643647,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.1192307692307693,
+          "recovery_seconds": 5.2384615384615385
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_4_stacked_reversal_0.yaml": {
+          "nominal_distance": 1.5812729749679566,
+          "intervention_distance": 2.1443551182746887,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.5769230769230766
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_5_banking_1.yaml": {
+          "nominal_distance": 0.7390823389887808,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.6461538461538465
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_5_braking_reversal_0.yaml": {
+          "nominal_distance": 1.0993680667281152,
+          "intervention_distance": 1.6600253582000732,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.396153846153846,
+          "recovery_seconds": 5.792307692307692
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_5_go_around_1.yaml": {
+          "nominal_distance": 1.0761283780336377,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.9461538461538463
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_5_slalom_0.yaml": {
+          "nominal_distance": 1.4949724344015136,
+          "intervention_distance": 2.0004778504371643,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.5307692307692307
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_5_stacked_reversal_0.yaml": {
+          "nominal_distance": 1.517910187244416,
+          "intervention_distance": 2.0520328879356384,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.6461538461538465
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_6_banking_0.yaml": {
+          "nominal_distance": 0.7792761585116388,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.0
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_6_braking_reversal_3.yaml": {
+          "nominal_distance": 1.5702930772304544,
+          "intervention_distance": 2.2087478041648865,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.2576923076923077,
+          "recovery_seconds": 5.515384615384615
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_6_go_around_0.yaml": {
+          "nominal_distance": 1.7204805290699012,
+          "intervention_distance": 2.178868889808655,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.8769230769230774
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_6_slalom_1.yaml": {
+          "nominal_distance": 0.827531397044659,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.4384615384615387
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_6_stacked_reversal_0.yaml": {
+          "nominal_distance": 0.7015721747875214,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.161538461538462
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_7_banking_5.yaml": {
+          "nominal_distance": 0.8726549705863,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.0
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_7_braking_reversal_6.yaml": {
+          "nominal_distance": 1.8956230449676519,
+          "intervention_distance": 2.500211536884308,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 4.338461538461539
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_7_go_around_1.yaml": {
+          "nominal_distance": 1.3375219407081604,
+          "intervention_distance": 1.695440948009491,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.2538461538461543
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_7_slalom_0.yaml": {
+          "nominal_distance": 2.2789299741983404,
+          "intervention_distance": 2.935166895389557,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 4.5
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_7_stacked_reversal_3.yaml": {
+          "nominal_distance": 1.0754069297313693,
+          "intervention_distance": 1.598358690738678,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.7846153846153845
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_8_banking_4.yaml": {
+          "nominal_distance": 1.1723471716642377,
+          "intervention_distance": 1.5251652300357819,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.0
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_8_braking_reversal_1.yaml": {
+          "nominal_distance": 2.079782691001892,
+          "intervention_distance": 2.8987070322036743,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.3461538461538463
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_8_go_around_0.yaml": {
+          "nominal_distance": 1.1025819116830828,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.161538461538462
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_8_slalom_7.yaml": {
+          "nominal_distance": 1.6805830166339877,
+          "intervention_distance": 2.2428818941116333,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.138461538461539
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_8_stacked_reversal_0.yaml": {
+          "nominal_distance": 1.8319947159290297,
+          "intervention_distance": 2.409202992916107,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.6692307692307695
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_9_banking_5.yaml": {
+          "nominal_distance": 1.8111618666648805,
+          "intervention_distance": 2.563179224729538,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.3461538461538463
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_9_braking_reversal_2.yaml": {
+          "nominal_distance": 1.566265619754792,
+          "intervention_distance": 2.143623173236847,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 4.269230769230769
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_9_go_around_3.yaml": {
+          "nominal_distance": 1.3843868619203585,
+          "intervention_distance": 1.9272569715976715,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.2346153846153847,
+          "recovery_seconds": 5.469230769230769
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_9_slalom_0.yaml": {
+          "nominal_distance": 2.9734490561485303,
+          "intervention_distance": 4.125195682048798,
+          "maximum_distance": 6.187793523073196,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.7153846153846155
+        },
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_9_stacked_reversal_1.yaml": {
+          "nominal_distance": 1.4498834228515618,
+          "intervention_distance": 2.112001121044159,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.115384615384616
+        },
+        "/workspace/outputs/course-pools/v621-additions/frozen/v621_diving_hairpin_10_2028091600.yaml": {
+          "nominal_distance": 1.7496306691169738,
+          "intervention_distance": 2.367065191268921,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.5076923076923077
+        },
+        "/workspace/outputs/course-pools/v621-additions/frozen/v621_diving_hairpin_10_low_2028091601.yaml": {
+          "nominal_distance": 0.6449761613607384,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.9461538461538463
+        },
+        "/workspace/outputs/course-pools/v621-additions/frozen/v621_hairpin_chain_10_low_2027091601.yaml": {
+          "nominal_distance": 1.178826023340226,
+          "intervention_distance": 1.5274044275283813,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.0
+        },
+        "/workspace/outputs/course-pools/v621-additions/frozen/v621_hairpin_chain_10_narrow_2027091602.yaml": {
+          "nominal_distance": 1.2981598329544055,
+          "intervention_distance": 1.8948426246643066,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.184615384615385
+        },
+        "/workspace/outputs/course-pools/v621-additions/frozen/v621_hairpin_chain_5_2026591608.yaml": {
+          "nominal_distance": 2.304124045372009,
+          "intervention_distance": 2.9173567295074463,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.0
+        },
+        "/workspace/outputs/course-pools/v621-additions/frozen/v621_hairpin_chain_5_narrow_2026591602.yaml": {
+          "nominal_distance": 3.8930914154052743,
+          "intervention_distance": 4.5917224287986755,
+          "maximum_distance": 6.887583643198013,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 4.384615384615385
+        },
+        "/workspace/outputs/course-pools/v621-additions/frozen/v621_hairpin_chain_7_narrow_2026791606.yaml": {
+          "nominal_distance": 1.3425789579153058,
+          "intervention_distance": 1.9273852705955505,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.046153846153846
+        },
+        "/workspace/outputs/course-pools/v621-additions/frozen/v621_hairpin_chain_8_low_2026891607.yaml": {
+          "nominal_distance": 0.7516701757907865,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.0
+        },
+        "/workspace/outputs/course-pools/v621-additions/frozen/v621_straight_hairpin_5_2028591611.yaml": {
+          "nominal_distance": 1.6981737669706343,
+          "intervention_distance": 2.0952396988868713,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.3000000000000003
+        },
+        "/workspace/outputs/course-pools/v621-additions/frozen/v621_straight_hairpin_6_narrow_2028691606.yaml": {
+          "nominal_distance": 0.8391946904063228,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.4153846153846152
+        },
+        "/workspace/outputs/v622-pretraining50/tracks/v622_pretrain50_long_low_braking_01_02.yaml": {
+          "nominal_distance": 0.8111570847034465,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.926923076923077,
+          "recovery_seconds": 6.853846153846154
+        },
+        "/workspace/outputs/v622-pretraining50/tracks/v622_pretrain50_long_low_braking_01_08.yaml": {
+          "nominal_distance": 0.6930604664087298,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 6.5,
+          "recovery_seconds": 8.0
+        },
+        "/workspace/outputs/v622-pretraining50/tracks/v622_pretrain50_long_low_braking_03_18.yaml": {
+          "nominal_distance": 0.5978581712841987,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 7.1692307692307695,
+          "recovery_seconds": 8.0
+        },
+        "/workspace/outputs/v622-pretraining50/tracks/v622_pretrain50_long_low_braking_03_20.yaml": {
+          "nominal_distance": 0.39184160962700854,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 8.253846153846155,
+          "recovery_seconds": 8.0
+        },
+        "/workspace/outputs/v622-pretraining50/tracks/v622_pretrain50_long_low_braking_04_00.yaml": {
+          "nominal_distance": 0.7011066389083874,
+          "intervention_distance": 1.7579683065414429,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 9.11923076923077,
+          "recovery_seconds": 8.0
+        },
+        "/workspace/outputs/v622-pretraining50/tracks/v622_pretrain50_long_low_braking_04_01.yaml": {
+          "nominal_distance": 0.8349681720137596,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 4.653846153846153,
+          "recovery_seconds": 8.0
+        },
+        "/workspace/outputs/v622-pretraining50/tracks/v622_pretrain50_long_low_braking_04_04.yaml": {
+          "nominal_distance": 0.7181226494312265,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 5.311538461538461,
+          "recovery_seconds": 8.0
+        },
+        "/workspace/outputs/v622-pretraining50/tracks/v622_pretrain50_long_low_braking_07_27.yaml": {
+          "nominal_distance": 0.5193281235694875,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 5.496153846153846,
+          "recovery_seconds": 8.0
+        },
+        "/workspace/outputs/v622-pretraining50/tracks/v622_pretrain50_long_low_braking_08_04.yaml": {
+          "nominal_distance": 0.3720320873111487,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 7.38846153846154,
+          "recovery_seconds": 8.0
+        },
+        "/workspace/outputs/v622-pretraining50/tracks/v622_pretrain50_long_low_braking_08_19.yaml": {
+          "nominal_distance": 1.0768138586282727,
+          "intervention_distance": 1.9764628410339355,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 7.365384615384617,
+          "recovery_seconds": 8.0
+        },
+        "/workspace/outputs/v622-pretraining50/tracks/v622_pretrain50_radius_switch_00_10.yaml": {
+          "nominal_distance": 0.9427291635274895,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 4.134615384615385,
+          "recovery_seconds": 7.26923076923077
+        },
+        "/workspace/outputs/v622-pretraining50/tracks/v622_pretrain50_radius_switch_05_19.yaml": {
+          "nominal_distance": 0.932613433599473,
+          "intervention_distance": 1.5608167052268982,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.9038461538461537,
+          "recovery_seconds": 6.8076923076923075
+        },
+        "/workspace/outputs/v622-pretraining50/tracks/v622_pretrain50_radius_switch_06_13.yaml": {
+          "nominal_distance": 0.6154993772506692,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 4.376923076923077,
+          "recovery_seconds": 7.753846153846155
+        },
+        "/workspace/outputs/v622-pretraining50/tracks/v622_pretrain50_radius_switch_07_12.yaml": {
+          "nominal_distance": 1.2524740556478524,
+          "intervention_distance": 2.070670962333679,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 4.826923076923077,
+          "recovery_seconds": 8.0
+        },
+        "/workspace/outputs/v622-pretraining50/tracks/v622_pretrain50_technical_compound_03_04.yaml": {
+          "nominal_distance": 0.8717689282894187,
+          "intervention_distance": 1.655297964811325,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 4.292307692307692
+        },
+        "/workspace/outputs/v622-pretraining50/tracks/v622_pretrain50_technical_compound_04_08.yaml": {
+          "nominal_distance": 0.6620523213148118,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 4.476923076923077
+        },
+        "/workspace/outputs/v622-pretraining50/tracks/v622_pretrain50_technical_wrong_side_03_18.yaml": {
+          "nominal_distance": 0.9126606503725012,
+          "intervention_distance": 2.082798570394516,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 4.434615384615385,
+          "recovery_seconds": 7.86923076923077
+        },
+        "/workspace/outputs/v622-pretraining50/tracks/v622_pretrain50_technical_wrong_side_04_09.yaml": {
+          "nominal_distance": 0.7747233074903495,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.8461538461538463,
+          "recovery_seconds": 6.6923076923076925
+        },
+        "/workspace/outputs/v622-pretraining60/tracks/v622_pretrain60_long_braking_bridge_00_24.yaml": {
+          "nominal_distance": 0.5499706533551217,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 4.800000000000001
+        },
+        "/workspace/outputs/v622-pretraining60/tracks/v622_pretrain60_repair_long_braking_bridge_02_003.yaml": {
+          "nominal_distance": 0.718711502790451,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.7384615384615385
+        },
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_10_slalom_000_2026092911.yaml": {
+          "nominal_distance": 1.276426100730896,
+          "intervention_distance": 1.6595664024353027,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.7615384615384615
+        },
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_10_slalom_001_2026093920.yaml": {
+          "nominal_distance": 1.276426100730896,
+          "intervention_distance": 1.6595664024353027,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.7615384615384615
+        },
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_10_slalom_003_2026095938.yaml": {
+          "nominal_distance": 1.276426100730896,
+          "intervention_distance": 1.6595664024353027,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.0,
+          "recovery_seconds": 3.7615384615384615
+        },
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_4_slalom_000_2027092914.yaml": {
+          "nominal_distance": 0.6039870488643647,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.1192307692307693,
+          "recovery_seconds": 5.2384615384615385
+        },
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_4_slalom_001_2027093923.yaml": {
+          "nominal_distance": 0.6039870488643647,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.1192307692307693,
+          "recovery_seconds": 5.2384615384615385
+        },
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_4_slalom_002_2027094932.yaml": {
+          "nominal_distance": 0.6039870488643647,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.1192307692307693,
+          "recovery_seconds": 5.2384615384615385
+        },
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_4_slalom_003_2027095941.yaml": {
+          "nominal_distance": 0.6039870488643647,
+          "intervention_distance": 1.5,
+          "maximum_distance": 5.0,
+          "maximum_gate_seconds": 3.1192307692307693,
+          "recovery_seconds": 5.2384615384615385
+        }
+      }
+    }
+  },
+  "wandb": {
+    "group": "v62111-mini-slalom-aug2-baselines",
+    "name": "starscream-v6.21.1.1-mini-slalom-aug2-bounded-r24",
+    "local_event_path": "/workspace/outputs/logs/starscream-v6.21.1.1-mini-slalom-aug2-bounded-r24.events.jsonl",
+    "local_full_event_path": "/workspace/outputs/logs/starscream-v6.21.1.1-mini-slalom-aug2-bounded-r24.full.events.jsonl",
+    "eval_metric_allowlist": [
+      "selection_suite_success",
+      "selection_suite_timely_success",
+      "selection_suite_clean_success",
+      "selection_suite_clean_timely_success",
+      "full_course_success",
+      "crash_rate",
+      "mean_gates",
+      "mean_steps",
+      "dagger_policy_version"
+    ]
+  }
+}

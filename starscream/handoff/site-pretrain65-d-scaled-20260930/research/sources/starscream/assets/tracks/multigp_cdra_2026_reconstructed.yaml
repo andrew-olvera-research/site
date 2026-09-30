@@ -1,0 +1,38 @@
+name: multigp_cdra_2026_reconstructed
+bounds: [[-3.0, 23.0], [-3.0, 17.0], [0.0, 6.0]]
+gate_size: [2.1336, 1.8288]
+loop: true
+auto_orient: false
+metadata:
+  provenance: official-build-guide-reconstruction-v1
+  geometry_status: gate-center-reconstructed_from_official_trilateration
+  description: >-
+    Five-gate 2025-2026 MultiGP Collegiate Drone Racing Association
+    qualification course. Gate centers are reconstructed in metric ENU from
+    the organizer's foot-based rebar trilateration guide. Gate normals use the
+    ordered gate-path bisectors because the guide specifies gate legs and
+    adjacent flags rather than surveyed six-DoF gate poses.
+  source: https://www.multigp.com/wp-content/uploads/2025/08/2026-CDRA-Track-Diagram.pdf
+  source_organization: MultiGP
+  source_gate_opening_m: [2.1336, 1.8288]
+  reconstruction_uncertainty_m: 0.75
+  reconstruction_uncertainty_degrees: 12.0
+  flags_not_modeled: true
+  scientific_scope: competition-layout-adaptation-not-exact-benchmark
+  training_exclusion: immutable_reference_only
+gates:
+  - name: G1_timing
+    position: [1.0668, 0.0, 0.9144]
+    quaternion_wxyz: [0.8479359, 0.0, 0.0, -0.5300989]
+  - name: G2
+    position: [18.4404, 0.0, 0.9144]
+    quaternion_wxyz: [0.9238796, 0.0, 0.0, 0.3826835]
+  - name: G3
+    position: [18.4404, 10.0584, 0.9144]
+    quaternion_wxyz: [0.2288900, 0.0, 0.0, 0.9734523]
+  - name: G4
+    position: [11.5824, 4.8768, 0.9144]
+    quaternion_wxyz: [0.2096086, 0.0, 0.0, 0.9777854]
+  - name: G5
+    position: [10.9667, 12.6492, 0.9144]
+    quaternion_wxyz: [0.1457345, 0.0, 0.0, 0.9893237]

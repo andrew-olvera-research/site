@@ -1,0 +1,2927 @@
+{
+  "output_root": "/workspace/outputs",
+  "dagger": {
+    "run_name": "starscream-collection-next-d_equal_axes-r24",
+    "tags": [
+      "collection-next",
+      "scratch",
+      "d_equal_axes",
+      "seed2"
+    ],
+    "monitor": "selection_suite_timely_success",
+    "monitor_mode": "max",
+    "top_k": 1,
+    "initial_checkpoint": null,
+    "seed": 2026092913,
+    "evaluation_seed": 2034091462,
+    "rounds": 24,
+    "episodes_per_round": 64,
+    "rollout_envs": 16,
+    "collector_backend": "process",
+    "mpcc_build_root": "/tmp/collection-next-d_equal_axes",
+    "evaluation_episodes": 100,
+    "evaluation_workers": 4,
+    "updates_per_round": 626,
+    "batch_size": 1536,
+    "online_fraction": 0.9,
+    "online_replay_capacity": 375030,
+    "learning_rate": 0.00012,
+    "weight_decay": "1e-05",
+    "gradient_clip": 2.0,
+    "huber_beta": 0.05,
+    "delta_huber_beta": 0.04,
+    "delta_weight": 0.0,
+    "dynamics_weight": 0.15,
+    "teacher_beta_start": 1.0,
+    "teacher_beta_end": 0.35,
+    "validation_fraction": 0.12,
+    "control_hz": 130,
+    "action_delay": 0.011,
+    "racing_line_iterations": 30,
+    "racing_line_cache": "/workspace/outputs/course-pools/v6211-pretrain/racing-lines-update-fix",
+    "mpcc_backend": "acados",
+    "mpcc_nominal_speed": 16.5,
+    "curriculum": {
+      "name": "v6211_pretrain65",
+      "target_gates": 64,
+      "approach_distance": [
+        2.8,
+        3.4
+      ],
+      "lateral_offset": [
+        -0.1,
+        0.1
+      ],
+      "vertical_offset": [
+        -0.06,
+        0.06
+      ],
+      "forward_speed": [
+        2.8,
+        3.8
+      ],
+      "lateral_speed": [
+        -0.08,
+        0.08
+      ],
+      "vertical_speed": [
+        -0.06,
+        0.06
+      ],
+      "attitude_error_degrees": 1.5,
+      "body_rate": 0.12,
+      "mpcc_prefix_steps": 0,
+      "action_delay": 0.011,
+      "max_steps": 10000,
+      "target_speed": 16.5,
+      "random_gate": false,
+      "minimum_episodes": 1,
+      "advancement_window": 1,
+      "advancement_success": 1.0,
+      "anchor_weight": 0.0,
+      "bc_weight": 0.0,
+      "trainable_scope": "all",
+      "rollout_laps": 1,
+      "fixed_start_gate_index": 0,
+      "physical_gate_starts_only": true,
+      "tracks": [
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_10_slalom_0.yaml",
+        "/workspace/outputs/course-pools/v6201-transitions-r6/frozen/train/v6201_train_4_slalom_1.yaml",
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_10_slalom_000_2026092911.yaml",
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_10_slalom_001_2026093920.yaml",
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_10_slalom_003_2026095938.yaml",
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_4_slalom_000_2027092914.yaml",
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_4_slalom_001_2027093923.yaml",
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_4_slalom_002_2027094932.yaml",
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/train/named_aug_train_4_slalom_003_2027095941.yaml"
+      ],
+      "manifest_speed_scale_range": null,
+      "allow_archived_task_resets": false
+    },
+    "evaluation_backend": "process",
+    "amp": true,
+    "track_manifest": "/workspace/outputs/diagnostics/mini-slalom-aug2/train-manifest.json",
+    "track_split": "train",
+    "qualified_tracks_only": true,
+    "mpcc_use_manifest_speed": true,
+    "mpcc_manifest_speed_scale": 1.0,
+    "dynamics_randomization": {
+      "enabled": true
+    },
+    "evaluation_curriculum": {
+      "name": "selection25_real100_v2",
+      "target_gates": 64,
+      "approach_distance": [
+        2.95,
+        3.05
+      ],
+      "lateral_offset": [
+        -0.04,
+        0.04
+      ],
+      "vertical_offset": [
+        -0.03,
+        0.03
+      ],
+      "forward_speed": [
+        2.9,
+        3.2
+      ],
+      "lateral_speed": [
+        -0.03,
+        0.03
+      ],
+      "vertical_speed": [
+        -0.03,
+        0.03
+      ],
+      "attitude_error_degrees": 0.8,
+      "body_rate": 0.08,
+      "mpcc_prefix_steps": 0,
+      "action_delay": 0.011,
+      "max_steps": 6000,
+      "target_speed": 16.5,
+      "random_gate": false,
+      "minimum_episodes": 1,
+      "advancement_window": 1,
+      "advancement_success": 1.0,
+      "anchor_weight": 0.0,
+      "bc_weight": 0.0,
+      "trainable_scope": "all",
+      "rollout_laps": 1,
+      "fixed_start_gate_index": 0,
+      "physical_gate_starts_only": true,
+      "tracks": [
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/family_validation/named_aug_family_validation_10_slalom_001_2036093920.yaml",
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/family_validation/named_aug_family_validation_4_slalom_000_2037092914.yaml",
+        "/workspace/outputs/course-pools/mini-slalom-aug2/tracks/family_validation/named_aug_family_validation_4_slalom_001_2037093923.yaml",
+        "starscream/assets/tracks/v622/real100-hard/v622_hard_slalom_010_024_mirror1.yaml",
+        "starscream/assets/tracks/v622/real100-hard/v622_hard_slalom_019_012.yaml"
+      ],
+      "manifest_speed_scale_range": null,
+      "allow_archived_task_resets": false
+    },
+    "model": {
+      "input_dim": 167,
+      "hidden_dim": 320,
+      "depth": 4,
+      "recurrent_dim": 320,
+      "recurrent_depth": 4,
+      "context_steps": 3,
+      "encoder_type": "transformer",
+      "attention_heads": 8,
+      "transformer_feedforward_dim": 640,
+      "transformer_dropout": 0.0,
+      "initial_log_std": -1.2,
+      "minimum_log_std": -3.5,
+      "maximum_log_std": 0.0,
+      "speed_conditioning": true,
+      "speed_conditioning_scale": 20.0,
+      "default_speed_command": 16.5,
+      "observation_contract": "starscream_route_plant_v1",
+      "action_chunk_steps": 1,
+      "structured_observation_tokens": false,
+      "route_semantic_tokens": true,
+      "unified_route_transformer": true,
+      "unified_readout_mode": "action_token",
+      "unified_readout_decoder_depth": 2,
+      "unified_readout_decoder_queries": 2,
+      "unified_readout_initialization_std": 0.02,
+      "observation_token_layers": 0,
+      "observation_token_heads": 8,
+      "observation_embedding_dropout": 0.0,
+      "continuous_projection_fourier_features": 0,
+      "continuous_projection_fourier_scale": 2.0,
+      "modern_transformer_blocks": true,
+      "modern_adaln_zero": false,
+      "temporal_alibi": false,
+      "history_condition_dropout_probability": 0.0,
+      "history_guidance_scale": 1.0,
+      "swiglu_action_head": true,
+      "output_initialization_scale": 0.001,
+      "gate_contrastive_dim": 0,
+      "continuous_input_rms_norm": false,
+      "unified_bidirectional": false,
+      "route_feature_mode": "approach",
+      "route_head_modulation": false,
+      "separate_route_encoder": false
+    },
+    "track_sampling_family_weights": {
+      "10_slalom": 1.0,
+      "4_slalom": 1.0
+    },
+    "dagger_speed_command": 16.5,
+    "mpcc_planner_config": {
+      "sample_count": 1400,
+      "aperture_fraction": 0.2,
+      "aperture_margin": 0.18,
+      "offset_iterations": 30
+    },
+    "mpcc_config": {
+      "progress_reference_mode": "profile",
+      "max_progress_speed": 24.0,
+      "maximum_acceleration": 24.0,
+      "maximum_longitudinal_acceleration": 16.0,
+      "maximum_braking_acceleration": 18.0,
+      "maximum_collective_thrust": 40.0,
+      "collective_slew_limit": 10.0,
+      "body_rate_slew_limit": 4.0,
+      "corridor_margin": 0.2
+    },
+    "reporting_evaluation_episodes": 48,
+    "reporting_evaluation_seed": 2035091462,
+    "reporting_evaluation_curriculum": null,
+    "collective_action_mapping": "logit_sigmoid_v1",
+    "collective_action_maximum": 40.0,
+    "collective_action_reference_thrust": 15.0,
+    "collective_action_logit_scale": 1.6,
+    "pace_aware_selection": false,
+    "selection_full_weight": 100.0,
+    "selection_minimum_track_full_weight": 100.0,
+    "selection_mean_track_pace_weight": 20.0,
+    "selection_minimum_full_course_success": 0.5,
+    "selection_default_track_minimum_success": 0.25,
+    "reporting_evaluation_interval": 10,
+    "dagger_require_solver_success": true,
+    "dagger_require_successful_episodes": false,
+    "dagger_minimum_successful_episodes_per_track": 1,
+    "physical_action_weight": 0.75,
+    "physical_action_scales": [
+      10.0,
+      3.0,
+      3.0,
+      3.0
+    ],
+    "physical_huber_beta": 0.05,
+    "online_late_course_fraction": 0.35,
+    "online_late_course_threshold": 0.65,
+    "dagger_enable_safety_rollback": false,
+    "dagger_rollback_full_course_threshold": null,
+    "dagger_rollback_minimum_track_success": null,
+    "resume_checkpoint": null,
+    "mpcc_speed_frontier_profile": "",
+    "dagger_condition_on_teacher_speed": true,
+    "dagger_offline_speed_command": 15.0,
+    "dagger_coverage_retry_episodes_per_track": 20,
+    "dagger_rollback_max_full_course_drop": 0.08,
+    "dagger_rollback_maximum_track_drop": 0.2,
+    "dagger_anchor_checkpoint": null,
+    "route_gate_count": 6,
+    "dagger_permanent_expert_rounds": 1,
+    "dagger_permanent_expert_fraction": 0.1,
+    "dagger_permanent_expert_capacity": 52086,
+    "dagger_permanent_expert_minimum_episodes_per_track": 1,
+    "dagger_permanent_expert_retry_episodes_per_track": 20,
+    "dagger_permanent_expert_abort_on_underfilled": true,
+    "permanent_expert_late_course_fraction": 0.45,
+    "action_chunk_weight": 0.0,
+    "topology_weight": 0.0,
+    "dagger_process_start_method": "fork",
+    "dagger_async_collection": true,
+    "dagger_async_min_inference_batch": 1,
+    "dagger_async_batch_wait_ms": 0.0,
+    "dagger_worker_cpu_threads": 1,
+    "mpcc_diagnostics_level": "minimal",
+    "dagger_collection_history_dtype": "float16",
+    "dagger_replay_history_dtype": "float16",
+    "policy_state_source": "truth",
+    "state_estimator_randomization": null,
+    "flight_plan_randomization": null,
+    "action_chunk_offsets": [
+      0
+    ],
+    "dagger_permanent_expert_required_families": [
+      "10_slalom",
+      "4_slalom"
+    ],
+    "teacher_beta_schedule_rounds": 3,
+    "dagger_resume_require_replay_state": true,
+    "dagger_family_total_balanced_sampling": true,
+    "dagger_hierarchical_replay_sampling": true,
+    "dagger_replay_family_weights": {
+      "10_slalom": 1.0,
+      "4_slalom": 1.0
+    },
+    "dagger_replay_nominal_fraction": 0.4,
+    "dagger_replay_critical_fraction": 0.35,
+    "dagger_replay_recovery_fraction": 0.25,
+    "dagger_event_gate_phases": [
+      2,
+      3,
+      4
+    ],
+    "dagger_dart_expert_rounds": 1,
+    "dagger_dart_expert_episode_fraction": 0.5,
+    "dagger_dart_action_noise_std_normalized": [
+      0.025,
+      0.035,
+      0.035,
+      0.025
+    ],
+    "dagger_dart_start_perturbation_scale": 1.0,
+    "dagger_online_replay_rows_per_round": 25002,
+    "dagger_successful_coverage_rounds": 0,
+    "dagger_dynamic_sampling": {
+      "enabled": false,
+      "warmup_rounds": 4,
+      "route_horizon": 6,
+      "competence_ema": 0.3,
+      "loss_ema": 0.25,
+      "multiplier_ema": 0.4,
+      "target_competence": 0.55,
+      "frontier_width": 0.28,
+      "progress_scale": 0.12,
+      "priority_temperature": 0.18,
+      "blend": 0.75,
+      "minimum_multiplier": 0.5,
+      "maximum_multiplier": 2.0,
+      "replay_probe_rows_per_source": 384,
+      "gate_weight_floor": 0.2,
+      "gate_weight_sigma": 0.85,
+      "maximum_gate_index": 64,
+      "behavior_map": "/workspace/outputs/course-pools/v62111-plant/real100-behavior-map.json",
+      "behavior_map_sha256": "781d4300a72662a85d1f673483d1d54f8cfb6df60120545d08bc4fdd2ed7d28f"
+    },
+    "dagger_initialization_stats_checkpoint": "/workspace/outputs/diagnostics/multifix-20260928/normalization.pt",
+    "observation_contract": "starscream_route_plant_v1",
+    "checkpoint_interval": 1,
+    "action_chunk_exclude_first_from_auxiliary": false,
+    "action_chunk_horizon_decay": 1.0,
+    "dynamics_target_contract": "task_delta_v1",
+    "reward_aux_dim": 0,
+    "reward_aux_weight": 0.0,
+    "evaluation_condition_on_manifest_speed": true,
+    "ppo_manifest_speed_field": "qualified_speed_mps",
+    "action_chunk_target_source": "mpcc_open_loop",
+    "gate_contrastive_weight": 0.0,
+    "control_reference_hz": 90,
+    "mpcc_preserve_physical_slew_rate": true,
+    "dynamics_preserve_reference_rate": true,
+    "dagger_event_action_delta_threshold": 0.0553846154,
+    "dagger_event_collective_drop_threshold": 0.0276923077,
+    "dagger_gate_phase_post_crossing_horizon": 17,
+    "dagger_gate_phase_acquisition_horizon": 69,
+    "compile_policy_backbone": true,
+    "compile_threads": 1,
+    "mpcc_prediction_backend": "native_exact",
+    "mpcc_native_stage_updates": true,
+    "dagger_transition_start_episode_fraction": 0.5,
+    "dagger_transition_start_mode_weights": {
+      "expert_prefix": 1.0
+    },
+    "dagger_transition_start_perturbation_scale": 1.0,
+    "dagger_transition_start_gate_indices": {},
+    "mpcc_use_manifest_teacher_profile": true,
+    "mpcc_use_manifest_planner_profile": true,
+    "reliability_family_aliases": {
+      "10_go_around": "go_around",
+      "10_slalom": "slalom",
+      "10_stacked_reversal": "stacked_reversal",
+      "4_banking": "banking",
+      "4_braking_reversal": "braking_reversal",
+      "4_go_around": "go_around",
+      "4_slalom": "slalom",
+      "4_stacked_reversal": "stacked_reversal",
+      "5_banking": "banking",
+      "5_braking_reversal": "braking_reversal",
+      "5_go_around": "go_around",
+      "5_slalom": "slalom",
+      "6_banking": "banking",
+      "6_braking_reversal": "braking_reversal",
+      "6_go_around": "go_around",
+      "6_slalom": "slalom",
+      "6_stacked_reversal": "stacked_reversal",
+      "7_go_around": "go_around",
+      "7_slalom": "slalom",
+      "8_braking_reversal": "braking_reversal",
+      "8_go_around": "go_around",
+      "8_stacked_reversal": "stacked_reversal",
+      "9_braking_reversal": "braking_reversal",
+      "9_slalom": "slalom",
+      "9_stacked_reversal": "stacked_reversal",
+      "10_braking_reversal": "braking_reversal",
+      "7_banking": "banking",
+      "7_stacked_reversal": "stacked_reversal",
+      "9_go_around": "go_around",
+      "8_banking": "banking",
+      "9_banking": "banking",
+      "7_braking_reversal": "braking_reversal",
+      "8_slalom": "slalom",
+      "10_banking": "banking",
+      "5_stacked_reversal": "stacked_reversal",
+      "10_hairpin_chain_1": "hairpin_chain",
+      "5_hairpin_chain_1": "hairpin_chain",
+      "8_hairpin_chain_1": "hairpin_chain",
+      "5_straight_hairpin_1": "straight_hairpin",
+      "10_diving_hairpin_1": "diving_hairpin",
+      "6_straight_hairpin_1": "straight_hairpin",
+      "10_hairpin_chain_2": "hairpin_chain",
+      "7_hairpin_chain_1": "hairpin_chain",
+      "10_diving_hairpin_2": "diving_hairpin",
+      "5_hairpin_chain_2": "hairpin_chain",
+      "v622_pretrain50_long_low_braking_08_04": "long_low_braking",
+      "v622_pretrain50_long_low_braking_07_27": "long_low_braking",
+      "v622_pretrain50_long_low_braking_04_04": "long_low_braking",
+      "v622_pretrain50_long_low_braking_03_20": "long_low_braking",
+      "v622_pretrain50_long_low_braking_01_02": "long_low_braking",
+      "v622_pretrain50_long_low_braking_03_18": "long_low_braking",
+      "v622_pretrain50_long_low_braking_01_08": "long_low_braking",
+      "v622_pretrain50_long_low_braking_04_00": "long_low_braking",
+      "v622_pretrain50_long_low_braking_04_01": "long_low_braking",
+      "v622_pretrain50_long_low_braking_08_19": "long_low_braking",
+      "v622_pretrain50_radius_switch_07_12": "radius_switch",
+      "v622_pretrain50_radius_switch_05_19": "radius_switch",
+      "v622_pretrain50_radius_switch_06_13": "radius_switch",
+      "v622_pretrain50_radius_switch_00_10": "radius_switch",
+      "v622_pretrain60_long_braking_bridge_00_24": "long_braking_bridge",
+      "v622_pretrain60_repair_long_braking_bridge_02_003": "long_braking_bridge",
+      "v622_pretrain50_technical_compound_04_08": "technical_compound",
+      "v622_pretrain50_technical_compound_03_04": "technical_compound",
+      "v622_pretrain50_technical_wrong_side_03_18": "technical_wrong_side",
+      "v622_pretrain50_technical_wrong_side_04_09": "technical_wrong_side"
+    },
+    "dagger_cached_replay_sampling": true,
+    "dagger_batch_prefetch": 0,
+    "dagger_persistent_evaluation": true,
+    "compile_policy_inference": false,
+    "cuda_graph_policy_inference": true,
+    "mpcc_manifest_teacher_profile_planner_configs": {
+      "baseline": {},
+      "swift16": {},
+      "swift17": {},
+      "swift18": {},
+      "v622-frontier-7caee001a73a": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-2d258f4cf407": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-9f0773187d28": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-ef4ebcc38c05": {
+        "aperture_fraction": 0.35,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40,
+        "sample_count": 1400
+      },
+      "v622-frontier-679514dc422d": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-8ffda4f12774": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-9f5059c0c5de": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-8128375d9241": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-52590a5d4e7a": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-11e73e398918": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-f35fdea09b39": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-56ba53ed9383": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-c794db83196e": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-4b22228849cd": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-25f0aebcc840": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-d0aa3c5eee1c": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-a11cf64930d8": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-28b7d570356a": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-0a132f49475f": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-51bae24d14b1": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-a37d8e26cde0": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-0151120fb0ad": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-47289a268f8c": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-739c9b541564": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-d59da3ec5b74": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-960821eb1f36": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-dca9d21b4fde": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-dfe5af7f5549": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-a98dd1d013b3": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-090662537e65": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-058b9fa7fd46": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-a3eb3977d851": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-2b966ca79135": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-40c05f64ea9e": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-cc26220f92ce": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-2c1f91c69565": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-4366aa10c97a": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-03b78c675fa6": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-ac55f43b8b3c": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-a5f0b1ca3bac": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-01fd95f79aee": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-efb181e02011": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-f9c9286c95a0": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-75040773319b": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-6292f0f4d118": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-8dc9178aeae3": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-fdfc480409cd": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-43533b01d2ec": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-841f5ea88405": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-d9f3dd4f211a": {
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30,
+        "sample_count": 1400
+      },
+      "v622-frontier-eb88505710c2": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v622-frontier-a4460ddaa2f2": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v622-frontier-192d5e4d728c": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v622-frontier-2b7859e4f5dd": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v622-frontier-42c31b893c8c": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v622-frontier-83936d719de2": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v622-frontier-cac85e2b0946": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v622-frontier-81831974aa98": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v622-frontier-8142f8940bc6": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v622-frontier-28930824f1fa": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-337c13a58e1f": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-c3b0b61b1c0d": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-b5ffba905ca6": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-105bc04d86a7": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-f81117c1b0ea": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-7581df98f0e0": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-a61076b7f385": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-b8ded85a747b": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-da8af8f5c035": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-5e7a1adc9fe2": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-20716455593d": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-d2727328a6ea": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-7932e8a10cd2": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.35,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-99e8c0a28def": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-2403b2e77e96": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-bc7e22927b03": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-e3a7b2802ad4": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-c0b7503fb679": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-76ea7a0498cd": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-269e8dc3bba9": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-4d6561e1c916": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-a830b493df39": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-e27822702ab7": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-e51ed04746ea": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-eb2ef8d14773": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-d226aa047a9d": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-f01435c64464": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-afe677e31c32": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-9ae1dfebcafe": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.0,
+        "aperture_margin": 0.25,
+        "offset_iterations": 30
+      },
+      "v62111-pace-ba3b83f1d3ec": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-44ad60973fb3": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-dfbc3affbccd": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-b96209a14057": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-bd149c7feb55": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-457382b19b36": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-e7be46de9e6c": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-147918fe8b36": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-2371403856de": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-f965b2d45847": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-039e72ff3bd5": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-fc6218ece7af": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-f4316ebe1244": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-02ea15feda47": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-275b757e8839": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-ac1812e49d30": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-0151120fb0ad": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-960821eb1f36": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-51bae24d14b1": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-739c9b541564": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-d59da3ec5b74": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-a11cf64930d8": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.35,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-28b7d570356a": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-a37d8e26cde0": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-0a132f49475f": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-47289a268f8c": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-090662537e65": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-dfe5af7f5549": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-40c05f64ea9e": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-dca9d21b4fde": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-8142f8940bc6": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.35,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-28930824f1fa": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.35,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      },
+      "v62111-pace-8128375d9241": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-9f5059c0c5de": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-c794db83196e": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.2,
+        "aperture_margin": 0.18,
+        "offset_iterations": 30
+      },
+      "v62111-pace-d0aa3c5eee1c": {
+        "sample_count": 1400,
+        "aperture_fraction": 0.28,
+        "aperture_margin": 0.12,
+        "offset_iterations": 40
+      }
+    },
+    "mpcc_manifest_teacher_profile_controller_configs": {
+      "baseline": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2,
+        "nominal_speed": 16.5
+      },
+      "swift16": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 25.0,
+        "maximum_acceleration": 26.0,
+        "maximum_longitudinal_acceleration": 18.0,
+        "maximum_braking_acceleration": 20.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 12.0,
+        "body_rate_slew_limit": 4.5,
+        "corridor_margin": 0.19,
+        "nominal_speed": 16.5
+      },
+      "swift17": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 26.0,
+        "maximum_acceleration": 28.0,
+        "maximum_longitudinal_acceleration": 20.0,
+        "maximum_braking_acceleration": 22.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 13.0,
+        "body_rate_slew_limit": 4.8,
+        "corridor_margin": 0.18,
+        "nominal_speed": 17.0
+      },
+      "swift18": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 27.0,
+        "maximum_acceleration": 30.0,
+        "maximum_longitudinal_acceleration": 22.0,
+        "maximum_braking_acceleration": 24.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 14.0,
+        "body_rate_slew_limit": 5.0,
+        "corridor_margin": 0.17,
+        "nominal_speed": 18.0
+      },
+      "v622-frontier-7caee001a73a": {
+        "body_rate_slew_limit": 6.0,
+        "collective_slew_limit": 16.0,
+        "corridor_margin": 0.15,
+        "max_progress_speed": 30.0,
+        "maximum_acceleration": 30.0,
+        "maximum_braking_acceleration": 26.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 24.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-2d258f4cf407": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-9f0773187d28": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-ef4ebcc38c05": {
+        "body_rate_slew_limit": 8.0,
+        "collective_slew_limit": 24.0,
+        "corridor_margin": 0.12,
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 40.0,
+        "maximum_braking_acceleration": 36.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 34.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-679514dc422d": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-8ffda4f12774": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-9f5059c0c5de": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-8128375d9241": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-52590a5d4e7a": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-11e73e398918": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-f35fdea09b39": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-56ba53ed9383": {
+        "body_rate_slew_limit": 6.0,
+        "collective_slew_limit": 16.0,
+        "corridor_margin": 0.15,
+        "max_progress_speed": 30.0,
+        "maximum_acceleration": 30.0,
+        "maximum_braking_acceleration": 26.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 24.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-c794db83196e": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-4b22228849cd": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-25f0aebcc840": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-d0aa3c5eee1c": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-a11cf64930d8": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-28b7d570356a": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-0a132f49475f": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-51bae24d14b1": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-a37d8e26cde0": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-0151120fb0ad": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-47289a268f8c": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-739c9b541564": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-d59da3ec5b74": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-960821eb1f36": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-dca9d21b4fde": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-dfe5af7f5549": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-a98dd1d013b3": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-090662537e65": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-058b9fa7fd46": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-a3eb3977d851": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-2b966ca79135": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-40c05f64ea9e": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-cc26220f92ce": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-2c1f91c69565": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-4366aa10c97a": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-03b78c675fa6": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-ac55f43b8b3c": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-a5f0b1ca3bac": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-01fd95f79aee": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-efb181e02011": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-f9c9286c95a0": {
+        "body_rate_slew_limit": 6.0,
+        "collective_slew_limit": 16.0,
+        "corridor_margin": 0.15,
+        "max_progress_speed": 30.0,
+        "maximum_acceleration": 30.0,
+        "maximum_braking_acceleration": 26.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 24.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-75040773319b": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-6292f0f4d118": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-8dc9178aeae3": {
+        "body_rate_slew_limit": 6.0,
+        "collective_slew_limit": 16.0,
+        "corridor_margin": 0.15,
+        "max_progress_speed": 30.0,
+        "maximum_acceleration": 30.0,
+        "maximum_braking_acceleration": 26.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 24.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-fdfc480409cd": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-43533b01d2ec": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-841f5ea88405": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-d9f3dd4f211a": {
+        "body_rate_slew_limit": 4.0,
+        "collective_slew_limit": 10.0,
+        "corridor_margin": 0.2,
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "progress_reference_mode": "profile"
+      },
+      "v622-frontier-eb88505710c2": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v622-frontier-a4460ddaa2f2": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v622-frontier-192d5e4d728c": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v622-frontier-2b7859e4f5dd": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 30.0,
+        "maximum_acceleration": 30.0,
+        "maximum_longitudinal_acceleration": 24.0,
+        "maximum_braking_acceleration": 26.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 16.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15
+      },
+      "v622-frontier-42c31b893c8c": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v622-frontier-83936d719de2": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v622-frontier-cac85e2b0946": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v622-frontier-81831974aa98": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v622-frontier-8142f8940bc6": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v622-frontier-28930824f1fa": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v62111-pace-337c13a58e1f": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 25.0,
+        "maximum_acceleration": 26.0,
+        "maximum_longitudinal_acceleration": 18.0,
+        "maximum_braking_acceleration": 20.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 12.0,
+        "body_rate_slew_limit": 4.5,
+        "corridor_margin": 0.19,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-c3b0b61b1c0d": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 25.0,
+        "maximum_acceleration": 28.6,
+        "maximum_longitudinal_acceleration": 19.8,
+        "maximum_braking_acceleration": 22.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 13.200000000000001,
+        "body_rate_slew_limit": 4.95,
+        "corridor_margin": 0.19,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-b5ffba905ca6": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15,
+        "nominal_speed": 18.0
+      },
+      "v62111-pace-105bc04d86a7": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 26.0,
+        "maximum_acceleration": 28.0,
+        "maximum_longitudinal_acceleration": 20.0,
+        "maximum_braking_acceleration": 22.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 13.0,
+        "body_rate_slew_limit": 4.8,
+        "corridor_margin": 0.18,
+        "nominal_speed": 17.0
+      },
+      "v62111-pace-f81117c1b0ea": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 27.0,
+        "maximum_acceleration": 30.0,
+        "maximum_longitudinal_acceleration": 22.0,
+        "maximum_braking_acceleration": 24.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 14.0,
+        "body_rate_slew_limit": 5.0,
+        "corridor_margin": 0.17,
+        "nominal_speed": 18.0
+      },
+      "v62111-pace-7581df98f0e0": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15,
+        "nominal_speed": 18.0
+      },
+      "v62111-pace-a61076b7f385": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 26.0,
+        "maximum_acceleration": 28.0,
+        "maximum_longitudinal_acceleration": 20.0,
+        "maximum_braking_acceleration": 22.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 13.0,
+        "body_rate_slew_limit": 4.8,
+        "corridor_margin": 0.18,
+        "nominal_speed": 17.0
+      },
+      "v62111-pace-b8ded85a747b": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15,
+        "nominal_speed": 18.0
+      },
+      "v62111-pace-da8af8f5c035": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-5e7a1adc9fe2": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 25.0,
+        "maximum_acceleration": 26.0,
+        "maximum_longitudinal_acceleration": 18.0,
+        "maximum_braking_acceleration": 20.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 12.0,
+        "body_rate_slew_limit": 4.5,
+        "corridor_margin": 0.19,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-20716455593d": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-d2727328a6ea": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15,
+        "nominal_speed": 18.0
+      },
+      "v62111-pace-7932e8a10cd2": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 40.0,
+        "maximum_longitudinal_acceleration": 34.0,
+        "maximum_braking_acceleration": 36.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 24.0,
+        "body_rate_slew_limit": 8.0,
+        "corridor_margin": 0.12,
+        "nominal_speed": 18.0
+      },
+      "v62111-pace-99e8c0a28def": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-2403b2e77e96": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 26.0,
+        "maximum_acceleration": 28.0,
+        "maximum_longitudinal_acceleration": 20.0,
+        "maximum_braking_acceleration": 22.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 13.0,
+        "body_rate_slew_limit": 4.8,
+        "corridor_margin": 0.18,
+        "nominal_speed": 17.0
+      },
+      "v62111-pace-bc7e22927b03": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15,
+        "nominal_speed": 18.0
+      },
+      "v62111-pace-e3a7b2802ad4": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15,
+        "nominal_speed": 17.0
+      },
+      "v62111-pace-c0b7503fb679": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 26.0,
+        "maximum_acceleration": 28.0,
+        "maximum_longitudinal_acceleration": 20.0,
+        "maximum_braking_acceleration": 22.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 13.0,
+        "body_rate_slew_limit": 4.8,
+        "corridor_margin": 0.18,
+        "nominal_speed": 17.0
+      },
+      "v62111-pace-76ea7a0498cd": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15,
+        "nominal_speed": 18.0
+      },
+      "v62111-pace-269e8dc3bba9": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 27.0,
+        "maximum_acceleration": 33.0,
+        "maximum_longitudinal_acceleration": 24.200000000000003,
+        "maximum_braking_acceleration": 26.400000000000002,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 15.400000000000002,
+        "body_rate_slew_limit": 5.5,
+        "corridor_margin": 0.17,
+        "nominal_speed": 18.0
+      },
+      "v62111-pace-4d6561e1c916": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 27.0,
+        "maximum_acceleration": 33.0,
+        "maximum_longitudinal_acceleration": 24.200000000000003,
+        "maximum_braking_acceleration": 26.400000000000002,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 15.400000000000002,
+        "body_rate_slew_limit": 5.5,
+        "corridor_margin": 0.17,
+        "nominal_speed": 18.0
+      },
+      "v62111-pace-a830b493df39": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15,
+        "nominal_speed": 18.0
+      },
+      "v62111-pace-e27822702ab7": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 26.0,
+        "maximum_acceleration": 30.800000000000004,
+        "maximum_longitudinal_acceleration": 22.0,
+        "maximum_braking_acceleration": 24.200000000000003,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 14.3,
+        "body_rate_slew_limit": 5.28,
+        "corridor_margin": 0.18,
+        "nominal_speed": 17.0
+      },
+      "v62111-pace-e51ed04746ea": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 26.0,
+        "maximum_acceleration": 30.800000000000004,
+        "maximum_longitudinal_acceleration": 22.0,
+        "maximum_braking_acceleration": 24.200000000000003,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 14.3,
+        "body_rate_slew_limit": 5.28,
+        "corridor_margin": 0.18,
+        "nominal_speed": 17.0
+      },
+      "v62111-pace-eb2ef8d14773": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 25.0,
+        "maximum_acceleration": 28.6,
+        "maximum_longitudinal_acceleration": 19.8,
+        "maximum_braking_acceleration": 22.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 13.200000000000001,
+        "body_rate_slew_limit": 4.95,
+        "corridor_margin": 0.19,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-d226aa047a9d": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 27.0,
+        "maximum_acceleration": 33.0,
+        "maximum_longitudinal_acceleration": 24.200000000000003,
+        "maximum_braking_acceleration": 26.400000000000002,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 15.400000000000002,
+        "body_rate_slew_limit": 5.5,
+        "corridor_margin": 0.17,
+        "nominal_speed": 18.0
+      },
+      "v62111-pace-f01435c64464": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 27.0,
+        "maximum_acceleration": 30.0,
+        "maximum_longitudinal_acceleration": 22.0,
+        "maximum_braking_acceleration": 24.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 14.0,
+        "body_rate_slew_limit": 5.0,
+        "corridor_margin": 0.17,
+        "nominal_speed": 18.0
+      },
+      "v62111-pace-afe677e31c32": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-9ae1dfebcafe": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-ba3b83f1d3ec": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15,
+        "nominal_speed": 17.0
+      },
+      "v62111-pace-44ad60973fb3": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 25.0,
+        "maximum_acceleration": 28.6,
+        "maximum_longitudinal_acceleration": 19.8,
+        "maximum_braking_acceleration": 22.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 13.200000000000001,
+        "body_rate_slew_limit": 4.95,
+        "corridor_margin": 0.19,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-dfbc3affbccd": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15,
+        "nominal_speed": 18.0
+      },
+      "v62111-pace-b96209a14057": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 27.0,
+        "maximum_acceleration": 30.0,
+        "maximum_longitudinal_acceleration": 22.0,
+        "maximum_braking_acceleration": 24.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 14.0,
+        "body_rate_slew_limit": 5.0,
+        "corridor_margin": 0.17,
+        "nominal_speed": 18.0
+      },
+      "v62111-pace-bd149c7feb55": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 26.0,
+        "maximum_acceleration": 30.800000000000004,
+        "maximum_longitudinal_acceleration": 22.0,
+        "maximum_braking_acceleration": 24.200000000000003,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 14.3,
+        "body_rate_slew_limit": 5.28,
+        "corridor_margin": 0.18,
+        "nominal_speed": 17.0
+      },
+      "v62111-pace-457382b19b36": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15,
+        "nominal_speed": 18.0
+      },
+      "v62111-pace-e7be46de9e6c": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-147918fe8b36": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-2371403856de": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-f965b2d45847": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-039e72ff3bd5": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 26.400000000000002,
+        "maximum_longitudinal_acceleration": 17.6,
+        "maximum_braking_acceleration": 19.8,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 11.0,
+        "body_rate_slew_limit": 4.4,
+        "corridor_margin": 0.2,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-fc6218ece7af": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-f4316ebe1244": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-02ea15feda47": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 26.400000000000002,
+        "maximum_longitudinal_acceleration": 17.6,
+        "maximum_braking_acceleration": 19.8,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 11.0,
+        "body_rate_slew_limit": 4.4,
+        "corridor_margin": 0.2,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-275b757e8839": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-ac1812e49d30": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15,
+        "nominal_speed": 16.5
+      },
+      "v62111-pace-0151120fb0ad": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v62111-pace-960821eb1f36": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 26.400000000000002,
+        "maximum_longitudinal_acceleration": 17.6,
+        "maximum_braking_acceleration": 19.8,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 11.0,
+        "body_rate_slew_limit": 4.4,
+        "corridor_margin": 0.2
+      },
+      "v62111-pace-51bae24d14b1": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v62111-pace-739c9b541564": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15
+      },
+      "v62111-pace-d59da3ec5b74": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v62111-pace-a11cf64930d8": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 40.0,
+        "maximum_longitudinal_acceleration": 34.0,
+        "maximum_braking_acceleration": 36.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 24.0,
+        "body_rate_slew_limit": 8.0,
+        "corridor_margin": 0.12
+      },
+      "v62111-pace-28b7d570356a": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v62111-pace-a37d8e26cde0": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15
+      },
+      "v62111-pace-0a132f49475f": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v62111-pace-47289a268f8c": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v62111-pace-090662537e65": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15
+      },
+      "v62111-pace-dfe5af7f5549": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15
+      },
+      "v62111-pace-40c05f64ea9e": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v62111-pace-dca9d21b4fde": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15
+      },
+      "v62111-pace-8142f8940bc6": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 40.0,
+        "maximum_longitudinal_acceleration": 34.0,
+        "maximum_braking_acceleration": 36.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 24.0,
+        "body_rate_slew_limit": 8.0,
+        "corridor_margin": 0.12
+      },
+      "v62111-pace-28930824f1fa": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 40.0,
+        "maximum_longitudinal_acceleration": 34.0,
+        "maximum_braking_acceleration": 36.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 24.0,
+        "body_rate_slew_limit": 8.0,
+        "corridor_margin": 0.12
+      },
+      "v62111-pace-8128375d9241": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v62111-pace-9f5059c0c5de": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v62111-pace-c794db83196e": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 24.0,
+        "maximum_acceleration": 24.0,
+        "maximum_longitudinal_acceleration": 16.0,
+        "maximum_braking_acceleration": 18.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 10.0,
+        "body_rate_slew_limit": 4.0,
+        "corridor_margin": 0.2
+      },
+      "v62111-pace-d0aa3c5eee1c": {
+        "progress_reference_mode": "profile",
+        "max_progress_speed": 41.0,
+        "maximum_acceleration": 34.0,
+        "maximum_longitudinal_acceleration": 26.0,
+        "maximum_braking_acceleration": 28.0,
+        "maximum_collective_thrust": 40.0,
+        "collective_slew_limit": 18.0,
+        "body_rate_slew_limit": 6.0,
+        "corridor_margin": 0.15
+      }
+    },
+    "dagger_learning_rate_schedule": {
+      "type": "constant"
+    },
+    "dagger_overlap_teacher_inference": true,
+    "dagger_host_inference_graph": true,
+    "dagger_packed_transport": true,
+    "dagger_lazy_teacher_actions": true,
+    "mpcc_native_model_step": true,
+    "mpcc_native_reference": true,
+    "mpcc_native_projection": true,
+    "mpcc_cache_runtime_vehicle": true,
+    "dagger_fast_group_statistics": true,
+    "dagger_static_group_statistics": true,
+    "dagger_capture_updates": true,
+    "dagger_chunked_labels": true,
+    "dagger_packed_update_transfer": false,
+    "defer_update_metrics": true,
+    "evaluation_envs_per_worker": 6,
+    "host_evaluation_graph": true,
+    "current_route_projection_only": false,
+    "collection_compact_observation": true,
+    "native_vector_step": true,
+    "native_vector_threads": 1,
+    "dagger_async_pipeline": true,
+    "dagger_event_inference": true,
+    "dagger_pipeline_max_handoff_bytes": 2147483648,
+    "dagger_pipeline_timeout_seconds": 900,
+    "evaluation_suite_manifest": "/workspace/outputs/diagnostics/mini-slalom-aug2/validation-suite.json",
+    "evaluation_suite_sha256": "742453551fb8b0279e422920ffdc2dc34006789a904bb62e64418994007dff19",
+    "evaluation_suite_episodes_per_track": 4,
+    "dagger_completion_survival_selection": false,
+    "evaluation_fixed_start_gate_index": 0,
+    "evaluation_suite_track_slots": {
+      "/workspace/starscream/assets/tracks/v622/real100-hard/a2rl_s2_2026_source_consistent_v2_arena1.yaml": "a2rl_s2_2026_source_consistent_v2",
+      "/workspace/starscream/assets/tracks/v622/real100-hard/multigp_utt08_revenge.yaml": "multigp_utt08_revenge",
+      "/workspace/starscream/assets/tracks/v622/real100-hard-v2/v622_hard_v2b_wrong_side_incidence_015_15.yaml": "real100-hard-001",
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_long_low_004_055_mirror1.yaml": "real100-hard-004",
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_ordered_3d_006_019_mirror1.yaml": "real100-hard-006",
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_slalom_010_024_mirror1.yaml": "real100-hard-010",
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_hairpin_chain_011_011.yaml": "real100-hard-011",
+      "/workspace/starscream/assets/tracks/v622/clearance-v1/v622_hard_v2b_vertical_chain_011_02.yaml": "real100-hard-015",
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_slalom_019_012.yaml": "real100-hard-019",
+      "/workspace/starscream/assets/tracks/v622/real100-hard-v2/v622_hard_v2b_long_low_braking_000_20.yaml": "real100-hard-026",
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_flow_027_057_mirror1.yaml": "real100-hard-027",
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_diving_hairpin_030_017_mirror1.yaml": "real100-hard-030",
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_long_braking_032_010_arena1_mirror1.yaml": "real100-hard-032",
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_go_around_053_033.yaml": "real100-hard-053",
+      "/workspace/starscream/assets/tracks/v622/real100-hard-v2/v622_hard_v2b_wrong_side_incidence_017_12.yaml": "real100-hard-056",
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_long_low_058_007_arena1_mirror1.yaml": "real100-hard-058",
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_flow_063_020_mirror1.yaml": "real100-hard-063",
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_diving_hairpin_066_056_mirror1.yaml": "real100-hard-066",
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_stacked_reversal_070_055.yaml": "real100-hard-070",
+      "/workspace/starscream/assets/tracks/v622/clearance-v1/v622_hard_v2b_compound_reversal_024_05.yaml": "real100-hard-072",
+      "/workspace/starscream/assets/tracks/v622/real100-hard-v2/v622_hard_v2b_vertical_chain_013_00.yaml": "real100-hard-073",
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_hairpin_chain_074_056.yaml": "real100-hard-074",
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_long_braking_077_045_arena1_mirror1.yaml": "real100-hard-077",
+      "/workspace/starscream/assets/tracks/v622/real100-hard-v2/v622_hard_v2b_radius_switch_028_15.yaml": "real100-hard-079",
+      "/workspace/starscream/assets/tracks/v622/real100-hard-v2/v622_hard_v2b_long_low_braking_006_00.yaml": "real100-hard-089"
+    },
+    "evaluation_suite_names": {
+      "a2rl_s2_2026_source_consistent_v2_arena1": "public_reference",
+      "multigp_utt08_revenge": "public_reference",
+      "v622_hard_v2b_wrong_side_incidence_015_15": "behavior:wrong_side_incidence",
+      "v622_hard_long_low_004_055_mirror1": "long_low",
+      "v622_hard_ordered_3d_006_019_mirror1": "ordered_3d",
+      "v622_hard_slalom_010_024_mirror1": "slalom",
+      "v622_hard_hairpin_chain_011_011": "hairpin_chain",
+      "v622_hard_v2b_vertical_chain_011_02": "behavior:vertical_chain",
+      "v622_hard_slalom_019_012": "slalom",
+      "v622_hard_v2b_long_low_braking_000_20": "behavior:long_low_braking",
+      "v622_hard_flow_027_057_mirror1": "flow",
+      "v622_hard_diving_hairpin_030_017_mirror1": "diving_hairpin",
+      "v622_hard_long_braking_032_010_arena1_mirror1": "long_braking",
+      "v622_hard_go_around_053_033": "go_around",
+      "v622_hard_v2b_wrong_side_incidence_017_12": "behavior:wrong_side_incidence",
+      "v622_hard_long_low_058_007_arena1_mirror1": "long_low",
+      "v622_hard_flow_063_020_mirror1": "flow",
+      "v622_hard_diving_hairpin_066_056_mirror1": "diving_hairpin",
+      "v622_hard_stacked_reversal_070_055": "stacked_reversal",
+      "v622_hard_v2b_compound_reversal_024_05": "behavior:compound_reversal",
+      "v622_hard_v2b_vertical_chain_013_00": "behavior:vertical_chain",
+      "v622_hard_hairpin_chain_074_056": "hairpin_chain",
+      "v622_hard_long_braking_077_045_arena1_mirror1": "long_braking",
+      "v622_hard_v2b_radius_switch_028_15": "behavior:radius_switch",
+      "v622_hard_v2b_long_low_braking_006_00": "behavior:long_low_braking"
+    },
+    "evaluation_suite_family_weights": {
+      "flow": 0.08,
+      "behavior:wrong_side_incidence": 0.06,
+      "behavior:compound_reversal": 0.05,
+      "diving_hairpin": 0.08,
+      "long_low": 0.1,
+      "long_braking": 0.09,
+      "ordered_3d": 0.05,
+      "behavior:radius_switch": 0.05,
+      "behavior:long_low_braking": 0.08,
+      "slalom": 0.08,
+      "hairpin_chain": 0.06,
+      "behavior:vertical_chain": 0.06,
+      "stacked_reversal": 0.05,
+      "go_around": 0.03,
+      "public_reference": 0.08
+    },
+    "evaluation_track_speed_commands": {
+      "/workspace/starscream/assets/tracks/v622/real100-hard/a2rl_s2_2026_source_consistent_v2_arena1.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard/multigp_utt08_revenge.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard-v2/v622_hard_v2b_wrong_side_incidence_015_15.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_long_low_004_055_mirror1.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_ordered_3d_006_019_mirror1.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_slalom_010_024_mirror1.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_hairpin_chain_011_011.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/clearance-v1/v622_hard_v2b_vertical_chain_011_02.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_slalom_019_012.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard-v2/v622_hard_v2b_long_low_braking_000_20.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_flow_027_057_mirror1.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_diving_hairpin_030_017_mirror1.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_long_braking_032_010_arena1_mirror1.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_go_around_053_033.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard-v2/v622_hard_v2b_wrong_side_incidence_017_12.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_long_low_058_007_arena1_mirror1.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_flow_063_020_mirror1.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_diving_hairpin_066_056_mirror1.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_stacked_reversal_070_055.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/clearance-v1/v622_hard_v2b_compound_reversal_024_05.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard-v2/v622_hard_v2b_vertical_chain_013_00.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_hairpin_chain_074_056.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard/v622_hard_long_braking_077_045_arena1_mirror1.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard-v2/v622_hard_v2b_radius_switch_028_15.yaml": 16.5,
+      "/workspace/starscream/assets/tracks/v622/real100-hard-v2/v622_hard_v2b_long_low_braking_006_00.yaml": 16.5
+    },
+    "evaluation_manifest_speed_scale": 1.0,
+    "evaluation_suite_resolved_sha256": "a9ad89143613042baa1828059415f834e4b69c76708595b47c63309243bbccbb",
+    "evaluation_clean_deadlines": {
+      "v622_hard_slalom_010_024_mirror1": 1515,
+      "v622_hard_slalom_019_012": 1896,
+      "named_aug_family_validation_10_slalom_001_2036093920": 1264,
+      "named_aug_family_validation_4_slalom_000_2037092914": 982,
+      "named_aug_family_validation_4_slalom_001_2037093923": 975
+    },
+    "ppo_reference_aware_gate_events": true,
+    "previous_action_feature_mapping": "configured_action_contract",
+    "action_dimension_weights": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "dagger_fresh_loss_rows": 4096,
+    "dagger_log_teacher_controller_modes": true,
+    "dagger_collection_control": {
+      "version": 1,
+      "recovery_control": "none",
+      "segment_gates": [
+        2,
+        4
+      ],
+      "nominal_distance": 0.75,
+      "intervention_distance": 1.5,
+      "maximum_distance": 5.0,
+      "no_progress_seconds": 6.0,
+      "recovery_seconds": 4.0,
+      "recovery_gate_passes": 2,
+      "plane_tolerance": 0.75
+    }
+  },
+  "checkpoint": {
+    "run_name": "starscream-collection-next-d_equal_axes-r24",
+    "monitor": "selection_suite_timely_success",
+    "mode": "max",
+    "top_k": 1
+  },
+  "wandb": {
+    "enabled": true,
+    "mode": "online",
+    "project": "starscream",
+    "train_metric_allowlist": [
+      "round",
+      "loss",
+      "action_loss",
+      "physical_action_loss",
+      "dynamics_loss",
+      "group_loss_mean",
+      "group_loss_max",
+      "group_loss_std",
+      "new_labels",
+      "online_replay",
+      "permanent_expert_replay",
+      "teacher_valid_fraction",
+      "teacher_solver_failure_fraction",
+      "teacher_execution_fraction",
+      "successful_episode_label_fraction",
+      "targeted_start_episode_fraction",
+      "environment_steps",
+      "environment_steps_per_second",
+      "round_seconds",
+      "collection_seconds",
+      "collection_wait_seconds",
+      "updates_seconds",
+      "evaluation_seconds",
+      "replay_prepare_seconds",
+      "replay_persisted_round",
+      "new_online_replay_retention_fraction",
+      "learning_rate",
+      "safety_rollback",
+      "memory_available_gib",
+      "swap_used_gib",
+      "memory_swap_in_bytes_per_second",
+      "memory_swap_out_bytes_per_second",
+      "sampling_plan*",
+      "dynamic_sampler_active",
+      "dynamic_sampler_priority_entropy",
+      "dynamic_sampler_multiplier_min",
+      "dynamic_sampler_multiplier_max",
+      "dynamic_sampler_competence_mean",
+      "dynamic_sampler_behavior_*",
+      "collection_last_call_host/pipeline_*",
+      "collection_last_call_host/inference_*",
+      "collection_last_call_host/wait_seconds",
+      "pipeline_discard_wait_seconds"
+    ],
+    "eval_metric_allowlist": [
+      "selection_suite_success",
+      "selection_suite_timely_success",
+      "selection_suite_clean_success",
+      "selection_suite_clean_timely_success",
+      "full_course_success",
+      "crash_rate",
+      "mean_gates",
+      "mean_steps",
+      "dagger_policy_version"
+    ],
+    "run_name": "starscream-collection-next-d_equal_axes-r24",
+    "group": "collection-next-20260929",
+    "local_event_path": "/workspace/outputs/logs/starscream-collection-next-d_equal_axes-r24.events.jsonl",
+    "tags": [
+      "v6.21.1.1",
+      "scratch",
+      "plant-privileged",
+      "async-dagger",
+      "selection25",
+      "real100-behavior-feedback",
+      "mpcc-pace-tuned"
+    ],
+    "event_path": null,
+    "local_full_event_path": "/workspace/outputs/logs/starscream-collection-next-d_equal_axes-r24.full.events.jsonl",
+    "name": "starscream-collection-next-d_equal_axes-r24",
+    "env_file": "/workspace/.env"
+  },
+  "ablation_next": {
+    "description": "D collection with equal action-axis weights",
+    "seed": 2026092913,
+    "retention": "One best timely checkpoint and latest; replay retained during run, latest three plus permanent shards after completion"
+  }
+}

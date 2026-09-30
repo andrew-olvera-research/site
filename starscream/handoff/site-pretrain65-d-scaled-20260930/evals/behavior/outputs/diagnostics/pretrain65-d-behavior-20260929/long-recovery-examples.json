@@ -1,0 +1,2827 @@
+[
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 5024,
+    "missed_crossings": 1,
+    "recovered_gates": 1,
+    "termination_reason": "success",
+    "slot": "real100-hard-055",
+    "family": "slalom",
+    "seed": 2035006365,
+    "repeat": 0,
+    "gates": 6,
+    "target_gates": 6,
+    "reference_seconds": 7.253846153846154,
+    "deadline_steps": 1414,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 71,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 228,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 413,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 651,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 752,
+        "kind": "miss",
+        "gate": 4
+      },
+      {
+        "step": 4939,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 5024,
+        "kind": "pass",
+        "gate": 5
+      }
+    ],
+    "max_completed_gate_gap_s": 32.98461538461538,
+    "max_no_pass_interval_s": 32.98461538461538,
+    "max_resolved_recovery_s": 32.207692307692305,
+    "recovery_seconds": 32.207692307692305,
+    "resolved_recoveries": 1,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 32.207692307692305,
+        "misses": 1,
+        "gate": 4
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 5450,
+    "missed_crossings": 3,
+    "recovered_gates": 2,
+    "termination_reason": "success",
+    "slot": "real100-hard-091",
+    "family": "slalom",
+    "seed": 2034114918,
+    "repeat": 23,
+    "gates": 10,
+    "target_gates": 10,
+    "reference_seconds": 7.496153846153846,
+    "deadline_steps": 1461,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 75,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 227,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 383,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 527,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 578,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 656,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 708,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 735,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 2860,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 4841,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 4877,
+        "kind": "pass",
+        "gate": 8
+      },
+      {
+        "step": 4968,
+        "kind": "miss",
+        "gate": 9
+      },
+      {
+        "step": 5450,
+        "kind": "pass",
+        "gate": 9
+      }
+    ],
+    "max_completed_gate_gap_s": 31.79230769230769,
+    "max_no_pass_interval_s": 31.79230769230769,
+    "max_resolved_recovery_s": 31.584615384615386,
+    "recovery_seconds": 35.292307692307695,
+    "resolved_recoveries": 2,
+    "repeat_miss_recoveries": 1,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 31.584615384615386,
+        "misses": 2,
+        "gate": 7
+      },
+      {
+        "seconds": 3.707692307692308,
+        "misses": 1,
+        "gate": 9
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 5450,
+    "missed_crossings": 2,
+    "recovered_gates": 2,
+    "termination_reason": "success",
+    "slot": "real100-hard-037",
+    "family": "slalom",
+    "seed": 2035039081,
+    "repeat": 11,
+    "gates": 10,
+    "target_gates": 10,
+    "reference_seconds": 8.984615384615385,
+    "deadline_steps": 1752,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 75,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 194,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 408,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 559,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 665,
+        "kind": "miss",
+        "gate": 4
+      },
+      {
+        "step": 4617,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 4685,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 4750,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 4809,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 5352,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 5438,
+        "kind": "pass",
+        "gate": 8
+      },
+      {
+        "step": 5450,
+        "kind": "pass",
+        "gate": 9
+      }
+    ],
+    "max_completed_gate_gap_s": 31.215384615384615,
+    "max_no_pass_interval_s": 31.215384615384615,
+    "max_resolved_recovery_s": 30.4,
+    "recovery_seconds": 34.57692307692307,
+    "resolved_recoveries": 2,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 30.4,
+        "misses": 1,
+        "gate": 4
+      },
+      {
+        "seconds": 4.176923076923077,
+        "misses": 1,
+        "gate": 7
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 4448,
+    "missed_crossings": 1,
+    "recovered_gates": 1,
+    "termination_reason": "success",
+    "slot": "real100-hard-055",
+    "family": "slalom",
+    "seed": 2035006377,
+    "repeat": 12,
+    "gates": 6,
+    "target_gates": 6,
+    "reference_seconds": 7.253846153846154,
+    "deadline_steps": 1414,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 75,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 229,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 429,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 660,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 709,
+        "kind": "miss",
+        "gate": 4
+      },
+      {
+        "step": 4361,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 4448,
+        "kind": "pass",
+        "gate": 5
+      }
+    ],
+    "max_completed_gate_gap_s": 28.46923076923077,
+    "max_no_pass_interval_s": 28.46923076923077,
+    "max_resolved_recovery_s": 28.092307692307692,
+    "recovery_seconds": 28.092307692307692,
+    "resolved_recoveries": 1,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 28.092307692307692,
+        "misses": 1,
+        "gate": 4
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 4593,
+    "missed_crossings": 2,
+    "recovered_gates": 2,
+    "termination_reason": "success",
+    "slot": "real100-hard-053",
+    "family": "go_around",
+    "seed": 2034928267,
+    "repeat": 17,
+    "gates": 10,
+    "target_gates": 10,
+    "reference_seconds": 8.334615384615386,
+    "deadline_steps": 1625,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 75,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 99,
+        "kind": "miss",
+        "gate": 1
+      },
+      {
+        "step": 3441,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 3526,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 3547,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 3622,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 3632,
+        "kind": "miss",
+        "gate": 5
+      },
+      {
+        "step": 4080,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 4159,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 4316,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 4492,
+        "kind": "pass",
+        "gate": 8
+      },
+      {
+        "step": 4593,
+        "kind": "pass",
+        "gate": 9
+      }
+    ],
+    "max_completed_gate_gap_s": 25.892307692307693,
+    "max_no_pass_interval_s": 25.892307692307693,
+    "max_resolved_recovery_s": 25.70769230769231,
+    "recovery_seconds": 29.153846153846153,
+    "resolved_recoveries": 2,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 25.70769230769231,
+        "misses": 1,
+        "gate": 1
+      },
+      {
+        "seconds": 3.4461538461538463,
+        "misses": 1,
+        "gate": 5
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 3878,
+    "missed_crossings": 2,
+    "recovered_gates": 1,
+    "termination_reason": "success",
+    "slot": "real100-hard-091",
+    "family": "slalom",
+    "seed": 2034114903,
+    "repeat": 8,
+    "gates": 10,
+    "target_gates": 10,
+    "reference_seconds": 7.496153846153846,
+    "deadline_steps": 1461,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 75,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 231,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 378,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 521,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 573,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 655,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 708,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 729,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 2267,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 3754,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 3793,
+        "kind": "pass",
+        "gate": 8
+      },
+      {
+        "step": 3878,
+        "kind": "pass",
+        "gate": 9
+      }
+    ],
+    "max_completed_gate_gap_s": 23.43076923076923,
+    "max_no_pass_interval_s": 23.43076923076923,
+    "max_resolved_recovery_s": 23.26923076923077,
+    "recovery_seconds": 23.26923076923077,
+    "resolved_recoveries": 1,
+    "repeat_miss_recoveries": 1,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 23.26923076923077,
+        "misses": 2,
+        "gate": 7
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 3839,
+    "missed_crossings": 1,
+    "recovered_gates": 1,
+    "termination_reason": "success",
+    "slot": "real100-hard-012",
+    "family": "diving_hairpin",
+    "seed": 2035067195,
+    "repeat": 10,
+    "gates": 8,
+    "target_gates": 8,
+    "reference_seconds": 10.646153846153846,
+    "deadline_steps": 2076,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 77,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 197,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 308,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 401,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 439,
+        "kind": "miss",
+        "gate": 4
+      },
+      {
+        "step": 3327,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 3410,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 3669,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 3839,
+        "kind": "pass",
+        "gate": 7
+      }
+    ],
+    "max_completed_gate_gap_s": 22.50769230769231,
+    "max_no_pass_interval_s": 22.50769230769231,
+    "max_resolved_recovery_s": 22.215384615384615,
+    "recovery_seconds": 22.215384615384615,
+    "resolved_recoveries": 1,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 22.215384615384615,
+        "misses": 1,
+        "gate": 4
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 4044,
+    "missed_crossings": 2,
+    "recovered_gates": 2,
+    "termination_reason": "success",
+    "slot": "real100-hard-080",
+    "family": "go_around",
+    "seed": 2035040363,
+    "repeat": 13,
+    "gates": 10,
+    "target_gates": 10,
+    "reference_seconds": 8.107692307692307,
+    "deadline_steps": 1581,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 71,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 141,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 164,
+        "kind": "miss",
+        "gate": 2
+      },
+      {
+        "step": 662,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 816,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 1003,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 1129,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 1191,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 1231,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 3927,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 3985,
+        "kind": "pass",
+        "gate": 8
+      },
+      {
+        "step": 4044,
+        "kind": "pass",
+        "gate": 9
+      }
+    ],
+    "max_completed_gate_gap_s": 21.046153846153846,
+    "max_no_pass_interval_s": 21.046153846153846,
+    "max_resolved_recovery_s": 20.73846153846154,
+    "recovery_seconds": 24.56923076923077,
+    "resolved_recoveries": 2,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 3.830769230769231,
+        "misses": 1,
+        "gate": 2
+      },
+      {
+        "seconds": 20.73846153846154,
+        "misses": 1,
+        "gate": 7
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 3452,
+    "missed_crossings": 1,
+    "recovered_gates": 1,
+    "termination_reason": "success",
+    "slot": "real100-hard-055",
+    "family": "slalom",
+    "seed": 2035006392,
+    "repeat": 27,
+    "gates": 6,
+    "target_gates": 6,
+    "reference_seconds": 7.253846153846154,
+    "deadline_steps": 1414,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 72,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 235,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 431,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 662,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 707,
+        "kind": "miss",
+        "gate": 4
+      },
+      {
+        "step": 3352,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 3452,
+        "kind": "pass",
+        "gate": 5
+      }
+    ],
+    "max_completed_gate_gap_s": 20.692307692307693,
+    "max_no_pass_interval_s": 20.692307692307693,
+    "max_resolved_recovery_s": 20.346153846153847,
+    "recovery_seconds": 20.346153846153847,
+    "resolved_recoveries": 1,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 20.346153846153847,
+        "misses": 1,
+        "gate": 4
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 4611,
+    "missed_crossings": 3,
+    "recovered_gates": 3,
+    "termination_reason": "success",
+    "slot": "real100-hard-053",
+    "family": "go_around",
+    "seed": 2034928276,
+    "repeat": 26,
+    "gates": 10,
+    "target_gates": 10,
+    "reference_seconds": 8.334615384615386,
+    "deadline_steps": 1625,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 70,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 94,
+        "kind": "miss",
+        "gate": 1
+      },
+      {
+        "step": 2685,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 2784,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 2804,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 2877,
+        "kind": "miss",
+        "gate": 4
+      },
+      {
+        "step": 3191,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 3207,
+        "kind": "miss",
+        "gate": 5
+      },
+      {
+        "step": 4109,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 4185,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 4334,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 4505,
+        "kind": "pass",
+        "gate": 8
+      },
+      {
+        "step": 4611,
+        "kind": "pass",
+        "gate": 9
+      }
+    ],
+    "max_completed_gate_gap_s": 20.115384615384617,
+    "max_no_pass_interval_s": 20.115384615384617,
+    "max_resolved_recovery_s": 19.93076923076923,
+    "recovery_seconds": 29.284615384615382,
+    "resolved_recoveries": 3,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 19.93076923076923,
+        "misses": 1,
+        "gate": 1
+      },
+      {
+        "seconds": 2.4153846153846152,
+        "misses": 1,
+        "gate": 4
+      },
+      {
+        "seconds": 6.938461538461539,
+        "misses": 1,
+        "gate": 5
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 3520,
+    "missed_crossings": 1,
+    "recovered_gates": 1,
+    "termination_reason": "success",
+    "slot": "real100-hard-045",
+    "family": "flow",
+    "seed": 2034245280,
+    "repeat": 28,
+    "gates": 15,
+    "target_gates": 15,
+    "reference_seconds": 6.788461538461538,
+    "deadline_steps": 1323,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 71,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 138,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 183,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 246,
+        "kind": "miss",
+        "gate": 3
+      },
+      {
+        "step": 2778,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 2846,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 2914,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 2961,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 3030,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 3080,
+        "kind": "pass",
+        "gate": 8
+      },
+      {
+        "step": 3143,
+        "kind": "pass",
+        "gate": 9
+      },
+      {
+        "step": 3213,
+        "kind": "pass",
+        "gate": 10
+      },
+      {
+        "step": 3291,
+        "kind": "pass",
+        "gate": 11
+      },
+      {
+        "step": 3350,
+        "kind": "pass",
+        "gate": 12
+      },
+      {
+        "step": 3441,
+        "kind": "pass",
+        "gate": 13
+      },
+      {
+        "step": 3520,
+        "kind": "pass",
+        "gate": 14
+      }
+    ],
+    "max_completed_gate_gap_s": 19.96153846153846,
+    "max_no_pass_interval_s": 19.96153846153846,
+    "max_resolved_recovery_s": 19.476923076923075,
+    "recovery_seconds": 19.476923076923075,
+    "resolved_recoveries": 1,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 19.476923076923075,
+        "misses": 1,
+        "gate": 3
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 3649,
+    "missed_crossings": 2,
+    "recovered_gates": 2,
+    "termination_reason": "success",
+    "slot": "real100-hard-037",
+    "family": "slalom",
+    "seed": 2035039089,
+    "repeat": 19,
+    "gates": 10,
+    "target_gates": 10,
+    "reference_seconds": 8.984615384615385,
+    "deadline_steps": 1752,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 70,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 184,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 395,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 543,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 644,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 731,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 806,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 882,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 1143,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 1219,
+        "kind": "pass",
+        "gate": 8
+      },
+      {
+        "step": 1227,
+        "kind": "miss",
+        "gate": 9
+      },
+      {
+        "step": 3649,
+        "kind": "pass",
+        "gate": 9
+      }
+    ],
+    "max_completed_gate_gap_s": 18.692307692307693,
+    "max_no_pass_interval_s": 18.692307692307693,
+    "max_resolved_recovery_s": 18.630769230769232,
+    "recovery_seconds": 20.63846153846154,
+    "resolved_recoveries": 2,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 2.0076923076923077,
+        "misses": 1,
+        "gate": 7
+      },
+      {
+        "seconds": 18.630769230769232,
+        "misses": 1,
+        "gate": 9
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 3457,
+    "missed_crossings": 2,
+    "recovered_gates": 2,
+    "termination_reason": "success",
+    "slot": "real100-hard-053",
+    "family": "go_around",
+    "seed": 2034928264,
+    "repeat": 14,
+    "gates": 10,
+    "target_gates": 10,
+    "reference_seconds": 8.334615384615386,
+    "deadline_steps": 1625,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 75,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 97,
+        "kind": "miss",
+        "gate": 1
+      },
+      {
+        "step": 2418,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 2506,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 2527,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 2616,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 2628,
+        "kind": "miss",
+        "gate": 5
+      },
+      {
+        "step": 2947,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 3035,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 3186,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 3365,
+        "kind": "pass",
+        "gate": 8
+      },
+      {
+        "step": 3457,
+        "kind": "pass",
+        "gate": 9
+      }
+    ],
+    "max_completed_gate_gap_s": 18.023076923076925,
+    "max_no_pass_interval_s": 18.023076923076925,
+    "max_resolved_recovery_s": 17.853846153846153,
+    "recovery_seconds": 20.307692307692307,
+    "resolved_recoveries": 2,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 17.853846153846153,
+        "misses": 1,
+        "gate": 1
+      },
+      {
+        "seconds": 2.453846153846154,
+        "misses": 1,
+        "gate": 5
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 3258,
+    "missed_crossings": 1,
+    "recovered_gates": 1,
+    "termination_reason": "success",
+    "slot": "real100-hard-015",
+    "family": "behavior:vertical_chain",
+    "seed": 2034993785,
+    "repeat": 16,
+    "gates": 8,
+    "target_gates": 8,
+    "reference_seconds": 14.907692307692308,
+    "deadline_steps": 2907,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 73,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 283,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 462,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 602,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 766,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 886,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 946,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 984,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 3258,
+        "kind": "pass",
+        "gate": 7
+      }
+    ],
+    "max_completed_gate_gap_s": 17.784615384615385,
+    "max_no_pass_interval_s": 17.784615384615385,
+    "max_resolved_recovery_s": 17.49230769230769,
+    "recovery_seconds": 17.49230769230769,
+    "resolved_recoveries": 1,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 17.49230769230769,
+        "misses": 1,
+        "gate": 7
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 4374,
+    "missed_crossings": 2,
+    "recovered_gates": 2,
+    "termination_reason": "success",
+    "slot": "real100-hard-006",
+    "family": "ordered_3d",
+    "seed": 2034777457,
+    "repeat": 23,
+    "gates": 9,
+    "target_gates": 9,
+    "reference_seconds": 8.076923076923077,
+    "deadline_steps": 1575,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 74,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 193,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 330,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 420,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 495,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 547,
+        "kind": "miss",
+        "gate": 5
+      },
+      {
+        "step": 2802,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 2850,
+        "kind": "miss",
+        "gate": 6
+      },
+      {
+        "step": 4086,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 4276,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 4374,
+        "kind": "pass",
+        "gate": 8
+      }
+    ],
+    "max_completed_gate_gap_s": 17.746153846153845,
+    "max_no_pass_interval_s": 17.746153846153845,
+    "max_resolved_recovery_s": 17.346153846153847,
+    "recovery_seconds": 26.853846153846156,
+    "resolved_recoveries": 2,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 17.346153846153847,
+        "misses": 1,
+        "gate": 5
+      },
+      {
+        "seconds": 9.507692307692308,
+        "misses": 1,
+        "gate": 6
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 3645,
+    "missed_crossings": 2,
+    "recovered_gates": 2,
+    "termination_reason": "success",
+    "slot": "real100-hard-019",
+    "family": "slalom",
+    "seed": 2034482177,
+    "repeat": 23,
+    "gates": 10,
+    "target_gates": 10,
+    "reference_seconds": 9.726923076923077,
+    "deadline_steps": 1896,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 72,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 247,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 388,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 576,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 635,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 675,
+        "kind": "miss",
+        "gate": 5
+      },
+      {
+        "step": 1025,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 1099,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 1261,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 1342,
+        "kind": "pass",
+        "gate": 8
+      },
+      {
+        "step": 1394,
+        "kind": "miss",
+        "gate": 9
+      },
+      {
+        "step": 3645,
+        "kind": "pass",
+        "gate": 9
+      }
+    ],
+    "max_completed_gate_gap_s": 17.715384615384615,
+    "max_no_pass_interval_s": 17.715384615384615,
+    "max_resolved_recovery_s": 17.315384615384616,
+    "recovery_seconds": 20.00769230769231,
+    "resolved_recoveries": 2,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 2.6923076923076925,
+        "misses": 1,
+        "gate": 5
+      },
+      {
+        "seconds": 17.315384615384616,
+        "misses": 1,
+        "gate": 9
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 3185,
+    "missed_crossings": 1,
+    "recovered_gates": 1,
+    "termination_reason": "success",
+    "slot": "real100-hard-012",
+    "family": "diving_hairpin",
+    "seed": 2035067190,
+    "repeat": 5,
+    "gates": 8,
+    "target_gates": 8,
+    "reference_seconds": 10.646153846153846,
+    "deadline_steps": 2076,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 74,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 194,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 304,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 393,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 436,
+        "kind": "miss",
+        "gate": 4
+      },
+      {
+        "step": 2664,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 2766,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 3020,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 3185,
+        "kind": "pass",
+        "gate": 7
+      }
+    ],
+    "max_completed_gate_gap_s": 17.46923076923077,
+    "max_no_pass_interval_s": 17.46923076923077,
+    "max_resolved_recovery_s": 17.138461538461538,
+    "recovery_seconds": 17.138461538461538,
+    "resolved_recoveries": 1,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 17.138461538461538,
+        "misses": 1,
+        "gate": 4
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 2977,
+    "missed_crossings": 1,
+    "recovered_gates": 1,
+    "termination_reason": "success",
+    "slot": "real100-hard-055",
+    "family": "slalom",
+    "seed": 2035006373,
+    "repeat": 8,
+    "gates": 6,
+    "target_gates": 6,
+    "reference_seconds": 7.253846153846154,
+    "deadline_steps": 1414,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 70,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 231,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 397,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 635,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 701,
+        "kind": "miss",
+        "gate": 4
+      },
+      {
+        "step": 2901,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 2977,
+        "kind": "pass",
+        "gate": 5
+      }
+    ],
+    "max_completed_gate_gap_s": 17.43076923076923,
+    "max_no_pass_interval_s": 17.43076923076923,
+    "max_resolved_recovery_s": 16.923076923076923,
+    "recovery_seconds": 16.923076923076923,
+    "resolved_recoveries": 1,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 16.923076923076923,
+        "misses": 1,
+        "gate": 4
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 3590,
+    "missed_crossings": 2,
+    "recovered_gates": 2,
+    "termination_reason": "success",
+    "slot": "real100-hard-027",
+    "family": "flow",
+    "seed": 2034493602,
+    "repeat": 30,
+    "gates": 18,
+    "target_gates": 18,
+    "reference_seconds": 9.48846153846154,
+    "deadline_steps": 1850,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 71,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 115,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 169,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 201,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 254,
+        "kind": "miss",
+        "gate": 4
+      },
+      {
+        "step": 701,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 760,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 832,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 864,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 941,
+        "kind": "pass",
+        "gate": 8
+      },
+      {
+        "step": 1008,
+        "kind": "miss",
+        "gate": 9
+      },
+      {
+        "step": 3181,
+        "kind": "pass",
+        "gate": 9
+      },
+      {
+        "step": 3232,
+        "kind": "pass",
+        "gate": 10
+      },
+      {
+        "step": 3271,
+        "kind": "pass",
+        "gate": 11
+      },
+      {
+        "step": 3337,
+        "kind": "pass",
+        "gate": 12
+      },
+      {
+        "step": 3400,
+        "kind": "pass",
+        "gate": 13
+      },
+      {
+        "step": 3443,
+        "kind": "pass",
+        "gate": 14
+      },
+      {
+        "step": 3524,
+        "kind": "pass",
+        "gate": 15
+      },
+      {
+        "step": 3564,
+        "kind": "pass",
+        "gate": 16
+      },
+      {
+        "step": 3590,
+        "kind": "pass",
+        "gate": 17
+      }
+    ],
+    "max_completed_gate_gap_s": 17.23076923076923,
+    "max_no_pass_interval_s": 17.23076923076923,
+    "max_resolved_recovery_s": 16.715384615384615,
+    "recovery_seconds": 20.153846153846153,
+    "resolved_recoveries": 2,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 3.4384615384615387,
+        "misses": 1,
+        "gate": 4
+      },
+      {
+        "seconds": 16.715384615384615,
+        "misses": 1,
+        "gate": 9
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 3604,
+    "missed_crossings": 2,
+    "recovered_gates": 2,
+    "termination_reason": "success",
+    "slot": "real100-hard-053",
+    "family": "go_around",
+    "seed": 2034928258,
+    "repeat": 8,
+    "gates": 10,
+    "target_gates": 10,
+    "reference_seconds": 8.334615384615386,
+    "deadline_steps": 1625,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 77,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 101,
+        "kind": "miss",
+        "gate": 1
+      },
+      {
+        "step": 2221,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 2332,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 2353,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 2430,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 2440,
+        "kind": "miss",
+        "gate": 5
+      },
+      {
+        "step": 3089,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 3173,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 3325,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 3500,
+        "kind": "pass",
+        "gate": 8
+      },
+      {
+        "step": 3604,
+        "kind": "pass",
+        "gate": 9
+      }
+    ],
+    "max_completed_gate_gap_s": 16.49230769230769,
+    "max_no_pass_interval_s": 16.49230769230769,
+    "max_resolved_recovery_s": 16.307692307692307,
+    "recovery_seconds": 21.299999999999997,
+    "resolved_recoveries": 2,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 16.307692307692307,
+        "misses": 1,
+        "gate": 1
+      },
+      {
+        "seconds": 4.992307692307692,
+        "misses": 1,
+        "gate": 5
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 2915,
+    "missed_crossings": 2,
+    "recovered_gates": 1,
+    "termination_reason": "success",
+    "slot": "real100-hard-017",
+    "family": "go_around",
+    "seed": 2035025943,
+    "repeat": 19,
+    "gates": 8,
+    "target_gates": 8,
+    "reference_seconds": 7.3307692307692305,
+    "deadline_steps": 1429,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 70,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 146,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 330,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 542,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 649,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 702,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 799,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 853,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 2266,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 2915,
+        "kind": "pass",
+        "gate": 7
+      }
+    ],
+    "max_completed_gate_gap_s": 16.276923076923076,
+    "max_no_pass_interval_s": 16.276923076923076,
+    "max_resolved_recovery_s": 15.861538461538462,
+    "recovery_seconds": 15.861538461538462,
+    "resolved_recoveries": 1,
+    "repeat_miss_recoveries": 1,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 15.861538461538462,
+        "misses": 2,
+        "gate": 7
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 4102,
+    "missed_crossings": 3,
+    "recovered_gates": 2,
+    "termination_reason": "success",
+    "slot": "real100-hard-037",
+    "family": "slalom",
+    "seed": 2035039091,
+    "repeat": 21,
+    "gates": 10,
+    "target_gates": 10,
+    "reference_seconds": 8.984615384615385,
+    "deadline_steps": 1752,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 78,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 194,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 400,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 556,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 759,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 834,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 908,
+        "kind": "miss",
+        "gate": 6
+      },
+      {
+        "step": 2003,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 2065,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 3094,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 4012,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 4090,
+        "kind": "pass",
+        "gate": 8
+      },
+      {
+        "step": 4102,
+        "kind": "pass",
+        "gate": 9
+      }
+    ],
+    "max_completed_gate_gap_s": 15.453846153846154,
+    "max_no_pass_interval_s": 15.453846153846154,
+    "max_resolved_recovery_s": 14.976923076923077,
+    "recovery_seconds": 23.4,
+    "resolved_recoveries": 2,
+    "repeat_miss_recoveries": 1,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 8.423076923076923,
+        "misses": 1,
+        "gate": 6
+      },
+      {
+        "seconds": 14.976923076923077,
+        "misses": 2,
+        "gate": 7
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 2801,
+    "missed_crossings": 2,
+    "recovered_gates": 1,
+    "termination_reason": "success",
+    "slot": "real100-hard-003",
+    "family": "diving_hairpin",
+    "seed": 2034522910,
+    "repeat": 11,
+    "gates": 8,
+    "target_gates": 8,
+    "reference_seconds": 6.176923076923076,
+    "deadline_steps": 1204,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 73,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 219,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 389,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 486,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 566,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 671,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 813,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 922,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 1457,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 2801,
+        "kind": "pass",
+        "gate": 7
+      }
+    ],
+    "max_completed_gate_gap_s": 15.292307692307693,
+    "max_no_pass_interval_s": 15.292307692307693,
+    "max_resolved_recovery_s": 14.453846153846154,
+    "recovery_seconds": 14.453846153846154,
+    "resolved_recoveries": 1,
+    "repeat_miss_recoveries": 1,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 14.453846153846154,
+        "misses": 2,
+        "gate": 7
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 1,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 0,
+    "steps": 2897,
+    "missed_crossings": 2,
+    "recovered_gates": 1,
+    "termination_reason": "success",
+    "slot": "real100-hard-087",
+    "family": "ordered_3d",
+    "seed": 2034170831,
+    "repeat": 11,
+    "gates": 9,
+    "target_gates": 9,
+    "reference_seconds": 17.115384615384617,
+    "deadline_steps": 3337,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 76,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 176,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 284,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 512,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 630,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 724,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 813,
+        "kind": "miss",
+        "gate": 6
+      },
+      {
+        "step": 1730,
+        "kind": "miss",
+        "gate": 6
+      },
+      {
+        "step": 2659,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 2775,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 2897,
+        "kind": "pass",
+        "gate": 8
+      }
+    ],
+    "max_completed_gate_gap_s": 14.884615384615385,
+    "max_no_pass_interval_s": 14.884615384615385,
+    "max_resolved_recovery_s": 14.2,
+    "recovery_seconds": 14.2,
+    "resolved_recoveries": 1,
+    "repeat_miss_recoveries": 1,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 14.2,
+        "misses": 2,
+        "gate": 6
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 2708,
+    "missed_crossings": 2,
+    "recovered_gates": 1,
+    "termination_reason": "success",
+    "slot": "real100-hard-091",
+    "family": "slalom",
+    "seed": 2034114904,
+    "repeat": 9,
+    "gates": 10,
+    "target_gates": 10,
+    "reference_seconds": 7.496153846153846,
+    "deadline_steps": 1461,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 80,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 235,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 389,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 528,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 575,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 651,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 697,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 720,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 1802,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 2563,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 2615,
+        "kind": "pass",
+        "gate": 8
+      },
+      {
+        "step": 2708,
+        "kind": "pass",
+        "gate": 9
+      }
+    ],
+    "max_completed_gate_gap_s": 14.353846153846154,
+    "max_no_pass_interval_s": 14.353846153846154,
+    "max_resolved_recovery_s": 14.176923076923076,
+    "recovery_seconds": 14.176923076923076,
+    "resolved_recoveries": 1,
+    "repeat_miss_recoveries": 1,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 14.176923076923076,
+        "misses": 2,
+        "gate": 7
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 1,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 0,
+    "steps": 3139,
+    "missed_crossings": 2,
+    "recovered_gates": 1,
+    "termination_reason": "success",
+    "slot": "a2rl_s2_2026_source_consistent_v2",
+    "family": "public_reference",
+    "seed": 2034229322,
+    "repeat": 26,
+    "gates": 12,
+    "target_gates": 12,
+    "reference_seconds": 17.692307692307693,
+    "deadline_steps": 3450,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 66,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 199,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 300,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 408,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 519,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 593,
+        "kind": "miss",
+        "gate": 5
+      },
+      {
+        "step": 1823,
+        "kind": "miss",
+        "gate": 5
+      },
+      {
+        "step": 2433,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 2554,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 2679,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 2793,
+        "kind": "pass",
+        "gate": 8
+      },
+      {
+        "step": 2886,
+        "kind": "pass",
+        "gate": 9
+      },
+      {
+        "step": 3000,
+        "kind": "pass",
+        "gate": 10
+      },
+      {
+        "step": 3139,
+        "kind": "pass",
+        "gate": 11
+      }
+    ],
+    "max_completed_gate_gap_s": 14.723076923076922,
+    "max_no_pass_interval_s": 14.723076923076922,
+    "max_resolved_recovery_s": 14.153846153846153,
+    "recovery_seconds": 14.153846153846153,
+    "resolved_recoveries": 1,
+    "repeat_miss_recoveries": 1,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 14.153846153846153,
+        "misses": 2,
+        "gate": 5
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 2657,
+    "missed_crossings": 1,
+    "recovered_gates": 1,
+    "termination_reason": "success",
+    "slot": "real100-hard-091",
+    "family": "slalom",
+    "seed": 2034114908,
+    "repeat": 13,
+    "gates": 10,
+    "target_gates": 10,
+    "reference_seconds": 7.496153846153846,
+    "deadline_steps": 1461,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 74,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 228,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 382,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 519,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 571,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 643,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 697,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 721,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 2530,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 2567,
+        "kind": "pass",
+        "gate": 8
+      },
+      {
+        "step": 2657,
+        "kind": "pass",
+        "gate": 9
+      }
+    ],
+    "max_completed_gate_gap_s": 14.1,
+    "max_no_pass_interval_s": 14.1,
+    "max_resolved_recovery_s": 13.915384615384616,
+    "recovery_seconds": 13.915384615384616,
+    "resolved_recoveries": 1,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 13.915384615384616,
+        "misses": 1,
+        "gate": 7
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 2628,
+    "missed_crossings": 1,
+    "recovered_gates": 1,
+    "termination_reason": "success",
+    "slot": "real100-hard-091",
+    "family": "slalom",
+    "seed": 2034114912,
+    "repeat": 17,
+    "gates": 10,
+    "target_gates": 10,
+    "reference_seconds": 7.496153846153846,
+    "deadline_steps": 1461,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 71,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 221,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 373,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 511,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 561,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 634,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 688,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 712,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 2497,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 2538,
+        "kind": "pass",
+        "gate": 8
+      },
+      {
+        "step": 2628,
+        "kind": "pass",
+        "gate": 9
+      }
+    ],
+    "max_completed_gate_gap_s": 13.915384615384616,
+    "max_no_pass_interval_s": 13.915384615384616,
+    "max_resolved_recovery_s": 13.73076923076923,
+    "recovery_seconds": 13.73076923076923,
+    "resolved_recoveries": 1,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 13.73076923076923,
+        "misses": 1,
+        "gate": 7
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 2573,
+    "missed_crossings": 2,
+    "recovered_gates": 1,
+    "termination_reason": "success",
+    "slot": "real100-hard-006",
+    "family": "ordered_3d",
+    "seed": 2034777452,
+    "repeat": 18,
+    "gates": 9,
+    "target_gates": 9,
+    "reference_seconds": 8.076923076923077,
+    "deadline_steps": 1575,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 69,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 189,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 334,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 426,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 501,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 555,
+        "kind": "miss",
+        "gate": 5
+      },
+      {
+        "step": 980,
+        "kind": "miss",
+        "gate": 5
+      },
+      {
+        "step": 2196,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 2351,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 2470,
+        "kind": "pass",
+        "gate": 7
+      },
+      {
+        "step": 2573,
+        "kind": "pass",
+        "gate": 8
+      }
+    ],
+    "max_completed_gate_gap_s": 13.038461538461538,
+    "max_no_pass_interval_s": 13.038461538461538,
+    "max_resolved_recovery_s": 12.623076923076923,
+    "recovery_seconds": 12.623076923076923,
+    "resolved_recoveries": 1,
+    "repeat_miss_recoveries": 1,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 12.623076923076923,
+        "misses": 2,
+        "gate": 5
+      }
+    ]
+  },
+  {
+    "success": 1,
+    "timely_success": 0,
+    "clean_success": 0,
+    "recovered_success": 1,
+    "late_success": 1,
+    "steps": 2447,
+    "missed_crossings": 1,
+    "recovered_gates": 1,
+    "termination_reason": "success",
+    "slot": "real100-hard-017",
+    "family": "go_around",
+    "seed": 2035025942,
+    "repeat": 18,
+    "gates": 8,
+    "target_gates": 8,
+    "reference_seconds": 7.3307692307692305,
+    "deadline_steps": 1429,
+    "crashed": 0,
+    "events": [
+      {
+        "step": 67,
+        "kind": "pass",
+        "gate": 0
+      },
+      {
+        "step": 148,
+        "kind": "pass",
+        "gate": 1
+      },
+      {
+        "step": 327,
+        "kind": "pass",
+        "gate": 2
+      },
+      {
+        "step": 526,
+        "kind": "pass",
+        "gate": 3
+      },
+      {
+        "step": 622,
+        "kind": "pass",
+        "gate": 4
+      },
+      {
+        "step": 674,
+        "kind": "pass",
+        "gate": 5
+      },
+      {
+        "step": 767,
+        "kind": "pass",
+        "gate": 6
+      },
+      {
+        "step": 822,
+        "kind": "miss",
+        "gate": 7
+      },
+      {
+        "step": 2447,
+        "kind": "pass",
+        "gate": 7
+      }
+    ],
+    "max_completed_gate_gap_s": 12.923076923076923,
+    "max_no_pass_interval_s": 12.923076923076923,
+    "max_resolved_recovery_s": 12.5,
+    "recovery_seconds": 12.5,
+    "resolved_recoveries": 1,
+    "repeat_miss_recoveries": 0,
+    "unresolved_recovery_s": 0,
+    "recoveries": [
+      {
+        "seconds": 12.5,
+        "misses": 1,
+        "gate": 7
+      }
+    ]
+  }
+]

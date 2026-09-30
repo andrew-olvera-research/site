@@ -1,0 +1,5876 @@
+{
+  "method": "16 randomly selected courses, eight paired starts each; 19 unique courses including targets; fixed original deadlines, FP32 batch16, randomized initial/plant states. A2RL was selected randomly and also analyzed as a target. Bootstrap resamples courses, not independent geometries per episode.",
+  "commands": {
+    "16.5": {
+      "random": {
+        "n": 128,
+        "successes": 107,
+        "sr": 0.8359375,
+        "timely": 0.6953125,
+        "clean_timely": 0.6015625,
+        "clean": 0.671875,
+        "crashes": 0.1640625,
+        "successful_lap_s": {
+          "n": 107,
+          "mean": 12.082530553558591,
+          "median": 9.992307692307692,
+          "p90": 18.681538461538462,
+          "p95": 23.251538461538455,
+          "maximum": 38.646153846153844
+        },
+        "successful_reference_ratio": {
+          "n": 107,
+          "mean": 1.3647725292356927,
+          "median": 1.24906600249066,
+          "p90": 1.8066248700089034,
+          "p95": 2.328872794026903,
+          "maximum": 5.327677624602333
+        },
+        "successful_max_no_pass_s": {
+          "n": 107,
+          "mean": 4.495039539899353,
+          "median": 2.9153846153846152,
+          "p90": 9.118461538461538,
+          "p95": 14.605384615384605,
+          "maximum": 32.98461538461538
+        },
+        "successes_with_recovery_over_s": {
+          "3": 12,
+          "5": 7,
+          "8": 3,
+          "10": 1,
+          "15": 1,
+          "20": 1
+        },
+        "successes_with_no_pass_over_s": {
+          "3": 53,
+          "5": 20,
+          "8": 14,
+          "10": 9,
+          "15": 5,
+          "20": 4
+        },
+        "termination": {
+          "success": 107,
+          "crash": 21
+        }
+      },
+      "courses": {
+        "a2rl_s2_2026_source_consistent_v2": {
+          "n": 8,
+          "successes": 1,
+          "sr": 0.125,
+          "timely": 0.125,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.875,
+          "successful_lap_s": {
+            "n": 1,
+            "mean": 16.876923076923077,
+            "median": 16.876923076923077,
+            "p90": 16.876923076923077,
+            "p95": 16.876923076923077,
+            "maximum": 16.876923076923077
+          },
+          "successful_reference_ratio": {
+            "n": 1,
+            "mean": 0.9539130434782608,
+            "median": 0.9539130434782608,
+            "p90": 0.9539130434782608,
+            "p95": 0.9539130434782608,
+            "maximum": 0.9539130434782608
+          },
+          "successful_max_no_pass_s": {
+            "n": 1,
+            "mean": 4.469230769230769,
+            "median": 4.469230769230769,
+            "p90": 4.469230769230769,
+            "p95": 4.469230769230769,
+            "maximum": 4.469230769230769
+          },
+          "successes_with_recovery_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 7,
+            "success": 1
+          }
+        },
+        "real100-hard-001": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.875,
+          "clean_timely": 0.875,
+          "clean": 0.875,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 15.660576923076922,
+            "median": 15.296153846153846,
+            "p90": 18.59384615384615,
+            "p95": 19.95076923076923,
+            "maximum": 21.307692307692307
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.2516907470027667,
+            "median": 1.2225637872732862,
+            "p90": 1.4861358745773132,
+            "p95": 1.5945896095911465,
+            "maximum": 1.70304334460498
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 4.223076923076923,
+            "median": 3.6500000000000004,
+            "p90": 6.733076923076922,
+            "p95": 7.974230769230767,
+            "maximum": 9.215384615384615
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 5,
+            "5": 2,
+            "8": 1,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-008": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 1.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 11.938461538461539,
+            "median": 11.915384615384616,
+            "p90": 12.151538461538461,
+            "p95": 12.17576923076923,
+            "maximum": 12.2
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.3758865248226952,
+            "median": 1.37322695035461,
+            "p90": 1.4004432624113476,
+            "p95": 1.4032358156028368,
+            "maximum": 1.4060283687943262
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 3.6403846153846153,
+            "median": 3.6307692307692307,
+            "p90": 3.7592307692307694,
+            "p95": 3.7834615384615384,
+            "maximum": 3.8076923076923075
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 8,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-018": {
+          "n": 8,
+          "successes": 6,
+          "sr": 0.75,
+          "timely": 0.75,
+          "clean_timely": 0.625,
+          "clean": 0.625,
+          "crashes": 0.25,
+          "successful_lap_s": {
+            "n": 6,
+            "mean": 15.764102564102563,
+            "median": 14.23076923076923,
+            "p90": 18.95,
+            "p95": 21.182692307692307,
+            "maximum": 23.415384615384614
+          },
+          "successful_reference_ratio": {
+            "n": 6,
+            "mean": 0.718182349161848,
+            "median": 0.6483266164359558,
+            "p90": 0.8633257403189066,
+            "p95": 0.9650429297354126,
+            "maximum": 1.0667601191519187
+          },
+          "successful_max_no_pass_s": {
+            "n": 6,
+            "mean": 5.139743589743589,
+            "median": 4.303846153846154,
+            "p90": 6.95,
+            "p95": 8.159615384615385,
+            "maximum": 9.36923076923077
+          },
+          "successes_with_recovery_over_s": {
+            "3": 1,
+            "5": 1,
+            "8": 1,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 6,
+            "5": 1,
+            "8": 1,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 2,
+            "success": 6
+          }
+        },
+        "real100-hard-030": {
+          "n": 8,
+          "successes": 5,
+          "sr": 0.625,
+          "timely": 0.625,
+          "clean_timely": 0.5,
+          "clean": 0.5,
+          "crashes": 0.375,
+          "successful_lap_s": {
+            "n": 5,
+            "mean": 8.546153846153846,
+            "median": 8.169230769230769,
+            "p90": 9.670769230769231,
+            "p95": 10.058461538461538,
+            "maximum": 10.446153846153846
+          },
+          "successful_reference_ratio": {
+            "n": 5,
+            "mean": 1.2082653616095702,
+            "median": 1.154975530179445,
+            "p90": 1.3672648178357802,
+            "p95": 1.4220772158781945,
+            "maximum": 1.476889613920609
+          },
+          "successful_max_no_pass_s": {
+            "n": 5,
+            "mean": 1.7830769230769232,
+            "median": 1.4538461538461538,
+            "p90": 2.4953846153846158,
+            "p95": 2.809230769230769,
+            "maximum": 3.123076923076923
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 5,
+            "crash": 3
+          }
+        },
+        "real100-hard-037": {
+          "n": 8,
+          "successes": 5,
+          "sr": 0.625,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.375,
+          "successful_lap_s": {
+            "n": 5,
+            "mean": 16.996923076923075,
+            "median": 16.584615384615386,
+            "p90": 19.872307692307693,
+            "p95": 20.186153846153847,
+            "maximum": 20.5
+          },
+          "successful_reference_ratio": {
+            "n": 5,
+            "mean": 1.891780821917808,
+            "median": 1.8458904109589043,
+            "p90": 2.2118150684931503,
+            "p95": 2.2467465753424656,
+            "maximum": 2.281678082191781
+          },
+          "successful_max_no_pass_s": {
+            "n": 5,
+            "mean": 7.126153846153846,
+            "median": 6.838461538461538,
+            "p90": 8.736923076923077,
+            "p95": 8.895384615384616,
+            "maximum": 9.053846153846154
+          },
+          "successes_with_recovery_over_s": {
+            "3": 5,
+            "5": 4,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 5,
+            "5": 5,
+            "8": 2,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 3,
+            "success": 5
+          }
+        },
+        "real100-hard-039": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 1.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 6.179807692307692,
+            "median": 6.176923076923077,
+            "p90": 6.240769230769231,
+            "p95": 6.243461538461538,
+            "maximum": 6.246153846153846
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 0.9955080545229245,
+            "median": 0.9950433705080546,
+            "p90": 1.0053283767038412,
+            "p95": 1.0057620817843866,
+            "maximum": 1.0061957868649318
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 1.7067307692307692,
+            "median": 1.7038461538461538,
+            "p90": 1.7430769230769232,
+            "p95": 1.7484615384615385,
+            "maximum": 1.7538461538461538
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-046": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 1.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 8.341346153846153,
+            "median": 8.334615384615386,
+            "p90": 8.481538461538461,
+            "p95": 8.486923076923077,
+            "maximum": 8.492307692307692
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 0.7588348495451365,
+            "median": 0.7582225332400281,
+            "p90": 0.7715885234429671,
+            "p95": 0.7720783764870539,
+            "maximum": 0.7725682295311407
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 1.6557692307692309,
+            "median": 1.6538461538461537,
+            "p90": 1.7315384615384615,
+            "p95": 1.7503846153846152,
+            "maximum": 1.7692307692307692
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-048": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 0.875,
+          "clean": 0.875,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 9.490384615384615,
+            "median": 9.184615384615384,
+            "p90": 10.083846153846153,
+            "p95": 11.034230769230769,
+            "maximum": 11.984615384615385
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.169431279620853,
+            "median": 1.1317535545023696,
+            "p90": 1.2425592417061613,
+            "p95": 1.3596682464454977,
+            "maximum": 1.4767772511848343
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 1.6721153846153847,
+            "median": 1.3653846153846154,
+            "p90": 2.153076923076923,
+            "p95": 3.0226923076923065,
+            "maximum": 3.8923076923076922
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-055": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.875,
+          "clean_timely": 0.375,
+          "clean": 0.375,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 12.274038461538462,
+            "median": 9.36923076923077,
+            "p90": 18.992307692307683,
+            "p95": 28.819230769230753,
+            "maximum": 38.646153846153844
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.6920731707317074,
+            "median": 1.291622481442206,
+            "p90": 2.6182396606574754,
+            "p95": 3.9729586426299024,
+            "maximum": 5.327677624602333
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 6.844230769230769,
+            "median": 3.646153846153846,
+            "p90": 13.239230769230762,
+            "p95": 23.11192307692306,
+            "maximum": 32.98461538461538
+          },
+          "successes_with_recovery_over_s": {
+            "3": 4,
+            "5": 1,
+            "8": 1,
+            "10": 1,
+            "15": 1,
+            "20": 1
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 5,
+            "5": 1,
+            "8": 1,
+            "10": 1,
+            "15": 1,
+            "20": 1
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-059": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 1.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 9.921153846153846,
+            "median": 9.946153846153846,
+            "p90": 9.976153846153846,
+            "p95": 9.98423076923077,
+            "maximum": 9.992307692307692
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.0567390413764852,
+            "median": 1.0594018844735764,
+            "p90": 1.062597296190086,
+            "p95": 1.063457599344531,
+            "maximum": 1.064317902498976
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 2.354807692307692,
+            "median": 2.3384615384615386,
+            "p90": 2.413076923076923,
+            "p95": 2.437307692307692,
+            "maximum": 2.4615384615384617
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-061": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 19.25,
+            "median": 17.28076923076923,
+            "p90": 29.545384615384613,
+            "p95": 32.35346153846154,
+            "maximum": 35.16153846153846
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 2.8181306306306304,
+            "median": 2.5298423423423424,
+            "p90": 4.3253378378378375,
+            "p95": 4.73643018018018,
+            "maximum": 5.1475225225225225
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 14.640384615384615,
+            "median": 12.680769230769231,
+            "p90": 25.018461538461537,
+            "p95": 27.759230769230765,
+            "maximum": 30.5
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 8,
+            "5": 8,
+            "8": 6,
+            "10": 5,
+            "15": 3,
+            "20": 2
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-064": {
+          "n": 8,
+          "successes": 5,
+          "sr": 0.625,
+          "timely": 0.375,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.375,
+          "successful_lap_s": {
+            "n": 5,
+            "mean": 20.338461538461537,
+            "median": 20.884615384615383,
+            "p90": 28.003076923076925,
+            "p95": 28.978461538461538,
+            "maximum": 29.953846153846154
+          },
+          "successful_reference_ratio": {
+            "n": 5,
+            "mean": 1.44401966138722,
+            "median": 1.482796286182414,
+            "p90": 1.988203167667941,
+            "p95": 2.0574549426542874,
+            "maximum": 2.1267067176406336
+          },
+          "successful_max_no_pass_s": {
+            "n": 5,
+            "mean": 10.536923076923078,
+            "median": 11.376923076923077,
+            "p90": 17.963076923076922,
+            "p95": 18.98923076923077,
+            "maximum": 20.015384615384615
+          },
+          "successes_with_recovery_over_s": {
+            "3": 1,
+            "5": 1,
+            "8": 1,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 5,
+            "5": 3,
+            "8": 3,
+            "10": 3,
+            "15": 1,
+            "20": 1
+          },
+          "termination": {
+            "crash": 3,
+            "success": 5
+          }
+        },
+        "real100-hard-066": {
+          "n": 8,
+          "successes": 5,
+          "sr": 0.625,
+          "timely": 0.625,
+          "clean_timely": 0.5,
+          "clean": 0.5,
+          "crashes": 0.375,
+          "successful_lap_s": {
+            "n": 5,
+            "mean": 7.6646153846153835,
+            "median": 7.530769230769231,
+            "p90": 8.147692307692308,
+            "p95": 8.266153846153847,
+            "maximum": 8.384615384615385
+          },
+          "successful_reference_ratio": {
+            "n": 5,
+            "mean": 1.3752933057280885,
+            "median": 1.3512767425810905,
+            "p90": 1.4619737750172532,
+            "p95": 1.4832298136645963,
+            "maximum": 1.5044858523119393
+          },
+          "successful_max_no_pass_s": {
+            "n": 5,
+            "mean": 2.329230769230769,
+            "median": 2.1846153846153844,
+            "p90": 2.8615384615384616,
+            "p95": 3.023076923076923,
+            "maximum": 3.1846153846153844
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 3,
+            "success": 5
+          }
+        },
+        "real100-hard-076": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 1.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 8.059615384615384,
+            "median": 8.026923076923076,
+            "p90": 8.397692307692308,
+            "p95": 8.421923076923077,
+            "maximum": 8.446153846153846
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.3047945205479452,
+            "median": 1.2995018679950185,
+            "p90": 1.3595267745952677,
+            "p95": 1.3634495641344957,
+            "maximum": 1.3673723536737235
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 3.1951923076923077,
+            "median": 3.1961538461538463,
+            "p90": 3.4092307692307693,
+            "p95": 3.4469230769230768,
+            "maximum": 3.4846153846153847
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 7,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-085": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.875,
+          "clean_timely": 0.875,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 13.089423076923078,
+            "median": 13.165384615384614,
+            "p90": 13.292307692307693,
+            "p95": 13.319230769230769,
+            "maximum": 13.346153846153847
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.4732683982683983,
+            "median": 1.4818181818181817,
+            "p90": 1.4961038961038962,
+            "p95": 1.499134199134199,
+            "maximum": 1.5021645021645023
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 2.1653846153846157,
+            "median": 2.1730769230769234,
+            "p90": 2.296923076923077,
+            "p95": 2.302307692307692,
+            "maximum": 2.3076923076923075
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        }
+      },
+      "mean_of_course_median_s": {
+        "n": 16,
+        "mean": 12.060817307692307,
+        "median": 10.930769230769231,
+        "p90": 17.078846153846154,
+        "p95": 18.181730769230768,
+        "maximum": 20.884615384615383
+      },
+      "mean_episode_path_speed_mps": 10.507795618200351,
+      "paired_vs_16_5": {
+        "sr": {
+          "delta_percentage_points": 0.0,
+          "course_bootstrap_95pct": [
+            0.0,
+            0.0
+          ]
+        },
+        "timely": {
+          "delta_percentage_points": 0.0,
+          "course_bootstrap_95pct": [
+            0.0,
+            0.0
+          ]
+        },
+        "clean_timely": {
+          "delta_percentage_points": 0.0,
+          "course_bootstrap_95pct": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "paired_both_complete": {
+        "n": 107,
+        "lap_delta_s": {
+          "n": 107,
+          "mean": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "lap_ratio": {
+          "n": 107,
+          "mean": 1.0,
+          "median": 1.0,
+          "p90": 1.0,
+          "p95": 1.0,
+          "maximum": 1.0
+        }
+      },
+      "all_five_complete_cohort": {
+        "n": 28,
+        "lap_s": {
+          "n": 28,
+          "mean": 11.088461538461539,
+          "median": 11.188461538461539,
+          "p90": 14.533846153846154,
+          "p95": 19.196923076923067,
+          "maximum": 22.869230769230768
+        },
+        "lap_ratio_vs_baseline": {
+          "n": 28,
+          "mean": 1.0,
+          "median": 1.0,
+          "p90": 1.0,
+          "p95": 1.0,
+          "maximum": 1.0
+        }
+      },
+      "targets": {
+        "a2rl_s2_2026_source_consistent_v2": {
+          "n": 8,
+          "successes": 1,
+          "sr": 0.125,
+          "timely": 0.125,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.875,
+          "successful_lap_s": {
+            "n": 1,
+            "mean": 16.876923076923077,
+            "median": 16.876923076923077,
+            "p90": 16.876923076923077,
+            "p95": 16.876923076923077,
+            "maximum": 16.876923076923077
+          },
+          "successful_reference_ratio": {
+            "n": 1,
+            "mean": 0.9539130434782608,
+            "median": 0.9539130434782608,
+            "p90": 0.9539130434782608,
+            "p95": 0.9539130434782608,
+            "maximum": 0.9539130434782608
+          },
+          "successful_max_no_pass_s": {
+            "n": 1,
+            "mean": 4.469230769230769,
+            "median": 4.469230769230769,
+            "p90": 4.469230769230769,
+            "p95": 4.469230769230769,
+            "maximum": 4.469230769230769
+          },
+          "successes_with_recovery_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 7,
+            "success": 1
+          },
+          "failure_next_gate": {
+            "9": 1,
+            "5": 1,
+            "8": 1,
+            "7": 1,
+            "12": 3
+          }
+        },
+        "real100-hard-019": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.75,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 13.698076923076922,
+            "median": 12.896153846153846,
+            "p90": 17.162307692307692,
+            "p95": 18.554230769230767,
+            "maximum": 19.946153846153845
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.408264136022143,
+            "median": 1.3258204824041122,
+            "p90": 1.7644128113879003,
+            "p95": 1.9075128509292205,
+            "maximum": 2.0506128904705414
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 4.789423076923077,
+            "median": 3.8692307692307693,
+            "p90": 7.511538461538461,
+            "p95": 8.790384615384614,
+            "maximum": 10.069230769230769
+          },
+          "successes_with_recovery_over_s": {
+            "3": 6,
+            "5": 2,
+            "8": 1,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 8,
+            "5": 2,
+            "8": 1,
+            "10": 1,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          },
+          "failure_next_gate": {}
+        },
+        "real100-hard-034": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.125,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 9.416346153846153,
+            "median": 9.111538461538462,
+            "p90": 10.585384615384616,
+            "p95": 11.331153846153844,
+            "maximum": 12.076923076923077
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.6464357767316744,
+            "median": 1.5931405514458643,
+            "p90": 1.8508406186953597,
+            "p95": 1.9812373907195693,
+            "maximum": 2.1116341627437794
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 3.6326923076923077,
+            "median": 3.323076923076923,
+            "p90": 4.806923076923077,
+            "p95": 5.5688461538461524,
+            "maximum": 6.3307692307692305
+          },
+          "successes_with_recovery_over_s": {
+            "3": 4,
+            "5": 1,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 6,
+            "5": 1,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          },
+          "failure_next_gate": {}
+        },
+        "real100-hard-070": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.75,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 8.311538461538461,
+            "median": 7.653846153846154,
+            "p90": 10.081538461538461,
+            "p95": 11.27153846153846,
+            "maximum": 12.461538461538462
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.4114957544088829,
+            "median": 1.2998040496407577,
+            "p90": 1.7120836054866098,
+            "p95": 1.914173742651861,
+            "maximum": 2.116263879817113
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 3.433653846153846,
+            "median": 2.723076923076923,
+            "p90": 5.296153846153845,
+            "p95": 6.38653846153846,
+            "maximum": 7.476923076923077
+          },
+          "successes_with_recovery_over_s": {
+            "3": 2,
+            "5": 1,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 2,
+            "5": 1,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          },
+          "failure_next_gate": {}
+        }
+      }
+    },
+    "8.0": {
+      "random": {
+        "n": 128,
+        "successes": 111,
+        "sr": 0.8671875,
+        "timely": 0.53125,
+        "clean_timely": 0.46875,
+        "clean": 0.703125,
+        "crashes": 0.1328125,
+        "successful_lap_s": {
+          "n": 111,
+          "mean": 13.979140679140679,
+          "median": 12.861538461538462,
+          "p90": 19.892307692307693,
+          "p95": 20.700000000000003,
+          "maximum": 40.99230769230769
+        },
+        "successful_reference_ratio": {
+          "n": 111,
+          "mean": 1.558766471388094,
+          "median": 1.3931484502446982,
+          "p90": 2.203828828828829,
+          "p95": 2.6182702394174995,
+          "maximum": 5.651113467656415
+        },
+        "successful_max_no_pass_s": {
+          "n": 111,
+          "mean": 4.735135135135136,
+          "median": 3.3923076923076922,
+          "p90": 6.753846153846154,
+          "p95": 12.396153846153846,
+          "maximum": 34.238461538461536
+        },
+        "successes_with_recovery_over_s": {
+          "3": 17,
+          "5": 10,
+          "8": 5,
+          "10": 4,
+          "15": 2,
+          "20": 1
+        },
+        "successes_with_no_pass_over_s": {
+          "3": 69,
+          "5": 33,
+          "8": 11,
+          "10": 10,
+          "15": 4,
+          "20": 2
+        },
+        "termination": {
+          "crash": 17,
+          "success": 111
+        }
+      },
+      "courses": {
+        "a2rl_s2_2026_source_consistent_v2": {
+          "n": 8,
+          "successes": 0,
+          "sr": 0.0,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 1.0,
+          "successful_lap_s": {
+            "n": 0
+          },
+          "successful_reference_ratio": {
+            "n": 0
+          },
+          "successful_max_no_pass_s": {
+            "n": 0
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 8
+          }
+        },
+        "real100-hard-001": {
+          "n": 8,
+          "successes": 7,
+          "sr": 0.875,
+          "timely": 0.75,
+          "clean_timely": 0.625,
+          "clean": 0.625,
+          "crashes": 0.125,
+          "successful_lap_s": {
+            "n": 7,
+            "mean": 17.38131868131868,
+            "median": 16.630769230769232,
+            "p90": 19.146153846153847,
+            "p95": 19.630769230769232,
+            "maximum": 20.115384615384617
+          },
+          "successful_reference_ratio": {
+            "n": 7,
+            "mean": 1.3892231346888586,
+            "median": 1.3292345527205658,
+            "p90": 1.5302797417768215,
+            "p95": 1.5690132185674763,
+            "maximum": 1.6077466953581312
+          },
+          "successful_max_no_pass_s": {
+            "n": 7,
+            "mean": 3.992307692307692,
+            "median": 3.5384615384615383,
+            "p90": 5.563076923076924,
+            "p95": 5.881538461538461,
+            "maximum": 6.2
+          },
+          "successes_with_recovery_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 7,
+            "5": 2,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 1,
+            "success": 7
+          }
+        },
+        "real100-hard-008": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 15.450961538461538,
+            "median": 15.457692307692309,
+            "p90": 16.063076923076924,
+            "p95": 16.10076923076923,
+            "maximum": 16.138461538461538
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.7806959219858158,
+            "median": 1.781471631205674,
+            "p90": 1.8512411347517732,
+            "p95": 1.8555851063829787,
+            "maximum": 1.8599290780141844
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 4.975961538461538,
+            "median": 5.026923076923077,
+            "p90": 5.183076923076923,
+            "p95": 5.19923076923077,
+            "maximum": 5.2153846153846155
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 8,
+            "5": 4,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-018": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 1.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 19.949038461538464,
+            "median": 19.98846153846154,
+            "p90": 20.453846153846154,
+            "p95": 20.534615384615385,
+            "maximum": 20.615384615384617
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 0.9088400210268093,
+            "median": 0.9106360609777466,
+            "p90": 0.9318380935693009,
+            "p95": 0.9355177851760996,
+            "maximum": 0.9391974767828983
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 6.060576923076923,
+            "median": 6.103846153846154,
+            "p90": 6.295384615384616,
+            "p95": 6.3707692307692305,
+            "maximum": 6.446153846153846
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 8,
+            "5": 8,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-030": {
+          "n": 8,
+          "successes": 7,
+          "sr": 0.875,
+          "timely": 0.75,
+          "clean_timely": 0.75,
+          "clean": 0.75,
+          "crashes": 0.125,
+          "successful_lap_s": {
+            "n": 7,
+            "mean": 9.932967032967033,
+            "median": 9.853846153846154,
+            "p90": 10.663076923076924,
+            "p95": 10.97,
+            "maximum": 11.276923076923078
+          },
+          "successful_reference_ratio": {
+            "n": 7,
+            "mean": 1.4043346539268236,
+            "median": 1.3931484502446982,
+            "p90": 1.5075584556824362,
+            "p95": 1.5509516041326807,
+            "maximum": 1.5943447525829255
+          },
+          "successful_max_no_pass_s": {
+            "n": 7,
+            "mean": 1.9032967032967034,
+            "median": 1.6846153846153846,
+            "p90": 2.321538461538462,
+            "p95": 2.637692307692307,
+            "maximum": 2.953846153846154
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 7,
+            "crash": 1
+          }
+        },
+        "real100-hard-037": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.375,
+          "clean_timely": 0.125,
+          "clean": 0.125,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 15.750961538461539,
+            "median": 14.35,
+            "p90": 21.69153846153846,
+            "p95": 22.74961538461538,
+            "maximum": 23.807692307692307
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.7531035958904109,
+            "median": 1.5971746575342465,
+            "p90": 2.414297945205479,
+            "p95": 2.5320633561643833,
+            "maximum": 2.6498287671232874
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 7.178846153846154,
+            "median": 6.173076923076923,
+            "p90": 11.680769230769231,
+            "p95": 11.936538461538461,
+            "maximum": 12.192307692307692
+          },
+          "successes_with_recovery_over_s": {
+            "3": 7,
+            "5": 5,
+            "8": 3,
+            "10": 2,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 7,
+            "5": 6,
+            "8": 3,
+            "10": 3,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-039": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 1.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 7.608653846153846,
+            "median": 7.711538461538462,
+            "p90": 7.843846153846154,
+            "p95": 7.868076923076924,
+            "maximum": 7.892307692307693
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.2256815365551426,
+            "median": 1.242255266418835,
+            "p90": 1.2635687732342007,
+            "p95": 1.2674721189591078,
+            "maximum": 1.271375464684015
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 2.621153846153846,
+            "median": 2.7615384615384615,
+            "p90": 2.795384615384615,
+            "p95": 2.816923076923077,
+            "maximum": 2.8384615384615386
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-046": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 1.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 9.346153846153847,
+            "median": 9.357692307692307,
+            "p90": 9.491538461538461,
+            "p95": 9.526538461538461,
+            "maximum": 9.561538461538461
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 0.8502449265220434,
+            "median": 0.8512946116165151,
+            "p90": 0.8634709587123862,
+            "p95": 0.8666550034989503,
+            "maximum": 0.8698390482855143
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 1.8173076923076923,
+            "median": 1.7769230769230768,
+            "p90": 1.9892307692307691,
+            "p95": 2.0215384615384613,
+            "maximum": 2.0538461538461537
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-048": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.75,
+          "clean_timely": 0.75,
+          "clean": 0.75,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 11.42596153846154,
+            "median": 10.703846153846154,
+            "p90": 13.243076923076922,
+            "p95": 14.244615384615383,
+            "maximum": 15.246153846153845
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.4079383886255925,
+            "median": 1.318957345971564,
+            "p90": 1.6318483412322276,
+            "p95": 1.7552606635071089,
+            "maximum": 1.8786729857819906
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 2.1884615384615382,
+            "median": 1.5884615384615384,
+            "p90": 3.4184615384615378,
+            "p95": 4.489999999999998,
+            "maximum": 5.561538461538461
+          },
+          "successes_with_recovery_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 1,
+            "5": 1,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-055": {
+          "n": 8,
+          "successes": 7,
+          "sr": 0.875,
+          "timely": 0.625,
+          "clean_timely": 0.625,
+          "clean": 0.625,
+          "crashes": 0.125,
+          "successful_lap_s": {
+            "n": 7,
+            "mean": 14.971428571428572,
+            "median": 7.961538461538462,
+            "p90": 31.33692307692308,
+            "p95": 36.164615384615374,
+            "maximum": 40.99230769230769
+          },
+          "successful_reference_ratio": {
+            "n": 7,
+            "mean": 2.0639297076200576,
+            "median": 1.0975609756097562,
+            "p90": 4.320042417815483,
+            "p95": 4.985577942735947,
+            "maximum": 5.651113467656415
+          },
+          "successful_max_no_pass_s": {
+            "n": 7,
+            "mean": 9.228571428571428,
+            "median": 2.6769230769230767,
+            "p90": 24.389230769230775,
+            "p95": 29.31384615384614,
+            "maximum": 34.238461538461536
+          },
+          "successes_with_recovery_over_s": {
+            "3": 2,
+            "5": 2,
+            "8": 2,
+            "10": 2,
+            "15": 2,
+            "20": 1
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 2,
+            "5": 2,
+            "8": 2,
+            "10": 2,
+            "15": 2,
+            "20": 1
+          },
+          "termination": {
+            "success": 7,
+            "crash": 1
+          }
+        },
+        "real100-hard-059": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 1.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 13.1875,
+            "median": 13.288461538461538,
+            "p90": 13.658461538461538,
+            "p95": 13.744615384615384,
+            "maximum": 13.830769230769231
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.4046497337156905,
+            "median": 1.4154035231462516,
+            "p90": 1.4548136009832038,
+            "p95": 1.4639901679639493,
+            "maximum": 1.4731667349446949
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 3.3798076923076925,
+            "median": 3.3884615384615384,
+            "p90": 3.5584615384615383,
+            "p95": 3.563846153846154,
+            "maximum": 3.5692307692307694
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 8,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-061": {
+          "n": 8,
+          "successes": 6,
+          "sr": 0.75,
+          "timely": 0.25,
+          "clean_timely": 0.25,
+          "clean": 0.75,
+          "crashes": 0.25,
+          "successful_lap_s": {
+            "n": 6,
+            "mean": 16.77948717948718,
+            "median": 16.361538461538462,
+            "p90": 25.684615384615384,
+            "p95": 28.857692307692307,
+            "maximum": 32.03076923076923
+          },
+          "successful_reference_ratio": {
+            "n": 6,
+            "mean": 2.4564564564564564,
+            "median": 2.39527027027027,
+            "p90": 3.760135135135135,
+            "p95": 4.224662162162162,
+            "maximum": 4.6891891891891895
+          },
+          "successful_max_no_pass_s": {
+            "n": 6,
+            "mean": 11.66923076923077,
+            "median": 11.365384615384615,
+            "p90": 20.47692307692308,
+            "p95": 23.73846153846154,
+            "maximum": 27.0
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 5,
+            "5": 4,
+            "8": 4,
+            "10": 4,
+            "15": 1,
+            "20": 1
+          },
+          "termination": {
+            "success": 6,
+            "crash": 2
+          }
+        },
+        "real100-hard-064": {
+          "n": 8,
+          "successes": 6,
+          "sr": 0.75,
+          "timely": 0.625,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.25,
+          "successful_lap_s": {
+            "n": 6,
+            "mean": 19.48846153846154,
+            "median": 18.396153846153847,
+            "p90": 23.26923076923077,
+            "p95": 25.353846153846156,
+            "maximum": 27.43846153846154
+          },
+          "successful_reference_ratio": {
+            "n": 6,
+            "mean": 1.3836701256144186,
+            "median": 1.3061168760240307,
+            "p90": 1.6521026761332607,
+            "p95": 1.8001092299290007,
+            "maximum": 1.9481157837247407
+          },
+          "successful_max_no_pass_s": {
+            "n": 6,
+            "mean": 7.548717948717949,
+            "median": 6.25,
+            "p90": 11.296153846153846,
+            "p95": 13.567307692307693,
+            "maximum": 15.838461538461539
+          },
+          "successes_with_recovery_over_s": {
+            "3": 5,
+            "5": 2,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 6,
+            "5": 5,
+            "8": 1,
+            "10": 1,
+            "15": 1,
+            "20": 0
+          },
+          "termination": {
+            "crash": 2,
+            "success": 6
+          }
+        },
+        "real100-hard-066": {
+          "n": 8,
+          "successes": 6,
+          "sr": 0.75,
+          "timely": 0.375,
+          "clean_timely": 0.375,
+          "clean": 0.75,
+          "crashes": 0.25,
+          "successful_lap_s": {
+            "n": 6,
+            "mean": 8.562820512820513,
+            "median": 8.403846153846153,
+            "p90": 9.646153846153846,
+            "p95": 9.665384615384614,
+            "maximum": 9.684615384615384
+          },
+          "successful_reference_ratio": {
+            "n": 6,
+            "mean": 1.5364619277662757,
+            "median": 1.507936507936508,
+            "p90": 1.730848861283644,
+            "p95": 1.7342995169082127,
+            "maximum": 1.7377501725327813
+          },
+          "successful_max_no_pass_s": {
+            "n": 6,
+            "mean": 2.4858974358974355,
+            "median": 2.146153846153846,
+            "p90": 3.2346153846153847,
+            "p95": 3.348076923076923,
+            "maximum": 3.4615384615384617
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 2,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 2,
+            "success": 6
+          }
+        },
+        "real100-hard-076": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.875,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 11.507692307692308,
+            "median": 10.642307692307693,
+            "p90": 13.35923076923077,
+            "p95": 15.752692307692305,
+            "maximum": 18.146153846153847
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.8630136986301369,
+            "median": 1.7229140722291405,
+            "p90": 2.1627646326276464,
+            "p95": 2.55024906600249,
+            "maximum": 2.937733499377335
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 4.759615384615385,
+            "median": 4.315384615384615,
+            "p90": 5.975384615384615,
+            "p95": 7.149230769230768,
+            "maximum": 8.323076923076924
+          },
+          "successes_with_recovery_over_s": {
+            "3": 1,
+            "5": 1,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 8,
+            "5": 1,
+            "8": 1,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-085": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 19.110576923076923,
+            "median": 19.142307692307693,
+            "p90": 19.766153846153845,
+            "p95": 19.771538461538462,
+            "maximum": 19.776923076923076
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 2.1509740259740258,
+            "median": 2.1545454545454543,
+            "p90": 2.2247619047619045,
+            "p95": 2.2253679653679654,
+            "maximum": 2.225974025974026
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 3.206730769230769,
+            "median": 3.15,
+            "p90": 3.533076923076923,
+            "p95": 3.5357692307692306,
+            "maximum": 3.5384615384615383
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 7,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        }
+      },
+      "mean_of_course_median_s": {
+        "n": 15,
+        "mean": 13.216666666666669,
+        "median": 13.288461538461538,
+        "p90": 18.843846153846155,
+        "p95": 19.396153846153847,
+        "maximum": 19.98846153846154
+      },
+      "mean_episode_path_speed_mps": 8.515570494190959,
+      "paired_vs_16_5": {
+        "sr": {
+          "delta_percentage_points": 3.125,
+          "course_bootstrap_95pct": [
+            -3.90625,
+            10.9375
+          ]
+        },
+        "timely": {
+          "delta_percentage_points": -16.40625,
+          "course_bootstrap_95pct": [
+            -38.28125,
+            3.125
+          ]
+        },
+        "clean_timely": {
+          "delta_percentage_points": -13.28125,
+          "course_bootstrap_95pct": [
+            -35.15625,
+            5.46875
+          ]
+        }
+      },
+      "paired_both_complete": {
+        "n": 98,
+        "lap_delta_s": {
+          "n": 98,
+          "mean": 2.142857142857143,
+          "median": 2.2576923076923077,
+          "p90": 6.171538461538462,
+          "p95": 7.079230769230768,
+          "maximum": 34.176923076923075
+        },
+        "lap_ratio": {
+          "n": 98,
+          "mean": 1.2670321017765709,
+          "median": 1.2515605493133584,
+          "p90": 1.4514885515821971,
+          "p95": 1.5049442096567573,
+          "maximum": 6.014672686230249
+        }
+      },
+      "all_five_complete_cohort": {
+        "n": 28,
+        "lap_s": {
+          "n": 28,
+          "mean": 14.787912087912089,
+          "median": 15.303846153846154,
+          "p90": 19.67,
+          "p95": 20.166538461538458,
+          "maximum": 40.99230769230769
+        },
+        "lap_ratio_vs_baseline": {
+          "n": 28,
+          "mean": 1.4251791533507026,
+          "median": 1.3017247418745441,
+          "p90": 1.4687680115273776,
+          "p95": 1.4873519928700787,
+          "maximum": 6.014672686230249
+        }
+      },
+      "targets": {
+        "a2rl_s2_2026_source_consistent_v2": {
+          "n": 8,
+          "successes": 0,
+          "sr": 0.0,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 1.0,
+          "successful_lap_s": {
+            "n": 0
+          },
+          "successful_reference_ratio": {
+            "n": 0
+          },
+          "successful_max_no_pass_s": {
+            "n": 0
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 8
+          },
+          "failure_next_gate": {
+            "6": 2,
+            "8": 3,
+            "7": 1,
+            "11": 1,
+            "12": 1
+          }
+        },
+        "real100-hard-019": {
+          "n": 8,
+          "successes": 7,
+          "sr": 0.875,
+          "timely": 0.5,
+          "clean_timely": 0.125,
+          "clean": 0.125,
+          "crashes": 0.125,
+          "successful_lap_s": {
+            "n": 7,
+            "mean": 14.751648351648353,
+            "median": 14.007692307692308,
+            "p90": 18.763076923076923,
+            "p95": 19.01230769230769,
+            "maximum": 19.26153846153846
+          },
+          "successful_reference_ratio": {
+            "n": 7,
+            "mean": 1.5165791108851605,
+            "median": 1.4400948991696323,
+            "p90": 1.928983788058521,
+            "p95": 1.9546065638592327,
+            "maximum": 1.9802293396599446
+          },
+          "successful_max_no_pass_s": {
+            "n": 7,
+            "mean": 5.034065934065934,
+            "median": 4.361538461538461,
+            "p90": 8.093846153846155,
+            "p95": 9.127692307692305,
+            "maximum": 10.161538461538461
+          },
+          "successes_with_recovery_over_s": {
+            "3": 4,
+            "5": 3,
+            "8": 1,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 5,
+            "5": 3,
+            "8": 1,
+            "10": 1,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 1,
+            "success": 7
+          },
+          "failure_next_gate": {
+            "6": 1
+          }
+        },
+        "real100-hard-034": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.125,
+          "clean_timely": 0.125,
+          "clean": 0.125,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 10.82403846153846,
+            "median": 10.557692307692307,
+            "p90": 12.93,
+            "p95": 13.261153846153846,
+            "maximum": 13.592307692307692
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.8925689307330194,
+            "median": 1.8459986550100873,
+            "p90": 2.2607935440484193,
+            "p95": 2.3186953597848015,
+            "maximum": 2.3765971755211837
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 3.668269230769231,
+            "median": 3.2884615384615383,
+            "p90": 5.477692307692307,
+            "p95": 5.604230769230769,
+            "maximum": 5.730769230769231
+          },
+          "successes_with_recovery_over_s": {
+            "3": 4,
+            "5": 2,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 5,
+            "5": 2,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          },
+          "failure_next_gate": {}
+        },
+        "real100-hard-070": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.25,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 9.276923076923076,
+            "median": 9.126923076923077,
+            "p90": 10.022307692307692,
+            "p95": 10.514999999999999,
+            "maximum": 11.007692307692308
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.575440888308295,
+            "median": 1.549967341606793,
+            "p90": 1.702024820378837,
+            "p95": 1.7856956237753099,
+            "maximum": 1.869366427171783
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 3.572115384615384,
+            "median": 3.4153846153846152,
+            "p90": 4.38,
+            "p95": 4.832307692307691,
+            "maximum": 5.2846153846153845
+          },
+          "successes_with_recovery_over_s": {
+            "3": 6,
+            "5": 1,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 6,
+            "5": 1,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          },
+          "failure_next_gate": {}
+        }
+      }
+    },
+    "12.0": {
+      "random": {
+        "n": 128,
+        "successes": 112,
+        "sr": 0.875,
+        "timely": 0.5703125,
+        "clean_timely": 0.5390625,
+        "clean": 0.75,
+        "crashes": 0.1171875,
+        "successful_lap_s": {
+          "n": 112,
+          "mean": 12.300755494505495,
+          "median": 11.330769230769231,
+          "p90": 17.446923076923078,
+          "p95": 19.14,
+          "maximum": 28.446153846153845
+        },
+        "successful_reference_ratio": {
+          "n": 112,
+          "mean": 1.3830549452303582,
+          "median": 1.2668306178911775,
+          "p90": 1.8933702182224017,
+          "p95": 2.1957460523830967,
+          "maximum": 4.164414414414415
+        },
+        "successful_max_no_pass_s": {
+          "n": 112,
+          "mean": 4.112156593406594,
+          "median": 2.9653846153846155,
+          "p90": 6.855384615384616,
+          "p95": 10.45192307692306,
+          "maximum": 23.76923076923077
+        },
+        "successes_with_recovery_over_s": {
+          "3": 13,
+          "5": 8,
+          "8": 4,
+          "10": 2,
+          "15": 0,
+          "20": 0
+        },
+        "successes_with_no_pass_over_s": {
+          "3": 55,
+          "5": 29,
+          "8": 9,
+          "10": 6,
+          "15": 3,
+          "20": 1
+        },
+        "termination": {
+          "success": 112,
+          "crash": 15,
+          "hard_cap": 1
+        }
+      },
+      "courses": {
+        "a2rl_s2_2026_source_consistent_v2": {
+          "n": 8,
+          "successes": 1,
+          "sr": 0.125,
+          "timely": 0.125,
+          "clean_timely": 0.125,
+          "clean": 0.125,
+          "crashes": 0.875,
+          "successful_lap_s": {
+            "n": 1,
+            "mean": 12.292307692307693,
+            "median": 12.292307692307693,
+            "p90": 12.292307692307693,
+            "p95": 12.292307692307693,
+            "maximum": 12.292307692307693
+          },
+          "successful_reference_ratio": {
+            "n": 1,
+            "mean": 0.6947826086956522,
+            "median": 0.6947826086956522,
+            "p90": 0.6947826086956522,
+            "p95": 0.6947826086956522,
+            "maximum": 0.6947826086956522
+          },
+          "successful_max_no_pass_s": {
+            "n": 1,
+            "mean": 1.5923076923076922,
+            "median": 1.5923076923076922,
+            "p90": 1.5923076923076922,
+            "p95": 1.5923076923076922,
+            "maximum": 1.5923076923076922
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 7,
+            "success": 1
+          }
+        },
+        "real100-hard-001": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.875,
+          "clean_timely": 0.875,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 16.423076923076923,
+            "median": 15.850000000000001,
+            "p90": 18.54,
+            "p95": 18.873846153846156,
+            "maximum": 19.20769230769231
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.3126344912388563,
+            "median": 1.2668306178911775,
+            "p90": 1.4818321549339073,
+            "p95": 1.508515216723025,
+            "maximum": 1.5351982785121427
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 4.342307692307692,
+            "median": 3.6,
+            "p90": 6.174615384615384,
+            "p95": 6.521923076923076,
+            "maximum": 6.869230769230769
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 6,
+            "5": 3,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-008": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 13.436538461538461,
+            "median": 13.430769230769231,
+            "p90": 13.533076923076923,
+            "p95": 13.535769230769231,
+            "maximum": 13.538461538461538
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.5485372340425534,
+            "median": 1.5478723404255321,
+            "p90": 1.5596631205673759,
+            "p95": 1.5599734042553193,
+            "maximum": 1.5602836879432624
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 4.3125,
+            "median": 4.303846153846154,
+            "p90": 4.416153846153846,
+            "p95": 4.4350000000000005,
+            "maximum": 4.453846153846154
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 8,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-018": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 1.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 16.549999999999997,
+            "median": 16.56153846153846,
+            "p90": 17.00384615384615,
+            "p95": 17.125,
+            "maximum": 17.246153846153845
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 0.7539863325740319,
+            "median": 0.7545120028035746,
+            "p90": 0.7746626949360434,
+            "p95": 0.7801822323462414,
+            "maximum": 0.7857017697564395
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 4.984615384615385,
+            "median": 5.069230769230769,
+            "p90": 5.218461538461539,
+            "p95": 5.24,
+            "maximum": 5.2615384615384615
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 8,
+            "5": 5,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-030": {
+          "n": 8,
+          "successes": 7,
+          "sr": 0.875,
+          "timely": 0.625,
+          "clean_timely": 0.625,
+          "clean": 0.625,
+          "crashes": 0.125,
+          "successful_lap_s": {
+            "n": 7,
+            "mean": 9.384615384615387,
+            "median": 8.461538461538462,
+            "p90": 11.584615384615386,
+            "p95": 12.149999999999999,
+            "maximum": 12.715384615384615
+          },
+          "successful_reference_ratio": {
+            "n": 7,
+            "mean": 1.3268080478520934,
+            "median": 1.1963023382272973,
+            "p90": 1.6378466557911908,
+            "p95": 1.717781402936378,
+            "maximum": 1.7977161500815657
+          },
+          "successful_max_no_pass_s": {
+            "n": 7,
+            "mean": 2.2967032967032965,
+            "median": 1.7307692307692308,
+            "p90": 3.827692307692309,
+            "p95": 4.494615384615384,
+            "maximum": 5.161538461538462
+          },
+          "successes_with_recovery_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 1,
+            "5": 1,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 7,
+            "crash": 1
+          }
+        },
+        "real100-hard-037": {
+          "n": 8,
+          "successes": 6,
+          "sr": 0.75,
+          "timely": 0.125,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.125,
+          "successful_lap_s": {
+            "n": 6,
+            "mean": 17.521794871794874,
+            "median": 18.21153846153846,
+            "p90": 21.526923076923076,
+            "p95": 22.490384615384617,
+            "maximum": 23.453846153846154
+          },
+          "successful_reference_ratio": {
+            "n": 6,
+            "mean": 1.9501997716894977,
+            "median": 2.026969178082192,
+            "p90": 2.3959760273972606,
+            "p95": 2.503210616438356,
+            "maximum": 2.610445205479452
+          },
+          "successful_max_no_pass_s": {
+            "n": 6,
+            "mean": 7.296153846153847,
+            "median": 7.219230769230769,
+            "p90": 10.438461538461539,
+            "p95": 11.007692307692308,
+            "maximum": 11.576923076923077
+          },
+          "successes_with_recovery_over_s": {
+            "3": 6,
+            "5": 4,
+            "8": 2,
+            "10": 1,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 6,
+            "5": 5,
+            "8": 2,
+            "10": 1,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 1,
+            "success": 6,
+            "hard_cap": 1
+          }
+        },
+        "real100-hard-039": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 1.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 6.727884615384616,
+            "median": 6.753846153846154,
+            "p90": 6.795384615384616,
+            "p95": 6.816923076923077,
+            "maximum": 6.838461538461538
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.0837980173482031,
+            "median": 1.0879801734820322,
+            "p90": 1.0946716232961586,
+            "p95": 1.0981412639405204,
+            "maximum": 1.1016109045848823
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 2.025,
+            "median": 2.026923076923077,
+            "p90": 2.07,
+            "p95": 2.088846153846154,
+            "maximum": 2.1076923076923078
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-046": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 1.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 8.7375,
+            "median": 8.75769230769231,
+            "p90": 8.876153846153846,
+            "p95": 8.88423076923077,
+            "maximum": 8.892307692307693
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 0.7948740377886634,
+            "median": 0.7967109867039889,
+            "p90": 0.8074877536738979,
+            "p95": 0.808222533240028,
+            "maximum": 0.8089573128061582
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 1.7509615384615385,
+            "median": 1.7346153846153847,
+            "p90": 1.846153846153846,
+            "p95": 1.8730769230769229,
+            "maximum": 1.9
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-048": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.875,
+          "clean_timely": 0.875,
+          "clean": 0.875,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 10.100961538461538,
+            "median": 9.684615384615384,
+            "p90": 10.883076923076922,
+            "p95": 11.895384615384614,
+            "maximum": 12.907692307692308
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.2446682464454977,
+            "median": 1.1933649289099524,
+            "p90": 1.3410426540284361,
+            "p95": 1.465781990521327,
+            "maximum": 1.5905213270142182
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 1.7990384615384616,
+            "median": 1.4576923076923076,
+            "p90": 2.3469230769230767,
+            "p95": 3.2811538461538445,
+            "maximum": 4.2153846153846155
+          },
+          "successes_with_recovery_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-055": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.625,
+          "clean_timely": 0.625,
+          "clean": 0.625,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 10.053846153846155,
+            "median": 7.180769230769231,
+            "p90": 16.633076923076924,
+            "p95": 17.308846153846154,
+            "maximum": 17.984615384615385
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.386002120890774,
+            "median": 0.9899257688229057,
+            "p90": 2.293001060445387,
+            "p95": 2.3861611876988333,
+            "maximum": 2.47932131495228
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 4.6759615384615385,
+            "median": 2.111538461538461,
+            "p90": 10.43,
+            "p95": 11.191923076923077,
+            "maximum": 11.953846153846154
+          },
+          "successes_with_recovery_over_s": {
+            "3": 3,
+            "5": 3,
+            "8": 2,
+            "10": 1,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 3,
+            "5": 3,
+            "8": 2,
+            "10": 1,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-059": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 1.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 11.19423076923077,
+            "median": 11.26923076923077,
+            "p90": 11.397692307692308,
+            "p95": 11.421923076923077,
+            "maximum": 11.446153846153846
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.1923392052437527,
+            "median": 1.2003277345350267,
+            "p90": 1.2140106513723885,
+            "p95": 1.2165915608357232,
+            "maximum": 1.2191724702990578
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 2.785576923076923,
+            "median": 2.830769230769231,
+            "p90": 2.8946153846153844,
+            "p95": 2.897307692307692,
+            "maximum": 2.9
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-061": {
+          "n": 8,
+          "successes": 7,
+          "sr": 0.875,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.875,
+          "crashes": 0.125,
+          "successful_lap_s": {
+            "n": 7,
+            "mean": 16.22967032967033,
+            "median": 12.961538461538462,
+            "p90": 24.36615384615385,
+            "p95": 26.406153846153842,
+            "maximum": 28.446153846153845
+          },
+          "successful_reference_ratio": {
+            "n": 7,
+            "mean": 2.375965250965251,
+            "median": 1.8975225225225225,
+            "p90": 3.567117117117118,
+            "p95": 3.865765765765765,
+            "maximum": 4.164414414414415
+          },
+          "successful_max_no_pass_s": {
+            "n": 7,
+            "mean": 11.51978021978022,
+            "median": 8.26923076923077,
+            "p90": 19.652307692307694,
+            "p95": 21.710769230769227,
+            "maximum": 23.76923076923077
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 7,
+            "5": 7,
+            "8": 4,
+            "10": 3,
+            "15": 2,
+            "20": 1
+          },
+          "termination": {
+            "success": 7,
+            "crash": 1
+          }
+        },
+        "real100-hard-064": {
+          "n": 8,
+          "successes": 4,
+          "sr": 0.5,
+          "timely": 0.375,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.5,
+          "successful_lap_s": {
+            "n": 4,
+            "mean": 19.555769230769233,
+            "median": 17.78076923076923,
+            "p90": 24.361538461538462,
+            "p95": 25.49230769230769,
+            "maximum": 26.623076923076923
+          },
+          "successful_reference_ratio": {
+            "n": 4,
+            "mean": 1.3884489350081923,
+            "median": 1.262424904423812,
+            "p90": 1.7296559257236483,
+            "p95": 1.8099399235390496,
+            "maximum": 1.8902239213544512
+          },
+          "successful_max_no_pass_s": {
+            "n": 4,
+            "mean": 8.542307692307691,
+            "median": 6.25,
+            "p90": 13.450000000000001,
+            "p95": 14.967307692307688,
+            "maximum": 16.484615384615385
+          },
+          "successes_with_recovery_over_s": {
+            "3": 2,
+            "5": 1,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 4,
+            "5": 4,
+            "8": 1,
+            "10": 1,
+            "15": 1,
+            "20": 0
+          },
+          "termination": {
+            "crash": 4,
+            "success": 4
+          }
+        },
+        "real100-hard-066": {
+          "n": 8,
+          "successes": 7,
+          "sr": 0.875,
+          "timely": 0.5,
+          "clean_timely": 0.5,
+          "clean": 0.875,
+          "crashes": 0.125,
+          "successful_lap_s": {
+            "n": 7,
+            "mean": 8.727472527472527,
+            "median": 8.407692307692308,
+            "p90": 10.590769230769231,
+            "p95": 10.618461538461538,
+            "maximum": 10.646153846153846
+          },
+          "successful_reference_ratio": {
+            "n": 7,
+            "mean": 1.5660061125899636,
+            "median": 1.5086266390614218,
+            "p90": 1.900345065562457,
+            "p95": 1.9053140096618357,
+            "maximum": 1.9102829537612147
+          },
+          "successful_max_no_pass_s": {
+            "n": 7,
+            "mean": 3.0879120879120876,
+            "median": 2.769230769230769,
+            "p90": 4.975384615384615,
+            "p95": 5.003076923076923,
+            "maximum": 5.030769230769231
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 3,
+            "5": 1,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 1,
+            "success": 7
+          }
+        },
+        "real100-hard-076": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 1.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 8.847115384615385,
+            "median": 8.888461538461538,
+            "p90": 9.083076923076923,
+            "p95": 9.099230769230768,
+            "maximum": 9.115384615384615
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.4322851805728518,
+            "median": 1.4389788293897883,
+            "p90": 1.4704856787048566,
+            "p95": 1.4731008717310086,
+            "maximum": 1.4757160647571606
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 3.4990384615384613,
+            "median": 3.4653846153846155,
+            "p90": 3.7323076923076925,
+            "p95": 3.743076923076923,
+            "maximum": 3.753846153846154
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 8,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-085": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 15.634615384615385,
+            "median": 15.48076923076923,
+            "p90": 16.101538461538464,
+            "p95": 16.193076923076923,
+            "maximum": 16.284615384615385
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.7597402597402598,
+            "median": 1.7424242424242422,
+            "p90": 1.8122943722943723,
+            "p95": 1.8225974025974025,
+            "maximum": 1.8329004329004328
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 2.661538461538462,
+            "median": 2.661538461538462,
+            "p90": 2.806153846153846,
+            "p95": 2.8223076923076924,
+            "maximum": 2.8384615384615386
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        }
+      },
+      "mean_of_course_median_s": {
+        "n": 16,
+        "mean": 11.998317307692307,
+        "median": 11.78076923076923,
+        "p90": 17.171153846153846,
+        "p95": 17.888461538461538,
+        "maximum": 18.21153846153846
+      },
+      "mean_episode_path_speed_mps": 9.591705048477444,
+      "paired_vs_16_5": {
+        "sr": {
+          "delta_percentage_points": 3.90625,
+          "course_bootstrap_95pct": [
+            -1.5625,
+            9.375
+          ]
+        },
+        "timely": {
+          "delta_percentage_points": -12.5,
+          "course_bootstrap_95pct": [
+            -29.6875,
+            1.5625
+          ]
+        },
+        "clean_timely": {
+          "delta_percentage_points": -6.25,
+          "course_bootstrap_95pct": [
+            -25.0,
+            8.59375
+          ]
+        }
+      },
+      "paired_both_complete": {
+        "n": 100,
+        "lap_delta_s": {
+          "n": 100,
+          "mean": 0.4833846153846153,
+          "median": 0.8692307692307693,
+          "p90": 2.982307692307693,
+          "p95": 5.61653846153846,
+          "maximum": 17.615384615384617
+        },
+        "lap_ratio": {
+          "n": 100,
+          "mean": 1.1029727396856783,
+          "median": 1.0944317805458676,
+          "p90": 1.2208885675813652,
+          "p95": 1.432877675826183,
+          "maximum": 2.6264204545454546
+        }
+      },
+      "all_five_complete_cohort": {
+        "n": 28,
+        "lap_s": {
+          "n": 28,
+          "mean": 12.379945054945054,
+          "median": 13.434615384615384,
+          "p90": 16.573076923076925,
+          "p95": 17.726153846153846,
+          "maximum": 18.253846153846155
+        },
+        "lap_ratio_vs_baseline": {
+          "n": 28,
+          "mean": 1.1627228585916625,
+          "median": 1.1476517224799083,
+          "p90": 1.2152942974412715,
+          "p95": 1.533101275646107,
+          "maximum": 2.355530474040632
+        }
+      },
+      "targets": {
+        "a2rl_s2_2026_source_consistent_v2": {
+          "n": 8,
+          "successes": 1,
+          "sr": 0.125,
+          "timely": 0.125,
+          "clean_timely": 0.125,
+          "clean": 0.125,
+          "crashes": 0.875,
+          "successful_lap_s": {
+            "n": 1,
+            "mean": 12.292307692307693,
+            "median": 12.292307692307693,
+            "p90": 12.292307692307693,
+            "p95": 12.292307692307693,
+            "maximum": 12.292307692307693
+          },
+          "successful_reference_ratio": {
+            "n": 1,
+            "mean": 0.6947826086956522,
+            "median": 0.6947826086956522,
+            "p90": 0.6947826086956522,
+            "p95": 0.6947826086956522,
+            "maximum": 0.6947826086956522
+          },
+          "successful_max_no_pass_s": {
+            "n": 1,
+            "mean": 1.5923076923076922,
+            "median": 1.5923076923076922,
+            "p90": 1.5923076923076922,
+            "p95": 1.5923076923076922,
+            "maximum": 1.5923076923076922
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 7,
+            "success": 1
+          },
+          "failure_next_gate": {
+            "5": 2,
+            "7": 1,
+            "8": 1,
+            "12": 2,
+            "11": 1
+          }
+        },
+        "real100-hard-019": {
+          "n": 8,
+          "successes": 7,
+          "sr": 0.875,
+          "timely": 0.625,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.125,
+          "successful_lap_s": {
+            "n": 7,
+            "mean": 13.213186813186812,
+            "median": 13.169230769230769,
+            "p90": 15.612307692307693,
+            "p95": 15.713846153846154,
+            "maximum": 15.815384615384616
+          },
+          "successful_reference_ratio": {
+            "n": 7,
+            "mean": 1.3584138281647178,
+            "median": 1.353894820086991,
+            "p90": 1.6050612890470541,
+            "p95": 1.6155001977066032,
+            "maximum": 1.6259391063661526
+          },
+          "successful_max_no_pass_s": {
+            "n": 7,
+            "mean": 4.70989010989011,
+            "median": 4.907692307692308,
+            "p90": 6.380000000000001,
+            "p95": 6.797692307692307,
+            "maximum": 7.2153846153846155
+          },
+          "successes_with_recovery_over_s": {
+            "3": 5,
+            "5": 2,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 5,
+            "5": 2,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 7,
+            "crash": 1
+          },
+          "failure_next_gate": {
+            "6": 1
+          }
+        },
+        "real100-hard-034": {
+          "n": 8,
+          "successes": 7,
+          "sr": 0.875,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.125,
+          "successful_lap_s": {
+            "n": 7,
+            "mean": 10.503296703296703,
+            "median": 9.961538461538462,
+            "p90": 11.961538461538462,
+            "p95": 12.053846153846154,
+            "maximum": 12.146153846153846
+          },
+          "successful_reference_ratio": {
+            "n": 7,
+            "mean": 1.8364876549140166,
+            "median": 1.7417619367854742,
+            "p90": 2.0914593140551445,
+            "p95": 2.107599193006052,
+            "maximum": 2.12373907195696
+          },
+          "successful_max_no_pass_s": {
+            "n": 7,
+            "mean": 4.193406593406594,
+            "median": 3.8076923076923075,
+            "p90": 5.627692307692308,
+            "p95": 5.671538461538462,
+            "maximum": 5.7153846153846155
+          },
+          "successes_with_recovery_over_s": {
+            "3": 6,
+            "5": 2,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 7,
+            "5": 2,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 7,
+            "crash": 1
+          },
+          "failure_next_gate": {
+            "4": 1
+          }
+        },
+        "real100-hard-070": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.5,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 9.967307692307692,
+            "median": 8.607692307692307,
+            "p90": 12.84076923076923,
+            "p95": 14.916538461538458,
+            "maximum": 16.99230769230769
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.6926845199216196,
+            "median": 1.4617896799477466,
+            "p90": 2.1806662312214233,
+            "p95": 2.5331809274983663,
+            "maximum": 2.8856956237753097
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 4.765384615384615,
+            "median": 3.3653846153846154,
+            "p90": 7.728461538461538,
+            "p95": 9.744999999999997,
+            "maximum": 11.761538461538462
+          },
+          "successes_with_recovery_over_s": {
+            "3": 4,
+            "5": 3,
+            "8": 1,
+            "10": 1,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 4,
+            "5": 3,
+            "8": 1,
+            "10": 1,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          },
+          "failure_next_gate": {}
+        }
+      }
+    },
+    "21.0": {
+      "random": {
+        "n": 128,
+        "successes": 112,
+        "sr": 0.875,
+        "timely": 0.75,
+        "clean_timely": 0.6171875,
+        "clean": 0.625,
+        "crashes": 0.125,
+        "successful_lap_s": {
+          "n": 112,
+          "mean": 10.70885989010989,
+          "median": 9.696153846153845,
+          "p90": 15.59769230769231,
+          "p95": 18.99153846153846,
+          "maximum": 29.353846153846153
+        },
+        "successful_reference_ratio": {
+          "n": 112,
+          "mean": 1.2044201685109301,
+          "median": 1.198843778758428,
+          "p90": 1.5891469538786842,
+          "p95": 1.890241658100367,
+          "maximum": 3.267123287671233
+        },
+        "successful_max_no_pass_s": {
+          "n": 112,
+          "mean": 3.3173076923076925,
+          "median": 2.8,
+          "p90": 5.806153846153846,
+          "p95": 7.557307692307682,
+          "maximum": 12.86923076923077
+        },
+        "successes_with_recovery_over_s": {
+          "3": 23,
+          "5": 11,
+          "8": 3,
+          "10": 2,
+          "15": 0,
+          "20": 0
+        },
+        "successes_with_no_pass_over_s": {
+          "3": 51,
+          "5": 17,
+          "8": 6,
+          "10": 2,
+          "15": 0,
+          "20": 0
+        },
+        "termination": {
+          "success": 112,
+          "crash": 16
+        }
+      },
+      "courses": {
+        "a2rl_s2_2026_source_consistent_v2": {
+          "n": 8,
+          "successes": 0,
+          "sr": 0.0,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 1.0,
+          "successful_lap_s": {
+            "n": 0
+          },
+          "successful_reference_ratio": {
+            "n": 0
+          },
+          "successful_max_no_pass_s": {
+            "n": 0
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 8
+          }
+        },
+        "real100-hard-001": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.75,
+          "clean_timely": 0.75,
+          "clean": 0.75,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 15.748076923076923,
+            "median": 15.100000000000001,
+            "p90": 19.35923076923077,
+            "p95": 19.679615384615385,
+            "maximum": 20.0
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.2586842914233016,
+            "median": 1.2068859514294499,
+            "p90": 1.5473101752228715,
+            "p95": 1.5729173071011375,
+            "maximum": 1.5985244389794038
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 4.771153846153846,
+            "median": 4.038461538461538,
+            "p90": 8.343846153846153,
+            "p95": 8.664230769230768,
+            "maximum": 8.984615384615385
+          },
+          "successes_with_recovery_over_s": {
+            "3": 2,
+            "5": 2,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 5,
+            "5": 3,
+            "8": 2,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-008": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.875,
+          "clean_timely": 0.875,
+          "clean": 0.875,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 11.159615384615385,
+            "median": 10.746153846153845,
+            "p90": 11.92076923076923,
+            "p95": 12.860384615384614,
+            "maximum": 13.8
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.2861258865248226,
+            "median": 1.2384751773049647,
+            "p90": 1.3738475177304965,
+            "p95": 1.482136524822695,
+            "maximum": 1.5904255319148939
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 3.183653846153846,
+            "median": 3.0538461538461537,
+            "p90": 3.4907692307692306,
+            "p95": 3.7761538461538455,
+            "maximum": 4.061538461538461
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 7,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-018": {
+          "n": 8,
+          "successes": 7,
+          "sr": 0.875,
+          "timely": 0.875,
+          "clean_timely": 0.75,
+          "clean": 0.75,
+          "crashes": 0.125,
+          "successful_lap_s": {
+            "n": 7,
+            "mean": 14.064835164835165,
+            "median": 13.2,
+            "p90": 15.85846153846154,
+            "p95": 17.702307692307688,
+            "maximum": 19.546153846153846
+          },
+          "successful_reference_ratio": {
+            "n": 7,
+            "mean": 0.6407669778968185,
+            "median": 0.6013667425968109,
+            "p90": 0.7224811634834415,
+            "p95": 0.8064832661643594,
+            "maximum": 0.8904853688452777
+          },
+          "successful_max_no_pass_s": {
+            "n": 7,
+            "mean": 4.258241758241758,
+            "median": 3.876923076923077,
+            "p90": 5.101538461538462,
+            "p95": 5.96230769230769,
+            "maximum": 6.823076923076923
+          },
+          "successes_with_recovery_over_s": {
+            "3": 1,
+            "5": 1,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 7,
+            "5": 1,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 7,
+            "crash": 1
+          }
+        },
+        "real100-hard-030": {
+          "n": 8,
+          "successes": 7,
+          "sr": 0.875,
+          "timely": 0.375,
+          "clean_timely": 0.125,
+          "clean": 0.125,
+          "crashes": 0.125,
+          "successful_lap_s": {
+            "n": 7,
+            "mean": 12.441758241758242,
+            "median": 13.284615384615385,
+            "p90": 15.375384615384617,
+            "p95": 15.783846153846154,
+            "maximum": 16.192307692307693
+          },
+          "successful_reference_ratio": {
+            "n": 7,
+            "mean": 1.7590305290142159,
+            "median": 1.8781946710168569,
+            "p90": 2.17379010331702,
+            "p95": 2.231538879825992,
+            "maximum": 2.2892876563349644
+          },
+          "successful_max_no_pass_s": {
+            "n": 7,
+            "mean": 4.468131868131868,
+            "median": 4.569230769230769,
+            "p90": 6.626153846153847,
+            "p95": 6.882307692307692,
+            "maximum": 7.138461538461539
+          },
+          "successes_with_recovery_over_s": {
+            "3": 4,
+            "5": 2,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 5,
+            "5": 3,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 1,
+            "success": 7
+          }
+        },
+        "real100-hard-037": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.375,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 16.713461538461537,
+            "median": 15.084615384615384,
+            "p90": 23.856153846153845,
+            "p95": 26.604999999999997,
+            "maximum": 29.353846153846153
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.8602311643835616,
+            "median": 1.6789383561643834,
+            "p90": 2.655222602739726,
+            "p95": 2.9611729452054787,
+            "maximum": 3.267123287671233
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 6.313461538461539,
+            "median": 5.365384615384615,
+            "p90": 10.107692307692307,
+            "p95": 11.21153846153846,
+            "maximum": 12.315384615384616
+          },
+          "successes_with_recovery_over_s": {
+            "3": 7,
+            "5": 4,
+            "8": 2,
+            "10": 1,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 7,
+            "5": 4,
+            "8": 2,
+            "10": 1,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-039": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 1.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 5.854807692307693,
+            "median": 5.865384615384615,
+            "p90": 5.9023076923076925,
+            "p95": 5.905,
+            "maximum": 5.907692307692308
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 0.9431536555142503,
+            "median": 0.9448574969021066,
+            "p90": 0.9508054522924412,
+            "p95": 0.9512391573729864,
+            "maximum": 0.9516728624535317
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 1.5961538461538463,
+            "median": 1.5884615384615384,
+            "p90": 1.6215384615384616,
+            "p95": 1.6376923076923076,
+            "maximum": 1.6538461538461537
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-046": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.875,
+          "clean_timely": 0.875,
+          "clean": 0.875,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 9.491346153846155,
+            "median": 8.065384615384616,
+            "p90": 11.63307692307692,
+            "p95": 15.754999999999994,
+            "maximum": 19.876923076923077
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 0.8634534639608118,
+            "median": 0.7337298810356893,
+            "p90": 1.058292512246326,
+            "p95": 1.433275017494751,
+            "maximum": 1.8082575227431772
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 2.9923076923076923,
+            "median": 1.6,
+            "p90": 5.00230769230769,
+            "p95": 8.935769230769225,
+            "maximum": 12.86923076923077
+          },
+          "successes_with_recovery_over_s": {
+            "3": 1,
+            "5": 1,
+            "8": 1,
+            "10": 1,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 1,
+            "5": 1,
+            "8": 1,
+            "10": 1,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-048": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 0.75,
+          "clean": 0.75,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 8.929807692307694,
+            "median": 8.784615384615385,
+            "p90": 9.256153846153847,
+            "p95": 9.581923076923077,
+            "maximum": 9.907692307692308
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.100355450236967,
+            "median": 1.0824644549763036,
+            "p90": 1.140568720379147,
+            "p95": 1.1807109004739338,
+            "maximum": 1.2208530805687206
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 1.4182692307692308,
+            "median": 1.3115384615384615,
+            "p90": 1.606923076923077,
+            "p95": 1.9111538461538458,
+            "maximum": 2.2153846153846155
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-055": {
+          "n": 8,
+          "successes": 7,
+          "sr": 0.875,
+          "timely": 0.75,
+          "clean_timely": 0.25,
+          "clean": 0.25,
+          "crashes": 0.125,
+          "successful_lap_s": {
+            "n": 7,
+            "mean": 8.848351648351649,
+            "median": 8.753846153846155,
+            "p90": 10.652307692307692,
+            "p95": 10.991538461538461,
+            "maximum": 11.330769230769231
+          },
+          "successful_reference_ratio": {
+            "n": 7,
+            "mean": 1.2198151795182548,
+            "median": 1.2067868504772006,
+            "p90": 1.468504772004242,
+            "p95": 1.515270413573701,
+            "maximum": 1.5620360551431602
+          },
+          "successful_max_no_pass_s": {
+            "n": 7,
+            "mean": 3.4692307692307693,
+            "median": 3.0846153846153848,
+            "p90": 5.150769230769231,
+            "p95": 5.436923076923076,
+            "maximum": 5.723076923076923
+          },
+          "successes_with_recovery_over_s": {
+            "3": 3,
+            "5": 1,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 5,
+            "5": 1,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 7,
+            "crash": 1
+          }
+        },
+        "real100-hard-059": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 1.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 9.130769230769232,
+            "median": 9.161538461538461,
+            "p90": 9.25076923076923,
+            "p95": 9.256153846153847,
+            "maximum": 9.261538461538462
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 0.9725522326915199,
+            "median": 0.9758295780417862,
+            "p90": 0.9853338795575584,
+            "p95": 0.985907414993855,
+            "maximum": 0.9864809504301517
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 2.141346153846154,
+            "median": 2.1346153846153846,
+            "p90": 2.179230769230769,
+            "p95": 2.1819230769230766,
+            "maximum": 2.1846153846153844
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-061": {
+          "n": 8,
+          "successes": 6,
+          "sr": 0.75,
+          "timely": 0.625,
+          "clean_timely": 0.625,
+          "clean": 0.75,
+          "crashes": 0.25,
+          "successful_lap_s": {
+            "n": 6,
+            "mean": 8.462820512820512,
+            "median": 8.523076923076923,
+            "p90": 10.234615384615385,
+            "p95": 10.267307692307693,
+            "maximum": 10.3
+          },
+          "successful_reference_ratio": {
+            "n": 6,
+            "mean": 1.2389264264264264,
+            "median": 1.2477477477477477,
+            "p90": 1.498310810810811,
+            "p95": 1.5030968468468469,
+            "maximum": 1.507882882882883
+          },
+          "successful_max_no_pass_s": {
+            "n": 6,
+            "mean": 3.966666666666667,
+            "median": 3.980769230769231,
+            "p90": 5.765384615384615,
+            "p95": 5.778846153846153,
+            "maximum": 5.792307692307692
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 4,
+            "5": 2,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 6,
+            "crash": 2
+          }
+        },
+        "real100-hard-064": {
+          "n": 8,
+          "successes": 5,
+          "sr": 0.625,
+          "timely": 0.625,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.375,
+          "successful_lap_s": {
+            "n": 5,
+            "mean": 14.835384615384616,
+            "median": 13.576923076923077,
+            "p90": 17.65692307692308,
+            "p95": 18.286153846153844,
+            "maximum": 18.915384615384614
+          },
+          "successful_reference_ratio": {
+            "n": 5,
+            "mean": 1.0533042053522665,
+            "median": 0.9639541234298198,
+            "p90": 1.2536318951392682,
+            "p95": 1.2983069361004915,
+            "maximum": 1.3429819770617148
+          },
+          "successful_max_no_pass_s": {
+            "n": 5,
+            "mean": 5.192307692307693,
+            "median": 3.792307692307692,
+            "p90": 7.74,
+            "p95": 8.358461538461539,
+            "maximum": 8.976923076923077
+          },
+          "successes_with_recovery_over_s": {
+            "3": 5,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 5,
+            "5": 2,
+            "8": 1,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 3,
+            "success": 5
+          }
+        },
+        "real100-hard-066": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.875,
+          "clean_timely": 0.875,
+          "clean": 0.875,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 7.291346153846154,
+            "median": 7.184615384615385,
+            "p90": 8.458461538461538,
+            "p95": 8.625384615384617,
+            "maximum": 8.792307692307693
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.3083160800552105,
+            "median": 1.2891649413388544,
+            "p90": 1.5177363699102833,
+            "p95": 1.5476880607315393,
+            "maximum": 1.5776397515527953
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 2.4307692307692306,
+            "median": 2.207692307692308,
+            "p90": 3.4384615384615387,
+            "p95": 3.519230769230769,
+            "maximum": 3.6
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 3,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-076": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 1.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 7.502884615384615,
+            "median": 7.561538461538461,
+            "p90": 7.76,
+            "p95": 7.776153846153846,
+            "maximum": 7.792307692307692
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.2146637608966375,
+            "median": 1.224159402241594,
+            "p90": 1.256288916562889,
+            "p95": 1.258904109589041,
+            "maximum": 1.261519302615193
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 2.8836538461538463,
+            "median": 2.907692307692308,
+            "p90": 3.0123076923076924,
+            "p95": 3.0176923076923075,
+            "maximum": 3.023076923076923
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 2,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        },
+        "real100-hard-085": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 1.0,
+          "clean_timely": 1.0,
+          "clean": 1.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 11.547115384615385,
+            "median": 11.423076923076923,
+            "p90": 12.005384615384616,
+            "p95": 12.083461538461538,
+            "maximum": 12.161538461538461
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.2996753246753245,
+            "median": 1.2857142857142856,
+            "p90": 1.3512554112554112,
+            "p95": 1.36004329004329,
+            "maximum": 1.3688311688311687
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 1.8201923076923077,
+            "median": 1.7846153846153845,
+            "p90": 1.9246153846153846,
+            "p95": 1.989230769230769,
+            "maximum": 2.0538461538461537
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          }
+        }
+      },
+      "mean_of_course_median_s": {
+        "n": 15,
+        "mean": 10.421025641025643,
+        "median": 9.161538461538461,
+        "p90": 14.481538461538461,
+        "p95": 15.089230769230769,
+        "maximum": 15.100000000000001
+      },
+      "mean_episode_path_speed_mps": 11.158570302151315,
+      "paired_vs_16_5": {
+        "sr": {
+          "delta_percentage_points": 3.90625,
+          "course_bootstrap_95pct": [
+            -3.125,
+            12.5
+          ]
+        },
+        "timely": {
+          "delta_percentage_points": 5.46875,
+          "course_bootstrap_95pct": [
+            -4.6875,
+            17.1875
+          ]
+        },
+        "clean_timely": {
+          "delta_percentage_points": 1.5625,
+          "course_bootstrap_95pct": [
+            -8.59375,
+            13.28125
+          ]
+        }
+      },
+      "paired_both_complete": {
+        "n": 100,
+        "lap_delta_s": {
+          "n": 100,
+          "mean": -1.4252307692307695,
+          "median": -0.5846153846153845,
+          "p90": 0.9838461538461558,
+          "p95": 2.945384615384613,
+          "maximum": 11.638461538461538
+        },
+        "lap_ratio": {
+          "n": 100,
+          "mean": 0.9413325469197739,
+          "median": 0.9399585577200098,
+          "p90": 1.1029329295030779,
+          "p95": 1.2265387449143406,
+          "maximum": 2.4126984126984126
+        }
+      },
+      "all_five_complete_cohort": {
+        "n": 28,
+        "lap_s": {
+          "n": 28,
+          "mean": 10.403021978021977,
+          "median": 10.376923076923077,
+          "p90": 15.342307692307696,
+          "p95": 19.599615384615383,
+          "maximum": 20.0
+        },
+        "lap_ratio_vs_baseline": {
+          "n": 28,
+          "mean": 0.9711910607273488,
+          "median": 0.9409802178369817,
+          "p90": 1.0017986209670247,
+          "p95": 1.1713586569400434,
+          "maximum": 2.4126984126984126
+        }
+      },
+      "targets": {
+        "a2rl_s2_2026_source_consistent_v2": {
+          "n": 8,
+          "successes": 0,
+          "sr": 0.0,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 1.0,
+          "successful_lap_s": {
+            "n": 0
+          },
+          "successful_reference_ratio": {
+            "n": 0
+          },
+          "successful_max_no_pass_s": {
+            "n": 0
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 8
+          },
+          "failure_next_gate": {
+            "7": 5,
+            "5": 1,
+            "8": 1,
+            "12": 1
+          }
+        },
+        "real100-hard-019": {
+          "n": 8,
+          "successes": 6,
+          "sr": 0.75,
+          "timely": 0.25,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.25,
+          "successful_lap_s": {
+            "n": 6,
+            "mean": 17.826923076923077,
+            "median": 17.253846153846155,
+            "p90": 23.596153846153847,
+            "p95": 25.125,
+            "maximum": 26.653846153846153
+          },
+          "successful_reference_ratio": {
+            "n": 6,
+            "mean": 1.8327402135231317,
+            "median": 1.7738236457097667,
+            "p90": 2.4258600237247925,
+            "p95": 2.5830367734282325,
+            "maximum": 2.7402135231316724
+          },
+          "successful_max_no_pass_s": {
+            "n": 6,
+            "mean": 5.655128205128205,
+            "median": 5.457692307692308,
+            "p90": 7.938461538461539,
+            "p95": 8.565384615384614,
+            "maximum": 9.192307692307692
+          },
+          "successes_with_recovery_over_s": {
+            "3": 5,
+            "5": 3,
+            "8": 1,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 5,
+            "5": 3,
+            "8": 1,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 2,
+            "success": 6
+          },
+          "failure_next_gate": {
+            "6": 1,
+            "8": 1
+          }
+        },
+        "real100-hard-034": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.375,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 9.110576923076923,
+            "median": 8.865384615384615,
+            "p90": 9.833076923076922,
+            "p95": 10.616538461538461,
+            "maximum": 11.4
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.5929724277067923,
+            "median": 1.550100874243443,
+            "p90": 1.7193006052454605,
+            "p95": 1.8562878278412909,
+            "maximum": 1.9932750504371217
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 3.456730769230769,
+            "median": 3.226923076923077,
+            "p90": 4.2846153846153845,
+            "p95": 5.038461538461537,
+            "maximum": 5.792307692307692
+          },
+          "successes_with_recovery_over_s": {
+            "3": 3,
+            "5": 1,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 5,
+            "5": 1,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          },
+          "failure_next_gate": {}
+        },
+        "real100-hard-070": {
+          "n": 8,
+          "successes": 8,
+          "sr": 1.0,
+          "timely": 0.25,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.0,
+          "successful_lap_s": {
+            "n": 8,
+            "mean": 10.021153846153846,
+            "median": 9.611538461538462,
+            "p90": 12.254615384615384,
+            "p95": 12.677307692307691,
+            "maximum": 13.1
+          },
+          "successful_reference_ratio": {
+            "n": 8,
+            "mean": 1.701828870019595,
+            "median": 1.6322664924885695,
+            "p90": 2.0811234487263226,
+            "p95": 2.1529065969954275,
+            "maximum": 2.224689745264533
+          },
+          "successful_max_no_pass_s": {
+            "n": 8,
+            "mean": 4.999038461538461,
+            "median": 4.723076923076923,
+            "p90": 7.29,
+            "p95": 7.825769230769231,
+            "maximum": 8.361538461538462
+          },
+          "successes_with_recovery_over_s": {
+            "3": 6,
+            "5": 2,
+            "8": 1,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 7,
+            "5": 2,
+            "8": 1,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 8
+          },
+          "failure_next_gate": {}
+        }
+      }
+    },
+    "26.0": {
+      "random": {
+        "n": 128,
+        "successes": 30,
+        "sr": 0.234375,
+        "timely": 0.1484375,
+        "clean_timely": 0.125,
+        "clean": 0.140625,
+        "crashes": 0.765625,
+        "successful_lap_s": {
+          "n": 30,
+          "mean": 13.216666666666667,
+          "median": 10.76923076923077,
+          "p90": 21.92846153846154,
+          "p95": 27.19384615384613,
+          "maximum": 31.2
+        },
+        "successful_reference_ratio": {
+          "n": 30,
+          "mean": 1.508954473832437,
+          "median": 1.318240199007794,
+          "p90": 2.3741238570744536,
+          "p95": 2.842893809743773,
+          "maximum": 3.595744680851064
+        },
+        "successful_max_no_pass_s": {
+          "n": 30,
+          "mean": 4.583076923076924,
+          "median": 3.111538461538461,
+          "p90": 10.083076923076923,
+          "p95": 13.833846153846137,
+          "maximum": 16.96923076923077
+        },
+        "successes_with_recovery_over_s": {
+          "3": 7,
+          "5": 6,
+          "8": 4,
+          "10": 2,
+          "15": 1,
+          "20": 0
+        },
+        "successes_with_no_pass_over_s": {
+          "3": 16,
+          "5": 7,
+          "8": 5,
+          "10": 4,
+          "15": 2,
+          "20": 0
+        },
+        "termination": {
+          "crash": 98,
+          "success": 30
+        }
+      },
+      "courses": {
+        "a2rl_s2_2026_source_consistent_v2": {
+          "n": 8,
+          "successes": 0,
+          "sr": 0.0,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 1.0,
+          "successful_lap_s": {
+            "n": 0
+          },
+          "successful_reference_ratio": {
+            "n": 0
+          },
+          "successful_max_no_pass_s": {
+            "n": 0
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 8
+          }
+        },
+        "real100-hard-001": {
+          "n": 8,
+          "successes": 4,
+          "sr": 0.5,
+          "timely": 0.25,
+          "clean_timely": 0.25,
+          "clean": 0.375,
+          "crashes": 0.5,
+          "successful_lap_s": {
+            "n": 4,
+            "mean": 20.771153846153844,
+            "median": 18.33076923076923,
+            "p90": 27.27692307692308,
+            "p95": 28.973076923076917,
+            "maximum": 30.66923076923077
+          },
+          "successful_reference_ratio": {
+            "n": 4,
+            "mean": 1.6601598524438983,
+            "median": 1.465109130033815,
+            "p90": 2.1801414079311408,
+            "p95": 2.315708576698432,
+            "maximum": 2.451275745465724
+          },
+          "successful_max_no_pass_s": {
+            "n": 4,
+            "mean": 8.209615384615386,
+            "median": 6.069230769230769,
+            "p90": 13.933076923076925,
+            "p95": 15.281923076923075,
+            "maximum": 16.630769230769232
+          },
+          "successes_with_recovery_over_s": {
+            "3": 1,
+            "5": 1,
+            "8": 1,
+            "10": 1,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 4,
+            "5": 2,
+            "8": 1,
+            "10": 1,
+            "15": 1,
+            "20": 0
+          },
+          "termination": {
+            "crash": 4,
+            "success": 4
+          }
+        },
+        "real100-hard-008": {
+          "n": 8,
+          "successes": 2,
+          "sr": 0.25,
+          "timely": 0.125,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.75,
+          "successful_lap_s": {
+            "n": 2,
+            "mean": 22.073076923076922,
+            "median": 22.073076923076922,
+            "p90": 29.374615384615385,
+            "p95": 30.287307692307692,
+            "maximum": 31.2
+          },
+          "successful_reference_ratio": {
+            "n": 2,
+            "mean": 2.5438829787234045,
+            "median": 2.5438829787234045,
+            "p90": 3.385372340425532,
+            "p95": 3.490558510638298,
+            "maximum": 3.595744680851064
+          },
+          "successful_max_no_pass_s": {
+            "n": 2,
+            "mean": 10.196153846153846,
+            "median": 10.196153846153846,
+            "p90": 15.614615384615385,
+            "p95": 16.291923076923077,
+            "maximum": 16.96923076923077
+          },
+          "successes_with_recovery_over_s": {
+            "3": 1,
+            "5": 1,
+            "8": 1,
+            "10": 1,
+            "15": 1,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 2,
+            "5": 1,
+            "8": 1,
+            "10": 1,
+            "15": 1,
+            "20": 0
+          },
+          "termination": {
+            "crash": 6,
+            "success": 2
+          }
+        },
+        "real100-hard-018": {
+          "n": 8,
+          "successes": 1,
+          "sr": 0.125,
+          "timely": 0.125,
+          "clean_timely": 0.125,
+          "clean": 0.125,
+          "crashes": 0.875,
+          "successful_lap_s": {
+            "n": 1,
+            "mean": 13.392307692307693,
+            "median": 13.392307692307693,
+            "p90": 13.392307692307693,
+            "p95": 13.392307692307693,
+            "maximum": 13.392307692307693
+          },
+          "successful_reference_ratio": {
+            "n": 1,
+            "mean": 0.6101279130891888,
+            "median": 0.6101279130891888,
+            "p90": 0.6101279130891888,
+            "p95": 0.6101279130891888,
+            "maximum": 0.6101279130891888
+          },
+          "successful_max_no_pass_s": {
+            "n": 1,
+            "mean": 3.453846153846154,
+            "median": 3.453846153846154,
+            "p90": 3.453846153846154,
+            "p95": 3.453846153846154,
+            "maximum": 3.453846153846154
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 7,
+            "success": 1
+          }
+        },
+        "real100-hard-030": {
+          "n": 8,
+          "successes": 0,
+          "sr": 0.0,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 1.0,
+          "successful_lap_s": {
+            "n": 0
+          },
+          "successful_reference_ratio": {
+            "n": 0
+          },
+          "successful_max_no_pass_s": {
+            "n": 0
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 8
+          }
+        },
+        "real100-hard-037": {
+          "n": 8,
+          "successes": 0,
+          "sr": 0.0,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 1.0,
+          "successful_lap_s": {
+            "n": 0
+          },
+          "successful_reference_ratio": {
+            "n": 0
+          },
+          "successful_max_no_pass_s": {
+            "n": 0
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 8
+          }
+        },
+        "real100-hard-039": {
+          "n": 8,
+          "successes": 5,
+          "sr": 0.625,
+          "timely": 0.5,
+          "clean_timely": 0.5,
+          "clean": 0.5,
+          "crashes": 0.375,
+          "successful_lap_s": {
+            "n": 5,
+            "mean": 7.603076923076924,
+            "median": 5.861538461538461,
+            "p90": 11.161538461538463,
+            "p95": 12.923076923076922,
+            "maximum": 14.684615384615384
+          },
+          "successful_reference_ratio": {
+            "n": 5,
+            "mean": 1.2247831474597273,
+            "median": 0.9442379182156133,
+            "p90": 1.798017348203222,
+            "p95": 2.0817843866171,
+            "maximum": 2.365551425030979
+          },
+          "successful_max_no_pass_s": {
+            "n": 5,
+            "mean": 3.249230769230769,
+            "median": 1.5615384615384615,
+            "p90": 6.664615384615385,
+            "p95": 8.355384615384613,
+            "maximum": 10.046153846153846
+          },
+          "successes_with_recovery_over_s": {
+            "3": 1,
+            "5": 1,
+            "8": 1,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 1,
+            "5": 1,
+            "8": 1,
+            "10": 1,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 3,
+            "success": 5
+          }
+        },
+        "real100-hard-046": {
+          "n": 8,
+          "successes": 2,
+          "sr": 0.25,
+          "timely": 0.125,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.75,
+          "successful_lap_s": {
+            "n": 2,
+            "mean": 13.51923076923077,
+            "median": 13.51923076923077,
+            "p90": 16.13153846153846,
+            "p95": 16.458076923076923,
+            "maximum": 16.784615384615385
+          },
+          "successful_reference_ratio": {
+            "n": 2,
+            "mean": 1.2298810356892933,
+            "median": 1.2298810356892933,
+            "p90": 1.4675297410776769,
+            "p95": 1.4972358292512247,
+            "maximum": 1.5269419174247727
+          },
+          "successful_max_no_pass_s": {
+            "n": 2,
+            "mean": 3.8576923076923073,
+            "median": 3.8576923076923073,
+            "p90": 4.6669230769230765,
+            "p95": 4.768076923076922,
+            "maximum": 4.869230769230769
+          },
+          "successes_with_recovery_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 6,
+            "success": 2
+          }
+        },
+        "real100-hard-048": {
+          "n": 8,
+          "successes": 0,
+          "sr": 0.0,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 1.0,
+          "successful_lap_s": {
+            "n": 0
+          },
+          "successful_reference_ratio": {
+            "n": 0
+          },
+          "successful_max_no_pass_s": {
+            "n": 0
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 8
+          }
+        },
+        "real100-hard-055": {
+          "n": 8,
+          "successes": 3,
+          "sr": 0.375,
+          "timely": 0.125,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.625,
+          "successful_lap_s": {
+            "n": 3,
+            "mean": 14.248717948717948,
+            "median": 12.538461538461538,
+            "p90": 20.864615384615384,
+            "p95": 21.905384615384612,
+            "maximum": 22.946153846153845
+          },
+          "successful_reference_ratio": {
+            "n": 3,
+            "mean": 1.9642983386355601,
+            "median": 1.728525980911983,
+            "p90": 2.8763520678685044,
+            "p95": 3.0198303287380694,
+            "maximum": 3.163308589607635
+          },
+          "successful_max_no_pass_s": {
+            "n": 3,
+            "mean": 5.633333333333333,
+            "median": 7.069230769230769,
+            "p90": 8.004615384615384,
+            "p95": 8.12153846153846,
+            "maximum": 8.238461538461538
+          },
+          "successes_with_recovery_over_s": {
+            "3": 2,
+            "5": 2,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 2,
+            "5": 2,
+            "8": 1,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 5,
+            "success": 3
+          }
+        },
+        "real100-hard-059": {
+          "n": 8,
+          "successes": 2,
+          "sr": 0.25,
+          "timely": 0.125,
+          "clean_timely": 0.125,
+          "clean": 0.125,
+          "crashes": 0.75,
+          "successful_lap_s": {
+            "n": 2,
+            "mean": 15.646153846153847,
+            "median": 15.646153846153847,
+            "p90": 20.58153846153846,
+            "p95": 21.19846153846154,
+            "maximum": 21.815384615384616
+          },
+          "successful_reference_ratio": {
+            "n": 2,
+            "mean": 1.6665301106104056,
+            "median": 1.6665301106104056,
+            "p90": 2.192216304793118,
+            "p95": 2.257927079065957,
+            "maximum": 2.323637853338796
+          },
+          "successful_max_no_pass_s": {
+            "n": 2,
+            "mean": 6.426923076923077,
+            "median": 6.426923076923077,
+            "p90": 9.617692307692309,
+            "p95": 10.016538461538461,
+            "maximum": 10.415384615384616
+          },
+          "successes_with_recovery_over_s": {
+            "3": 1,
+            "5": 1,
+            "8": 1,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 1,
+            "5": 1,
+            "8": 1,
+            "10": 1,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 6,
+            "success": 2
+          }
+        },
+        "real100-hard-061": {
+          "n": 8,
+          "successes": 1,
+          "sr": 0.125,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.125,
+          "crashes": 0.875,
+          "successful_lap_s": {
+            "n": 1,
+            "mean": 10.823076923076924,
+            "median": 10.823076923076924,
+            "p90": 10.823076923076924,
+            "p95": 10.823076923076924,
+            "maximum": 10.823076923076924
+          },
+          "successful_reference_ratio": {
+            "n": 1,
+            "mean": 1.5844594594594597,
+            "median": 1.5844594594594597,
+            "p90": 1.5844594594594597,
+            "p95": 1.5844594594594597,
+            "maximum": 1.5844594594594597
+          },
+          "successful_max_no_pass_s": {
+            "n": 1,
+            "mean": 4.184615384615385,
+            "median": 4.184615384615385,
+            "p90": 4.184615384615385,
+            "p95": 4.184615384615385,
+            "maximum": 4.184615384615385
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 7,
+            "success": 1
+          }
+        },
+        "real100-hard-064": {
+          "n": 8,
+          "successes": 0,
+          "sr": 0.0,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 1.0,
+          "successful_lap_s": {
+            "n": 0
+          },
+          "successful_reference_ratio": {
+            "n": 0
+          },
+          "successful_max_no_pass_s": {
+            "n": 0
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 8
+          }
+        },
+        "real100-hard-066": {
+          "n": 8,
+          "successes": 1,
+          "sr": 0.125,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.875,
+          "successful_lap_s": {
+            "n": 1,
+            "mean": 10.3,
+            "median": 10.3,
+            "p90": 10.3,
+            "p95": 10.3,
+            "maximum": 10.3
+          },
+          "successful_reference_ratio": {
+            "n": 1,
+            "mean": 1.8481711525189788,
+            "median": 1.8481711525189788,
+            "p90": 1.8481711525189788,
+            "p95": 1.8481711525189788,
+            "maximum": 1.8481711525189788
+          },
+          "successful_max_no_pass_s": {
+            "n": 1,
+            "mean": 4.007692307692308,
+            "median": 4.007692307692308,
+            "p90": 4.007692307692308,
+            "p95": 4.007692307692308,
+            "maximum": 4.007692307692308
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 7,
+            "success": 1
+          }
+        },
+        "real100-hard-076": {
+          "n": 8,
+          "successes": 2,
+          "sr": 0.25,
+          "timely": 0.125,
+          "clean_timely": 0.125,
+          "clean": 0.125,
+          "crashes": 0.75,
+          "successful_lap_s": {
+            "n": 2,
+            "mean": 9.330769230769231,
+            "median": 9.330769230769231,
+            "p90": 9.989230769230769,
+            "p95": 10.071538461538461,
+            "maximum": 10.153846153846153
+          },
+          "successful_reference_ratio": {
+            "n": 2,
+            "mean": 1.5105853051058529,
+            "median": 1.5105853051058529,
+            "p90": 1.6171855541718554,
+            "p95": 1.6305105853051058,
+            "maximum": 1.643835616438356
+          },
+          "successful_max_no_pass_s": {
+            "n": 2,
+            "mean": 3.111538461538461,
+            "median": 3.111538461538461,
+            "p90": 3.1515384615384616,
+            "p95": 3.1565384615384615,
+            "maximum": 3.1615384615384614
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 2,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 6,
+            "success": 2
+          }
+        },
+        "real100-hard-085": {
+          "n": 8,
+          "successes": 7,
+          "sr": 0.875,
+          "timely": 0.875,
+          "clean_timely": 0.875,
+          "clean": 0.875,
+          "crashes": 0.125,
+          "successful_lap_s": {
+            "n": 7,
+            "mean": 11.0,
+            "median": 10.692307692307692,
+            "p90": 11.813846153846155,
+            "p95": 12.406923076923075,
+            "maximum": 13.0
+          },
+          "successful_reference_ratio": {
+            "n": 7,
+            "mean": 1.238095238095238,
+            "median": 1.2034632034632033,
+            "p90": 1.3296969696969698,
+            "p95": 1.3964502164502162,
+            "maximum": 1.4632034632034632
+          },
+          "successful_max_no_pass_s": {
+            "n": 7,
+            "mean": 1.810989010989011,
+            "median": 1.6692307692307693,
+            "p90": 2.1676923076923083,
+            "p95": 2.518461538461538,
+            "maximum": 2.8692307692307693
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "success": 7,
+            "crash": 1
+          }
+        }
+      },
+      "mean_of_course_median_s": {
+        "n": 11,
+        "mean": 12.955244755244752,
+        "median": 12.538461538461538,
+        "p90": 18.33076923076923,
+        "p95": 20.201923076923077,
+        "maximum": 22.073076923076922
+      },
+      "mean_episode_path_speed_mps": 11.368233154086667,
+      "paired_vs_16_5": {
+        "sr": {
+          "delta_percentage_points": -60.15625,
+          "course_bootstrap_95pct": [
+            -71.09375,
+            -48.4375
+          ]
+        },
+        "timely": {
+          "delta_percentage_points": -54.6875,
+          "course_bootstrap_95pct": [
+            -71.09375,
+            -37.5
+          ]
+        },
+        "clean_timely": {
+          "delta_percentage_points": -47.65625,
+          "course_bootstrap_95pct": [
+            -65.625,
+            -29.6875
+          ]
+        }
+      },
+      "paired_both_complete": {
+        "n": 29,
+        "lap_delta_s": {
+          "n": 29,
+          "mean": 2.1570291777188326,
+          "median": -0.27692307692307694,
+          "p90": 12.703076923076921,
+          "p95": 16.536923076923074,
+          "maximum": 19.0
+        },
+        "lap_ratio": {
+          "n": 29,
+          "mean": 1.285292593650068,
+          "median": 0.9731437598736177,
+          "p90": 2.244319010623117,
+          "p95": 2.482997658079625,
+          "maximum": 3.3668171557562077
+        }
+      },
+      "all_five_complete_cohort": {
+        "n": 28,
+        "lap_s": {
+          "n": 28,
+          "mean": 13.175,
+          "median": 10.76923076923077,
+          "p90": 22.154615384615386,
+          "p95": 27.966153846153833,
+          "maximum": 31.2
+        },
+        "lap_ratio_vs_baseline": {
+          "n": 28,
+          "mean": 1.284279178269747,
+          "median": 0.9639588146101756,
+          "p90": 2.260207705723799,
+          "p95": 2.492295081967213,
+          "maximum": 3.3668171557562077
+        }
+      },
+      "targets": {
+        "a2rl_s2_2026_source_consistent_v2": {
+          "n": 8,
+          "successes": 0,
+          "sr": 0.0,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 1.0,
+          "successful_lap_s": {
+            "n": 0
+          },
+          "successful_reference_ratio": {
+            "n": 0
+          },
+          "successful_max_no_pass_s": {
+            "n": 0
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 8
+          },
+          "failure_next_gate": {
+            "4": 1,
+            "5": 3,
+            "3": 2,
+            "6": 1,
+            "7": 1
+          }
+        },
+        "real100-hard-019": {
+          "n": 8,
+          "successes": 0,
+          "sr": 0.0,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 1.0,
+          "successful_lap_s": {
+            "n": 0
+          },
+          "successful_reference_ratio": {
+            "n": 0
+          },
+          "successful_max_no_pass_s": {
+            "n": 0
+          },
+          "successes_with_recovery_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 8
+          },
+          "failure_next_gate": {
+            "2": 2,
+            "4": 2,
+            "6": 3,
+            "3": 1
+          }
+        },
+        "real100-hard-034": {
+          "n": 8,
+          "successes": 1,
+          "sr": 0.125,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.875,
+          "successful_lap_s": {
+            "n": 1,
+            "mean": 14.861538461538462,
+            "median": 14.861538461538462,
+            "p90": 14.861538461538462,
+            "p95": 14.861538461538462,
+            "maximum": 14.861538461538462
+          },
+          "successful_reference_ratio": {
+            "n": 1,
+            "mean": 2.598520511096167,
+            "median": 2.598520511096167,
+            "p90": 2.598520511096167,
+            "p95": 2.598520511096167,
+            "maximum": 2.598520511096167
+          },
+          "successful_max_no_pass_s": {
+            "n": 1,
+            "mean": 9.03076923076923,
+            "median": 9.03076923076923,
+            "p90": 9.03076923076923,
+            "p95": 9.03076923076923,
+            "maximum": 9.03076923076923
+          },
+          "successes_with_recovery_over_s": {
+            "3": 1,
+            "5": 1,
+            "8": 1,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 1,
+            "5": 1,
+            "8": 1,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 7,
+            "success": 1
+          },
+          "failure_next_gate": {
+            "2": 5,
+            "4": 1,
+            "7": 1
+          }
+        },
+        "real100-hard-070": {
+          "n": 8,
+          "successes": 1,
+          "sr": 0.125,
+          "timely": 0.0,
+          "clean_timely": 0.0,
+          "clean": 0.0,
+          "crashes": 0.875,
+          "successful_lap_s": {
+            "n": 1,
+            "mean": 15.123076923076923,
+            "median": 15.123076923076923,
+            "p90": 15.123076923076923,
+            "p95": 15.123076923076923,
+            "maximum": 15.123076923076923
+          },
+          "successful_reference_ratio": {
+            "n": 1,
+            "mean": 2.568256041802743,
+            "median": 2.568256041802743,
+            "p90": 2.568256041802743,
+            "p95": 2.568256041802743,
+            "maximum": 2.568256041802743
+          },
+          "successful_max_no_pass_s": {
+            "n": 1,
+            "mean": 4.769230769230769,
+            "median": 4.769230769230769,
+            "p90": 4.769230769230769,
+            "p95": 4.769230769230769,
+            "maximum": 4.769230769230769
+          },
+          "successes_with_recovery_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "successes_with_no_pass_over_s": {
+            "3": 1,
+            "5": 0,
+            "8": 0,
+            "10": 0,
+            "15": 0,
+            "20": 0
+          },
+          "termination": {
+            "crash": 7,
+            "success": 1
+          },
+          "failure_next_gate": {
+            "3": 1,
+            "7": 2,
+            "6": 2,
+            "5": 1,
+            "4": 1
+          }
+        }
+      }
+    }
+  },
+  "a2rl_command6": {
+    "n": 32,
+    "successes": 1,
+    "sr": 0.03125,
+    "timely": 0.03125,
+    "clean_timely": 0.0,
+    "clean": 0.0,
+    "crashes": 0.96875,
+    "successful_lap_s": {
+      "n": 1,
+      "mean": 18.93846153846154,
+      "median": 18.93846153846154,
+      "p90": 18.93846153846154,
+      "p95": 18.93846153846154,
+      "maximum": 18.93846153846154
+    },
+    "successful_reference_ratio": {
+      "n": 1,
+      "mean": 1.0704347826086955,
+      "median": 1.0704347826086955,
+      "p90": 1.0704347826086955,
+      "p95": 1.0704347826086955,
+      "maximum": 1.0704347826086955
+    },
+    "successful_max_no_pass_s": {
+      "n": 1,
+      "mean": 5.8307692307692305,
+      "median": 5.8307692307692305,
+      "p90": 5.8307692307692305,
+      "p95": 5.8307692307692305,
+      "maximum": 5.8307692307692305
+    },
+    "successes_with_recovery_over_s": {
+      "3": 1,
+      "5": 1,
+      "8": 0,
+      "10": 0,
+      "15": 0,
+      "20": 0
+    },
+    "successes_with_no_pass_over_s": {
+      "3": 1,
+      "5": 1,
+      "8": 0,
+      "10": 0,
+      "15": 0,
+      "20": 0
+    },
+    "termination": {
+      "crash": 31,
+      "success": 1
+    },
+    "failure_next_gate": {
+      "7": 10,
+      "8": 11,
+      "12": 3,
+      "11": 4,
+      "6": 1,
+      "9": 2
+    }
+  },
+  "baseline_reproducibility": {
+    "episodes": 152,
+    "compared_fields": [
+      "steps",
+      "success",
+      "timely_success",
+      "clean_success",
+      "crashed",
+      "events",
+      "gates"
+    ],
+    "mismatches": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "monitor": "selection_suite_timely_success",
+  "mode": "max",
+  "top_k": 3,
+  "checkpoints": [
+    {
+      "path": "best-step-029465874-selection_suite_timely_success-0.7375.pt",
+      "score": 0.7375,
+      "step": 29465874
+    },
+    {
+      "path": "best-step-035500440-selection_suite_timely_success-0.72125.pt",
+      "score": 0.7212500000000001,
+      "step": 35500440
+    },
+    {
+      "path": "best-step-031575765-selection_suite_timely_success-0.715.pt",
+      "score": 0.7150000000000001,
+      "step": 31575765
+    }
+  ]
+}

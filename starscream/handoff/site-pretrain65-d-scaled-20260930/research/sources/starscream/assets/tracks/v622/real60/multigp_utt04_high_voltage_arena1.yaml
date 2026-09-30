@@ -1,0 +1,194 @@
+name: multigp_utt04_high_voltage_arena1
+loop: true
+bounds:
+- - -22.0
+  - 50.0
+- - -15.88550090789795
+  - 43.8824348449707
+- - 0.0
+  - 10.0
+metadata:
+  series: MultiGP Universal Time Trial
+  utt_number: 4
+  title: High Voltage
+  source: https://www.multigp.com/wp-content/uploads/2017/05/MultiGP-universal-time-trial-track-4-high-voltage-001.pdf
+  source_authority: MultiGP official field implementation guide
+  geometry_fidelity: official_dimensioned_plan
+  five_inch: true
+  dagger_eligible_5inch: true
+  leaderboard_comparison_eligible: true
+  physical_obstacles:
+  - name: gate_1
+    kind: gate
+    position_m:
+    - 0
+    - 0
+    - 0.762
+  - name: gate_2
+    kind: gate
+    position_m:
+    - 14
+    - 14
+    - 0.762
+  - name: gate_3
+    kind: gate
+    position_m:
+    - 28
+    - 28
+    - 0.762
+  - name: gate_4
+    kind: gate
+    position_m:
+    - -14
+    - 28
+    - 0.762
+  - name: gate_5
+    kind: gate
+    position_m:
+    - 42
+    - 0
+    - 0.762
+  notes:
+  - The official required overflight of Gate 2 between obstacles 4 and 5 is an explicit
+    route checkpoint.
+  source_geometry_fingerprint: a7830f1342b969ea5b0451533683fb92dbf8003bfb045509585028b7d0001862
+  route_checkpoint_count: 6
+  route_semantics:
+  - index: 0
+    name: obstacle_1_gate
+    kind: gate
+    physical_obstacle: 1
+  - index: 1
+    name: obstacle_2_gate
+    kind: gate
+    physical_obstacle: 2
+  - index: 2
+    name: obstacle_3_gate
+    kind: gate
+    physical_obstacle: 3
+  - index: 3
+    name: obstacle_4_gate
+    kind: gate
+    physical_obstacle: 4
+  - index: 4
+    name: route_over_gate_2
+    kind: over_route
+    physical_obstacle: 2
+  - index: 5
+    name: obstacle_5_gate
+    kind: gate
+    physical_obstacle: 5
+  benchmark_key: multigp_utt04
+  benchmark_display_name: "MultiGP UTT 4 \u2014 High Voltage"
+  benchmark_modality: bow-tie / over-gate
+  benchmark_provenance_class: official_dimensioned_plan_with_route_constraints
+  benchmark_source_url: https://www.multigp.com/wp-content/uploads/2017/05/MultiGP-universal-time-trial-track-4-high-voltage-001.pdf
+  benchmark_timing_comparison_eligible: true
+  arena_correction:
+    source_name: multigp_utt04_high_voltage
+    source_fingerprint: 109c38a9882ffc1e763b13ab6c89b69fa8d39cf6d02f3d72de79e4b44390ed72
+    source_bounds:
+    - - -22.0
+      - 50.0
+    - - -8.0
+      - 36.0
+    - - 0.0
+      - 10.0
+    reason: reference-path containment plus 6m maneuver margin; gates unchanged
+gates:
+- name: obstacle_1_gate
+  position:
+  - 0.0
+  - 0.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.5555702447891235
+  - 0.0
+  - 0.0
+  - 0.8314695954322815
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: obstacle_2_gate
+  position:
+  - 14.0
+  - 14.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.9238795638084412
+  - 0.0
+  - 0.0
+  - 0.3826834559440613
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: obstacle_3_gate
+  position:
+  - 28.0
+  - 28.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.5555702447891235
+  - 0.0
+  - 0.0
+  - 0.8314695954322815
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: obstacle_4_gate
+  position:
+  - -14.0
+  - 28.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.6158995628356934
+  - -0.06581438332796097
+  - -0.05174485966563225
+  - -0.7833636999130249
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: route_over_gate_2
+  position:
+  - 14.0
+  - 14.0
+  - 3.200000047683716
+  quaternion_wxyz:
+  - 0.9732490181922913
+  - -0.0
+  - 0.0
+  - -0.22975291311740875
+  size:
+  - 1.0
+  - 1.0
+  enter_from_opposite_side: false
+  kind: over_route
+  render: false
+- name: obstacle_5_gate
+  position:
+  - 42.0
+  - 0.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.6158995628356934
+  - 0.06581438332796097
+  - 0.05174485966563225
+  - -0.7833636999130249
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true

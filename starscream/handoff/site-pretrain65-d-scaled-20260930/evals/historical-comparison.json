@@ -1,0 +1,26 @@
+[
+  {
+    "suite": "real60",
+    "old_eventual_sr": 0.55625,
+    "new_eventual_sr": 0.9104166666666667,
+    "delta_percentage_points": 35.416666666666664,
+    "old_starts_per_course": 8,
+    "new_starts_per_course": 32,
+    "new_total_starts": 1920,
+    "old_timely_sr": null,
+    "old_clean_timely_sr": null,
+    "comparability": "Historical recipe-level comparison. Different start count and inference/evaluation contracts; no matched causal attribution."
+  },
+  {
+    "suite": "real100-v2",
+    "old_eventual_sr": 0.4375,
+    "new_eventual_sr": 0.9215625,
+    "delta_percentage_points": 48.40624999999999,
+    "old_starts_per_course": 8,
+    "new_starts_per_course": 32,
+    "new_total_starts": 3200,
+    "old_timely_sr": null,
+    "old_clean_timely_sr": null,
+    "comparability": "Historical recipe-level comparison. Different start count and inference/evaluation contracts; no matched causal attribution."
+  }
+]

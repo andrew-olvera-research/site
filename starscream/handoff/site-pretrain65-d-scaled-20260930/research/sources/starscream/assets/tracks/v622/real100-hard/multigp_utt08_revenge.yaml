@@ -1,0 +1,377 @@
+name: multigp_utt08_revenge
+loop: true
+bounds:
+- - -8.0
+  - 51.5
+- - -8.0
+  - 52.5
+- - 0.0
+  - 10.0
+metadata:
+  series: MultiGP Universal Time Trial
+  utt_number: 8
+  title: Revenge
+  source: https://www.multigp.com/wp-content/uploads/2019/01/MultiGP-universal-time-trial-8-manual.pdf
+  source_authority: MultiGP official field implementation guide
+  geometry_fidelity: official_dimensioned_plan
+  five_inch: true
+  dagger_eligible_5inch: true
+  leaderboard_comparison_eligible: true
+  physical_obstacles:
+  - name: gate_1
+    kind: gate
+    position_m:
+    - 0
+    - 0
+    - 0.762
+  - name: gate_2
+    kind: gate
+    position_m:
+    - 40
+    - 8
+    - 0.762
+  - name: flag_3
+    kind: flag
+    position_m:
+    - 40
+    - 8
+    - 0
+    collision_audit: false
+  - name: flag_4
+    kind: flag
+    position_m:
+    - 33
+    - 22
+    - 0
+  - name: flag_5
+    kind: flag
+    position_m:
+    - 33
+    - 36
+    - 0
+  - name: gate_6
+    kind: gate
+    position_m:
+    - 21
+    - 41
+    - 0.762
+  - name: flag_7
+    kind: flag
+    position_m:
+    - 21
+    - 41
+    - 0
+    collision_audit: false
+  - name: gate_8
+    kind: gate
+    position_m:
+    - 21
+    - 22
+    - 0.762
+  - name: gate_9
+    kind: gate
+    position_m:
+    - 16
+    - 17
+    - 0.762
+  - name: flag_10
+    kind: flag
+    position_m:
+    - 0
+    - 22
+    - 0
+  notes:
+  - The official metric obstacle layout is exact; finite-radius power-loop/corkscrew
+    checkpoints, flag flight height, and 1.8 m corner-bisector flag passes are documented
+    controller route contracts because the 2D guide does not specify a unique racing
+    line.
+  source_geometry_fingerprint: 5078088b132587613c497b745641eeab0ee51843c487abe1e1dcdea3d22f0b93
+  route_checkpoint_count: 14
+  route_semantics:
+  - index: 0
+    name: obstacle_1_gate
+    kind: gate
+    physical_obstacle: 1
+  - index: 1
+    name: obstacle_2_gate
+    kind: gate
+    physical_obstacle: 2
+  - index: 2
+    name: route_gate_2_power_loop_east_low
+    kind: maneuver_route
+    physical_obstacle: 2
+  - index: 3
+    name: route_gate_2_power_loop_east_high
+    kind: maneuver_route
+    physical_obstacle: 2
+  - index: 4
+    name: obstacle_3_flag_power_loop
+    kind: flag_route
+    physical_obstacle: 3
+  - index: 5
+    name: obstacle_4_flag
+    kind: flag_route
+    physical_obstacle: 4
+  - index: 6
+    name: obstacle_5_flag
+    kind: flag_route
+    physical_obstacle: 5
+  - index: 7
+    name: obstacle_6_gate
+    kind: gate
+    physical_obstacle: 6
+  - index: 8
+    name: route_gate_6_corkscrew_south_low
+    kind: maneuver_route
+    physical_obstacle: 6
+  - index: 9
+    name: route_gate_6_corkscrew_south_high
+    kind: maneuver_route
+    physical_obstacle: 6
+  - index: 10
+    name: obstacle_7_flag_corkscrew
+    kind: flag_route
+    physical_obstacle: 7
+  - index: 11
+    name: obstacle_8_gate
+    kind: gate
+    physical_obstacle: 8
+  - index: 12
+    name: obstacle_9_gate
+    kind: gate
+    physical_obstacle: 9
+  - index: 13
+    name: obstacle_10_flag
+    kind: flag_route
+    physical_obstacle: 10
+  benchmark_key: multigp_utt08
+  benchmark_display_name: "MultiGP UTT 8 \u2014 Revenge"
+  benchmark_modality: flag slalom / open speed
+  benchmark_provenance_class: official_dimensioned_plan_with_route_constraints
+  benchmark_source_url: https://www.multigp.com/wp-content/uploads/2019/01/MultiGP-universal-time-trial-8-manual.pdf
+  benchmark_timing_comparison_eligible: true
+gates:
+- name: obstacle_1_gate
+  position:
+  - 0.0
+  - 0.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.9371806979179382
+  - 0.0030231461860239506
+  - 0.008124280720949173
+  - -0.34873664379119873
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: obstacle_2_gate
+  position:
+  - 40.0
+  - 8.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.998284637928009
+  - 0.0015485516050830483
+  - -0.031232260167598724
+  - 0.04949674755334854
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: route_gate_2_power_loop_east_low
+  position:
+  - 43.5
+  - 8.0
+  - 1.2000000476837158
+  quaternion_wxyz:
+  - 0.9115234017372131
+  - -0.0
+  - -0.41124820709228516
+  - 0.0
+  size:
+  - 3.0
+  - 3.0
+  enter_from_opposite_side: false
+  kind: maneuver_route
+  render: false
+- name: route_gate_2_power_loop_east_high
+  position:
+  - 43.5
+  - 8.0
+  - 3.200000047683716
+  quaternion_wxyz:
+  - 0.0
+  - 0.42154067754745483
+  - 0.0
+  - 0.9068095088005066
+  size:
+  - 3.0
+  - 3.0
+  enter_from_opposite_side: false
+  kind: maneuver_route
+  render: false
+- name: obstacle_3_flag_power_loop
+  position:
+  - 40.0
+  - 8.0
+  - 3.799999952316284
+  quaternion_wxyz:
+  - 0.3007291853427887
+  - 0.0005456299404613674
+  - -0.00017205120821017772
+  - 0.9537094235420227
+  size:
+  - 1.0
+  - 1.0
+  enter_from_opposite_side: false
+  kind: flag_route
+  render: false
+- name: obstacle_4_flag
+  position:
+  - 34.75184631347656
+  - 22.413555145263672
+  - 1.2000000476837158
+  quaternion_wxyz:
+  - 0.592745304107666
+  - -0.033820055425167084
+  - 0.02492458000779152
+  - 0.8042934536933899
+  size:
+  - 1.0
+  - 1.0
+  enter_from_opposite_side: false
+  kind: flag_route
+  render: false
+- name: obstacle_5_flag
+  position:
+  - 31.502309799194336
+  - 35.00154113769531
+  - 1.2000000476837158
+  quaternion_wxyz:
+  - 0.4433404207229614
+  - -0.008805032819509506
+  - 0.004355270881205797
+  - 0.8962994813919067
+  size:
+  - 1.0
+  - 1.0
+  enter_from_opposite_side: false
+  kind: flag_route
+  render: false
+- name: obstacle_6_gate
+  position:
+  - 21.0
+  - 41.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.4979340732097626
+  - 0.02212473563849926
+  - -0.0127089973539114
+  - 0.8668394684791565
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: route_gate_6_corkscrew_south_low
+  position:
+  - 21.0
+  - 44.5
+  - 1.2000000476837158
+  quaternion_wxyz:
+  - 0.6445444226264954
+  - 0.2907964289188385
+  - -0.2907964289188385
+  - 0.6445444226264954
+  size:
+  - 3.0
+  - 3.0
+  enter_from_opposite_side: false
+  kind: maneuver_route
+  render: false
+- name: route_gate_6_corkscrew_south_high
+  position:
+  - 21.0
+  - 44.5
+  - 3.200000047683716
+  quaternion_wxyz:
+  - 0.6412111520767212
+  - -0.29807427525520325
+  - -0.29807427525520325
+  - -0.6412111520767212
+  size:
+  - 3.0
+  - 3.0
+  enter_from_opposite_side: false
+  kind: maneuver_route
+  render: false
+- name: obstacle_7_flag_corkscrew
+  position:
+  - 21.0
+  - 41.0
+  - 3.799999952316284
+  quaternion_wxyz:
+  - 0.7071040272712708
+  - -0.0019844307098537683
+  - -0.0019844307098537683
+  - -0.7071040272712708
+  size:
+  - 1.0
+  - 1.0
+  enter_from_opposite_side: false
+  kind: flag_route
+  render: false
+- name: obstacle_8_gate
+  position:
+  - 21.0
+  - 22.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.5539730787277222
+  - 0.03568065166473389
+  - 0.02377364970743656
+  - -0.8314298391342163
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: obstacle_9_gate
+  position:
+  - 16.0
+  - 17.0
+  - 0.7620000243186951
+  quaternion_wxyz:
+  - 0.13762138783931732
+  - -0.008090733550488949
+  - -0.0011241927277296782
+  - -0.9904512166976929
+  size:
+  - 1.5240000486373901
+  - 1.5240000486373901
+  enter_from_opposite_side: false
+  kind: gate
+  render: true
+- name: obstacle_10_flag
+  position:
+  - 1.066205620765686
+  - 20.54975700378418
+  - 1.2000000476837158
+  quaternion_wxyz:
+  - 0.3159429132938385
+  - -0.0026844386011362076
+  - -0.0008939213585108519
+  - -0.948773980140686
+  size:
+  - 1.0
+  - 1.0
+  enter_from_opposite_side: false
+  kind: flag_route
+  render: false
