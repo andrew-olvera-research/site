@@ -486,7 +486,7 @@
 
   /* ================= Clips ================= */
   {
-    const pick = ['Compound reversal 021-03', 'Slalom 028-029', 'Ordered 3D 042-003', 'Long braking 032-010',
+    const pick = ['Compound reversal 020-05', 'Slalom 028-029', 'Ordered 3D 042-003', 'Long braking 032-010',
       'Changing-radius turns 029-21', 'MultiGP Nautilus', 'Stacked reversal 016-033', 'Long low 058-007', 'Diving hairpin 039-011'];
     const grid = document.getElementById('clips');
     for (const name of pick) {
@@ -530,7 +530,7 @@
     return { select, el };
   }
 
-  const clean = index.filter(m => m.tag === 'clean');
+  const clean = index.filter(m => m.tag === 'clean' && !m.name.startsWith('Flow'));
   const TAG = { recovery: 'timely recovery', late_recovery: 'late recovery', failure: 'crash' };
   const order = ['Go-around 017-040', 'Slalom 055-040', 'A2RL S2 2026'];
   const rec = index.filter(m => m.tag !== 'clean')
