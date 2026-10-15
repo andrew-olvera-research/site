@@ -1,31 +1,543 @@
 {
-  "source": "Starscream draft-for-review, focused report dated 2026-10-13, sections/method.tex, evaluation.tex, results.tex",
-  "status": "Preprint-stage research report; development-exposed comparison",
-  "courses": 100,
-  "starts_per_course_per_seed": 12,
-  "training_seeds_per_setup": 3,
-  "metric": "clean-and-timely completion",
-  "units": "percent",
-  "results": {
-    "MLP": {
-      "mean": 50.14,
-      "sample_sd": 2.42,
-      "eventual_mean": 82.42
+  "schema": 2,
+  "source_package": "Starscream focused review, 2026-10-13",
+  "units": "percent of assigned starts; seed spread in percentage points",
+  "aggregation": "Unweighted mean and sample standard deviation across three independently trained seeds per setup. Crashes and hard-cap failures remain in denominators. Training-seed indices are not paired treatments.",
+  "definitions": {
+    "eventual": "Full ordered completion without crash within 6000 control steps (46.154 s).",
+    "clean": "Eventual completion with zero genuine reference-aware missed crossings; not a body-clearance guarantee.",
+    "clean_timely": "Clean completion within floor(130 * max(1.5 * reference_seconds, reference_seconds + 3)) control steps.",
+    "timely": "Eventual completion within the course deadline.",
+    "rejoin": "First accepted gate crossing after a controlled lateral-offset start."
+  },
+  "datasets": {
+    "pretrain65": "65 qualified training courses; original manifest train split.",
+    "eval100": "Public alias for real100-hard-v2 / real100-v2, the 100-course development-exposed panel.",
+    "eval60": "Public alias for real60, a separate 60-course suite; not the recovery panel reported here."
+  },
+  "panels": {
+    "nominal": {
+      "dataset": "eval100",
+      "starts_per_seed": 1200,
+      "courses": 100,
+      "starts_per_course": 12,
+      "models": {
+        "mlp": {
+          "seeds": [
+            {
+              "seed_index": 1,
+              "training_seed": 2026092931,
+              "denominator": 1200,
+              "counts": {
+                "clean_timely": 572,
+                "clean": 599,
+                "eventual": 965,
+                "timely": 738,
+                "rejoin": 1149
+              },
+              "crashed": 212,
+              "miss_episodes": 546
+            },
+            {
+              "seed_index": 2,
+              "training_seed": 2026100602,
+              "denominator": 1200,
+              "counts": {
+                "clean_timely": 630,
+                "clean": 648,
+                "eventual": 1019,
+                "timely": 826,
+                "rejoin": 1150
+              },
+              "crashed": 167,
+              "miss_episodes": 516
+            },
+            {
+              "seed_index": 3,
+              "training_seed": 2026100603,
+              "denominator": 1200,
+              "counts": {
+                "clean_timely": 603,
+                "clean": 627,
+                "eventual": 983,
+                "timely": 753,
+                "rejoin": 1160
+              },
+              "crashed": 211,
+              "miss_episodes": 521
+            }
+          ],
+          "statistics": {
+            "clean_timely": {
+              "mean": 50.138888888888886,
+              "sample_sd": 2.4185816167822503
+            },
+            "clean": {
+              "mean": 52.05555555555556,
+              "sample_sd": 2.048599340832478
+            },
+            "eventual": {
+              "mean": 82.41666666666667,
+              "sample_sd": 2.29128784747792
+            },
+            "timely": {
+              "mean": 64.36111111111111,
+              "sample_sd": 3.923162462058343
+            },
+            "rejoin": {
+              "mean": 96.08333333333333,
+              "sample_sd": 0.5068968775248556
+            }
+          }
+        },
+        "lstm": {
+          "seeds": [
+            {
+              "seed_index": 1,
+              "training_seed": 2026092931,
+              "denominator": 1200,
+              "counts": {
+                "clean_timely": 606,
+                "clean": 640,
+                "eventual": 1034,
+                "timely": 804,
+                "rejoin": 1143
+              },
+              "crashed": 134,
+              "miss_episodes": 483
+            },
+            {
+              "seed_index": 2,
+              "training_seed": 2026100604,
+              "denominator": 1200,
+              "counts": {
+                "clean_timely": 640,
+                "clean": 678,
+                "eventual": 1012,
+                "timely": 808,
+                "rejoin": 1152
+              },
+              "crashed": 164,
+              "miss_episodes": 455
+            },
+            {
+              "seed_index": 3,
+              "training_seed": 2026100605,
+              "denominator": 1200,
+              "counts": {
+                "clean_timely": 643,
+                "clean": 657,
+                "eventual": 999,
+                "timely": 810,
+                "rejoin": 1142
+              },
+              "crashed": 148,
+              "miss_episodes": 464
+            }
+          ],
+          "statistics": {
+            "clean_timely": {
+              "mean": 52.47222222222222,
+              "sample_sd": 1.7125625157553739
+            },
+            "clean": {
+              "mean": 54.861111111111114,
+              "sample_sd": 1.5862546150299137
+            },
+            "eventual": {
+              "mean": 84.58333333333333,
+              "sample_sd": 1.4743171677461806
+            },
+            "timely": {
+              "mean": 67.27777777777777,
+              "sample_sd": 0.25458753860865724
+            },
+            "rejoin": {
+              "mean": 95.47222222222223,
+              "sample_sd": 0.45896421227384027
+            }
+          }
+        },
+        "transformer": {
+          "seeds": [
+            {
+              "seed_index": 1,
+              "training_seed": 2026092931,
+              "denominator": 1200,
+              "counts": {
+                "clean_timely": 826,
+                "clean": 854,
+                "eventual": 1132,
+                "timely": 976,
+                "rejoin": 1200
+              },
+              "crashed": 68,
+              "miss_episodes": 319
+            },
+            {
+              "seed_index": 2,
+              "training_seed": 2026100702,
+              "denominator": 1200,
+              "counts": {
+                "clean_timely": 770,
+                "clean": 832,
+                "eventual": 1078,
+                "timely": 886,
+                "rejoin": 1200
+              },
+              "crashed": 121,
+              "miss_episodes": 336
+            },
+            {
+              "seed_index": 3,
+              "training_seed": 2026100703,
+              "denominator": 1200,
+              "counts": {
+                "clean_timely": 806,
+                "clean": 847,
+                "eventual": 1093,
+                "timely": 922,
+                "rejoin": 1200
+              },
+              "crashed": 100,
+              "miss_episodes": 315
+            }
+          ],
+          "statistics": {
+            "clean_timely": {
+              "mean": 66.72222222222223,
+              "sample_sd": 2.364866294865858
+            },
+            "clean": {
+              "mean": 70.36111111111111,
+              "sample_sd": 0.9366508500048577
+            },
+            "eventual": {
+              "mean": 91.75,
+              "sample_sd": 2.3228933107943925
+            },
+            "timely": {
+              "mean": 77.33333333333333,
+              "sample_sd": 3.774917217635375
+            },
+            "rejoin": {
+              "mean": 100.0,
+              "sample_sd": 0.0
+            }
+          }
+        }
+      },
+      "conditions": "12 starts per course, approximately 3 m before gate zero, forward speed 2.9\u00e2\u20ac\u201c3.2 m/s with small perturbations; speed command 16.5 m/s."
     },
-    "LSTM": {
-      "mean": 52.47,
-      "sample_sd": 1.71,
-      "eventual_mean": 84.58
-    },
-    "Transformer": {
-      "mean": 66.72,
-      "sample_sd": 2.36,
-      "eventual_mean": 91.75
+    "recovery": {
+      "dataset": "eval100",
+      "starts_per_seed": 60,
+      "courses": 15,
+      "starts_per_course": 4,
+      "models": {
+        "mlp": {
+          "seeds": [
+            {
+              "seed_index": 1,
+              "training_seed": 2026092931,
+              "denominator": 60,
+              "counts": {
+                "clean_timely": 17,
+                "clean": 19,
+                "eventual": 47,
+                "timely": 27,
+                "rejoin": 54
+              },
+              "crashed": 12,
+              "miss_episodes": 39
+            },
+            {
+              "seed_index": 2,
+              "training_seed": 2026100602,
+              "denominator": 60,
+              "counts": {
+                "clean_timely": 20,
+                "clean": 20,
+                "eventual": 44,
+                "timely": 30,
+                "rejoin": 51
+              },
+              "crashed": 16,
+              "miss_episodes": 38
+            },
+            {
+              "seed_index": 3,
+              "training_seed": 2026100603,
+              "denominator": 60,
+              "counts": {
+                "clean_timely": 19,
+                "clean": 20,
+                "eventual": 47,
+                "timely": 27,
+                "rejoin": 53
+              },
+              "crashed": 13,
+              "miss_episodes": 39
+            }
+          ],
+          "statistics": {
+            "clean_timely": {
+              "mean": 31.11111111111111,
+              "sample_sd": 2.5458753860865797
+            },
+            "clean": {
+              "mean": 32.77777777777778,
+              "sample_sd": 0.9622504486493769
+            },
+            "eventual": {
+              "mean": 76.66666666666666,
+              "sample_sd": 2.8867513459481287
+            },
+            "timely": {
+              "mean": 46.666666666666664,
+              "sample_sd": 2.8867513459481287
+            },
+            "rejoin": {
+              "mean": 87.77777777777777,
+              "sample_sd": 2.5458753860865775
+            }
+          }
+        },
+        "lstm": {
+          "seeds": [
+            {
+              "seed_index": 1,
+              "training_seed": 2026092931,
+              "denominator": 60,
+              "counts": {
+                "clean_timely": 14,
+                "clean": 19,
+                "eventual": 52,
+                "timely": 31,
+                "rejoin": 56
+              },
+              "crashed": 7,
+              "miss_episodes": 37
+            },
+            {
+              "seed_index": 2,
+              "training_seed": 2026100604,
+              "denominator": 60,
+              "counts": {
+                "clean_timely": 21,
+                "clean": 24,
+                "eventual": 55,
+                "timely": 34,
+                "rejoin": 58
+              },
+              "crashed": 5,
+              "miss_episodes": 36
+            },
+            {
+              "seed_index": 3,
+              "training_seed": 2026100605,
+              "denominator": 60,
+              "counts": {
+                "clean_timely": 20,
+                "clean": 21,
+                "eventual": 50,
+                "timely": 32,
+                "rejoin": 59
+              },
+              "crashed": 6,
+              "miss_episodes": 34
+            }
+          ],
+          "statistics": {
+            "clean_timely": {
+              "mean": 30.555555555555557,
+              "sample_sd": 6.309898162000305
+            },
+            "clean": {
+              "mean": 35.55555555555556,
+              "sample_sd": 4.194352464039305
+            },
+            "eventual": {
+              "mean": 87.22222222222223,
+              "sample_sd": 4.1943524640393095
+            },
+            "timely": {
+              "mean": 53.888888888888886,
+              "sample_sd": 2.5458753860865775
+            },
+            "rejoin": {
+              "mean": 96.11111111111111,
+              "sample_sd": 2.545875386086579
+            }
+          }
+        },
+        "transformer": {
+          "seeds": [
+            {
+              "seed_index": 1,
+              "training_seed": 2026092931,
+              "denominator": 60,
+              "counts": {
+                "clean_timely": 15,
+                "clean": 17,
+                "eventual": 51,
+                "timely": 25,
+                "rejoin": 54
+              },
+              "crashed": 9,
+              "miss_episodes": 43
+            },
+            {
+              "seed_index": 2,
+              "training_seed": 2026100702,
+              "denominator": 60,
+              "counts": {
+                "clean_timely": 22,
+                "clean": 28,
+                "eventual": 56,
+                "timely": 32,
+                "rejoin": 60
+              },
+              "crashed": 4,
+              "miss_episodes": 31
+            },
+            {
+              "seed_index": 3,
+              "training_seed": 2026100703,
+              "denominator": 60,
+              "counts": {
+                "clean_timely": 21,
+                "clean": 22,
+                "eventual": 57,
+                "timely": 33,
+                "rejoin": 59
+              },
+              "crashed": 3,
+              "miss_episodes": 38
+            }
+          ],
+          "statistics": {
+            "clean_timely": {
+              "mean": 32.22222222222222,
+              "sample_sd": 6.309898162000303
+            },
+            "clean": {
+              "mean": 37.22222222222222,
+              "sample_sd": 9.179284245476836
+            },
+            "eventual": {
+              "mean": 91.11111111111111,
+              "sample_sd": 5.357583756107196
+            },
+            "timely": {
+              "mean": 50.0,
+              "sample_sd": 7.264831572567791
+            },
+            "rejoin": {
+              "mean": 96.11111111111111,
+              "sample_sd": 5.357583756107196
+            }
+          }
+        }
+      },
+      "conditions": "One course per each of 15 families, four assigned starts; 1.5 m lateral offset and 2 m/s lateral velocity. Full-course evaluation without collection segment resets."
     }
   },
+  "provenance": [
+    {
+      "package_relative_path": "data/final/policy-summary.csv",
+      "sha256": "d9013326bd320bf381ffc9ec746ccadfc2ad97af71f69d51d6498683df1d0af6"
+    },
+    {
+      "package_relative_path": "data/final/episodes.csv",
+      "sha256": "9cf8b80d8317e89d417cfe76d62abc57b54e8f7ecab3b0c100f69938a3ab7ebc"
+    },
+    {
+      "package_relative_path": "provenance/final/registry.json",
+      "sha256": "e1129a9457a43b9dbc7921ee09e24285c63e4338e62fb45e3542bcc24f19d027"
+    },
+    {
+      "package_relative_path": "sections/evaluation.tex",
+      "sha256": "48b624b80cb6041705fe41562a0dcd6358624c102ea74bd6683078033dd18a3e"
+    },
+    {
+      "package_relative_path": "sections/method.tex",
+      "sha256": "672d36c63590a88e28a8a63babf7754688cd65ea33477e514d421687eabeeb0a"
+    },
+    {
+      "package_relative_path": "sections/mpcc-details.tex",
+      "sha256": "08cac0b21709fbad0d55d2b3dde7d7ade489fff6397fcd2db05bf4882e040e6c"
+    }
+  ],
+  "training_exposure": [
+    {
+      "architecture": "mlp",
+      "seed_index": 1,
+      "training_seed": 2026092931,
+      "selected_environment_steps": 25381191,
+      "selected_updates": 269293
+    },
+    {
+      "architecture": "mlp",
+      "seed_index": 2,
+      "training_seed": 2026100602,
+      "selected_environment_steps": 27177247,
+      "selected_updates": 294698
+    },
+    {
+      "architecture": "mlp",
+      "seed_index": 3,
+      "training_seed": 2026100603,
+      "selected_environment_steps": 28271184,
+      "selected_updates": 320103
+    },
+    {
+      "architecture": "lstm",
+      "seed_index": 1,
+      "training_seed": 2026092931,
+      "selected_environment_steps": 20572768,
+      "selected_updates": 213402
+    },
+    {
+      "architecture": "lstm",
+      "seed_index": 2,
+      "training_seed": 2026100604,
+      "selected_environment_steps": 30463245,
+      "selected_updates": 360751
+    },
+    {
+      "architecture": "lstm",
+      "seed_index": 3,
+      "training_seed": 2026100605,
+      "selected_environment_steps": 32169428,
+      "selected_updates": 375994
+    },
+    {
+      "architecture": "transformer",
+      "seed_index": 1,
+      "training_seed": 2026092931,
+      "selected_environment_steps": 29465874,
+      "selected_updates": 360751
+    },
+    {
+      "architecture": "transformer",
+      "seed_index": 2,
+      "training_seed": 2026100702,
+      "selected_environment_steps": 34973986,
+      "selected_updates": 442047
+    },
+    {
+      "architecture": "transformer",
+      "seed_index": 3,
+      "training_seed": 2026100703,
+      "selected_environment_steps": 37370398,
+      "selected_updates": 472533
+    }
+  ],
+  "training_exposure_definition": "Recorded collected environment steps and optimizer updates at each selected checkpoint. These are not expert-query counts, total solver work, or FLOPs; unequal budgets are part of the full-setup comparison.",
   "limitations": [
-    "Selection25 is contained in real100-v2; the full panel and complement75 were inspected during development.",
-    "Inputs, feature handling and training budgets differ. Attention effects are not isolated.",
-    "Privileged-state simulation; no claim of broad plant generality or physical deployment."
+    "Selection25 lies inside eval100; the full panel and complement75 were inspected during development.",
+    "Inputs, feature handling, and training budgets differ; these are complete-setup comparisons, not isolated attention effects.",
+    "Privileged-state simulation. Plant generalization, deployment, and matched solver/RL comparisons remain open."
   ]
 }

@@ -1,0 +1,117 @@
+{
+  "method": "Ranges and medians over manifest cyclic gate transitions, including the closing transition. Geometry is not flown trajectory length. No difficulty ranking is implied.",
+  "sets": {
+    "pretrain65": {
+      "courses": 65,
+      "source_path": "starscream/handoff/site-pretrain65-d-scaled-20260930/research/sources/outputs/course-pools/v6211-pretrain/manifest.json",
+      "sha256": "e2a2c6f06216ae30e776667baf2941b02b3a19e01e817ad6c077a74892f1d075",
+      "selection": "split=train and qualified=true"
+    },
+    "eval100": {
+      "source_path": "starscream/handoff/site-pretrain65-d-scaled-20260930/research/sources/configs/eval/v6_22_real100_hard_v2.manifest.json",
+      "sha256": "7de043a5b0e669884b9e7c3304e77e171d49ff4e64b01624319aba5ad4ca5c6f",
+      "courses": 100,
+      "transitions": 929,
+      "families": {
+        "flow": 8,
+        "behavior:wrong_side_incidence": 6,
+        "behavior:compound_reversal": 5,
+        "diving_hairpin": 8,
+        "long_low": 10,
+        "long_braking": 9,
+        "ordered_3d": 5,
+        "behavior:radius_switch": 5,
+        "behavior:long_low_braking": 8,
+        "slalom": 8,
+        "hairpin_chain": 6,
+        "behavior:vertical_chain": 6,
+        "stacked_reversal": 5,
+        "go_around": 3,
+        "public_reference": 8
+      },
+      "sources": {
+        "v622-requirements-1": 62,
+        "v622-hard-v2-behavior-program": 30,
+        "real50_public_reference": 8
+      },
+      "ranges": {
+        "gates_per_course": {
+          "min": 5,
+          "median": 8.0,
+          "max": 19
+        },
+        "spacing_m": {
+          "min": 1.5755873529308055,
+          "median": 9.010647132635157,
+          "max": 47.366253900091934
+        },
+        "turn_deg": {
+          "min": 0.0,
+          "median": 61.355709918915586,
+          "max": 177.16531885846263
+        },
+        "absolute_height_change_m": {
+          "min": 0.0,
+          "median": 0.4652371406555176,
+          "max": 5.491704344749451
+        }
+      },
+      "course_counts": {
+        "turn_at_least_120deg": 78,
+        "height_step_at_least_2m": 54,
+        "spacing_at_least_25m": 44,
+        "reverse_entry": 10
+      }
+    },
+    "eval60": {
+      "source_path": "starscream/handoff/site-pretrain65-d-scaled-20260930/research/sources/configs/eval/v6_22_real60.manifest.json",
+      "sha256": "71dca393706bac370eeb9956a50fa49440482fbaef7426550eebf9244eda530d",
+      "courses": 60,
+      "transitions": 499,
+      "families": {
+        "flow": 6,
+        "slalom": 6,
+        "hairpin_chain": 6,
+        "diving_hairpin": 6,
+        "long_low": 6,
+        "long_braking": 6,
+        "ordered_3d": 6,
+        "stacked_reversal": 5,
+        "go_around": 5,
+        "public_reference": 8
+      },
+      "sources": {
+        "v622-requirements-1": 52,
+        "real50_public_reference": 8
+      },
+      "ranges": {
+        "gates_per_course": {
+          "min": 5,
+          "median": 8.0,
+          "max": 19
+        },
+        "spacing_m": {
+          "min": 1.9174862275405193,
+          "median": 9.003532140555901,
+          "max": 42.0
+        },
+        "turn_deg": {
+          "min": 0.0,
+          "median": 52.95044120005733,
+          "max": 177.16531885846263
+        },
+        "absolute_height_change_m": {
+          "min": 0.0,
+          "median": 0.4120607376098633,
+          "max": 5.7407461404800415
+        }
+      },
+      "course_counts": {
+        "turn_at_least_120deg": 42,
+        "height_step_at_least_2m": 24,
+        "spacing_at_least_25m": 12,
+        "reverse_entry": 6
+      }
+    }
+  }
+}

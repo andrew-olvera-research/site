@@ -39,12 +39,30 @@ for path,page in pages.items():
         for phrase in ['Preprint forthcoming','Paper (coming soon)','href="../manippo','href="manippo']:
             if phrase in text: errors.append(f'{path}: retired claim/link {phrase}')
 star=pages['starscream/index.html']
-for hook in ['fig-suites','fig-ladder','fig-outcomes','fig-families','fig-courses','fig-learning','fig-quality','fig-laps','fig-ratio','fig-bytype','fig-speed','fig-tails','clips','rtable']:
+for hook in ['nominal-charts','recovery-charts','geometry-summary','data-status','replay-status']:
     if hook not in star.ids: errors.append(f'missing visual hook {hook}')
 assert 'manippo' in (ROOT/'_config.yml').read_text()
 assert not (ROOT/'.nojekyll').exists(), 'Jekyll exclusion requires Jekyll deployment'
 data=json.loads((ROOT/'starscream/assets/data/development-comparison.json').read_text())
-assert data['training_seeds_per_setup']==3 and data['courses']==100
-assert data['results']['Transformer']['mean']==66.72
+import csv, statistics
+source=list(csv.DictReader((ROOT/'starscream/assets/data/policy-summary.csv').open()))
+assert data['schema']==2
+for phase,panel in data['panels'].items():
+    for model,values in panel['models'].items():
+        assert len(values['seeds'])==3
+        for seed in values['seeds']:
+            row=next(r for r in source if r['architecture']==model and r['phase']==phase and int(r['training_seed'])==seed['training_seed'])
+            assert seed['denominator']==int(row['denominator'])
+            for metric,key in [('clean_timely','clean_timely_success'),('clean','clean_success'),('eventual','success'),('rejoin','rejoin')]:
+                assert seed['counts'][metric]==int(row[key])
+        for metric,stat in values['statistics'].items():
+            rates=[100*x['counts'][metric]/x['denominator'] for x in values['seeds']]
+            assert abs(stat['mean']-statistics.mean(rates))<1e-9
+            assert abs(stat['sample_sd']-statistics.stdev(rates))<1e-9
+assert round(data['panels']['nominal']['models']['transformer']['statistics']['clean_timely']['mean'],2)==66.72
+assert '<details' not in (ROOT/'starscream/index.html').read_text(encoding='utf-8')
+geometry=json.loads((ROOT/'starscream/assets/data/course-geometry.json').read_text())
+assert [geometry['sets'][x]['courses'] for x in ['pretrain65','eval100','eval60']]==[65,100,60]
+assert geometry['sets']['eval100']['transitions']==929
 if errors: raise SystemExit('\n'.join(errors))
 print(f'PASS: {len(pages)} routes; {checked} local links/assets/anchors; chart hooks, image alt text, video controls, and editorial guardrails.')

@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Starscream</title>
-<meta content="Starscream: expert-supervised drone control, evaluated across three training seeds on a development-exposed course benchmark." name="description"/>
+<title>Starscream — Learning a controller from a solver</title>
+<meta content="Starscream studies learned control from classical solver supervision, with three-seed MLP, LSTM, and transformer comparisons in simulated drone racing." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
@@ -371,261 +371,43 @@ figure + .prose, figcaption + .prose { margin-top: 20px; }
   section { scroll-margin-top: 120px; }
   .mobile-chart-hint { display: block; font-size: 13px; color: #58616f; margin-block: 12px; }
 }
-</style></head>
+</style><style>
+.input-grid,.model-grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:26px 0; }
+.input-grid article,.model-grid article { border-top:2px solid #d9e1e9;padding-top:12px;font-size:15px;color:#3b414b; }
+.input-grid h3,.model-grid h3 { margin:0 0 10px;font-size:20px; }
+.chart-grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:28px 0 12px; }
+.metric-chart { margin:0;border:1px solid #dce2e9;padding:12px 8px;border-radius:4px; }
+.metric-chart h3 { text-align:center;margin:0 0 8px;font-size:20px; }
+.metric-chart svg { display:block;width:100%;height:auto;font-family:var(--sans); }
+.figure-note { font-size:14px;color:#58616f;line-height:1.6;margin:12px 0 22px; }
+.outcome-definitions { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:24px;font-size:14px; }
+.outcome-definitions dt { font-weight:600;margin-bottom:4px; }.outcome-definitions dd { margin:0;color:#58616f; }
+.geometry-grid { display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin:28px 0 16px; }
+.geometry-grid strong { display:block;font:600 27px var(--serif);color:#1f4e8c; }.geometry-grid span {display:block;font-size:14px;margin-top:8px;}
+.geometry-figure figcaption {text-align:left;font-size:13px;}
+.flight-video {max-width:650px;margin:24px auto;} .flight-video video {display:block;width:100%;border:1px solid #e3e6ea;border-radius:4px;}
+.replay-choices { display:flex;gap:8px;flex-wrap:wrap;padding:12px 0; }
+.replay-choices button {padding:8px 12px;border:1px solid #bdc8d5;background:white;color:#34516f;border-radius:4px;cursor:pointer;font:inherit;font-size:14px;}
+.replay-choices button[aria-pressed=true] {background:#1f4e8c;color:white;border-color:#1f4e8c;}
+.replay-info {font-size:14px;color:#58616f;margin-bottom:24px;}.data-links {font-size:14px;margin-top:24px;}
+@media(max-width:760px){.input-grid,.model-grid,.chart-grid,.outcome-definitions{grid-template-columns:1fr;gap:16px;}.geometry-grid{grid-template-columns:1fr 1fr;}.metric-chart{max-width:440px;width:100%;margin:auto;}.outcome-definitions{gap:12px;}.masthead{padding-bottom:16px;}}
+</style><link rel="icon" href="data:,"/></head>
 <body><a class="skip-link" href="#top">Skip to content</a>
 <header class="nav" id="nav">
 <div class="wrap wide">
 <a class="brand" href="#top">Starscream</a>
-<ul><li><a href="#results">Results</a></li><li><a href="#method">Method</a></li><li><a href="#flights">Replays</a></li><li><a href="#limits">Limits</a></li><li><a href="../">Home</a></li></ul>
+<ul><li><a href="#approach">Approach</a></li><li><a href="#results">Models</a></li><li><a href="#recovery">Recovery</a></li><li><a href="#flights">Replays</a></li><li><a href="../">Home</a></li></ul>
 </div>
 </header>
-<main id="top"><p class="wrap mobile-chart-hint">Wide charts and tables scroll horizontally.</p><div class="masthead wrap">
-<div class="venue">Preprint-stage research report · 2026</div>
-<h1 class="title">
-    Starscream
-    <span class="sub">Expert-supervised control for drone racing</span>
-</h1>
-<p class="authors"><a href="../">Andrew Olvera</a></p>
-<p class="affil">York College of Pennsylvania</p>
-<div class="buttons">
-<a class="btn" href="#results">Results</a>
-</div>
-</div><section class="block" id="abstract"><div class="wrap"><h2>Research question</h2><p class="prose">Can a policy trained on short learner-controlled flight segments complete full courses cleanly and on time? Starscream uses expert action labels at states the learner visits, then evaluates the frozen policy without segment resets or expert assistance.</p><p class="prose">The comparison covers three approximately 5.84M-parameter policies, with three training seeds each. The transformer setup has the highest nominal clean-and-timely completion rate. Differences in inputs and training budgets prevent attributing that result to attention alone.</p></div></section><section class="block" id="results"><div class="wrap"><h2>Three-seed development comparison</h2><p class="prose">100 courses · 12 assigned starts per course and seed · 1,200 trials per seed. Values below are means ± sample standard deviation across three training seeds.</p><div class="scroll-x"><table class="data"><thead><tr><th scope="col">Training setup</th><th scope="col">Clean and timely</th><th scope="col">Eventual completion</th></tr></thead><tbody><tr><th scope="row">MLP</th><td>50.1% ± 2.4</td><td>82.4%</td></tr><tr><th scope="row">LSTM</th><td>52.5% ± 1.7</td><td>84.6%</td></tr><tr><th scope="row">Transformer</th><td>66.7% ± 2.4</td><td>91.8%</td></tr></tbody></table></div><p class="prose">Clean-and-timely completion requires finishing in order, without a missed gate, within the course deadline. Eventual completion permits missed gates followed by recovery.</p><div class="evidence-note"><b>Development evidence.</b> Selection25 is part of this 100-course panel, and both the panel and its 75-course complement were inspected during development. These are not untouched held-out test results. The comparison evaluates complete training setups with different feature handling and budgets, not an isolated architecture intervention.</div><p class="prose">In the separate 60-start controlled lateral-offset panel, clean-and-timely completion remains near 31–32% for all three setups. Rejoining the first gate does not establish clean full-course recovery. The nominal advantage also does not establish a general lap-time advantage.</p></div></section><section class="block" id="method"><div class="wrap"><h2>Method</h2><p class="prose">A profile-tracking model predictive control (MPC) expert, called MPCC in the implementation, provides labels at visited states. The evaluated mode tracks a course speed profile. Learner-controlled collection segments span two to four accepted gates; replay combines recent data with an expert anchor. Training uses supervised action regression and an auxiliary executed-transition objective, without reinforcement learning.</p><p class="prose">Policies receive privileged state, three history rows, six upcoming gates, executed-control context, and sampled vehicle parameters. MLP and transformer include explicit approach features that the LSTM lacks. Feature handling and training exposure differ across setups.</p><details><summary>Historical transformer interface and collection diagrams</summary><figure class="fig">
-<div class="dg">
-<div class="f1">
-<div class="f1-in">
-<div class="pn pl">
-<div class="pn-h"><b>Vehicle settings</b><i>64</i></div>
-<div class="pn-s">the sampled plant, in fixed physical units</div>
-<ul>
-<li>rigid body and motors <em>15</em></li>
-<li>aerodynamics, wind, gusts, CoM offset <em>30</em></li>
-<li>timing and actuator limits <em>4</em></li>
-<li>current wind and frame context <em>15</em></li>
-</ul>
-</div>
-<div class="pn st">
-<div class="pn-h"><b>Task state</b><i>19</i></div>
-<div class="pn-s">position, velocity, attitude, rates, motor speeds, in the active gate’s frame</div>
-</div>
-<div class="pn gt">
-<div class="pn-h"><b>Gate record</b><i>13 × 6</i></div>
-<div class="pn-s">the six upcoming gates in pass order: pose, size, side flag, mask</div>
-</div>
-<div class="pn ct">
-<div class="pn-h"><b>Control trailer</b><i>6</i></div>
-<div class="pn-s">previous CTBR command, its age and a valid bit</div>
-</div>
-</div>
-<div class="ar"><span>projection<br/>per field group<br/>→ d = 320</span></div>
-<div class="f1-out">
-<div class="tk pl"><b>p</b><span>settings token</span></div>
-<div class="tk st"><b>s</b><span>state token</span></div>
-<div>
-<div class="f1-gates"><div class="tk gt"><b>g<sub>1</sub></b></div><div class="tk gt"><b>g<sub>2</sub></b></div><div class="tk gt"><b>g<sub>3</sub></b></div><div class="tk gt"><b>g<sub>4</sub></b></div><div class="tk gt"><b>g<sub>5</sub></b></div><div class="tk gt"><b>g<sub>6</sub></b></div></div>
-<p class="cap">six gate tokens, one per look-ahead slot</p>
-</div>
-<div class="tk ct"><b>a</b><span>control token</span></div>
-</div>
-</div>
-<div class="foot">
-<span><b>167</b> values per history row: <b>103</b> task/control/route + <b>64</b> plant</span>
-<span><b>130 Hz</b> control, <b>11 ms</b> action delay</span>
-<span>no course IDs, seeds, future states or future expert actions</span>
-</div>
-</div>
-<figcaption>What the privileged teacher observes, and the four kinds of token it becomes. 49 plant
-      values are constant for an episode and 15 refresh at command time. The gate projection is shared across all six
-      slots, so the network learns one notion of “gate” rather than six.</figcaption>
-</figure><figure class="fig">
-<div class="scroll-x">
-<table class="data">
-<thead><tr><th scope="col">Parameter</th><th scope="col">Sampled range, per episode</th></tr></thead>
-<tbody>
-<tr><td>Vehicle mass</td><td>0.62–0.84 kg (0.73 kg ±15%)</td></tr>
-<tr><td>Arm length</td><td>0.156–0.184 m (±8%); inertia follows mass × arm length²</td></tr>
-<tr><td>Thrust map</td><td>0.90–1.10×, one shared multiplier on all three coefficients</td></tr>
-<tr><td>Maximum motor speed</td><td>2850–3150 (±5%)</td></tr>
-<tr><td>Body-rate limit</td><td>5.1–6 rad/s per axis</td></tr>
-<tr><td>Linear drag coefficient</td><td>0.04–0.16 horizontal, 0.06–0.22 vertical</td></tr>
-<tr><td>Quadratic drag coefficient</td><td>0.008–0.030 horizontal, 0.010–0.040 vertical</td></tr>
-<tr><td>Mean wind</td><td>±1.2 m/s horizontal, ±0.25 m/s vertical</td></tr>
-<tr><td>Gust amplitude</td><td>up to 0.8 m/s horizontal, 0.2 m/s vertical</td></tr>
-<tr><td>Center-of-mass offset</td><td>±6 mm horizontal, ±3 mm vertical</td></tr>
-</tbody>
-</table>
-</div>
-<figcaption><b>Table 1.</b> Default plant randomization. Rotor-speed-dependent drag, angular drag, the torque
-      coefficient, minimum motor speed and gust frequency are also varied. Aerodynamics are randomized through effective
-      force coefficients, not a physical body shape.</figcaption>
-</figure><figure class="fig">
-<div class="dg">
-<div class="brklab">
-<p class="k">plant</p>
-<p class="k">three steps of history</p>
-<p class="k">the six gates ahead</p>
-<p class="k">out</p>
-</div>
-<div class="seq"><div class="tk pl"><b>p</b><span>set</span></div><div class="tk st"><b>s<sub>−2</sub></b><span>τ=−2</span></div><div class="tk ct"><b>a<sub>−2</sub></b><span>τ=−2</span></div><div class="tk st"><b>s<sub>−1</sub></b><span>τ=−1</span></div><div class="tk ct"><b>a<sub>−1</sub></b><span>τ=−1</span></div><div class="tk st"><b>s<sub>0</sub></b><span>τ=0</span></div><div class="tk ct"><b>a<sub>0</sub></b><span>τ=0</span></div><div class="tk gt"><b>g<sub>1</sub></b><span>k=1</span></div><div class="tk gt"><b>g<sub>2</sub></b><span>k=2</span></div><div class="tk gt"><b>g<sub>3</sub></b><span>k=3</span></div><div class="tk gt"><b>g<sub>4</sub></b><span>k=4</span></div><div class="tk gt"><b>g<sub>5</sub></b><span>k=5</span></div><div class="tk gt"><b>g<sub>6</sub></b><span>k=6</span></div><div class="tk rd dash"><b>◆</b><span>ACT</span></div></div>
-<div class="ar down"><span>14 tokens, one causal pass; settings also FiLM-modulate every token</span></div>
-<div class="bone">
-<b>Causal transformer</b>
-<span>d = 320 · 8 heads · FFN 640 · 4 pre-norm blocks · 5.84 M params</span>
-</div>
-<div class="ar down"><span>read from the readout token only</span></div>
-<div class="heads">
-<div class="pn rd">
-<div class="pn-h"><b>Action head</b><i>4</i></div>
-<div class="pn-s">collective thrust and three body rates (CTBR)</div>
-<ul>
-<li>commanded speed enters after the backbone <em>v_cmd</em></li>
-<li>zero-initialized, so features are shared across speeds <em>FiLM</em></li>
-</ul>
-</div>
-<div class="pn dy">
-<div class="pn-h"><b>Dynamics head</b><i>19</i></div>
-<div class="pn-s">training only, discarded at deployment</div>
-<ul>
-<li>predicts the one-step change in task state <em>Δŝ</em></li>
-<li>shapes the latent the action head reads <em>shared</em></li>
-</ul>
-</div>
-</div>
-</div>
-<figcaption>The sequence and the two heads. The settings token is what changed from the previous
-      base: the sequence grows from 13 to 14 tokens, the backbone is unchanged.</figcaption>
-</figure><figure class="fig">
-<div class="dg">
-<ol class="flow">
-<li class="stage">
-<div class="st-h"><u>1</u><div><b>Courses</b>
-<p>the original 65-course pretraining corpus</p></div></div>
-<div class="facts">
-<div>each course its own family, <b>uniform</b> weights</div>
-<div><b>520</b> episodes per round, <b>8</b> per course</div>
-<div>a new randomized <b>vehicle</b> every episode</div>
-</div>
-</li>
-<li class="stage">
-<div class="st-h"><u>2</u><div><b>Collection</b>
-<p>who flies, and when an episode ends</p></div></div>
-<div>
-<div class="modegrid">
-<div class="mode"><b>Learner segments</b><span>the learner has full control (β = 0) until it
-                  has accepted 2–4 more gates, then the segment ends.</span></div>
-<div class="mode"><b>Counterfactual labels</b><span>the expert labels every learner state but never
-                  takes control mid-segment.</span></div>
-<div class="mode"><b>Expert-prefix starts</b><span>half the episodes begin with the expert flying
-                  to a later part of the course.</span></div>
-<div class="mode"><b>Bootstrap</b><span>one expert/DART round seeds replay before the learner flies.</span></div>
-</div>
-</div>
-</li>
-<li class="stage">
-<div class="st-h"><u>3</u><div><b>MPCC expert</b>
-<p>acados, solved at every visited state</p></div></div>
-<div class="facts">
-<div>label: the first command of the plan, <b>a*</b></div>
-<div>dynamics target: its one-step prediction, <b>Δs*</b></div>
-<div>its reference speed for the course becomes <b>v_cmd</b></div>
-<div>failed solves are excluded (<b>36</b> of <b>352,127</b> in normalization)</div>
-</div>
-</li>
-<li class="stage">
-<div class="st-h"><u>4</u><div><b>Replay</b>
-<p>recent online data plus an expert anchor</p></div></div>
-<div class="facts">
-<div>online: <b>+203 k</b> rows per round, <b>3.05 M</b> capacity (~15 rounds)</div>
-<div>permanent expert pool: <b>423 k</b> rows</div>
-<div>batch <b>1,536</b>: <b>90%</b> online, <b>10%</b> expert</div>
-<div>unbiased quota rounding across courses and gates</div>
-</div>
-</li>
-<li class="stage">
-<div class="st-h"><u>5</u><div><b>Learner update</b>
-<p>three terms, one gradient</p></div></div>
-<div class="facts">
-<div><b>1.00</b> Huber on normalized CTBR, axis weights <b>[1, 1, 1, 0.35]</b></div>
-<div><b>0.75</b> the same in physical units</div>
-<div><b>0.15</b> dynamics auxiliary</div>
-<div>AdamW, <b>5,081</b> updates per round, constant lr <b>1.2e-4</b>, clip <b>2</b></div>
-</div>
-</li>
-<li class="stage">
-<div class="st-h"><u>6</u><div><b>Selection</b>
-<p>after every round</p></div></div>
-<div class="facts">
-<div><b>25</b> frozen selection courses, never trained on</div>
-<div><b>8</b> starts each, frozen per-course deadlines</div>
-<div>best three kept by family-weighted <b>timely</b> success</div>
-</div>
-</li>
-</ol>
-<div class="foot">
-<span>selected: round <b>71</b>, <b>29,465,874</b> steps</span>
-<span>run ended at round <b>93</b> of a planned <b>218</b></span>
-<span>nominal <b>16.5 m/s</b></span>
-</div>
-</div>
-<figcaption>One scaled-D pretraining round. The plausible mechanism for the speed-up is state
-      relevance: coherent learner segments expose the errors the policy must correct, bounded segments keep fitting effort
-      off very long failed recoveries, and clean labels and corrected losses make that support easier to fit.</figcaption>
-</figure></details></div></section><section class="block" id="limits"><div class="wrap"><h2>Scope and limitations</h2><p class="prose">All results are in simulation with privileged state, exact route geometry, and supplied vehicle parameters. Randomization within the simulator does not establish broad plant generality, vision-only deployment, or physical flight performance.</p><p class="prose">The development-exposed benchmark, unequal training budgets, and feature differences limit causal interpretation. Three seeds quantify variability within these runs; they do not resolve those confounds. Public reference courses are adaptations, and their timings are not official leaderboard comparisons.</p></div></section><section class="block" id="flights"><div class="wrap"><h2>Selected flight replays</h2><p class="prose">Curated episodes from the historical checkpoint. Clean examples are selected best cases; the recovery viewer includes late recovery and failure. Aggregate rates above provide the population context.</p><div class="wrap teaser">
-<figure>
-<div class="frame">
-<video controls="" loop="" muted="" playsinline="" poster="handoff/site-pretrain65-d-scaled-20260930/generated/02-v622-hard-v2b-compound-reversal-021-03-poster.jpg" preload="metadata">
-<source src="handoff/site-pretrain65-d-scaled-20260930/generated/02-v622-hard-v2b-compound-reversal-021-03.mp4" type="video/mp4"/>
-
-<a href="handoff/site-pretrain65-d-scaled-20260930/generated/02-v622-hard-v2b-compound-reversal-021-03.mp4">Download flight replay</a></video>
-</div>
-<figcaption>Compound reversal</figcaption>
-</figure>
-</div><details><summary>Clean laps and interactive 3D view</summary><div class="clips" id="clips"></div><p>Drag to orbit, shift-drag to pan, pinch to zoom; double-click to reset.</p><div class="explorer" data-set="clean"></div></details><details><summary>Recovery and failure cases</summary><div class="explorer" data-set="recovery"></div><div class="scroll-x"><table class="data click" id="rtable"></table></div><p>Select a table row to replay the episode. Gates are numbered in pass order.</p></details></div></section><section class="block" id="diagnostics"><div class="wrap"><h2>Checkpoint diagnostics</h2><p class="prose">The visualizations below retain the September 29 scaled-D checkpoint analysis: round 71, 29.5M environment steps, 32 starts per course. Its 92.2% eventual and 68.8% clean-and-timely completion on real100-v2 describe one checkpoint, not the three-seed comparison above. Historical recipe comparisons also differ in start counts and inference settings.</p><details><summary>Explore historical completion, learning, and pace charts</summary><figure class="chart" id="fig-suites"></figure><figcaption>Eventual completion (all gates in order, no crash, under the 46 s cap) for
-    the previous base (grey, 8 starts per course) and the current one (blue, 32 starts per course). This is a
-    recipe-level comparison: start counts and inference settings differ, so it is not a matched causal
-    experiment.</figcaption><figure class="chart" id="fig-ladder"></figure><figure class="chart" id="fig-outcomes"></figure><figcaption>real100-v2, 3,200 starts. Top: rates at each bar. Bottom: every start is in exactly
-    one outcome class. Most failures to meet the strictest bar are completions after a missed gate (677 starts),
-    not crashes (248) or timeouts (3). real60 has no frozen timed protocol yet, so only its eventual rate is
-    reported.</figcaption><figure class="chart" id="fig-families"></figure><figcaption>real100-v2 by route family: previous-base completion (grey), current completion
-    (blue), and current clean-and-on-time rate (ring). Family names prefixed “behavior” are the harder
-    stress families added in v2. Hover a row for counts.</figcaption><figure class="chart" id="fig-courses"></figure><figcaption style="max-width:560px;margin-inline:auto">Per-course completion, previous base (x, 8 starts) vs current base (y, 32 starts),
-    with a small deterministic jitter so coincident points stay visible. Orange marks the eight public reference
-    adaptations. Hover a point for the course.</figcaption><figure class="chart" id="fig-learning"></figure><figcaption>Family-weighted completion on the 25-course selection panel after every round,
-    against environment steps (log scale). The earlier recipe (grey) first reached 50% after 108.7 M steps and
-    peaked at 57.9% over its full 218 rounds. Scaled D (blue) reached 50% at 6.4 M steps and 57% by 7.7 M;
-    that is 17.1× fewer environment steps and 15.1× fewer optimizer updates to the same 50% level.
-    The diamond marks the selected checkpoint.</figcaption><figure class="chart" id="fig-quality"></figure><figcaption>Scaled D on the selection panel: eventual, timely and clean-and-timely completion by
-    round. The selected checkpoint (round 71) was ranked on timely success, 73.75%. These 25 courses were reused
-    every round to rank checkpoints, so they are development validation; these panels were also inspected during development.</figcaption><figure class="chart" id="fig-laps"></figure><figure class="chart" id="fig-ratio"></figure><figure class="chart" id="fig-bytype"></figure><figcaption>Successful real100-v2 lap times in seconds (top left) and relative to the expert
-    reference (top right). Bottom: 10th–90th percentile range and median per outcome class. Noncompletions are
-    excluded, so read these alongside the completion rates. Courses differ in length, so seconds and ratios should be
-    read together.</figcaption><figure class="chart" id="fig-speed"></figure><figcaption>Completion and clean-and-on-time rate against the commanded speed, 128 starts per
-    command (16 courses × 8). The deadline is fixed per course, so slow commands lose timely credit by
-    construction. Commands 21 and 26 lie beyond the course-level training range, and the clean-and-on-time gain at 21
-    (2 of 128 starts) is within noise.</figcaption><figure class="chart" id="fig-tails"></figure><figcaption>Completed real100-v2 laps whose longest resolved recovery exceeded each duration, as a
-    share of all 3,200 starts. 87 laps (2.7% of starts) spent more than 8 s recovering one gate.</figcaption></details><p class="prose">The historical learning curves compare one run per recipe. The 17.1× first-crossing difference uses different evaluation start counts and horizons and bundles several training changes; it is not an architecture sample-efficiency estimate.</p><p class="prose"><a href="assets/data/results.json">Historical chart data</a> · <a href="assets/data/development-comparison.json">Three-seed summary and evaluation scope</a></p></div></section></main>
+<main id="top"><div class="masthead wrap"><div class="venue">Preprint-stage research report</div><h1 class="title">Starscream<span class="sub">Learning a controller from a solver</span></h1><p class="authors"><a href="../">Andrew Olvera</a></p><p class="affil">York College of Pennsylvania</p></div><section class="block" id="problem"><div class="wrap"><h2>Learned control, structured routes</h2><p class="prose">A classical controller solves for the next action; a learned controller predicts it. Starscream studies what can be transferred between them in drone racing. Ordered gates provide the route, letting the experiment focus on control: approaching an aperture, carrying speed through a turn, and correcting a missed crossing. The current policy receives privileged state and geometry, so this is not a solution to unrestricted navigation, perception, or state estimation.</p><p class="prose">The longer-term question is whether one policy can capture the behavior of course-conditioned experts across speed and aggressiveness tradeoffs. A learned representation of those expert behaviors is a motivating interpretation, not a demonstrated expert manifold. Generalization across plants and dynamics remains an intended study.</p></div></section><section class="block" id="approach"><div class="wrap"><h2>From online optimization to a policy</h2><p class="prose">The expert uses a dynamics model to optimize a sequence of controls over a one-second horizon, tracking a course reference and speed profile under actuator, slew, and corridor constraints. It applies the first control and replans. This is profile-tracking model predictive control (MPC), named MPCC in the implementation; the evaluated mode does not optimize time-optimal spatial progress.</p><p class="prose">The policy amortizes that state-to-action mapping through supervised expert labels. During collection it flies short segments of two to four gates while the solver labels visited states, including departures from the reference. Replay mixes recent experience with expert examples; an auxiliary objective predicts the transition under the action actually executed. Evaluation runs complete courses without segment resets or expert takeover.</p><div aria-label="Policy observation contract" class="input-grid"><article><h3>Privileged state</h3><p>Gate-frame position and velocity, orientation, body rates, motor speeds, and supplied plant context remove perception and estimation from this experiment.</p></article><article><h3>Six upcoming gates</h3><p>Ordered geometry, apertures, and validity expose the approach beyond the current gate, so a policy can condition a maneuver on the route ahead.</p></article><article><h3>State and action history</h3><p>Three rows span about 15.4 ms at 130 Hz. Previously executed controls provide context for an 11 ms actuation delay; they are not future expert labels.</p></article></div><p class="prose">These inputs define what the controller can use. Their individual contributions have not been isolated in the comparison below.</p></div></section><section class="block" id="courses"><div class="wrap"><h2>The course demands</h2><p class="prose">Training uses <b>pretrain65</b>: 65 qualified courses. <b>eval100</b> contains 92 generated courses and eight adaptations of public track layouts, grouped into 15 families. Its demands combine long approaches and braking, hairpins and reversals, slalom, vertical chains, and oblique gate entries. Tight spacing limits correction time; long approaches, altitude changes, and linked turns require coordinated speed and attitude control.</p><figure class="geometry-figure"><div class="geometry-grid" id="geometry-summary"></div><figcaption>Computed from 929 cyclic gate transitions in the frozen eval100 manifest, including closing transitions. Spacing measures gate-center distance; turns measure the angle between incoming and outgoing center chords. These describe geometry, not a measured difficulty ranking or flown path length.</figcaption></figure><p class="prose">eval100 has been inspected during development and contains the 25-course checkpoint-selection subset; it is not an untouched test set. Public-layout adaptations are simulated courses, not physical flight trials. The separate 60-course suite is called <b>eval60</b>; it is not the 60-start recovery panel below.</p></div></section><section class="block" id="results"><div class="wrap"><h2>MLP, LSTM, and Transformer</h2><p class="prose">Each setup has about 5.84M parameters and three independently trained seeds. All use short state/action history, route context, plant information, and a speed command. Their temporal processing differs:</p><div class="model-grid"><article><h3>MLP</h3><p>Projects the three history rows and concatenates them for temporal fusion.</p></article><article><h3>LSTM</h3><p>Processes the three-row window, resetting hidden and cell state on each call. It has no episode-long memory.</p></article><article><h3>Transformer</h3><p>Uses 14 typed tokens: plant settings, three state/control pairs, six gates, and an action readout attending to the preceding tokens.</p></article></div><p class="prose">The nominal comparison uses all 100 courses, 12 assigned starts per course, and 1,200 trials per seed. Each policy is scored at its selected checkpoint. The three outcomes answer different questions:</p><dl class="outcome-definitions"><div><dt>Clean &amp; Timely</dt><dd>Finish without a reference-aware missed gate and within the course deadline.</dd></div><div><dt>Clean</dt><dd>Finish without a missed gate, even if late.</dd></div><div><dt>Eventual</dt><dd>Finish all gates in order without crashing, within the 46.154 s hard cap; recovery after a miss is allowed.</dd></div></dl><div aria-label="Nominal three-model outcomes" class="chart-grid" id="nominal-charts"></div><p class="figure-note">Bars: mean across three training seeds. Dots: individual seeds. Labels: mean ± sample SD. All rates divide by assigned starts, including crashes and timeouts.</p><p class="prose">The transformer setup reaches <b>66.7% Clean &amp; Timely</b>, versus <b>52.5% for LSTM</b> and <b>50.1% for MLP</b>. Its advantage is larger than the observed seed spread, while the gap between clean and eventual completion shows how much finish-only scoring can conceal.</p><p class="prose">This is a comparison of full training setups. MLP and transformer have 54 explicit approach features absent from LSTM, route/plant history handling differs, and training budgets are unequal. The result does not isolate attention as the cause. The deadline is the larger of 1.5× the course reference time and reference + 3 s; these reference times are not certified optima. “Clean” follows the gate-event detector, not a body-clearance guarantee.</p></div></section><section class="block" id="recovery"><div class="wrap"><h2>Rejoining is not the same as recovering</h2><p class="prose">A separate controlled-recovery panel imposes a 1.5 m lateral offset and 2 m/s lateral velocity: four starts on one course from each of 15 families, or 60 assigned starts per seed. First-gate rejoin rates are 87.8% for MLP and 96.1% for both LSTM and transformer. But continuing cleanly and on time is much harder.</p><div aria-label="Controlled recovery three-model outcomes" class="chart-grid" id="recovery-charts"></div><p class="figure-note">The same outcome definitions and seed aggregation as above; 60 assigned starts per seed. This is a disturbance panel drawn from eval100, not eval60.</p><p class="prose">Clean &amp; Timely completion remains near 31–32% for all three setups. The nominal transformer advantage therefore does not establish a controlled-recovery advantage. Naturally occurring misses are also informative, but each policy creates a different set of failures; those recovery segments are not matched disturbances.</p></div></section><section class="block" id="flights"><div class="wrap"><h2>Flight behavior</h2><p class="prose">These recorded transformer episodes illustrate route following, late recovery, and failure. They are curated from a separate 32-start-per-course evaluation of one checkpoint; they are not the trials used to aggregate the three-seed results above.</p><figure class="flight-video"><video controls="" loop="" muted="" playsinline="" poster="handoff/site-pretrain65-d-scaled-20260930/generated/02-v622-hard-v2b-compound-reversal-021-03-poster.jpg" preload="metadata"><source src="handoff/site-pretrain65-d-scaled-20260930/generated/02-v622-hard-v2b-compound-reversal-021-03.mp4" type="video/mp4"/><a href="handoff/site-pretrain65-d-scaled-20260930/generated/02-v622-hard-v2b-compound-reversal-021-03.mp4">Download flight replay</a></video><figcaption>A recorded clean compound-reversal lap.</figcaption></figure><h3>Clean course execution</h3><div class="explorer" data-set="clean"></div><h3>Recovery and failure</h3><div class="explorer" data-set="recovery"></div><p class="figure-note">Select an episode, then drag to orbit, shift-drag to pan, or use the timeline to inspect the maneuver. Playback respects reduced-motion preferences.</p><p id="replay-status" role="status"></p></div></section><section class="block" id="comparisons"><div class="wrap"><h2>The comparisons that remain</h2><p class="prose">A direct learned-versus-solver comparison needs consistent dynamics, route, sensing and state-estimation assumptions, constraints, and outcome definitions. It must measure pace and failure as well as execution cost. The present evidence does not establish expert-speed parity or a runtime advantage.</p><p class="prose">Expert labels offer a dense learning target at visited states, motivating the question of sample efficiency relative to RL. A quantitative comparison remains to be evaluated on matched tasks and observations, counting environment transitions, expert queries, solver cost, policy updates, and compute. Fewer interactions alone would not imply fewer FLOPs.</p><p class="data-links"><a href="assets/data/development-comparison.json">Per-seed comparison data and definitions</a> · <a href="assets/data/policy-summary.csv">Source counts (CSV)</a> · <a href="assets/data/course-geometry.json">Course geometry and provenance</a></p><p id="data-status" role="status"></p></div></section></main>
 <footer>
 <div class="wrap">
 <span>© <span id="yr"></span> Andrew Olvera</span>
 <a href="../">← Home</a>
 </div>
 </footer>
-<script>
-(() => {
-  document.getElementById('yr').textContent = new Date().getFullYear();
 
-  window.__watchVideo = v => { v.controls = true; v.autoplay = false; v.preload = "metadata"; };
-  /* Active nav link */
-  const links = [...document.querySelectorAll('.nav ul a[href^="#"]')];
-  const secObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
-    });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-  document.querySelectorAll('section.block').forEach(s => secObs.observe(s));
-})();
-</script>
-<script src="scene3d.js"></script>
-<script src="results.js"></script>
-</body>
+
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script><script src="scene3d.js"></script><script src="study.js"></script></body>
 </html>
