@@ -1,0 +1,4 @@
+exclude:
+  - manippo
+  - tests
+  - README.md

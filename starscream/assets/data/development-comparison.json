@@ -1,0 +1,31 @@
+{
+  "source": "Starscream draft-for-review, focused report dated 2026-10-13, sections/method.tex, evaluation.tex, results.tex",
+  "status": "Preprint-stage research report; development-exposed comparison",
+  "courses": 100,
+  "starts_per_course_per_seed": 12,
+  "training_seeds_per_setup": 3,
+  "metric": "clean-and-timely completion",
+  "units": "percent",
+  "results": {
+    "MLP": {
+      "mean": 50.14,
+      "sample_sd": 2.42,
+      "eventual_mean": 82.42
+    },
+    "LSTM": {
+      "mean": 52.47,
+      "sample_sd": 1.71,
+      "eventual_mean": 84.58
+    },
+    "Transformer": {
+      "mean": 66.72,
+      "sample_sd": 2.36,
+      "eventual_mean": 91.75
+    }
+  },
+  "limitations": [
+    "Selection25 is contained in real100-v2; the full panel and complement75 were inspected during development.",
+    "Inputs, feature handling and training budgets differ. Attention effects are not isolated.",
+    "Privileged-state simulation; no claim of broad plant generality or physical deployment."
+  ]
+}

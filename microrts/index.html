@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Tells</title>
-<meta name="description" content="Tells: inferring an opponent from play history in a MicroRTS world action model. Andrew Olvera, 2026.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta content="Tells: opponent beliefs improve return prediction in MicroRTS, while evaluated control results do not establish a benefit from belief conditioning." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <style>
   :root {
     --bg: #ffffff; --bg-2: #f7f8fa; --ink: #1a1d23; --ink-2: #3b414b; --muted: #6b7280;
@@ -139,380 +140,149 @@
   footer a { color: var(--muted); }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
-</head>
-<body>
+<style>
+/* Shared editorial and accessibility refinements. */
+:root { --muted: #58616f; }
+a:focus-visible, button:focus-visible, summary:focus-visible, select:focus-visible { outline: 3px solid #1f5a96; outline-offset: 4px; }
+.skip-link { position: absolute; left: 16px; top: -100px; z-index: 100; background: white; padding: 10px 16px; }
+.skip-link:focus { top: 8px; }
+section { scroll-margin-top: 80px; }
+details { border-top: 1px solid #d5dbe3; margin: 28px 0; padding: 18px 0; }
+summary { cursor: pointer; font-weight: 600; color: #1f4e8c; }
+details[open] > summary { margin-bottom: 24px; }
+.prose { max-width: 70ch; }
+.prose + .prose { margin-top: 16px; }
+.evidence-note { border-left: 3px solid #1f5a96; padding: 14px 20px; background: #f4f7fa; margin: 24px 0; font-size: 15px; }
+.nav ul { flex-wrap: wrap; }
+video { max-width: 100%; }
+.scroll-x { overflow-x: auto; }
+@media(max-width:600px) { .masthead { padding-top: 42px; } .block { padding: 32px 0; } .nav .wrap { gap: 12px; } .nav ul { gap: 12px; } .nav a { min-height: 36px; display: inline-flex; align-items: center; } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior: auto; } }
+</style><style>
+.nav .wrap { height: auto; min-height: 52px; padding-block: 6px; }
+figure + .prose, figcaption + .prose { margin-top: 20px; }
+.mobile-chart-hint { display: none; }
+@media(max-width:600px) {
+  .nav .wrap { flex-direction: column; align-items: flex-start; gap: 0; }
+  .nav ul { width: 100%; gap: 8px 16px; }
+  .nav ul a { font-size: 13px; }
+  section { scroll-margin-top: 120px; }
+  .mobile-chart-hint { display: block; font-size: 13px; color: #58616f; margin-block: 12px; }
+}
+</style><style>.scroll-x table.data { min-width: 680px; }</style></head>
+<body><a class="skip-link" href="#top">Skip to content</a>
 <header class="nav">
-  <div class="wrap">
-    <a class="brand" href="#top">Tells</a>
-    <ul>
-      <li class="opt"><a href="#abstract">Abstract</a></li>
-      <li class="opt"><a href="#model">World model</a></li>
-      <li><a href="#opponent">Opponent</a></li>
-      <li><a href="#control">Control</a></li>
-      <li class="opt"><a href="#limits">Limits</a></li>
-      <li><a href="../">Home</a></li>
-    </ul>
-  </div>
+<div class="wrap">
+<a class="brand" href="#top">Tells</a>
+<ul><li><a href="#method">Method</a></li><li><a href="#model">Prediction</a></li><li><a href="#control">Control</a></li><li><a href="#limits">Limits</a></li><li><a href="../">Home</a></li></ul>
+</div>
 </header>
-
-<main id="top">
-<!-- ================= TITLE ================= -->
-<div class="masthead wrap">
-  <div class="venue">Preprint forthcoming &middot; 2026</div>
-  <h1 class="title">
+<main id="top"><p class="wrap mobile-chart-hint">Wide charts and tables scroll horizontally.</p><div class="masthead wrap">
+<div class="venue">Research study · 2026</div>
+<h1 class="title">
     Tells
     <span class="sub">Inferring an opponent from play history in a MicroRTS world action model</span>
-  </h1>
-  <p class="authors"><a href="../">Andrew Olvera</a></p>
-  <p class="affil">York College of Pennsylvania</p>
-  <div class="buttons">
-    <span class="btn soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Paper (coming soon)</span>
-    <a class="btn" href="#control">Results</a>
-  </div>
+</h1>
+<p class="authors"><a href="../">Andrew Olvera</a></p>
+<p class="affil">York College of Pennsylvania</p>
+<div class="buttons">
+<a class="btn" href="#control">Results</a>
 </div>
-
-<!-- ================= ABSTRACT ================= -->
-<section class="block" id="abstract">
-  <div class="wrap">
-    <h2>Abstract</h2>
-    <div class="abstract prose">
-      <p>A poker player never sees the other hand; they read tells. We ask whether a model-based agent in
-      MicroRTS can do the same under fog of war: infer a useful opponent behavior mode from information legally
-      available during play, use it in prediction and value estimation, and win more because of it. We first
-      build an auditable action-conditioned latent simulator from full engine state, then move its deployment
-      interface to fog-visible observations and the agent&rsquo;s own issued actions. A structured tokenizer with
-      exact categorical decoding and temporal JEPA reconstructs 99.85% of held-out frames exactly. A 103.1M-parameter
-      flow dynamics model learns strong one-step semantic and counterfactual prediction (0.973 changed-cell F1),
-      although only 11.7% of its predicted frames are exact. A 64-frame causal encoder distills a behavior-grounded
-      16-code opponent mode from privileged training targets, and that belief measurably improves long-horizon
-      return prediction. Policies trained by PMPO in the frozen model beat the held-out CoacAI bot in small match
-      panels, but the strongest of them uses no opponent belief at all, and matched belief-conditioned PMPO did not
-      outperform it. We report where opponent belief improved prediction, and why that has not yet translated into
-      better control.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= QUESTION ================= -->
-<section class="block" id="question">
-  <div class="wrap">
-    <h2>The question</h2>
-    <div class="prose">
-      <p>Real-time strategy is a game of hidden information. Most of the map is dark, and the opponent&rsquo;s
-      plan is visible only through what it has already done: where its workers went, what it built, when it
-      attacked. A strong player carries a running read of the opponent, a belief about what kind of game they
-      are in, and plays against that belief rather than against the board alone.</p>
-      <p>This project builds that read into a <b>world action model</b>: a latent transition queried with the
-      agent&rsquo;s own issued action, in which the opponent is hidden state to be inferred. The work is
-      diagnostic by design. It measures separately whether the state is encoded exactly, whether the model
-      responds to the agent&rsquo;s actions, whether it predicts the effect of an intervention, whether the
-      opponent belief carries long-horizon information, and whether any of that wins games.</p>
-    </div>
-
-    <figure class="fig arch">
-      <div class="fig-frame scroll-x">
-        <svg viewBox="0 0 900 450" role="img" aria-label="Deployable inference path: fog observation and issued self actions are tokenized; a frozen transition predicts the arrival latent, reward and continuation; a causal history encoder produces a 16-code opponent belief that conditions the PMPO actor and critic. Privileged engine state and opponent actions are used only to train the belief teacher.">
-          <defs>
-            <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z"/></marker>
-            <marker id="aa" class="acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z"/></marker>
-          </defs>
-          <!-- row 1 -->
-          <g><rect x="0" y="20" width="180" height="66" rx="6"/><text class="t" x="14" y="47">Fog observation</text><text class="s" x="14" y="67">16×16 raster + visibility</text></g>
-          <g><rect x="230" y="20" width="190" height="66" rx="6"/><text class="t" x="244" y="47">Ego tokenizer</text><text class="s" x="244" y="67">64 spatial tokens × 320</text></g>
-          <g><rect x="470" y="20" width="190" height="66" rx="6"/><text class="t" x="484" y="47">World transition</text><text class="s" x="484" y="67">frozen for policy learning</text></g>
-          <g><rect x="710" y="20" width="190" height="66" rx="6"/><text class="t" x="724" y="47">Arrival latent</text><text class="s" x="724" y="67">reward · continuation</text></g>
-          <!-- row 2 -->
-          <g><rect x="0" y="130" width="180" height="66" rx="6"/><text class="t" x="14" y="157">Issued self actions</text><text class="s" x="14" y="177">up to 48 factored events</text></g>
-          <g><rect x="262" y="130" width="158" height="66" rx="6"/><text class="t" x="276" y="157">Action tokenizer</text><text class="s" x="276" y="177">event embeddings</text></g>
-          <!-- row 3 -->
-          <g class="em"><rect x="230" y="250" width="190" height="66" rx="6"/><text class="t" x="244" y="277">History encoder</text><text class="s" x="244" y="297">causal, up to 64 frames</text></g>
-          <g class="em"><rect x="470" y="250" width="190" height="66" rx="6"/><text class="t" x="484" y="277">Opponent belief z</text><text class="s" x="484" y="297">soft over 16 behavior codes</text></g>
-          <g><rect x="710" y="250" width="190" height="66" rx="6"/><text class="t" x="724" y="277">PMPO actor + critic</text><text class="s" x="724" y="297">behavior prior · return head</text></g>
-          <!-- training only -->
-          <g class="train"><rect x="0" y="370" width="660" height="66" rx="6"/><text class="t" x="14" y="397">Training only</text><text class="s" x="14" y="417">complete engine state · privileged opponent actions · conditional-policy codebook teacher</text></g>
-          <!-- flows -->
-          <path class="flow" d="M180 53H226" marker-end="url(#ah)"/>
-          <path class="flow" d="M420 53H466" marker-end="url(#ah)"/>
-          <path class="flow" d="M660 53H706" marker-end="url(#ah)"/>
-          <path class="flow" d="M180 163H258" marker-end="url(#ah)"/>
-          <path class="flow" d="M420 150L480 90" marker-end="url(#ah)"/>
-          <path class="flow" d="M805 86V246" marker-end="url(#ah)"/>
-          <path class="flow em" d="M246 86V246" marker-end="url(#aa)"/>
-          <path class="flow em" d="M341 196V246" marker-end="url(#aa)"/>
-          <path class="flow em" d="M420 283H466" marker-end="url(#aa)"/>
-          <path class="flow em" d="M660 283H706" marker-end="url(#aa)"/>
-          <path class="flow train" d="M565 370V320" marker-end="url(#ah)"/>
-          <text class="lbl" x="352" y="228">past actions, shifted</text>
-          <text class="lbl" x="575" y="350">distilled into</text>
-          <text class="lbl" x="812" y="170">imagined</text>
-          <text class="lbl" x="812" y="187">trajectories</text>
-        </svg>
-      </div>
-      <figcaption><b>Figure 1.</b> What runs at deployment, with the belief path in blue. The encoder reads only
-      fog-visible frames and the agent&rsquo;s own past actions, shifted one step so the action being chosen can
+</div><section class="block" id="abstract"><div class="wrap"><h2>Research question</h2><p class="prose">Does an opponent belief inferred from play history improve a model-based agent under fog of war? Tells separates two tests: predicting future returns and improving actual play. The belief helps the former; the evaluated policies do not establish the latter.</p></div></section><section class="block" id="method"><div class="wrap"><h2>Method</h2><p class="prose">MicroRTS observations are 16×16 categorical boards with visibility masks. The corpus contains 5.93M transitions from 7,215 episodes, split by whole episode and collection seed. About 20% of rows include an engine-cloned counterfactual that changes the agent’s action while holding the opponent’s fixed.</p><p class="prose">A structured tokenizer encodes game fields, and a flow model predicts latent transitions. A privileged teacher learns 16 local behavior codes; a causal student predicts their distribution from up to 64 frames of visible history and self actions. This belief is denoted z.</p><details><summary>Model architecture and data split</summary><figure class="fig arch">
+<div aria-label="Scrollable figure or table" class="fig-frame scroll-x" role="region" tabindex="0">
+<svg aria-label="Deployable inference path: fog observation and issued self actions are tokenized; a frozen transition predicts the arrival latent, reward and continuation; a causal history encoder produces a 16-code opponent belief that conditions the PMPO actor and critic. Privileged engine state and opponent actions are used only to train the belief teacher." role="img" viewbox="0 0 900 450">
+<defs>
+<marker id="ah" markerheight="7" markerwidth="7" orient="auto-start-reverse" refx="9" refy="5" viewbox="0 0 10 10"><path d="M0 0L10 5L0 10z"></path></marker>
+<marker class="acc" id="aa" markerheight="7" markerwidth="7" orient="auto-start-reverse" refx="9" refy="5" viewbox="0 0 10 10"><path d="M0 0L10 5L0 10z"></path></marker>
+</defs>
+<!-- row 1 -->
+<g><rect height="66" rx="6" width="180" x="0" y="20"></rect><text class="t" x="14" y="47">Fog observation</text><text class="s" x="14" y="67">16×16 raster + visibility</text></g>
+<g><rect height="66" rx="6" width="190" x="230" y="20"></rect><text class="t" x="244" y="47">Ego tokenizer</text><text class="s" x="244" y="67">64 spatial tokens × 320</text></g>
+<g><rect height="66" rx="6" width="190" x="470" y="20"></rect><text class="t" x="484" y="47">World transition</text><text class="s" x="484" y="67">frozen for policy learning</text></g>
+<g><rect height="66" rx="6" width="190" x="710" y="20"></rect><text class="t" x="724" y="47">Arrival latent</text><text class="s" x="724" y="67">reward · continuation</text></g>
+<!-- row 2 -->
+<g><rect height="66" rx="6" width="180" x="0" y="130"></rect><text class="t" x="14" y="157">Issued self actions</text><text class="s" x="14" y="177">up to 48 factored events</text></g>
+<g><rect height="66" rx="6" width="158" x="262" y="130"></rect><text class="t" x="276" y="157">Action tokenizer</text><text class="s" x="276" y="177">event embeddings</text></g>
+<!-- row 3 -->
+<g class="em"><rect height="66" rx="6" width="190" x="230" y="250"></rect><text class="t" x="244" y="277">History encoder</text><text class="s" x="244" y="297">causal, up to 64 frames</text></g>
+<g class="em"><rect height="66" rx="6" width="190" x="470" y="250"></rect><text class="t" x="484" y="277">Opponent belief z</text><text class="s" x="484" y="297">soft over 16 behavior codes</text></g>
+<g><rect height="66" rx="6" width="190" x="710" y="250"></rect><text class="t" x="724" y="277">PMPO actor + critic</text><text class="s" x="724" y="297">behavior prior · return head</text></g>
+<!-- training only -->
+<g class="train"><rect height="66" rx="6" width="660" x="0" y="370"></rect><text class="t" x="14" y="397">Training only</text><text class="s" x="14" y="417">complete engine state · privileged opponent actions · conditional-policy codebook teacher</text></g>
+<!-- flows -->
+<path class="flow" d="M180 53H226" marker-end="url(#ah)"></path>
+<path class="flow" d="M420 53H466" marker-end="url(#ah)"></path>
+<path class="flow" d="M660 53H706" marker-end="url(#ah)"></path>
+<path class="flow" d="M180 163H258" marker-end="url(#ah)"></path>
+<path class="flow" d="M420 150L480 90" marker-end="url(#ah)"></path>
+<path class="flow" d="M805 86V246" marker-end="url(#ah)"></path>
+<path class="flow em" d="M246 86V246" marker-end="url(#aa)"></path>
+<path class="flow em" d="M341 196V246" marker-end="url(#aa)"></path>
+<path class="flow em" d="M420 283H466" marker-end="url(#aa)"></path>
+<path class="flow em" d="M660 283H706" marker-end="url(#aa)"></path>
+<path class="flow train" d="M565 370V320" marker-end="url(#ah)"></path>
+<text class="lbl" x="352" y="228">past actions, shifted</text>
+<text class="lbl" x="575" y="350">distilled into</text>
+<text class="lbl" x="812" y="170">imagined</text>
+<text class="lbl" x="812" y="187">trajectories</text>
+</svg>
+</div>
+<figcaption>What runs at deployment, with the belief path in blue. The encoder reads only
+      fog-visible frames and the agent’s own past actions, shifted one step so the action being chosen can
       never leak into the belief that conditions it. Everything in the dashed box exists only to train the
       belief, and is removed before play.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- ================= DATA ================= -->
-<section class="block" id="data">
-  <div class="wrap">
-    <h2>Data built for interventions</h2>
-    <div class="prose">
-      <p>MicroRTS is played on 16&times;16 maps. Each cell carries 27 one-hot channels (hit points, resources,
-      owner, unit type, current action), and a visibility mask separates what is observed from what is hidden.
-      A unit command has eight fields, from source cell and action type to produced unit and relative attack
-      target, and a single game step can issue many of them. Raw engine unit IDs are dropped so the
-      representation stays tied to mechanics rather than to unstable identifiers.</p>
-      <p>The corpus is designed around one question a world model has to answer: <em>what would have
-      happened if I had acted differently?</em> For roughly a fifth of rows, the engine is cloned and the
-      agent&rsquo;s action is changed while the opponent&rsquo;s action is held fixed. That isolates the effect
-      of the agent&rsquo;s own action without modeling how the opponent would have responded. Train,
-      validation and evaluation use disjoint collection seeds and whole episodes, across four map variants, both
-      seats, self-play and scripted opponents. CoacAI, the hard scripted opponent used for the headline
-      comparison, appears only in evaluation.</p>
-    </div>
-    <figure class="fig">
-      <div class="scroll-x">
-        <table class="data">
-          <thead><tr><th>Split</th><th class="n">Transitions</th><th class="n">Episodes</th><th class="n">With counterfactual</th></tr></thead>
-          <tbody>
-            <tr><td>Train</td><td class="n">3,377,539</td><td class="n">4,096</td><td class="n">20.0%</td></tr>
-            <tr><td>Validation</td><td class="n">1,309,676</td><td class="n">1,552</td><td class="n">20.0%</td></tr>
-            <tr><td>Evaluation</td><td class="n">1,245,299</td><td class="n">1,567</td><td class="n">20.0%</td></tr>
-            <tr class="em"><td>Total</td><td class="n">5,932,514</td><td class="n">7,215</td><td class="n">&asymp;20.0%</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <figcaption>Episode-disjoint splits. The counterfactual branch changes the agent&rsquo;s action and holds
-      the opponent&rsquo;s fixed.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- ================= WORLD MODEL ================= -->
-<section class="block" id="model">
-  <div class="wrap">
-    <h2>A world model that is exact where it can be</h2>
-
-    <h3>Tokenizing a board without losing it</h3>
-    <div class="prose">
-      <p>A game board is mostly empty, so average cell accuracy is misleading. An early JEPA tokenizer scored
-      94.9% on cells overall, yet got only a quarter of <em>occupied</em> cells exactly right and never
-      reconstructed a whole frame. The fix was to stop treating the board as an image. The exact tokenizer
-      embeds every finite game field categorically and decodes it back by argmax, stores when each unit&rsquo;s current
-      action began as a bounded action age recovered with the global clock, and weights changed cells 8&times; in its
-      temporal JEPA objective. Its latent stays continuous so dynamics can operate on it; exact decoding acts as
-      a certificate that nothing was lost.</p>
-    </div>
-    <figure class="fig chart" id="tok" style="position:relative"></figure>
-    <figcaption><b>Figure 2.</b> Tokenizer round trips on held-out frames. Hollow: the earlier medium JEPA
-    tokenizer. Filled: exact temporal JEPA. These are encode-decode round trips; dynamics rollouts are in
-    Figure 3.</figcaption>
-    <div class="prose" style="margin-top:20px">
-      <p>The deployable interfaces then drop the full engine state. An ego tokenizer encodes only the
-      fog-visible raster and visibility into 64 spatial tokens of width 320, reaching at least 99.9988% visible
-      category accuracy on held-out data. A self-action tokenizer reconstructs every evaluated action field
-      exactly and predicts how an issued action moves the ego latent (effect cosine 0.815).</p>
-    </div>
-
-    <h3>Learning the dynamics</h3>
-    <div class="prose">
-      <p>Several easy metrics overstate how good a dynamics model is. Most cells never change, so copying the last frame is a strong
-      baseline, and a shaped reward can make an imagined rollout look profitable without the model ever
-      responding to the agent&rsquo;s actions. Early Dreamer-style models did exactly that: low teacher-forced
-      loss, plausible reward correlation, and failed policies. The program therefore judged dynamics on
-      changed-cell F1, action-shuffle gaps, counterfactual branches and real games in addition to loss.</p>
-      <p>The final 103.1M-parameter flow dynamics model predicts a residual in latent space under both the
-      factual and the cloned-action branch, trained directly on factual, counterfactual and effect-geometry
-      objectives. At its selected checkpoint, on a fixed held-out evaluator:</p>
-    </div>
-    <div class="runstat">
-      <div><b>0.973</b><span>changed-cell F1, one step</span></div>
-      <div><b>98.3%</b><span>unit-type accuracy, one step</span></div>
-      <div><b>0.0703</b><span>factual latent MSE (0.0423 counterfactual)</span></div>
-      <div><b>11.7%</b><span>predicted frames that decode exactly</span></div>
-    </div>
-    <figure class="fig chart" id="roll" style="position:relative"></figure>
-    <figcaption><b>Figure 3.</b> Open-loop rollouts on eight fixed held-out trajectories. Changed-cell F1
+</figure><figure class="fig">
+<div aria-label="Scrollable figure or table" class="scroll-x" role="region" tabindex="0">
+<table class="data">
+<thead><tr><th scope="col">Split</th><th class="n" scope="col">Transitions</th><th class="n" scope="col">Episodes</th><th class="n" scope="col">With counterfactual</th></tr></thead>
+<tbody>
+<tr><td>Train</td><td class="n">3,377,539</td><td class="n">4,096</td><td class="n">20.0%</td></tr>
+<tr><td>Validation</td><td class="n">1,309,676</td><td class="n">1,552</td><td class="n">20.0%</td></tr>
+<tr><td>Evaluation</td><td class="n">1,245,299</td><td class="n">1,567</td><td class="n">20.0%</td></tr>
+<tr class="em"><td>Total</td><td class="n">5,932,514</td><td class="n">7,215</td><td class="n">≈20.0%</td></tr>
+</tbody>
+</table>
+</div>
+<figcaption>Episode-disjoint splits. The counterfactual branch changes the agent’s action and holds
+      the opponent’s fixed.</figcaption>
+</figure></details></div></section><section class="block" id="model"><div class="wrap"><h2>Prediction evidence</h2><p class="prose">Tokenizer round trips reconstruct 99.85% of evaluated full-state frames exactly. That does not imply exact dynamics: only 11.7% of frames predicted by the 103.1M-parameter flow model decode exactly, despite one-step changed-cell F1 of 0.973.</p><figure class="fig chart" id="tok" style="position:relative"></figure><figcaption>Tokenizer round trips on held-out frames. Hollow: the earlier medium JEPA
+    tokenizer. Filled: exact temporal JEPA. These are encode-decode round trips; dynamics rollouts are in the expandable panel below.</figcaption><details><summary>Open-loop dynamics</summary><figure class="fig chart" id="roll" style="position:relative"></figure><figcaption>Open-loop rollouts on eight fixed held-out trajectories. Changed-cell F1
     holds up far better than unit-type accuracy as the model feeds on its own predictions. Horizon-8 values
-    are exact (0.840 and 0.716).</figcaption>
-    <div class="prose" style="margin-top:20px">
-      <p>The model knows <em>what changes and where</em> far better than it knows the exact resulting state.
-      The reason is specific: the tokenizer learned exact decoding, but this dynamics run put zero weight on
-      decoded fields, so latent error can fall while a predicted point still sits on the wrong side of a
-      categorical boundary. Adding decoded-field losses, then self-rollout consistency, is the next
-      ablation.</p>
-      <p>Policy learning uses a separate, deployable transition: a roughly 100M-parameter model (14 blocks, width
-      768) trained from scratch on ego tokens and issued self actions only, with no opponent belief. One step
-      ahead it beats copying the last frame (mechanics MSE 0.0189 against 0.0300), degrades when its actions are
-      shuffled, and predicts reward and continuation closely (reward MAE 0.0011, continuation accuracy 1.0 on
-      its sampled evaluation). These are one-step numbers and do not show calibrated reward over long rollouts,
-      which is why the model is frozen during policy learning and imagination is kept to eight steps.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= OPPONENT ================= -->
-<section class="block" id="opponent">
-  <div class="wrap">
-    <h2>Reading the opponent</h2>
-    <div class="prose">
-      <p>The obvious approach failed twice. An early four-mode conditioner collapsed onto a single hypothesis,
-      and a later jointly trained JEPA student collapsed too: it used one code, and predicted opponent behavior
-      no better than always guessing the average.</p>
-      <p>What worked was to <b>define behavior first, then learn to see it</b>. A privileged teacher, with
-      access to full state and a short window of the opponent&rsquo;s real actions, learns a 16-code
-      conditional-policy codebook. Because each code is conditioned on the game situation, it names a local
-      behavior or intent in context rather than a fixed player identity. A causal
-      student then learns to predict the teacher&rsquo;s soft code distribution from what the agent can legally
-      see: up to 64 frames of fog-visible observation and its own past actions. Balancing training anchors by
-      episode, so that long games stop dominating the target, stopped the student from collapsing.</p>
-    </div>
-    <div class="runstat">
-      <div><b>0.367 nats</b><span>better than the fixed marginal at predicting the teacher (2.355 vs 2.722)</span></div>
-      <div><b>10.3 / 16</b><span>codes in effective use (the collapsed predecessor used 1)</span></div>
-      <div><b>+0.065 nats</b><span>worse with opponents shuffled across histories</span></div>
-    </div>
-
-    <h3>Where the belief pays off</h3>
-    <div class="prose">
-      <p>The belief carries little that helps predict the next 16 steps of the agent&rsquo;s own latent state:
-      shuffling it raised prediction error by only 0.40%. That is plausible, since the near future is decided
-      mostly by what is already on the board. Its value appears over longer horizons, where the opponent&rsquo;s plan has time to
-      matter. A strategic return head trained with and without z measures this.</p>
-    </div>
-    <figure class="fig">
-      <div class="scroll-x">
-        <table class="data">
-          <thead><tr><th>Future-return loss</th><th class="n">With z</th><th class="n">z removed</th><th class="n">z shuffled</th><th class="n">State-only head</th></tr></thead>
-          <tbody>
-            <tr><td>32 steps ahead</td><td class="n">0.1537</td><td class="n">0.1707</td><td class="n">+0.0657</td><td class="n">0.1634</td></tr>
-            <tr><td>128 steps ahead</td><td class="n">0.3134</td><td class="n">0.3374</td><td class="n">+0.0817</td><td class="n">0.3236</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <figcaption>Validation loss of the strategic return head, lower is better; &ldquo;z shuffled&rdquo; is the
+    are exact (0.840 and 0.716).</figcaption></details><p class="prose">The belief reduces future-return validation loss at 32 and 128 steps. A separately trained state-only head closes much of the gap, and the belief does not improve every return metric.</p><figure class="fig">
+<div aria-label="Scrollable figure or table" class="scroll-x" role="region" tabindex="0">
+<table class="data">
+<thead><tr><th scope="col">Future-return loss</th><th class="n" scope="col">With z</th><th class="n" scope="col">z removed</th><th class="n" scope="col">z shuffled</th><th class="n" scope="col">State-only head</th></tr></thead>
+<tbody>
+<tr><td>32 steps ahead</td><td class="n">0.1537</td><td class="n">0.1707</td><td class="n">+0.0657</td><td class="n">0.1634</td></tr>
+<tr><td>128 steps ahead</td><td class="n">0.3134</td><td class="n">0.3374</td><td class="n">+0.0817</td><td class="n">0.3236</td></tr>
+</tbody>
+</table>
+</div>
+<figcaption>Validation loss of the strategic return head, lower is better; “z shuffled” is the
       increase over the matched belief. Outcome macro AUC with z is 0.93. A separately trained state-only head
       sits between the two.</figcaption>
-    </figure>
-    <div class="prose" style="margin-top:20px">
-      <p>With the belief, the head predicts the game&rsquo;s future return better at both horizons, and
-      shuffling the belief hurts more at 128 steps than at 32. The effect is bounded. A separately trained head
-      with no belief closes most of the gap, and across the full set of return metrics z does not uniformly
-      dominate that state-only system. The belief is a real long-horizon signal of modest size. That justifies
-      routing it into value estimation under control; its effect on play has to be tested in games.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CONTROL ================= -->
-<section class="block" id="control">
-  <div class="wrap">
-    <h2>From belief to control</h2>
-    <div class="prose">
-      <p>Policies are trained with PMPO entirely inside the frozen world model, on eight-step imagined
-      trajectories. The immediate reward head scores only arrivals; a separately validated return head, with or
-      without z, supplies the value at the end of the imagined horizon, so an uncertain strategic signal cannot
-      rewrite the one-step model. A frozen behavior prior keeps the actor close to commands that were actually
-      issued in the data. Sign-balanced PMPO then pushes up actions with non-negative advantage and pushes down
-      the rest, and the actor and critic can optionally receive the belief through FiLM conditioning.</p>
-    </div>
-    <figure class="fig">
-      <div class="scroll-x">
-        <table class="data">
-          <thead><tr><th>Policy (env steps at checkpoint)</th><th class="n">Four-bot win</th><th class="n">vs CoacAI</th><th>Reading</th></tr></thead>
-          <tbody>
-            <tr><td>Reward, with z (4.10M)</td><td class="n">60%</td><td class="n">3 / 5</td><td>Beat CoacAI in one selected panel; later checkpoints regressed.</td></tr>
-            <tr><td>Reward, no z (4.61M)</td><td class="n">75%</td><td class="n">0 / 5</td><td>A high average did not mean robustness against CoacAI.</td></tr>
-            <tr><td>Return bootstrap, with z (1.02M)</td><td class="n">70%</td><td class="n">0 / 5</td><td>The matched belief path did not beat CoacAI.</td></tr>
-            <tr class="em"><td>Return bootstrap, no z (1.74M)</td><td class="n">75%</td><td class="n">5 / 5</td><td>Strongest result; 5 / 5 again in a separate probe.</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <figcaption>Best-checkpoint match panels: four scripted bots, five games each, greedy play, 2,000-step cap.
+</figure></div></section><section class="block" id="control"><div class="wrap"><h2>Control evidence</h2><p class="prose">PMPO policies train on eight-step imagined trajectories in a frozen, ego-observation transition model. This is a separate model from the full-state dynamics diagnostic above. A behavior prior constrains actions; return heads and policy conditioning can receive the belief.</p><figure class="fig">
+<div aria-label="Scrollable figure or table" class="scroll-x" role="region" tabindex="0">
+<table class="data">
+<thead><tr><th scope="col">Policy (env steps at checkpoint)</th><th class="n" scope="col">Four-bot win</th><th class="n" scope="col">vs CoacAI</th><th scope="col">Reading</th></tr></thead>
+<tbody>
+<tr><td>Reward, with z (4.10M)</td><td class="n">60%</td><td class="n">3 / 5</td><td>Beat CoacAI in one selected panel; later checkpoints regressed.</td></tr>
+<tr><td>Reward, no z (4.61M)</td><td class="n">75%</td><td class="n">0 / 5</td><td>A high average did not mean robustness against CoacAI.</td></tr>
+<tr><td>Return bootstrap, with z (1.02M)</td><td class="n">70%</td><td class="n">0 / 5</td><td>The matched belief path did not beat CoacAI.</td></tr>
+<tr class="em"><td>Return bootstrap, no z (1.74M)</td><td class="n">75%</td><td class="n">5 / 5</td><td>Strongest result; 5 / 5 again in a separate probe.</td></tr>
+</tbody>
+</table>
+</div>
+<figcaption>Best-checkpoint match panels: four scripted bots, five games each, greedy play, 2,000-step cap.
       Selecting the best checkpoint on the same panel it is scored on is optimistic, and five games per bot is a
       small sample.</figcaption>
-    </figure>
-
-    <div class="runstat">
-      <div><b>13 · 2 · 5</b><span>wins, draws, losses for the best policy in a separate 20-game probe (5 / 5 vs CoacAI, 0 / 5 vs workerRushAI)</span></div>
-      <div><b>0 · 20 · 20</b><span>belief-conditioned policy&rsquo;s wins, draws, losses head-to-head against the no-belief policy</span></div>
-      <div><b>0.49 → 0.73</b><span>offline preference accuracy of a belief-conditioned action ranker; it then collapsed in play</span></div>
-    </div>
-
-    <h3>What the matches say</h3>
-    <ul class="list prose">
-      <li><b>A world-model agent can beat CoacAI.</b> Selected PMPO checkpoints trained only in imagination won
-      small held-out panels against it, including 5 of 5 twice for the best policy. The panels are small,
-      and robustness has not been established.</li>
-      <li><b>The belief did not cause the wins.</b> The strongest policy uses no belief. Its matched
-      belief-conditioned counterpart lost 20 and drew 20 of 40 games head-to-head, with a strong seat
-      asymmetry.</li>
-      <li><b>Good offline scores can break closed-loop play.</b> A residual ranker that re-scores actions using
-      the belief improved paired preference accuracy from 0.49 to 0.73 on held-out counterfactuals, and matched
-      belief beat shuffled belief (0.733 vs 0.715). Added to the best policy at full strength it won 0 of 20;
-      at a fifth of the strength, 8 of 20 against 13 for the unchanged policy, and CoacAI went from 5 of 5 to 0
-      of 5 at both scales.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ================= LIMITS ================= -->
-<section class="block" id="limits">
-  <div class="wrap">
-    <h2>What holds, and what does not yet</h2>
-    <div class="prose">
-      <p>Exact state reconstruction, a transition that responds to the agent&rsquo;s own actions, and an
-      opponent belief with real long-horizon predictive value all work within one system, but they did not
-      compose on their own. Exact tokenization did not force
-      exact dynamics. Reward prediction did not guarantee calibrated imagined returns. A belief that improves
-      return prediction did not guarantee that PMPO would use it well. Preference accuracy did not protect a
-      ranker from collapsing in play.</p>
-      <p>The next version keeps these parts separate. Keep a validated transition that does not see the belief. Route the belief
-      only through a separate long-horizon value or a gated residual. Require matched-versus-shuffled belief
-      tests and real-game ablations before anything is promoted.</p>
-    </div>
-    <p class="quote">We obtained selected PMPO checkpoints that beat CoacAI in small held-out match panels;
-    larger controlled evaluations are pending.</p>
-    <div class="ret">
-      <b>Not claimed.</b> That the agent robustly beats CoacAI across maps, seats and seeds: five games per
-      comparison and one seed cannot support it. That the opponent belief causes any win: the matched policy
-      ablation contradicts it. That the dynamics model is a near-exact engine: 11.7% of predicted frames decode
-      exactly.
-    </div>
-
-    <h3>Next</h3>
-    <div class="cols-3">
-      <div>
-        <h4>Robust match evaluation</h4>
-        <p class="prose">At least 100 pre-registered games per bot and policy, both seats and four maps, with
-        Wilson intervals. This decides the CoacAI claim.</p>
-      </div>
-      <div>
-        <h4>The causal value of belief</h4>
-        <p class="prose">Matched belief versus no-belief PMPO over at least three seeds, with the same checkpoint
-        rule and direct head-to-head, plus shuffled-z controls on every value and reward head.</p>
-      </div>
-      <div>
-        <h4>Exact dynamics</h4>
-        <p class="prose">Decoded-field grounding in the transition first, then multi-step self-rollout
-        consistency, so imagination stays on the right side of the board&rsquo;s discrete boundaries.</p>
-      </div>
-    </div>
-  </div>
-</section>
-</main>
-
+</figure><p class="prose">The best no-belief policy recorded 13 wins, 2 draws, and 5 losses in a separate 20-game probe, including 5/5 against CoacAI and 0/5 against workerRushAI. The belief-conditioned policy lost 20 and drew 20 of 40 head-to-head games against it, with strong seat asymmetry.</p></div></section><section class="block" id="limits"><div class="wrap"><h2>Interpretation and limitations</h2><p class="prose">The opponent belief contains predictive information, but this study does not demonstrate a control benefit. Five games per bot, a single training seed, and checkpoint selection on the scoring panel make the match results exploratory. Robust superiority across maps, seats, and seeds remains unestablished.</p><p class="prose">Exact tokenization, accurate one-step prediction, and useful return prediction are distinct requirements. Their individual success does not guarantee reliable imagined rollouts or stronger closed-loop play.</p></div></section></main>
 <footer>
-  <div class="wrap">
-    <span>&copy; <span id="yr"></span> Andrew Olvera</span>
-    <a href="../">&larr; Home</a>
-  </div>
+<div class="wrap">
+<span>© <span id="yr"></span> Andrew Olvera</span>
+<a href="../">← Home</a>
+</div>
 </footer>
-
 <script>
 (() => {
   document.getElementById('yr').textContent = new Date().getFullYear();

@@ -62,8 +62,8 @@
       this.still = still;
       this.t = 0;
       this.rate = 1;
-      this.playing = true;
-      this.touched = false;  // stop idle spin once the viewer interacts
+      this.playing = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      this.touched = window.matchMedia('(prefers-reduced-motion: reduce)').matches;  // stop idle spin once the viewer interacts
       this.visible = false;
       this.build();
       if (!still) this.bind();
@@ -92,7 +92,7 @@
       this.t = this.still ? this.T : 0;
       if (!this.still) {
         this.canvas.setAttribute('aria-label', `${data.name}: interactive 3D view. Drag to orbit.`);
-        this.playing = true; this.syncBtn();
+        this.playing = !window.matchMedia('(prefers-reduced-motion: reduce)').matches; this.syncBtn();
       }
       this.dirty = true;
       return this;

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Andrew Olvera</title>
-<meta name="description" content="Andrew Olvera, machine learning research and projects.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta content="Andrew Olvera: research in learned control, opponent modeling, and reinforcement learning for language models." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <style>
   :root {
     --bg: #ffffff; --bg-2: #f6f7f9; --ink: #1a1d23; --ink-2: #3b414b; --muted: #6b7280;
@@ -40,66 +41,64 @@
   .project .desc { display: block; font-size: 15px; color: var(--ink-2); margin-top: 6px; }
   footer { width: min(720px, 100% - 32px); margin: 0 auto; padding: 0 0 40px; font-size: 13.5px; color: var(--muted); }
 </style>
-</head>
-<body>
-<main>
-  <h1>Andrew Olvera</h1>
-  <p class="role">Deep Learning &middot; York College of Pennsylvania</p>
-  <p class="bio">
-    I'm a recent Computer Science graduate (BS, York College of Pennsylvania) working on agile,
-    generalist control policies, reinforcement learning, and generative world models. My current 
-    focus is scalable pretraining for control using scripted classical controllers for synthetic data 
-    generation. I'm applying to PhD programs for Fall 2027. I'm happy to talk about any of this work or 
-    potential collaborations. Feel free to reach out.
-  </p>
-  <div class="links">
-    <a href="https://github.com/AndrewOlvera-byte">GitHub</a>
-    <a href="https://www.linkedin.com/in/andrew-olvera-589130331">LinkedIn</a>
-    <a href="Andrew_Olvera_CV.pdf">CV</a>
-  </div>
-
-  <h2>Research</h2>
-  <a class="project" href="starscream/">
-    <span class="name">Starscream</span>
-    <span class="meta">Andrew Olvera &middot; Preprint forthcoming, 2026</span>
-    <span class="desc">A supervised-only base model for agile drone racing, scoped without RL to isolate
-      representation learning. An MPCC expert labels the states a causal transformer reaches while flying
-      coherent segments on its own; the policy reads the next six gates as ordered route tokens, a settings token
-      for the randomized vehicle, and a test-time speed command. Before any RL it completes 92% of 3,200
-      randomized starts on 100 held-out hard courses and 91% on 60 championship-style courses, up from 44% and
-      56%, and reaches 50% on its selection panel with 17&times; fewer environment steps than the previous
-      recipe. Clean, on-time flight (69%) is the remaining gap. This privileged teacher is next distilled into a
-      single camera-token student that infers the vehicle through an auxiliary plant head.</span>
-  </a>
-  <a class="project" href="microrts/">
-    <span class="name">Tells</span>
-    <span class="meta">Andrew Olvera &middot; Preprint forthcoming, 2026</span>
-    <span class="desc">A MicroRTS world action model that infers the opponent from play history under fog of
-      war. An exact tokenizer and a flow dynamics model give a strong semantic simulator; a causal encoder
-      distills a 16-code opponent belief that improves long-horizon return prediction. PMPO policies trained
-      in imagination beat CoacAI in small held-out panels, but the best one uses no belief, and matched
-      belief-conditioned policies did not outperform it.</span>
-  </a>
-  <a class="project" href="token-level-rewards/">
-    <span class="name">Learning Dynamics in RLVR Near Capacity</span>
-    <span class="meta">Andrew Olvera &middot; Preprint forthcoming, 2026</span>
-    <span class="desc">A controlled study of RLVR on a 0.6B model already close to its ceiling on grade
-      school math. Phase 1 fixes a stable optimization baseline across GRPO, DAPO, and group size; phase 2
-      holds it fixed and varies only the reward. Rewards that consistently separate completions within a
-      group keep the learning signal alive after binary rewards run dry, and every configuration stalls
-      between 69 and 72%, which points to a limit of the model itself.</span>
-  </a>
-  <a class="project" href="manippo/">
-    <span class="name">ManiPPO</span>
-    <span class="meta">Andrew Olvera &middot; Work in progress, 2026</span>
-    <span class="desc">A flow-matching VAE trained over a corpus of synthetically generated, highly diverse
-      drone racing courses models the course manifold in latent space. Learning a compass over that latent
-      space, keyed to the behavioral requirements of successful flight through the course, allows manifold-constrained search and
-      traversal to generate synthetic courses that teach the actor specific targeted behaviors.</span>
-  </a>
-  
+<style>
+/* Shared editorial and accessibility refinements. */
+:root { --muted: #58616f; }
+a:focus-visible, button:focus-visible, summary:focus-visible, select:focus-visible { outline: 3px solid #1f5a96; outline-offset: 4px; }
+.skip-link { position: absolute; left: 16px; top: -100px; z-index: 100; background: white; padding: 10px 16px; }
+.skip-link:focus { top: 8px; }
+section { scroll-margin-top: 80px; }
+details { border-top: 1px solid #d5dbe3; margin: 28px 0; padding: 18px 0; }
+summary { cursor: pointer; font-weight: 600; color: #1f4e8c; }
+details[open] > summary { margin-bottom: 24px; }
+.prose { max-width: 70ch; }
+.prose + .prose { margin-top: 16px; }
+.evidence-note { border-left: 3px solid #1f5a96; padding: 14px 20px; background: #f4f7fa; margin: 24px 0; font-size: 15px; }
+.nav ul { flex-wrap: wrap; }
+video { max-width: 100%; }
+.scroll-x { overflow-x: auto; }
+@media(max-width:600px) { .masthead { padding-top: 42px; } .block { padding: 32px 0; } .nav .wrap { gap: 12px; } .nav ul { gap: 12px; } .nav a { min-height: 36px; display: inline-flex; align-items: center; } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior: auto; } }
+</style><style>
+.nav .wrap { height: auto; min-height: 52px; padding-block: 6px; }
+figure + .prose, figcaption + .prose { margin-top: 20px; }
+.mobile-chart-hint { display: none; }
+@media(max-width:600px) {
+  .nav .wrap { flex-direction: column; align-items: flex-start; gap: 0; }
+  .nav ul { width: 100%; gap: 8px 16px; }
+  .nav ul a { font-size: 13px; }
+  section { scroll-margin-top: 120px; }
+  .mobile-chart-hint { display: block; font-size: 13px; color: #58616f; margin-block: 12px; }
+}
+</style></head>
+<body><a class="skip-link" href="#top">Skip to content</a>
+<main id="top">
+<h1>Andrew Olvera</h1>
+<p class="role">Machine learning research · York College of Pennsylvania</p>
+<p class="bio">I study how learned models support decisions: control from expert supervision, opponent modeling under partial observability, and reinforcement learning for language models. I hold a BS in Computer Science from York College of Pennsylvania and am applying to PhD programs for Fall 2027.</p>
+<div class="links">
+<a href="https://github.com/AndrewOlvera-byte">GitHub</a>
+<a href="https://www.linkedin.com/in/andrew-olvera-589130331">LinkedIn</a>
+<a href="Andrew_Olvera_CV.pdf">CV</a>
+</div>
+<h2>Selected research</h2>
+<a class="project" href="starscream/">
+<span class="name">Starscream</span>
+<span class="meta">Preprint-stage research report</span>
+<span class="desc">Learning drone-racing control from expert labels. A three-seed development comparison measures full-course completion, clean flight, and recovery across MLP, LSTM, and transformer training setups.</span>
+</a>
+<a class="project" href="microrts/">
+<span class="name">Tells</span>
+<span class="meta">Research study</span>
+<span class="desc">Opponent inference in a MicroRTS world model. A history-based belief improves return prediction, but the strongest evaluated policy does not use it.</span>
+</a>
+<a class="project" href="token-level-rewards/">
+<span class="name">Reward Design in Small-Model RLVR</span>
+<span class="meta">Research study</span>
+<span class="desc">A Qwen3 0.6B study of objectives, group size, and reward design on GSM8K. Different training dynamics accompany small accuracy gains; single-seed results do not establish a capacity ceiling.</span>
+</a>
 </main>
-<footer>&copy; <span id="yr"></span> Andrew Olvera</footer>
+<footer>© <span id="yr"></span> Andrew Olvera</footer>
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 </body>
 </html>
