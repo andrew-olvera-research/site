@@ -36,7 +36,7 @@
     const box=document.getElementById('geometry-summary');
     for(const [value,label] of summary){const item=el('div');item.append(el('strong',{},value),el('span',{},label));box.append(item);}
   } catch(error) {
-    document.getElementById('data-status').textContent='The figures could not load. Download the comparison data below to inspect the results.';
+    document.getElementById('data-status').textContent='The comparison figures could not load. Please reload the page.';
     console.error(error);
   }
 
