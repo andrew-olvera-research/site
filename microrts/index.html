@@ -169,7 +169,7 @@ figure + .prose, figcaption + .prose { margin-top: 20px; }
   section { scroll-margin-top: 120px; }
   .mobile-chart-hint { display: block; font-size: 13px; color: #58616f; margin-block: 12px; }
 }
-</style><style>.scroll-x table.data { min-width: 680px; }</style></head>
+</style><style>.scroll-x table.data { min-width: 680px; }</style><link rel="icon" href="data:,"/></head>
 <body><a class="skip-link" href="#top">Skip to content</a>
 <header class="nav">
 <div class="wrap">
@@ -181,14 +181,14 @@ figure + .prose, figcaption + .prose { margin-top: 20px; }
 <div class="venue">Research study · 2026</div>
 <h1 class="title">
     Tells
-    <span class="sub">Inferring an opponent from play history in a MicroRTS world action model</span>
+    <span class="sub">Opponent-conditioned return prediction in MicroRTS</span>
 </h1>
 <p class="authors"><a href="../">Andrew Olvera</a></p>
 <p class="affil">York College of Pennsylvania</p>
 <div class="buttons">
-<a class="btn" href="#control">Results</a>
+<a class="btn" href="#model">Prediction results</a>
 </div>
-</div><section class="block" id="abstract"><div class="wrap"><h2>Research question</h2><p class="prose">Does an opponent belief inferred from play history improve a model-based agent under fog of war? Tells separates two tests: predicting future returns and improving actual play. The belief helps the former; the evaluated policies do not establish the latter.</p></div></section><section class="block" id="method"><div class="wrap"><h2>Method</h2><p class="prose">MicroRTS observations are 16×16 categorical boards with visibility masks. The corpus contains 5.93M transitions from 7,215 episodes, split by whole episode and collection seed. About 20% of rows include an engine-cloned counterfactual that changes the agent’s action while holding the opponent’s fixed.</p><p class="prose">A structured tokenizer encodes game fields, and a flow model predicts latent transitions. A privileged teacher learns 16 local behavior codes; a causal student predicts their distribution from up to 64 frames of visible history and self actions. This belief is denoted z.</p><details><summary>Model architecture and data split</summary><figure class="fig arch">
+</div><section class="block" id="abstract"><div class="wrap"><h2>Predicting returns from opponent history</h2><p class="prose">Tells uses an opponent belief inferred from visible play history to predict future returns under fog of war. Conditioning on this belief lowers return-prediction loss at 32 and 128 steps. Policy improvement remains inconclusive: the strongest evaluated policy uses no opponent belief.</p></div></section><section class="block" id="method"><div class="wrap"><h2>Method</h2><p class="prose">MicroRTS observations are 16×16 categorical boards with visibility masks. The corpus contains 5.93M transitions from 7,215 episodes, split by whole episode and collection seed. About 20% of rows include an engine-cloned counterfactual that changes the agent’s action while holding the opponent’s fixed.</p><p class="prose">A tokenizer turns board fields into spatial tokens, and a flow model predicts how their latent representation changes after an action. During training, a teacher with access to the full game state learns 16 local opponent-behavior codes. A history encoder learns to predict a distribution over those codes from up to 64 visible frames and the agent's own past actions. This distribution is the opponent belief, z.</p><h3>Architecture and data</h3><figure class="fig arch">
 <div aria-label="Scrollable figure or table" class="fig-frame scroll-x" role="region" tabindex="0">
 <svg aria-label="Deployable inference path: fog observation and issued self actions are tokenized; a frozen transition predicts the arrival latent, reward and continuation; a causal history encoder produces a 16-code opponent belief that conditions the PMPO actor and critic. Privileged engine state and opponent actions are used only to train the belief teacher." role="img" viewbox="0 0 900 450">
 <defs>
@@ -245,10 +245,7 @@ figure + .prose, figcaption + .prose { margin-top: 20px; }
 </div>
 <figcaption>Episode-disjoint splits. The counterfactual branch changes the agent’s action and holds
       the opponent’s fixed.</figcaption>
-</figure></details></div></section><section class="block" id="model"><div class="wrap"><h2>Prediction evidence</h2><p class="prose">Tokenizer round trips reconstruct 99.85% of evaluated full-state frames exactly. That does not imply exact dynamics: only 11.7% of frames predicted by the 103.1M-parameter flow model decode exactly, despite one-step changed-cell F1 of 0.973.</p><figure class="fig chart" id="tok" style="position:relative"></figure><figcaption>Tokenizer round trips on held-out frames. Hollow: the earlier medium JEPA
-    tokenizer. Filled: exact temporal JEPA. These are encode-decode round trips; dynamics rollouts are in the expandable panel below.</figcaption><details><summary>Open-loop dynamics</summary><figure class="fig chart" id="roll" style="position:relative"></figure><figcaption>Open-loop rollouts on eight fixed held-out trajectories. Changed-cell F1
-    holds up far better than unit-type accuracy as the model feeds on its own predictions. Horizon-8 values
-    are exact (0.840 and 0.716).</figcaption></details><p class="prose">The belief reduces future-return validation loss at 32 and 128 steps. A separately trained state-only head closes much of the gap, and the belief does not improve every return metric.</p><figure class="fig">
+</figure></div></section><section class="block" id="model"><div class="wrap"><h2>Return prediction</h2><p class="prose">The belief reduces future-return validation loss at 32 and 128 steps. A separately trained state-only head closes much of the gap, and the belief does not improve every return metric.</p><figure class="fig">
 <div aria-label="Scrollable figure or table" class="scroll-x" role="region" tabindex="0">
 <table class="data">
 <thead><tr><th scope="col">Future-return loss</th><th class="n" scope="col">With z</th><th class="n" scope="col">z removed</th><th class="n" scope="col">z shuffled</th><th class="n" scope="col">State-only head</th></tr></thead>
@@ -261,22 +258,25 @@ figure + .prose, figcaption + .prose { margin-top: 20px; }
 <figcaption>Validation loss of the strategic return head, lower is better; “z shuffled” is the
       increase over the matched belief. Outcome macro AUC with z is 0.93. A separately trained state-only head
       sits between the two.</figcaption>
-</figure></div></section><section class="block" id="control"><div class="wrap"><h2>Control evidence</h2><p class="prose">PMPO policies train on eight-step imagined trajectories in a frozen, ego-observation transition model. This is a separate model from the full-state dynamics diagnostic above. A behavior prior constrains actions; return heads and policy conditioning can receive the belief.</p><figure class="fig">
+</figure><h3>Tokenization and dynamics</h3><p class="prose">Tokenizer round trips reconstruct 99.85% of evaluated full-state frames exactly. The 103.1M-parameter flow model has one-step changed-cell F1 of 0.973, while only 11.7% of predicted frames decode exactly.</p><figure class="fig chart" id="tok" style="position:relative"></figure><figcaption>Tokenizer round trips on held-out frames. Hollow: the earlier medium JEPA
+    tokenizer. Filled: exact temporal JEPA. These are encode-decode round trips; dynamics rollouts follow below.</figcaption><h3>Open-loop dynamics</h3><figure class="fig chart" id="roll" style="position:relative"></figure><figcaption>Open-loop rollouts on eight fixed held-out trajectories. Changed-cell F1
+    holds up far better than unit-type accuracy as the model feeds on its own predictions. Horizon-8 values
+    are exact (0.840 and 0.716).</figcaption></div></section><section class="block" id="control"><div class="wrap"><h2>Control evidence</h2><p class="prose">PMPO policies train on eight-step imagined trajectories in a frozen, ego-observation transition model. This is a separate model from the full-state dynamics diagnostic above. A behavior prior constrains actions; return heads and policy conditioning can receive the belief.</p><figure class="fig">
 <div aria-label="Scrollable figure or table" class="scroll-x" role="region" tabindex="0">
 <table class="data">
-<thead><tr><th scope="col">Policy (env steps at checkpoint)</th><th class="n" scope="col">Four-bot win</th><th class="n" scope="col">vs CoacAI</th><th scope="col">Reading</th></tr></thead>
+<thead><tr><th scope="col">Policy</th><th class="n" scope="col">Four-bot win</th><th class="n" scope="col">vs CoacAI</th></tr></thead>
 <tbody>
-<tr><td>Reward, with z (4.10M)</td><td class="n">60%</td><td class="n">3 / 5</td><td>Beat CoacAI in one selected panel; later checkpoints regressed.</td></tr>
-<tr><td>Reward, no z (4.61M)</td><td class="n">75%</td><td class="n">0 / 5</td><td>A high average did not mean robustness against CoacAI.</td></tr>
-<tr><td>Return bootstrap, with z (1.02M)</td><td class="n">70%</td><td class="n">0 / 5</td><td>The matched belief path did not beat CoacAI.</td></tr>
-<tr class="em"><td>Return bootstrap, no z (1.74M)</td><td class="n">75%</td><td class="n">5 / 5</td><td>Strongest result; 5 / 5 again in a separate probe.</td></tr>
+<tr><td>Reward, with z</td><td class="n">60%</td><td class="n">3 / 5</td></tr>
+<tr><td>Reward, no z</td><td class="n">75%</td><td class="n">0 / 5</td></tr>
+<tr><td>Return bootstrap, with z</td><td class="n">70%</td><td class="n">0 / 5</td></tr>
+<tr class="em"><td>Return bootstrap, no z</td><td class="n">75%</td><td class="n">5 / 5</td></tr>
 </tbody>
 </table>
 </div>
 <figcaption>Best-checkpoint match panels: four scripted bots, five games each, greedy play, 2,000-step cap.
       Selecting the best checkpoint on the same panel it is scored on is optimistic, and five games per bot is a
       small sample.</figcaption>
-</figure><p class="prose">The best no-belief policy recorded 13 wins, 2 draws, and 5 losses in a separate 20-game probe, including 5/5 against CoacAI and 0/5 against workerRushAI. The belief-conditioned policy lost 20 and drew 20 of 40 head-to-head games against it, with strong seat asymmetry.</p></div></section><section class="block" id="limits"><div class="wrap"><h2>Interpretation and limitations</h2><p class="prose">The opponent belief contains predictive information, but this study does not demonstrate a control benefit. Five games per bot, a single training seed, and checkpoint selection on the scoring panel make the match results exploratory. Robust superiority across maps, seats, and seeds remains unestablished.</p><p class="prose">Exact tokenization, accurate one-step prediction, and useful return prediction are distinct requirements. Their individual success does not guarantee reliable imagined rollouts or stronger closed-loop play.</p></div></section></main>
+</figure><p class="prose">The best no-belief policy recorded 13 wins, 2 draws, and 5 losses in a separate 20-game probe, including 5/5 against CoacAI and 0/5 against workerRushAI. The belief-conditioned policy lost 20 and drew 20 of 40 head-to-head games against it, with strong seat asymmetry.</p></div></section><section class="block" id="limits"><div class="wrap"><h2>What to test next</h2><p class="prose">The return-prediction benefit motivates a broader control test with independent checkpoint selection, more games, multiple training seeds, and balanced seats and maps. The current single-seed match panels leave the policy effect unresolved.</p></div></section></main>
 <footer>
 <div class="wrap">
 <span>© <span id="yr"></span> Andrew Olvera</span>

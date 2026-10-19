@@ -31,6 +31,17 @@
         f.append(title,chart);container.append(f);
       }
     }
+    const exposure=document.getElementById('training-exposure');
+    for (const model of Object.keys(labels)) {
+      const rows=D.training_exposure.filter(row=>row.architecture===model);
+      const range=key=>{
+        const values=rows.map(row=>row[key]);
+        return [Math.min(...values),Math.max(...values)].map(n=>n.toLocaleString('en-US')).join(' \u2013 ');
+      };
+      const row=el('tr');
+      row.append(el('td',{},labels[model]),el('td',{'class':'n'},range('selected_environment_steps')),el('td',{'class':'n'},range('selected_updates')));
+      exposure.append(row);
+    }
     const G=await (await fetch('assets/data/course-geometry.json')).json(), g=G.sets.eval100;
     const summary=[[`${g.ranges.gates_per_course.min}–${g.ranges.gates_per_course.max}`,'gates per course'],[`${g.ranges.spacing_m.min.toFixed(1)}–${g.ranges.spacing_m.max.toFixed(1)} m`,'gate-center spacing'],[`${g.course_counts.turn_at_least_120deg} / 100`,'courses with a ≥120° chord turn'],[`${g.course_counts.height_step_at_least_2m} / 100`,'courses with a ≥2 m height step']];
     const box=document.getElementById('geometry-summary');

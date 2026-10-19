@@ -147,12 +147,12 @@ figure + .prose, figcaption + .prose { margin-top: 20px; }
   section { scroll-margin-top: 120px; }
   .mobile-chart-hint { display: block; font-size: 13px; color: #58616f; margin-block: 12px; }
 }
-</style></head>
+</style><link rel="icon" href="data:,"/></head>
 <body><a class="skip-link" href="#top">Skip to content</a>
 <header class="nav">
 <div class="wrap">
 <a class="brand" href="#top">Small-model RLVR</a>
-<ul><li><a href="#setup">Setup</a></li><li><a href="#results">Results</a></li><li><a href="#dynamics">Dynamics</a></li><li><a href="#limits">Limits</a></li><li><a href="../">Home</a></li></ul>
+<ul><li><a href="#setup">Setup</a></li><li><a href="#dynamics">Dynamics</a></li><li><a href="#results">Accuracy</a></li><li><a href="#limits">Limits</a></li><li><a href="../">Home</a></li></ul>
 </div>
 </header>
 <main id="top"><p class="wrap mobile-chart-hint">Wide charts and tables scroll horizontally.</p><div class="masthead wrap">
@@ -163,7 +163,27 @@ figure + .prose, figcaption + .prose { margin-top: 20px; }
 <div class="buttons">
 <a class="btn" href="../">← All research</a>
 </div>
-</div><section class="block" id="overview"><div class="wrap"><h2>Research question</h2><p class="prose">How do objective, group size, and reward formulation change RLVR training when a small language model already solves many training problems? This study tracks optimization dynamics alongside accuracy, rather than treating a higher reward curve as proof of better reasoning.</p></div></section><section class="block" id="setup"><div class="wrap"><h2>Experimental setup</h2><p class="prose">All runs start from the same Qwen3 0.6B checkpoint, supervised fine-tuned on math reasoning traces, with 68.0% GSM8K accuracy before RL. Training uses allenai/RLVR-GSM and full-parameter fine-tuning. Phase 1 compares GRPO and DAPO at group sizes 8, 16, and 32 for 780 steps. Phase 2 fixes DAPO at group size 32 and compares three rewards over 1,000 steps.</p><p class="prose">The batch contains 32 completions, so larger groups reduce the number of distinct prompts per step. Objective variants also change multiple components together; these runs do not isolate each component.</p><div class="evidence-note"><b>Evaluation caveat.</b> A hand-picked subset of the GSM8K test split was used to retain checkpoints during training. The best of ten checkpoints evaluated on the full 1,319-problem test set is reported. Test-set reuse makes these development-selected scores, not an unbiased held-out estimate. Each configuration has one training seed.</div></div></section><section class="block" id="results"><div class="wrap"><h2>Results</h2><p class="prose">Reported phase-2 accuracies are 71.5% for binary correctness, 70.6% for ranked dense reward, and 72.0% for structure plus correctness. The differences are small relative to the available uncertainty; these runs do not establish a reliable ranking.</p><figure class="fig dots">
+</div><section class="block" id="overview"><div class="wrap"><h2>How reward design changes optimization</h2><p class="prose">Objectives, group size, and reward design change the optimization behavior of Qwen3 0.6B on GSM8K. This study tracks entropy, clipping, and groups with zero reward variance alongside accuracy. Structure plus correctness produces a rising reward curve, while reported accuracy gains remain small.</p></div></section><section class="block" id="setup"><div class="wrap"><h2>Experimental setup</h2><p class="prose">All runs start from the same Qwen3 0.6B checkpoint, supervised fine-tuned on math reasoning traces, with 68.0% GSM8K accuracy before RL. Training uses allenai/RLVR-GSM and full-parameter fine-tuning. Phase 1 compares GRPO and DAPO at group sizes 8, 16, and 32 for 780 steps. Phase 2 fixes DAPO at group size 32 and compares three rewards over 1,000 steps.</p><p class="prose">The batch contains 32 completions, so larger groups reduce the number of distinct prompts per step. Objective variants also change multiple components together; these runs do not isolate each component.</p><div class="evidence-note"><b>Evaluation caveat.</b> A hand-picked subset of the GSM8K test split was used to retain checkpoints during training. The best of ten checkpoints evaluated on the full 1,319-problem test set is reported. These scores reflect test-set checkpoint selection and one training seed per configuration.</div></div></section><section class="block" id="dynamics"><div class="wrap"><h2>Training dynamics</h2><p class="prose">Binary reward gives zero group-relative advantage when every completion in a group receives the same score. Structure plus correctness adds within-group distinctions based on the PLAN / WORK / ANSWER layout. Ranked dense reward orders completions by a composite score; its value depends on the group.</p><figure class="fig">
+<div class="fig-frame" style="max-width:640px;margin-inline:auto"><img alt="Average per-prompt reward over 1,000 steps for binary, structure, and ranked dense rewards" src="assets/phase2-reward.png"/></div>
+<figcaption>Mean reward per prompt group over training, DAPO at \(G = 32\). The rewards live on
+      different scales, so compare the shapes of the curves. Binary and ranked dense hold a flat band from the
+      start. Structure starts low, since the SFT model rarely hits the full layout, and climbs through the
+      whole run.</figcaption>
+</figure><p class="prose">The rising structure-reward curve tracks increasing adherence to the requested layout. Accuracy is measured separately, and the three reward scales differ.</p><h3>Entropy, clipping, and zero-variance groups</h3><figure class="fig">
+<div class="pair">
+<div class="fig-frame"><img alt="Policy entropy over 780 training steps for GRPO and DAPO at group sizes 8, 16 and 32" src="assets/entropy.png"/></div>
+<div class="fig-frame"><img alt="Clip ratio over 780 training steps for all six phase 1 runs, broken y-axis" src="assets/clip-ratio.png"/></div>
+</div>
+<figcaption>Top: policy entropy (\(K\) in the plots is the group size \(G\)). GRPO holds near 0.3 at every group size. DAPO drifts down to about
+      0.15, and DAPO at \(G = 32\) climbs back up twice before settling. Bottom: fraction of tokens clipped,
+      with a broken axis for outliers. GRPO at \(G = 32\) produces the largest clipping bursts, especially late
+      in training.</figcaption>
+</figure><figure class="fig">
+<div class="fig-frame" style="max-width:640px;margin-inline:auto"><img alt="Fraction of prompt groups with zero reward standard deviation over training for all six phase 1 runs" src="assets/zero-std.png"/></div>
+<figcaption>Fraction of prompt groups where every completion got the same reward, so the advantage is
+      zero and the prompt contributes no gradient. Larger groups are less likely to agree. DAPO runs sit
+      higher than GRPO at the same group size.</figcaption>
+</figure></div></section><section class="block" id="results"><div class="wrap"><h2>Results</h2><p class="prose">Reported phase-2 accuracies are 71.5% for binary correctness, 70.6% for ranked dense reward, and 72.0% for structure plus correctness. The differences are small relative to the available uncertainty; these runs do not establish a reliable ranking.</p><figure class="fig dots">
 <div class="fig-frame scroll-x">
 <svg aria-label="Final GSM8K test accuracy for every run, with one standard error bars" role="img" viewbox="0 0 720 486">
 <line class="grid" x1="250.0" x2="250.0" y1="12" y2="460"></line><text class="tick" text-anchor="middle" x="250.0" y="478">66%</text>
@@ -195,27 +215,7 @@ figure + .prose, figcaption + .prose { margin-top: 20px; }
 <figcaption>Final GSM8K test accuracy for every run. Bars are one binomial standard error on 1,319
       problems, about ±1.3 points. The dashed line is the SFT starting point. Each configuration is a
       single seed.</figcaption>
-</figure><p class="prose">The error bars describe binomial uncertainty over problems, not variability across training seeds or uncertainty from selecting checkpoints.</p></div></section><section class="block" id="dynamics"><div class="wrap"><h2>Training dynamics</h2><p class="prose">Binary reward gives zero group-relative advantage when every completion in a group receives the same score. Structure plus correctness adds within-group distinctions based on the PLAN / WORK / ANSWER layout. Ranked dense reward orders completions by a composite score; its value depends on the group.</p><figure class="fig">
-<div class="fig-frame" style="max-width:640px;margin-inline:auto"><img alt="Average per-prompt reward over 1,000 steps for binary, structure, and ranked dense rewards" src="assets/phase2-reward.png"/></div>
-<figcaption>Mean reward per prompt group over training, DAPO at \(G = 32\). The rewards live on
-      different scales, so compare the shapes of the curves. Binary and ranked dense hold a flat band from the
-      start. Structure starts low, since the SFT model rarely hits the full layout, and climbs through the
-      whole run.</figcaption>
-</figure><p class="prose">Structure reward rises through the run, while binary and ranked reward remain comparatively flat. Because reward scales differ, this describes optimization behavior rather than comparable utility or a proven improvement in reasoning quality.</p><details><summary>Entropy, clipping, and zero-variance groups</summary><figure class="fig">
-<div class="pair">
-<div class="fig-frame"><img alt="Policy entropy over 780 training steps for GRPO and DAPO at group sizes 8, 16 and 32" src="assets/entropy.png"/></div>
-<div class="fig-frame"><img alt="Clip ratio over 780 training steps for all six phase 1 runs, broken y-axis" src="assets/clip-ratio.png"/></div>
-</div>
-<figcaption>Top: policy entropy (\(K\) in the plots is the group size \(G\)). GRPO holds near 0.3 at every group size. DAPO drifts down to about
-      0.15, and DAPO at \(G = 32\) climbs back up twice before settling. Bottom: fraction of tokens clipped,
-      with a broken axis for outliers. GRPO at \(G = 32\) produces the largest clipping bursts, especially late
-      in training.</figcaption>
-</figure><figure class="fig">
-<div class="fig-frame" style="max-width:640px;margin-inline:auto"><img alt="Fraction of prompt groups with zero reward standard deviation over training for all six phase 1 runs" src="assets/zero-std.png"/></div>
-<figcaption>Fraction of prompt groups where every completion got the same reward, so the advantage is
-      zero and the prompt contributes no gradient. Larger groups are less likely to agree. DAPO runs sit
-      higher than GRPO at the same group size.</figcaption>
-</figure></details></div></section><section class="block" id="limits"><div class="wrap"><h2>Interpretation and limitations</h2><p class="prose">Across these runs, reported accuracy remains around 69–72%. This is an observed plateau under one model, dataset, training recipe, and budget. It does not identify a model-capacity ceiling or show that RL cannot acquire new behaviors.</p><p class="prose">Multiple seeds, a separate checkpoint-selection split, and matched component ablations are needed to distinguish reward effects from training variability and evaluation selection.</p></div></section></main>
+</figure><p class="prose">The error bars cover binomial uncertainty over problems. Training-seed variability and checkpoint-selection uncertainty are additional sources of uncertainty.</p></div></section><section class="block" id="limits"><div class="wrap"><h2>Further comparisons</h2><p class="prose">Optimization traces vary more visibly than accuracy across these runs. Multiple seeds, a separate checkpoint-selection split, and matched component ablations would help separate reward effects from training variability and evaluation selection.</p></div></section></main>
 <footer>
 <div class="wrap">
 <span>© <span id="yr"></span> Andrew Olvera</span>
