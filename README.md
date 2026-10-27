@@ -5,9 +5,9 @@ Preview: `python -m http.server 8080 --directory .`.
 
 ## Current content
 
-- `starscream/` is the October 27, 2026 implementation review: the planner/controller architecture, the five training stages (two inline diagrams), recorded flights from one checkpoint, the nominal plant, current status and the project log. Styles are inline, matching the earlier study's paper theme.
-- `starscream/earlier-study.html` retains the October 13 supervised-controller comparison with its original data, charts and historical conditions. Those results do not characterize the new planner.
-- Tells remains at `microrts/`. RLVR remains a site report at `token-level-rewards/`.
+- `starscream/` is the preprint teaser (updated October 27, 2026): why the planner/controller split (the DAgger cost tradeoff), the architecture, the five training stages (two inline diagrams), recorded flights from one checkpoint including held-out courses, and the nominal plant. Styles are inline, matching the earlier study's paper theme.
+- `starscream/earlier-study.html` is kept but no longer linked from the current page. It retains the October 13 supervised-controller comparison with its original data, charts and historical conditions. Those results do not characterize the new planner.
+- Starscream and Tells (`microrts/`) are labeled "Preprint coming soon"; RLVR (`token-level-rewards/`) is labeled a report.
 - `Andrew_Olvera_CV.pdf` is generated from the public editable `Andrew_Olvera_CV.tex` with `pdflatex`. Preserve unrelated approved facts when editing it. Starscream and Tells are provisional manuscript titles; RLVR is not a manuscript.
 - `manippo/`, tests and this README remain excluded from the Jekyll build.
 

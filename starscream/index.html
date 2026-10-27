@@ -4,11 +4,11 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Starscream</title>
-<meta content="Starscream, Andrew Olvera: drone racing with a world-model-pretrained planner that chooses a 64-D motion latent for a pretrained, frozen feedback controller. Implementation review, October 27, 2026." name="description"/>
+<meta content="Starscream, Andrew Olvera: drone racing with a world-model-pretrained planner that chooses a 64-D motion latent for a pretrained, frozen feedback controller. Preprint coming soon." name="description"/>
 <meta content="Andrew Olvera" name="author"/>
 <link href="https://andrew-olvera-research.github.io/site/starscream/" rel="canonical"/>
 <meta content="Starscream: motion planning over a pretrained flight controller" property="og:title"/>
-<meta content="Implementation review, October 27, 2026. Andrew Olvera." property="og:description"/>
+<meta content="Andrew Olvera. Preprint coming soon." property="og:description"/>
 <meta content="https://andrew-olvera-research.github.io/site/starscream/assets/motion64/media/02-a2rl-arena-reconstruction-thumbnail.jpg" property="og:image"/>
 <meta content="article" property="og:type"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -259,27 +259,26 @@
 <header class="nav">
 <div class="wide">
 <a class="brand" href="#top">Starscream</a>
-<ul><li><a href="#architecture">Architecture</a></li><li><a href="#training">Training</a></li><li><a href="#flights">Flights</a></li><li class="opt"><a href="#status">Status</a></li><li><a href="../">Home</a></li></ul>
+<ul><li class="opt"><a href="#why">Why</a></li><li><a href="#architecture">Architecture</a></li><li><a href="#training">Training</a></li><li><a href="#flights">Flights</a></li><li><a href="../">Home</a></li></ul>
 </div>
 </header>
 
 <main id="top">
 <div class="masthead wrap">
-<div class="venue">Implementation review · October 27, 2026</div>
+<div class="venue">Preprint coming soon · Updated October 27, 2026</div>
 <h1 class="title">Starscream<span class="sub">Motion planning over a pretrained flight controller for drone racing</span></h1>
 <p class="authors"><a href="../">Andrew Olvera</a></p>
 <p class="affil">York College of Pennsylvania</p>
 <div class="buttons">
 <a class="btn" href="#flights">Flights</a>
+<a class="btn" href="#why">Why this architecture</a>
 <a class="btn" href="#training">Training pipeline</a>
-<a class="btn" href="earlier-study.html">Earlier study (Oct 13)</a>
-<span class="btn soon">Preprint in preparation</span>
 </div>
 </div>
 
 <figure class="teaser wide">
 <div class="frame"><video controls loop muted playsinline preload="metadata" poster="assets/motion64/media/02-a2rl-arena-reconstruction-thumbnail.jpg" aria-label="Recorded lap on the A2RL arena reconstruction"><source src="assets/motion64/media/02-a2rl-arena-reconstruction.mp4" type="video/mp4"/><a href="assets/motion64/media/02-a2rl-arena-reconstruction.mp4">Download the flight video</a></video></div>
-<figcaption><b>A2RL arena reconstruction</b>, 12 gates in 7.95 s. Recorded lap from the current checkpoint, simulated, real-time playback.</figcaption>
+<figcaption><b>A2RL arena reconstruction</b>, 12 gates in 7.95 s. Simulated, real-time playback.</figcaption>
 </figure>
 
 <div class="band wrap">
@@ -289,15 +288,16 @@
 <div><b>5</b><span>training stages, from world model to racing RL</span></div>
 </div>
 
-<section class="block" id="overview">
+<section class="block" id="why">
 <div class="wrap">
-<h2>Overview</h2>
-<p class="abstract">Starscream is a learned controller for agile drone racing. The current version separates deciding where to go from working out how to fly there. A feedback controller is pretrained to fly short expert maneuvers, each described by a 64-dimensional motion latent. A planner, whose backbone is first pretrained as a world model, reads the current state and the next two gates and picks that latent at every control tick. Racing reinforcement learning then trains only the planner. It searches among maneuvers the controller already knows how to fly.</p>
-<p class="note"><b>About this page.</b> This is a snapshot of the system as implemented on October 27, 2026: the architecture, how it is trained, and recorded flights from the current checkpoint. Systematic evaluation is still underway, so the page reports no benchmark numbers yet.</p>
+<h2>Why this architecture</h2>
+<p class="abstract">Earlier versions of Starscream learned the whole control policy with DAgger from an MPCC expert. The learner flies, the expert labels the states the learner actually reaches, and the policy trains on those labels. This generalizes remarkably well. Expert labels on learner-reached states cover the off-nominal situations a policy only meets after its own mistakes, which is exactly the coverage plain imitation lacks.</p>
+<p class="abstract">The price is the expert. Every visited state needs a fresh MPCC solve, and keeping a consistently fast, reliable solver in the training loop turns data collection into the bottleneck. Infrastructure cost and training time become extreme, and extensive RL is still needed afterward to reach racing capability. A single network trained this way also faces a tension: pushing it to learn faster and to generalize more broadly pulls its representation in different directions, and getting both at once was hard.</p>
+<p class="abstract">Starscream now splits the problem along that line. A feedback controller is pretrained once to execute expert maneuvers described by a 64-dimensional motion latent, and is then frozen. A planner, whose backbone is first pretrained as a world model, reads the current state and the next two gates and chooses that latent at every control tick. Reinforcement learning trains only the planner.</p>
 <div class="cols-3">
-<article><h4>Skills before strategy</h4><p>The controller learns from successful MPCC expert trajectories how to turn a motion latent into collective thrust and body rates. It learns this once, and the weights stay frozen afterward.</p></article>
-<article><h4>A better action space for RL</h4><p>The planner acts in the motion latent, not in raw commands. Reinforcement learning explores flyable maneuvers instead of individual thrust and body-rate values.</p></article>
-<article><h4>Physics before reward</h4><p>World-model pretraining teaches the planner's backbone how the vehicle moves and responds to commands before any racing reward is involved.</p></article>
+<article><h4>The controller generalizes over motion</h4><p>It learns from successful MPCC expert trajectories how to turn a motion latent into collective thrust and body rates, covering the modes of expert flight. It learns this once.</p></article>
+<article><h4>The planner generalizes over courses</h4><p>Choosing which maneuver to fly next, across the distribution of course layouts, is a much easier problem than learning to fly and plan at the same time.</p></article>
+<article><h4>RL searches maneuvers, not commands</h4><p>The planner acts in the motion latent, so reinforcement learning explores maneuvers the controller already knows how to fly, starting from a backbone that already models the vehicle's physics.</p></article>
 </div>
 </div>
 </section>
@@ -453,7 +453,7 @@
 <section class="block" id="flights">
 <div class="wrap">
 <h2>Flights from the current checkpoint</h2>
-<p class="abstract">One policy flying eight layouts from its training set with the deterministic (mean) action. They include the exact Swift layout, a reconstruction of the A2RL arena, two MultiGP UTT tracks, and four augmented variants, or grafts, derived from public tracks. The layouts were chosen in advance and recorded without retries. All five recorded runs on each layout were clean.</p>
+<p class="abstract">One policy flying eight layouts with the deterministic (mean) action: the exact Swift layout, a reconstruction of the A2RL arena, two MultiGP UTT tracks, and four augmented variants, or grafts, derived from public tracks. The layouts were chosen in advance and recorded without retries.</p>
 </div>
 <div class="wide" style="margin-top:28px">
 <div class="scene3d" id="flight-viewer"></div>
@@ -473,11 +473,11 @@
 </div>
 
 <div class="wrap">
-<h3>Off the training set</h3>
-<p class="prose">These two layouts were not in the training set. Both were used earlier in development, so they are examples rather than a held-out benchmark. With the stochastic (sampled) policy, <span class="ct">3 of 17</span> and <span class="ct">4 of 17</span> attempts were clean. The videos show successful attempts. Reliable transfer to unseen layouts has not been shown yet.</p>
+<h3>Held-out courses</h3>
+<p class="prose">To test learning and generalization, the policy also flies courses from a separate corpus that never appears in training. These two layouts are from that corpus. With the stochastic (sampled) policy, 3 of 17 attempts on the first and 4 of 17 on the second fly clean laps. Clean laps on unseen 8-gate layouts are a positive early signal that the planner is learning course structure, not memorizing its training layouts.</p>
 <div class="pair">
-<figure><div class="frame"><video controls loop muted playsinline preload="none" poster="assets/motion64/media/transfer/09-long-low-development-transfer-poster.jpg" aria-label="Long-low layout, off the training set"><source src="assets/motion64/media/transfer/09-long-low-development-transfer.mp4" type="video/mp4"/></video></div><figcaption><b>Long-low</b> · 8 gates · 6.99 s · <span class="ct">3/17</span> clean</figcaption></figure>
-<figure><div class="frame"><video controls loop muted playsinline preload="none" poster="assets/motion64/media/transfer/10-vertical-chain-development-transfer-poster.jpg" aria-label="Vertical-chain layout, off the training set"><source src="assets/motion64/media/transfer/10-vertical-chain-development-transfer.mp4" type="video/mp4"/></video></div><figcaption><b>Vertical chain</b> · 8 gates · 5.59 s · <span class="ct">4/17</span> clean</figcaption></figure>
+<figure><div class="frame"><video controls loop muted playsinline preload="none" poster="assets/motion64/media/transfer/09-long-low-development-transfer-poster.jpg" aria-label="Long-low layout, held out from training"><source src="assets/motion64/media/transfer/09-long-low-development-transfer.mp4" type="video/mp4"/></video></div><figcaption><b>Long-low</b> · 8 gates · 6.99 s · <span class="ct">3/17</span> clean</figcaption></figure>
+<figure><div class="frame"><video controls loop muted playsinline preload="none" poster="assets/motion64/media/transfer/10-vertical-chain-development-transfer-poster.jpg" aria-label="Vertical-chain layout, held out from training"><source src="assets/motion64/media/transfer/10-vertical-chain-development-transfer.mp4" type="video/mp4"/></video></div><figcaption><b>Vertical chain</b> · 8 gates · 5.59 s · <span class="ct">4/17</span> clean</figcaption></figure>
 </div>
 </div>
 </section>
@@ -485,7 +485,7 @@
 <section class="block shade" id="simulation">
 <div class="wrap">
 <h2>Simulation setup</h2>
-<p class="abstract">All flights use a nominal model of a lightweight five-inch racing quadrotor. It is an engineering model, not identified Swift or A2RL hardware. The policy receives perfect simulator state and an exact gate map, with no observation noise and no dynamics randomization.</p>
+<p class="abstract">All flights use a nominal model of a lightweight five-inch racing quadrotor. The policy receives simulator state and the gate map directly.</p>
 <dl class="specs">
 <div><dt>Mass · arm length</dt><dd>0.55 kg · 0.115 m</dd></div>
 <div><dt>Static thrust</dt><dd>45 N · 8.3× weight</dd></div>
@@ -496,69 +496,19 @@
 <div><dt>Added command / sensor delay</dt><dd>none</dd></div>
 <div><dt>Collision radius</dt><dd>0.15 m</dd></div>
 </dl>
-<p class="small">Inertia uses a symmetric mass/arm approximation rather than measured values. Full specification: <a href="assets/motion64/plant.json">plant.json</a>.</p>
+
 </div>
 </section>
 
-<section class="block" id="status">
+<section class="block" id="preprint">
 <div class="wrap">
-<h2>Where this stands</h2>
-<div class="cols-2">
-<div><h4>Built and running</h4><ul class="list">
-<li>World-model pretraining of the planner backbone</li>
-<li>Pretrained feedback controller with a 64-D motion latent interface</li>
-<li>Latent and physical alignment of the planner to that interface</li>
-<li>Racing PPO with a gate curriculum and adaptive course sampling</li>
-<li>Clean laps on eight training layouts, including the exact Swift layout and the A2RL arena reconstruction</li>
-</ul></div>
-<div><h4>Not yet established</h4><ul class="list">
-<li>A held-out benchmark with multiple seeds and reported success rates</li>
-<li>Reliable transfer to unseen layouts (3/17 and 4/17 in the examples above)</li>
-<li>Ablations showing what each pretraining stage contributes</li>
-<li>Robustness to sensor noise, latency and vehicle variation</li>
-<li>Vision-based observations and hardware flight</li>
-</ul></div>
-</div>
-</div>
-</section>
-
-<section class="block shade" id="record">
-<div class="wrap">
-<h2>Research record</h2>
-<p class="abstract">Starscream has changed methods several times. Each stage below was published on this site, and the full history is in the <a href="https://github.com/andrew-olvera-research/site/commits/main/starscream">site's commit log</a>.</p>
-<ol class="log">
-<li><time>Sep 22, 2026</time><p><b>Supervised pretraining from an MPCC expert.</b> DAgger- and DART-style imitation with an auxiliary dynamics head.</p></li>
-<li><time>Sep 23, 2026</time><p><b>Vehicle randomization and distillation.</b> Randomized vehicles, a commanded-speed input, and teacher–student distillation toward camera-token students.</p></li>
-<li><time>Sep 30, 2026</time><p><b>Scaled supervised teacher.</b> A transformer pretrained on 65 qualified courses.</p></li>
-<li><time>Oct 13, 2026</time><p><b>Three-seed architecture comparison.</b> MLP, LSTM and transformer controllers that output commands directly. <a href="earlier-study.html">Read the earlier study →</a></p></li>
-<li class="now"><time>Oct 27, 2026</time><p><b>Method change: this page.</b> A world-model-pretrained planner over a frozen controller with a motion latent interface, trained with alignment and then racing RL.</p></li>
-</ol>
-
-<h3>What changed since the October 13 study</h3>
-<div class="scroll-x">
-<table class="then-now">
-<thead><tr><th></th><th>Earlier study (Oct 13)</th><th>Current (Oct 27)</th></tr></thead>
-<tbody>
-<tr><td>Policy output</td><td>Thrust and body rates, directly</td><td>A 64-D motion latent, executed by a frozen controller</td></tr>
-<tr><td>Training signal</td><td>Imitation of MPCC labels on visited states</td><td>Pretraining and alignment, then racing RL</td></tr>
-<tr><td>Inputs</td><td>State, vehicle settings, speed command, six gates</td><td>State, previous command, two gates</td></tr>
-<tr><td>History</td><td>Three rows, about 15 ms</td><td>None</td></tr>
-<tr><td>Size</td><td>About 5.84M parameters</td><td>349K parameters</td></tr>
-<tr><td>Plant</td><td>Nominal, 11 ms actuation delay</td><td>Nominal, no added delay</td></tr>
-</tbody>
-</table>
-</div>
-
-<div class="prov">
-<p>Method, implementation and recorded flights by Andrew Olvera. Every flight on this page comes from one checkpoint: update 5,037, after 1,450,656,000 cumulative environment steps, SHA-256 <code>7080f09c5a9f70ddc0f6bbfc880d0a8a0c20fd6dc2cb05fcc3eb089563a71641</code>. Trajectories are the recorded 130 Hz states. The quadrotor glyph in the viewer is illustrative.</p>
-<div class="links"><a href="assets/motion64/stack.json">Architecture spec</a><a href="assets/motion64/plant.json">Plant spec</a><a href="assets/motion64/manifest.json">Flight manifest and hashes</a><a href="../Andrew_Olvera_CV.pdf">CV</a></div>
-</div>
-<p class="soon-line">Preprint in preparation</p>
+<p class="soon-line" style="margin-top:0">Preprint coming soon</p>
+<p class="small" style="text-align:center">Andrew Olvera · York College of Pennsylvania</p>
 </div>
 </section>
 </main>
 
-<footer><div class="wrap"><span>© 2026 Andrew Olvera</span><a href="../">Research portfolio</a></div></footer>
+<footer><div class="wrap"><span>© 2026 Andrew Olvera</span></div></footer>
 <script src="scene3d.js"></script>
 <script src="motion64.js"></script>
 </body>

@@ -69,7 +69,7 @@ if errors: raise SystemExit('\n'.join(errors))
 import hashlib, math
 current=(ROOT/'starscream/index.html').read_text(encoding='utf-8')
 assert '<title>Starscream</title>' in current and '<h1 class="title">Starscream' in current
-for phrase in ['3/17', '4/17', 'No observation history', 'Preprint in preparation', '35.75 N', 'earlier-study.html', 'Implementation review']:
+for phrase in ['3/17', '4/17', 'No observation history', 'Preprint coming soon', '35.75 N', 'Why this architecture', 'Held-out courses']:
     assert phrase in current, phrase
 base=ROOT/'starscream/assets/motion64'
 manifest=json.loads((base/'manifest.json').read_text())
