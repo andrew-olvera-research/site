@@ -49,6 +49,11 @@
   }
 
   function gateCorners(g) {
+    if (Array.isArray(g.rotation) && Array.isArray(g.size_xy)) {
+      const R = g.rotation, [width, height] = g.size_xy;
+      return [[1,1],[-1,1],[-1,-1],[1,-1]].map(([a,b]) =>
+        g.pos.map((v,i) => v + a * width / 2 * R[i][1] + b * height / 2 * R[i][2]));
+    }
     const h = g.size / 2, c = Math.cos(g.yaw), s = Math.sin(g.yaw);
     const side = [-s * h, c * h, 0];  // horizontal, perpendicular to the gate normal
     const up = [0, 0, h];

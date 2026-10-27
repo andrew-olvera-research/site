@@ -1,0 +1,78 @@
+% Public editable CV source. Build with: pdflatex Andrew_Olvera_CV.tex
+% Research wording updated October 27, 2026; other facts retained from the approved public CV.
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.65in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\definecolor{blue}{HTML}{1F5A96}
+\hypersetup{colorlinks=true,urlcolor=blue,pdfauthor={Andrew Olvera},pdftitle={Andrew Olvera CV},pdfsubject={Curriculum vitae updated October 27 2026}}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\setlist[itemize]{leftmargin=14pt,itemsep=1pt,topsep=2pt,parsep=0pt}
+\titleformat{\section}{\normalsize\bfseries\color{blue}}{}{0pt}{\MakeUppercase}[\vspace{-3pt}\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{5pt}
+\newcommand{\entry}[3]{\textbf{#1}\hfill #2\\{\itshape #3}\par}
+\begin{document}
+\begin{center}
+{\LARGE\bfseries Andrew Olvera}\\[4pt]
+(717) 339-7408 \enspace $\cdot$ \enspace \href{mailto:aolvera1@ycp.edu}{aolvera1@ycp.edu} \enspace $\cdot$ \enspace \href{mailto:drewolvera@icloud.com}{drewolvera@icloud.com}\\
+\href{https://andrew-olvera-research.github.io/site/}{andrew-olvera-research.github.io/site} \enspace $\cdot$ \enspace \href{https://github.com/AndrewOlvera-byte}{GitHub} \enspace $\cdot$ \enspace \href{https://www.linkedin.com/in/andrew-olvera-589130331}{LinkedIn}
+\end{center}
+\section{Research interests}
+Agile, high-speed robotics in complex and GNSS-denied environments. Integrating robot learning, optimal control, computer vision, and learned world models for robust perception, planning, and coordination across multi-platform robot teams.
+\section{Education}
+\entry{York College of Pennsylvania}{Aug 2023 -- May 2026}{B.S. in Computer Science, York, PA}
+\begin{itemize}\item Coursework: Data Structures, Algorithms, Linear Algebra, Calculus, Probability \& Statistics, Computer Vision, Computer Graphics\end{itemize}
+\entry{Cabrini University}{Aug 2021 -- May 2023}{Undergraduate coursework, Radnor, PA; transferred to York College}
+\section{Research experience}
+\entry{\href{https://andrew-olvera-research.github.io/site/starscream/}{Starscream}}{2026 -- Present}{Independent research; manuscript in preparation}
+\begin{itemize}
+\item Pretrained an action-conditioned physical world model and learned a continuous 64D expert-motion interface with a current-state feedback controller from successful MPCC trajectories.
+\item Aligned a world-model-initialized Transformer and learned MLP projector through JEPA-style stopped-target regression and expert-initialized physical rollouts on the system's own achieved states.
+\item Refined the observation-only planner with racing PPO, a gate-start curriculum, dynamic course sampling, and qualified online variants while keeping the low-level controller frozen.
+\item Recorded selected clean flights across learned Swift, A2RL, UTT, and derived graft layouts with one shared policy. Current preview uses nominal simulated dynamics, perfect state and gate map, and 130 Hz control; it is not an aggregate generalization benchmark.
+\item Integrated OpenVINS stereo visual-inertial odometry with rendered camera images and simulated IMU, including timestamp alignment and closed-loop validation in simulation.
+\item Developed C++ indoor exploration and inspection software using depth occupancy maps, viewpoint selection, and roadmap-based planning with collision-checked flight corridors.
+\end{itemize}
+\entry{Tells}{2026 -- Present}{Independent research; manuscript in preparation}
+\begin{itemize}
+\item Built action-conditioned latent world models and state/action tokenizers for MicroRTS, with complete-state and fog-visible representations.
+\item Distilled a 16-code opponent belief from fog-of-war history using privileged training targets; improved return prediction, while downstream policy benefits remained inconclusive.
+\item Trained PMPO actor-critic policies with eight-step imagined rollouts in a frozen learned world, alongside real-engine data collection; compared belief-conditioned and separately trained no-belief policies.
+\end{itemize}
+\entry{Reward Design in Small-Model RLVR}{2025 -- 2026}{Independent research; site report}
+\begin{itemize}
+\item Studied RLVR on Qwen3 0.6B (GSM8K), comparing GRPO and DAPO across group sizes, then binary, structured, and rank-based rewards on a fixed baseline.
+\item Exploratory single-seed runs reached roughly 69--72\% accuracy from a 68\% SFT baseline; tracked reward variation as binary rewards saturated.
+\item Analyzed token-level advantages, dynamic clipping, and reward structure to study when the optimizer retains a useful learning signal.
+\end{itemize}
+\newpage
+\section{Manuscripts in preparation}
+A. Olvera. \textit{Starscream}. In preparation, 2026.\\
+A. Olvera. \textit{Tells}. In preparation, 2026.
+\section{Honors}
+\begin{itemize}\item Dean's List, York College of Pennsylvania -- Fall 2025, Spring 2026\end{itemize}
+\section{Industry experience}
+\entry{Sapio Sciences}{May 2025 -- Present}{Application Engineer Intern, York, PA}
+\begin{itemize}
+\item Develop customer-specific software solutions and build foundational features for the out-of-the-box product.
+\item Coordinate customer implementations across teams, communicating requirements and progress throughout delivery.
+\end{itemize}
+\entry{Dataforma}{May 2025 -- Jan 2026}{Software Engineer Intern, Web Development, York, PA}
+\begin{itemize}
+\item Refactored legacy JSP features onto a new stack with a Vue.js frontend and Kotlin backend.
+\item Worked with development, testing, design, and QA teams to implement features, debug defects, and validate releases.
+\end{itemize}
+\section{Technical skills}
+\textbf{ML \& RL:} PyTorch, Hugging Face Transformers, TRL, vLLM; imitation learning, policy gradients, model-based RL\\
+\textbf{Robotics \& Control:} MPC/MPCC (acados), stereo VIO (OpenVINS), occupancy mapping, motion planning; ROS, Flightmare, Isaac Sim, MATLAB/Simulink\\
+\textbf{Languages:} Python, C++, C, Java, Kotlin, JavaScript, SQL\\
+\textbf{Tools:} Linux, Git, Docker, Bash, Weights \& Biases, FreeCAD
+\vfill
+{\small\color{gray}Updated October 27, 2026. Research project titles are provisional.}
+\end{document}

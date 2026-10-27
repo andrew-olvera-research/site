@@ -4,7 +4,7 @@ from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
 import json
 ROOT = Path(__file__).resolve().parents[1]
-PAGES = ['index.html', 'starscream/index.html', 'microrts/index.html', 'token-level-rewards/index.html', 'flowdreamer-microrts/index.html']
+PAGES = ['index.html', 'starscream/index.html', 'starscream/earlier-study.html', 'microrts/index.html', 'token-level-rewards/index.html', 'flowdreamer-microrts/index.html']
 class Page(HTMLParser):
     def __init__(self, text):
         super().__init__(convert_charrefs=True)
@@ -38,7 +38,7 @@ for path,page in pages.items():
         text=(ROOT/path).read_text(encoding='utf-8')
         for phrase in ['Preprint forthcoming','Paper (coming soon)','href="../manippo','href="manippo']:
             if phrase in text: errors.append(f'{path}: retired claim/link {phrase}')
-star=pages['starscream/index.html']
+star=pages['starscream/earlier-study.html']
 for hook in ['nominal-charts','recovery-charts','geometry-summary','data-status','replay-status']:
     if hook not in star.ids: errors.append(f'missing visual hook {hook}')
 assert 'manippo' in (ROOT/'_config.yml').read_text()
@@ -65,4 +65,37 @@ geometry=json.loads((ROOT/'starscream/assets/data/course-geometry.json').read_te
 assert [geometry['sets'][x]['courses'] for x in ['pretrain65','eval100','eval60']]==[65,100,60]
 assert geometry['sets']['eval100']['transitions']==929
 if errors: raise SystemExit('\n'.join(errors))
+# Current motion64 preview: public export integrity, split separation and physical timing.
+import hashlib, math
+current=(ROOT/'starscream/index.html').read_text(encoding='utf-8')
+assert '<title>Starscream</title>' in current and '<h1>Starscream</h1>' in current
+for phrase in ['3/17', '4/17', 'no temporal observation history', 'Preprint coming soon', '35.75 N', 'earlier-study.html']:
+    assert phrase in current, phrase
+base=ROOT/'starscream/assets/motion64'
+manifest=json.loads((base/'manifest.json').read_text())
+assert manifest['checkpoint_update']==5037 and manifest['checkpoint_steps']==1450656000
+assert len(manifest['assets'])==10
+assert [a['cohort_clean'] for a in manifest['assets'] if a['role']!='training']==[3,4]
+assert sum(a['role']=='training' for a in manifest['assets'])==8
+for a in manifest['assets']:
+    assert a['checkpoint_sha256']==manifest['checkpoint_sha256']
+    for key,digest in a['sha256'].items():
+        f=base/a[key]
+        assert f.resolve().is_relative_to(base.resolve())
+        assert hashlib.sha256(f.read_bytes()).hexdigest()==digest
+    d=json.loads((base/a['trajectory_json']).read_text())
+    t=d['trajectory']; n=len(t['pos'])
+    assert n==len(t['quat'])==len(t['passed']) and t['passed'][-1]==a['gate_count']
+    assert abs((n-1)*t['dt']-a['duration_seconds'])<1e-8
+    assert all('rotation' in g and 'size_xy' in g for g in d['gates'])
+    if a['role']=='training': assert a['mode']=='mean' and a['cohort_episodes']==5
+    else: assert a['mode']=='sampled' and a['cohort_episodes']==17
+for f in base.rglob('*'):
+    if not f.is_file(): continue
+    assert f.suffix not in ['.pt','.npz','.jsonl','.zip','.log']
+    if f.suffix=='.json':
+        text=f.read_text()
+        assert '/workspace/' not in text and 'C:\\\\' not in text
+assert not (base/'provenance').exists()
+assert (ROOT/'Andrew_Olvera_CV.tex').exists()
 print(f'PASS: {len(pages)} routes; {checked} local links/assets/anchors; chart hooks, image alt text, video controls, and editorial guardrails.')
