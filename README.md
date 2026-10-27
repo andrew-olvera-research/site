@@ -5,7 +5,7 @@ Preview: `python -m http.server 8080 --directory .`.
 
 ## Current content
 
-- `starscream/` documents the October 27, 2026 motion64 planner, its training stages, current input contract, nominal plant and selected flights.
+- `starscream/` is the October 27, 2026 implementation review: the planner/controller architecture, the five training stages (two inline diagrams), recorded flights from one checkpoint, the nominal plant, current status and the project log. Styles are inline, matching the earlier study's paper theme.
 - `starscream/earlier-study.html` retains the October 13 supervised-controller comparison with its original data, charts and historical conditions. Those results do not characterize the new planner.
 - Tells remains at `microrts/`. RLVR remains a site report at `token-level-rewards/`.
 - `Andrew_Olvera_CV.pdf` is generated from the public editable `Andrew_Olvera_CV.tex` with `pdflatex`. Preserve unrelated approved facts when editing it. Starscream and Tells are provisional manuscript titles; RLVR is not a manuscript.
@@ -21,7 +21,7 @@ The existing dependency-free `Scene3D` component is retained. Its gate geometry 
 
 ## Validation
 
-Run `python tests/check_site.py` for local links, media/architecture hooks, editorial guards, historical data calculations, current public hashes, split/cohort separation and physical trajectory durations. Inspect current and historical Starscream pages, homepage, Tells and RLVR at desktop/mobile sizes. Check video playback, all eight 3D selections, diagram scrolling, reduced motion and the rendered CV.
+Run `python tests/check_site.py` for local links, media/architecture hooks, editorial guards, historical data calculations, current public hashes, split/cohort separation and physical trajectory durations. Inspect current and historical Starscream pages, homepage, Tells and RLVR at desktop/mobile sizes. Check video playback, all eight 3D selections, sideways diagram scrolling on phones, reduced motion and the rendered CV.
 
 The source bundle's `validate.py` was run separately to decode every GIF frame, probe each MP4 and check quaternion/rotation geometry, timing and independent audit records. It and private audit material are not public site assets.
 

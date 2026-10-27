@@ -1,41 +1,565 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Starscream</title><meta name="description" content="Andrew Olvera’s Starscream: physical representation pretraining, a continuous motion interface, and an observation-only racing planner with a frozen feedback controller."/>
-<link rel="canonical" href="https://andrew-olvera-research.github.io/site/starscream/"/>
-<meta property="og:title" content="Starscream"/><meta property="og:description" content="Learned motion planning with a pretrained flight controller. Andrew Olvera · October 27, 2026 · Preprint coming soon."/>
-<meta property="og:image" content="https://andrew-olvera-research.github.io/site/starscream/assets/motion64/media/02-a2rl-arena-reconstruction-thumbnail.jpg"/>
-<meta property="og:type" content="article"/><meta name="author" content="Andrew Olvera"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="site.css"/><link rel="icon" href="data:,"/>
-</head><body><a class="skip" href="#main">Skip to content</a>
-<header class="nav"><a class="brand" href="../">Andrew Olvera</a><nav aria-label="Starscream"><a href="#method">Method</a><a href="#flights">Flights</a><a href="#conditions">Simulation</a><a href="../Andrew_Olvera_CV.pdf">CV</a></nav></header>
-<main id="main"><section class="masthead wrap"><p class="eyebrow">Research in progress · Updated October 27, 2026</p><h1>Starscream</h1><p class="subtitle">Motion planning with a pretrained flight controller</p><p class="author"><a href="../">Andrew Olvera</a></p><p class="intro">Starscream separates the choice of motion from the feedback control that executes it. A planner reads current physical state and upcoming gates, then chooses a continuous motion code. A pretrained controller turns that code into flight commands.</p><div class="actions"><a class="primary" href="#flights">Explore the flights <span aria-hidden="true">↓</span></a><a href="#method">How it is trained</a></div></section>
-<figure class="hero wide"><video controls loop muted playsinline preload="metadata" poster="assets/motion64/media/02-a2rl-arena-reconstruction-thumbnail.jpg" aria-label="Selected clean A2RL arena reconstruction flight"><source src="assets/motion64/media/02-a2rl-arena-reconstruction.mp4" type="video/mp4"/><a href="assets/motion64/media/02-a2rl-arena-reconstruction.mp4">Download flight</a></video><figcaption><span class="tag">Selected learned-course flight</span> A2RL arena reconstruction · 12 ordered gates · 7.954 s. Nominal simulation, perfect state and gate map, real-time playback. The trajectory rendering does not imply camera or depth input.</figcaption></figure>
-<div class="facts wrap"><div><b>49D</b><span>current observation</span></div><div><b>64D</b><span>continuous motion code</span></div><div><b>130 Hz</b><span>planner and controller</span></div><div><b>Frozen</b><span>controller during racing RL</span></div></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Starscream</title>
+<meta content="Starscream, Andrew Olvera: drone racing with a world-model-pretrained planner that chooses a 64-D motion latent for a pretrained, frozen feedback controller. Implementation review, October 27, 2026." name="description"/>
+<meta content="Andrew Olvera" name="author"/>
+<link href="https://andrew-olvera-research.github.io/site/starscream/" rel="canonical"/>
+<meta content="Starscream: motion planning over a pretrained flight controller" property="og:title"/>
+<meta content="Implementation review, October 27, 2026. Andrew Olvera." property="og:description"/>
+<meta content="https://andrew-olvera-research.github.io/site/starscream/assets/motion64/media/02-a2rl-arena-reconstruction-thumbnail.jpg" property="og:image"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-2: #f6f7f9;
+    --ink: #1a1d23;
+    --ink-2: #3b414b;
+    --muted: #58616f;
+    --line: #e5e7eb;
+    --line-2: #d1d5db;
+    --accent: #1f5a96;      /* trajectory blue in the clips; also "trained" */
+    --accent-bg: #eef3fa;
+    --frozen: #6b7280;
+    --frozen-bg: #f3f4f6;
+    --priv: #c8641e;        /* training-only information */
+    --priv-bg: #fdf3ea;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --wrap: 880px;
+    --wide: 1080px;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--sans);
+    font-size: 16.5px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  img, video { max-width: 100%; display: block; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .wrap { width: min(var(--wrap), 100% - 32px); margin-inline: auto; }
+  .wide { width: min(var(--wide), 100% - 32px); margin-inline: auto; }
+  .skip-link { position: absolute; left: 16px; top: -100px; z-index: 100; background: #fff; padding: 10px 16px; }
+  .skip-link:focus { top: 8px; }
 
-<section class="section wrap" id="method"><p class="eyebrow">The method</p><h2>Pretrain the parts, then learn to race</h2><p>I start with physical representations and expert motion. A world model supplies the planner’s observation backbone; a separate motion encoder and controller learn an executable continuous interface from successful MPCC trajectories. JEPA-style alignment and physically propagated trajectory alignment connect the backbone to that interface. Racing PPO then improves the planner while the controller stays fixed.</p>
-<div class="legend" aria-label="Diagram legend"><span class="updated">Updated module</span><span class="frozen">Frozen module</span><span class="privileged">Privileged training information</span><span>Solid arrows: forward flow</span><span class="gradient">Dashed teal arrows: optimization / gradients</span></div>
-<h3><span class="step">01</span> Learn physical representations</h3><p>An action-conditioned world model learns from closed-loop simulated flight. A compact Transformer encodes state, previous command, and two ordered gates. Autoregressive latent rollouts and physically scaled state-increment losses train representations of motion and actuation, including orientation and rotor dynamics.</p>
-<figure class="architecture"><div class="diagram-scroll" tabindex="0" role="region" aria-label="Physical representation pretraining; scroll horizontally on small screens"><img src="assets/diagrams/01-world-model.svg" alt="The observation backbone is pretrained through action-conditioned physical prediction. The latent rollout and reconstruction heads are used during pretraining." loading="lazy" width="1000" height="470"/></div><figcaption>The observation backbone is pretrained through action-conditioned physical prediction. The latent rollout and reconstruction heads are used during pretraining.</figcaption></figure>
-<h3><span class="step">02</span> Learn an executable motion interface</h3><p>During privileged controller pretraining, an MLP compresses current ego49 and eight future motion samples over 0.4 seconds into a bounded continuous64 code. A feedback MLP combines that code with current ego49 and learns through PPO tracking rewards and reference-phase resets. The future samples enter through the encoder; they never bypass the code into the controller.</p>
-<figure class="architecture"><div class="diagram-scroll" tabindex="0" role="region" aria-label="Expert motion and feedback controller; scroll horizontally on small screens"><img src="assets/diagrams/02-motion-controller.svg" alt="Privileged future motion enters the training encoder and the tracking objective. The controller receives current state and the continuous code." loading="lazy" width="1000" height="575"/></div><figcaption>Privileged future motion enters the training encoder and the tracking objective. The controller receives current state and the continuous code.</figcaption></figure>
-<h3><span class="step">03</span> Align the observation-only planner</h3><p>The privileged encoder becomes a frozen, stopped-gradient target. A Transformer initialized from the world-model backbone and a learned MLP projector predict the same 64D coordinates from current ego49 alone. A projector-only warmup precedes joint backbone updates.</p><p>Physical alignment then connects the planner to the frozen controller. Each 52-tick window starts at an expert state and proceeds on the system’s own achieved states, refreshing observations at every tick. Multistep position, velocity, rotation, angular-rate, and motor errors update the planner through the rollout. The expert trajectory supplies targets after initialization.</p>
-<figure class="architecture"><div class="diagram-scroll" tabindex="0" role="region" aria-label="JEPA and physical alignment; scroll horizontally on small screens"><img src="assets/diagrams/03-alignment.svg" alt="JEPA matches a frozen encoder target. Physical alignment propagates achieved states through the frozen controller and plant, updating the observation backbone and projector." loading="lazy" width="1000" height="815"/></div><figcaption>JEPA matches a frozen encoder target. Physical alignment propagates achieved states through the frozen controller and plant, updating the observation backbone and projector.</figcaption></figure>
-<h3><span class="step">04</span> Optimize the planner for racing</h3><p>Minibatch PPO refines the planner with progress, gate-passage, and collision rewards. A shared critic, two/four/full-gate curriculum, and learning-progress course sampler support training across layouts. The latest continuation retains 50% original seed-course lanes alongside gently augmented, geometrically qualified online variants. The low-level controller and motion interface stay frozen; final racing PPO uses no JEPA or dynamics auxiliary loss.</p>
-<figure class="architecture"><div class="diagram-scroll" tabindex="0" role="region" aria-label="Planner during racing PPO and inference; scroll horizontally on small screens"><img src="assets/diagrams/04-planner.svg" alt="At inference, the planner and frozen controller use current ego49 at 130 Hz. Privileged expert futures and pretraining rollout heads are absent." loading="lazy" width="1000" height="490"/></div><figcaption>At inference, the planner and frozen controller use current ego49 at 130 Hz. Privileged expert futures and pretraining rollout heads are absent.</figcaption></figure>
-<div class="input-contract"><h4>What the policy sees</h4><p><b>ego49 = state19 + previous command4 + two gate13 descriptors.</b> State19 contains body-frame gate-relative position, linear velocity, gate-to-body rotation, angular velocity, and four motor speeds. Each gate descriptor contains four ordered corner vectors and a validity mask.</p><p>The Transformer attends over state, previous-command, two gate, and readout tokens. This is token attention over the current observation, with no temporal observation history and no settings token. The projector is 128 → 256 → 64 with SiLU and a tanh output; the controller is 113 → 256 → 256 → 128 → 4. The actor has 220,352 planner parameters and 128,388 frozen controller parameters, plus four exploration parameters during training.</p></div>
+  /* ---------- NAV ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.94);
+    backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+  }
+  .nav .wide { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 52px; }
+  .brand { font-family: var(--serif); font-weight: 600; font-size: 17px; color: var(--ink); }
+  .brand:hover { text-decoration: none; }
+  .nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 20px; }
+  .nav ul a { font-size: 14px; color: var(--muted); }
+  .nav ul a:hover { color: var(--ink); text-decoration: none; }
+  @media (max-width: 640px) { .nav ul li.opt { display: none; } .nav ul { gap: 4px 14px; } }
+
+  /* ---------- TITLE BLOCK ---------- */
+  .masthead { text-align: center; padding: 64px 0 34px; }
+  .venue { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+  h1.title {
+    font-family: var(--serif); font-weight: 700; font-size: clamp(36px, 6vw, 54px);
+    line-height: 1.1; letter-spacing: -.01em;
+  }
+  h1.title .sub { display: block; font-weight: 400; font-size: .5em; color: var(--ink-2); margin: 14px auto 0; letter-spacing: 0; max-width: 30ch; line-height: 1.3; }
+  .authors { margin-top: 24px; font-size: 18px; }
+  .authors a { color: var(--ink); border-bottom: 1px solid var(--line-2); }
+  .authors a:hover { text-decoration: none; border-color: var(--accent); }
+  .affil { margin-top: 4px; font-size: 15px; color: var(--muted); }
+  .buttons { margin-top: 26px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500;
+    padding: 7px 16px; border-radius: 999px; color: var(--ink); border: 1px solid var(--line-2);
+  }
+  .btn:hover { text-decoration: none; border-color: var(--ink); }
+  .btn.soon { color: var(--muted); border-style: dashed; }
+
+  /* ---------- HERO ---------- */
+  .teaser { margin-top: 8px; }
+  .frame { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+  .frame video { width: 100%; aspect-ratio: 720 / 406; object-fit: contain; background: #fff; }
+  figcaption { margin-top: 10px; font-size: 14px; line-height: 1.6; color: var(--muted); }
+  figcaption b { color: var(--ink); font-weight: 600; }
+  .teaser figcaption { text-align: center; }
+
+  .band { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 34px;
+          border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .band > div { padding: 20px 18px 18px; }
+  .band > div + div { border-left: 1px solid var(--line); }
+  .band b { display: block; font-family: var(--mono); font-size: clamp(24px, 3.2vw, 31px); font-weight: 600;
+            letter-spacing: -.03em; line-height: 1.1; color: var(--accent); }
+  .band span { display: block; font-size: 13.5px; color: var(--ink-2); margin-top: 7px; line-height: 1.45; }
+  @media (max-width: 760px) {
+    .band { grid-template-columns: 1fr 1fr; }
+    .band > div:nth-child(3) { border-left: 0; }
+    .band > div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section.block { padding: 60px 0; }
+  section.block + section.block { border-top: 1px solid var(--line); }
+  section.shade { background: var(--bg-2); }
+  h2 {
+    font-family: var(--serif); font-weight: 600; font-size: clamp(26px, 3.4vw, 32px);
+    line-height: 1.25; margin-bottom: 20px; text-align: center;
+  }
+  h3 { font-family: var(--serif); font-weight: 600; font-size: 20px; margin: 40px 0 10px; }
+  .kicker { text-align: center; font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  p + p { margin-top: 14px; }
+  .prose { color: var(--ink-2); }
+  .abstract { max-width: 68ch; margin-inline: auto; color: var(--ink-2); }
+  .note {
+    border-left: 3px solid var(--accent); background: var(--bg-2); padding: 14px 18px; margin: 26px auto 0;
+    font-size: 15px; color: var(--ink-2); border-radius: 0 6px 6px 0; max-width: 68ch;
+  }
+  .note b { color: var(--ink); }
+  .small { font-size: 13.5px; color: var(--muted); margin-top: 12px; }
+
+  .cols-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 34px; }
+  .cols-3 article { border-top: 2px solid var(--line-2); padding-top: 14px; }
+  .cols-3 h4 { font-family: var(--serif); font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+  .cols-3 p { font-size: 15px; color: var(--ink-2); }
+  .cols-3 .dim { font-family: var(--mono); font-size: 13px; color: var(--accent); font-weight: 600; margin-left: 6px; }
+  @media (max-width: 820px) { .cols-3 { grid-template-columns: 1fr; gap: 18px; } }
+
+  /* ---------- DIAGRAMS ---------- */
+  .dg { border: 1px solid var(--line); border-radius: 10px; background: #fff; padding: clamp(14px, 2.4vw, 26px); margin-top: 30px; }
+  .dg-scroll { overflow-x: auto; }
+  .dg svg { display: block; width: 100%; height: auto; min-width: 760px; }
+  .dg svg text { font-family: var(--sans); fill: var(--ink-2); }
+  .dg svg .t { font-size: 15px; font-weight: 600; fill: var(--ink); }
+  .dg svg .s { font-size: 12.5px; fill: var(--muted); }
+  .dg svg .m { font-family: var(--mono); font-size: 12px; fill: var(--muted); }
+  .dg svg .cap { font-size: 11.5px; font-weight: 600; letter-spacing: .1em; }
+  .dg svg .w { fill: #fff; }
+  .key { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; margin-top: 16px; font-size: 13px; color: var(--muted); }
+  .key i { display: inline-block; width: 16px; height: 12px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; border: 1.5px solid; }
+  .key .k-tr { border-color: var(--accent); background: var(--accent-bg); }
+  .key .k-fr { border-color: var(--frozen); background: var(--frozen-bg); }
+  .key .k-pr { border-color: var(--priv); background: var(--priv-bg); border-style: dashed; }
+  .dg-hint { display: none; font-size: 12.5px; color: var(--muted); margin-bottom: 10px; }
+  @media (max-width: 800px) { .dg-hint { display: block; } }
+
+  /* training matrix */
+  table.stages { width: 100%; min-width: 760px; border-collapse: separate; border-spacing: 0; font-size: 14px; }
+  table.stages th, table.stages td { padding: 10px 8px; vertical-align: middle; text-align: center; }
+  table.stages thead th { vertical-align: bottom; border-bottom: 1px solid var(--line-2); padding-bottom: 14px; font-weight: 400; }
+  table.stages thead th u { text-decoration: none; display: inline-grid; place-items: center; width: 24px; height: 24px;
+    border-radius: 50%; border: 1px solid var(--line-2); font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  table.stages thead th b { display: block; font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.3; margin-top: 8px; }
+  table.stages thead th small { display: block; font-size: 12px; color: var(--muted); line-height: 1.4; margin-top: 3px; }
+  table.stages tbody th { text-align: left; font-weight: 600; color: var(--ink); white-space: nowrap; padding-left: 0; }
+  table.stages tbody th small { display: block; font-weight: 400; font-size: 12px; color: var(--muted); }
+  table.stages tbody tr + tr > * { border-top: 1px solid var(--line); }
+  table.stages tr.obj td, table.stages tr.obj th { font-size: 12.5px; color: var(--ink-2); line-height: 1.45; vertical-align: top; padding-top: 14px; }
+  table.stages tr.obj th { color: var(--ink); font-size: 14px; }
+  .pill { display: inline-block; min-width: 76px; padding: 3px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 500; border: 1.5px solid; }
+  .pill.tr { color: #fff; background: var(--accent); border-color: var(--accent); }
+  .pill.fr { color: var(--frozen); background: var(--frozen-bg); border-color: #b9bec6; }
+  .pill.tg { color: #9a4a12; background: var(--priv-bg); border-color: var(--priv); border-style: dashed; }
+  .pill.na { border-color: transparent; color: #b9bec6; min-width: 0; }
+
+  /* stage notes */
+  ol.flow { list-style: none; margin-top: 34px; border-top: 1px solid var(--line); }
+  ol.flow li { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 8px 30px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .st-h { display: flex; gap: 13px; align-items: flex-start; }
+  .st-h u { text-decoration: none; font-family: var(--mono); font-size: 12px; color: var(--muted);
+            border: 1px solid var(--line-2); border-radius: 50%; width: 24px; height: 24px;
+            display: inline-grid; place-items: center; flex: none; margin-top: 2px; }
+  .st-h b { display: block; font-size: 17px; font-weight: 600; color: var(--ink); line-height: 1.35; font-family: var(--serif); }
+  ol.flow p { font-size: 15.5px; color: var(--ink-2); }
+  @media (max-width: 760px) { ol.flow li { grid-template-columns: 1fr; } }
+
+  dl.specs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 36px; margin-top: 26px; }
+  dl.specs div { padding: 11px 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+  dl.specs dt { font-size: 14px; color: var(--muted); }
+  dl.specs dd { font-family: var(--mono); font-size: 13px; color: var(--ink); text-align: right; }
+  @media (max-width: 700px) { dl.specs { grid-template-columns: 1fr; } }
+
+  /* ---------- FLIGHTS ---------- */
+  .scene3d { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+  .scene3d canvas { display: block; width: 100%; aspect-ratio: 16 / 8.5; cursor: grab; touch-action: none; outline: none; }
+  .scene3d canvas:active { cursor: grabbing; }
+  .scene3d-bar { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-top: 1px solid var(--line); font-size: 13px; }
+  .scene3d-bar button {
+    font: inherit; color: var(--ink); background: none; border: 1px solid var(--line-2);
+    border-radius: 999px; padding: 2px 12px; cursor: pointer; min-width: 44px;
+  }
+  .scene3d-bar button:hover { border-color: var(--ink); }
+  .scene3d-bar input[type=range] { flex: 1; min-width: 0; accent-color: var(--accent); }
+  @media (max-width: 520px) { .scene3d-bar button:last-child { display: none; } .scene3d canvas { aspect-ratio: 4 / 3; } }
+  .viewer-cap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 18px; margin-top: 10px; font-size: 14px; color: var(--muted); }
+  .viewer-cap b { color: var(--ink); font-weight: 600; }
+  .tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px 14px; margin-top: 22px; }
+  @media (max-width: 760px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .tile { min-width: 0; }
+  .tile button { font: inherit; text-align: left; background: none; border: 0; padding: 0; cursor: pointer; color: var(--ink); display: block; width: 100%; }
+  .tile img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: #fff; border: 1px solid var(--line); border-radius: 6px; }
+  .tile button:hover img { border-color: var(--line-2); }
+  .tile button[aria-pressed=true] img { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .tile b { display: block; font-size: 14px; font-weight: 600; margin-top: 8px; line-height: 1.35; }
+  .tile span { display: block; font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+  .tile .dl { font-size: 12px; margin-top: 3px; display: flex; gap: 12px; }
+  #replay-status { font-size: 13px; color: var(--muted); margin-top: 6px; min-height: 1em; }
+
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
+  @media (max-width: 700px) { .pair { grid-template-columns: 1fr; } }
+  .pair .frame video { aspect-ratio: 720 / 406; }
+  .pair figcaption { margin-top: 10px; }
+  .pair figcaption .ct { font-family: var(--mono); color: var(--ink); }
+
+  /* ---------- STATUS / RECORD ---------- */
+  .cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 28px; }
+  @media (max-width: 760px) { .cols-2 { grid-template-columns: 1fr; } }
+  .cols-2 h4 { font-family: var(--serif); font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+  ul.list { padding-left: 1.15em; color: var(--ink-2); font-size: 15.5px; }
+  ul.list li + li { margin-top: 7px; }
+
+  ol.log { list-style: none; margin-top: 26px; border-left: 2px solid var(--line-2); padding-left: 0; }
+  ol.log li { position: relative; padding: 0 0 20px 26px; }
+  ol.log li::before { content: ""; position: absolute; left: -7px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 2px solid var(--line-2); }
+  ol.log li.now::before { background: var(--accent); border-color: var(--accent); }
+  ol.log time { display: block; font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+  ol.log b { color: var(--ink); font-weight: 600; }
+  ol.log p { font-size: 15px; color: var(--ink-2); margin-top: 2px; }
+
+  table.then-now { width: 100%; border-collapse: collapse; font-size: 14.5px; margin-top: 18px; }
+  table.then-now th { text-align: left; font-size: 12.5px; color: var(--muted); font-weight: 600; padding: 6px 12px 6px 0; border-bottom: 1px solid var(--line-2); }
+  table.then-now td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--line); color: var(--ink-2); vertical-align: top; }
+  table.then-now td:first-child { color: var(--muted); width: 22%; }
+  table.then-now td:last-child { color: var(--ink); }
+  .scroll-x { overflow-x: auto; }
+
+  .prov { margin-top: 28px; font-size: 14.5px; color: var(--ink-2); }
+  .prov code { font-family: var(--mono); font-size: 12px; overflow-wrap: anywhere; color: var(--ink); }
+  .links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 14px; font-size: 14px; }
+  .soon-line { margin-top: 34px; text-align: center; font-family: var(--serif); font-size: 22px; color: var(--accent); }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 13.5px; color: var(--muted); }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 600px) { .masthead { padding-top: 44px; } section.block { padding: 44px 0; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+<link href="data:," rel="icon"/>
+</head>
+<body>
+<a class="skip-link" href="#top">Skip to content</a>
+<header class="nav">
+<div class="wide">
+<a class="brand" href="#top">Starscream</a>
+<ul><li><a href="#architecture">Architecture</a></li><li><a href="#training">Training</a></li><li><a href="#flights">Flights</a></li><li class="opt"><a href="#status">Status</a></li><li><a href="../">Home</a></li></ul>
+</div>
+</header>
+
+<main id="top">
+<div class="masthead wrap">
+<div class="venue">Implementation review · October 27, 2026</div>
+<h1 class="title">Starscream<span class="sub">Motion planning over a pretrained flight controller for drone racing</span></h1>
+<p class="authors"><a href="../">Andrew Olvera</a></p>
+<p class="affil">York College of Pennsylvania</p>
+<div class="buttons">
+<a class="btn" href="#flights">Flights</a>
+<a class="btn" href="#training">Training pipeline</a>
+<a class="btn" href="earlier-study.html">Earlier study (Oct 13)</a>
+<span class="btn soon">Preprint in preparation</span>
+</div>
+</div>
+
+<figure class="teaser wide">
+<div class="frame"><video controls loop muted playsinline preload="metadata" poster="assets/motion64/media/02-a2rl-arena-reconstruction-thumbnail.jpg" aria-label="Recorded lap on the A2RL arena reconstruction"><source src="assets/motion64/media/02-a2rl-arena-reconstruction.mp4" type="video/mp4"/><a href="assets/motion64/media/02-a2rl-arena-reconstruction.mp4">Download the flight video</a></video></div>
+<figcaption><b>A2RL arena reconstruction</b>, 12 gates in 7.95 s. Recorded lap from the current checkpoint, simulated, real-time playback.</figcaption>
+</figure>
+
+<div class="band wrap">
+<div><b>64-D</b><span>motion latent between planner and controller</span></div>
+<div><b>349K</b><span>actor parameters, planner and controller combined</span></div>
+<div><b>130 Hz</b><span>planning and control, every tick</span></div>
+<div><b>5</b><span>training stages, from world model to racing RL</span></div>
+</div>
+
+<section class="block" id="overview">
+<div class="wrap">
+<h2>Overview</h2>
+<p class="abstract">Starscream is a learned controller for agile drone racing. The current version separates deciding where to go from working out how to fly there. A feedback controller is pretrained to fly short expert maneuvers, each described by a 64-dimensional motion latent. A planner, whose backbone is first pretrained as a world model, reads the current state and the next two gates and picks that latent at every control tick. Racing reinforcement learning then trains only the planner. It searches among maneuvers the controller already knows how to fly.</p>
+<p class="note"><b>About this page.</b> This is a snapshot of the system as implemented on October 27, 2026: the architecture, how it is trained, and recorded flights from the current checkpoint. Systematic evaluation is still underway, so the page reports no benchmark numbers yet.</p>
+<div class="cols-3">
+<article><h4>Skills before strategy</h4><p>The controller learns from successful MPCC expert trajectories how to turn a motion latent into collective thrust and body rates. It learns this once, and the weights stay frozen afterward.</p></article>
+<article><h4>A better action space for RL</h4><p>The planner acts in the motion latent, not in raw commands. Reinforcement learning explores flyable maneuvers instead of individual thrust and body-rate values.</p></article>
+<article><h4>Physics before reward</h4><p>World-model pretraining teaches the planner's backbone how the vehicle moves and responds to commands before any racing reward is involved.</p></article>
+</div>
+</div>
 </section>
 
-<section class="section shade" id="flights"><div class="wide"><p class="eyebrow">One shared policy</p><h2>Diverse learned racing layouts</h2><p class="measure">These eight selected clean flights show the deterministic mean policy on predefined layouts from its learned seed set. They include an exact supplied Swift layout, a source-consistent A2RL arena reconstruction, two UTT layouts, and four distinct derived grafts. Grafts are adaptations, not exact public-course reproductions.</p><div class="checkpoint"><b>Same selected checkpoint throughout</b><span>Update 5,037 · 1,450,656,000 cumulative steps · seed-retained gentle-online continuation</span></div>
-<div class="explorer"><div class="viewer-heading"><h3 id="course-title">Swift exact</h3><p id="course-info">7 gates · 4.223 s · learned seed geometry</p></div><div class="scene3d" id="flight-viewer"></div><p class="viewer-help">Drag to orbit · shift/right-drag to pan · click, then scroll to zoom · use the timeline to inspect the recorded flight.</p><p id="replay-status" role="status" aria-live="polite"></p></div>
-<div class="course-grid" role="group" aria-label="Select a learned course"><article class="course"><button class="course-select" type="button" data-course="0" aria-pressed="true"><img src="assets/motion64/media/01-swift-exact-thumbnail.jpg" alt="Swift exact track and recorded flight path" width="720" height="405" loading="lazy"/><span class="course-name">Swift exact</span><span class="course-type">Exact supplied layout · 7 gates · 4.223 s</span></button><div class="downloads"><a href="assets/motion64/media/01-swift-exact.mp4">Flight video</a><a href="assets/motion64/media/01-swift-exact.gif">GIF</a></div></article><article class="course"><button class="course-select" type="button" data-course="1" aria-pressed="false"><img src="assets/motion64/media/02-a2rl-arena-reconstruction-thumbnail.jpg" alt="A2RL arena reconstruction track and recorded flight path" width="720" height="405" loading="lazy"/><span class="course-name">A2RL arena reconstruction</span><span class="course-type">Source-consistent reconstruction · 12 gates · 7.954 s</span></button><div class="downloads"><a href="assets/motion64/media/02-a2rl-arena-reconstruction.mp4">Flight video</a><a href="assets/motion64/media/02-a2rl-arena-reconstruction.gif">GIF</a></div></article><article class="course"><button class="course-select" type="button" data-course="2" aria-pressed="false"><img src="assets/motion64/media/03-utt03-bessel-run-thumbnail.jpg" alt="UTT03 Bessel Run track and recorded flight path" width="720" height="405" loading="lazy"/><span class="course-name">UTT03 Bessel Run</span><span class="course-type">Learned UTT layout · 5 gates · 4.708 s</span></button><div class="downloads"><a href="assets/motion64/media/03-utt03-bessel-run.mp4">Flight video</a><a href="assets/motion64/media/03-utt03-bessel-run.gif">GIF</a></div></article><article class="course"><button class="course-select" type="button" data-course="3" aria-pressed="false"><img src="assets/motion64/media/04-utt05-nautilus-thumbnail.jpg" alt="UTT05 Nautilus track and recorded flight path" width="720" height="405" loading="lazy"/><span class="course-name">UTT05 Nautilus</span><span class="course-type">Learned UTT layout · 5 gates · 3.877 s</span></button><div class="downloads"><a href="assets/motion64/media/04-utt05-nautilus.mp4">Flight video</a><a href="assets/motion64/media/04-utt05-nautilus.gif">GIF</a></div></article><article class="course"><button class="course-select" type="button" data-course="4" aria-pressed="false"><img src="assets/motion64/media/05-fury-derived-graft-thumbnail.jpg" alt="Fury-derived graft track and recorded flight path" width="720" height="405" loading="lazy"/><span class="course-name">Fury-derived graft</span><span class="course-type">Derived graft · 4 gates · 4.062 s</span></button><div class="downloads"><a href="assets/motion64/media/05-fury-derived-graft.mp4">Flight video</a><a href="assets/motion64/media/05-fury-derived-graft.gif">GIF</a></div></article><article class="course"><button class="course-select" type="button" data-course="5" aria-pressed="false"><img src="assets/motion64/media/06-revenge-derived-graft-thumbnail.jpg" alt="Revenge-derived graft track and recorded flight path" width="720" height="405" loading="lazy"/><span class="course-name">Revenge-derived graft</span><span class="course-type">Derived graft · 5 gates · 5.408 s</span></button><div class="downloads"><a href="assets/motion64/media/06-revenge-derived-graft.mp4">Flight video</a><a href="assets/motion64/media/06-revenge-derived-graft.gif">GIF</a></div></article><article class="course"><button class="course-select" type="button" data-course="6" aria-pressed="false"><img src="assets/motion64/media/07-a2rl-derived-graft-thumbnail.jpg" alt="A2RL-derived graft track and recorded flight path" width="720" height="405" loading="lazy"/><span class="course-name">A2RL-derived graft</span><span class="course-type">Derived graft · 12 gates · 9.238 s</span></button><div class="downloads"><a href="assets/motion64/media/07-a2rl-derived-graft.mp4">Flight video</a><a href="assets/motion64/media/07-a2rl-derived-graft.gif">GIF</a></div></article><article class="course"><button class="course-select" type="button" data-course="7" aria-pressed="false"><img src="assets/motion64/media/08-cdra-derived-graft-thumbnail.jpg" alt="CDRA-derived graft track and recorded flight path" width="720" height="405" loading="lazy"/><span class="course-name">CDRA-derived graft</span><span class="course-type">Derived graft · 5 gates · 2.992 s</span></button><div class="downloads"><a href="assets/motion64/media/08-cdra-derived-graft.mp4">Flight video</a><a href="assets/motion64/media/08-cdra-derived-graft.gif">GIF</a></div></article></div>
-<p class="evidence-note">These curated flights illustrate execution on learned geometry. Five deterministic captures per main layout were clean in the supplied cohort; repeated deterministic episodes do not measure robustness or generalization.</p>
-<noscript><p>Enable JavaScript for the draggable 3D viewer. Every flight remains available through its video and GIF links above.</p></noscript>
-</div></section>
+<section class="block" id="architecture">
+<div class="wrap">
+<h2>Architecture</h2>
+<p class="abstract">Two networks sit in the control loop and share one interface. The planner turns the current observation into a motion latent <i>z</i>. The controller receives that same observation along with <i>z</i> and outputs the command. During controller pretraining, <i>z</i> came from an encoder that could see the expert's next 0.4 s of motion. The planner learns to produce that code from the present observation alone.</p>
+</div>
+<figure class="dg wide">
+<p class="dg-hint">Scroll sideways to see the full diagram →</p>
+<div class="dg-scroll" role="region" aria-label="Architecture diagram" tabindex="0">
+<svg viewBox="0 0 1000 452" role="img" aria-labelledby="arch-t arch-d">
+<title id="arch-t">Starscream architecture at run time</title>
+<desc id="arch-d">The current observation (vehicle state, previous command and the next two gates, 49 values) enters the planner: a transformer backbone pretrained as a world model, followed by an MLP projector that outputs a 64-dimensional motion latent z. A frozen feedback controller takes the observation together with z and outputs collective thrust and body rates to the simulated quadrotor at 130 Hz. During training only, a motion encoder that sees the expert's future motion produced the latent the planner learns to match.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#6b7280"/></marker>
+<marker id="ahp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c8641e"/></marker>
+</defs>
 
-<section class="section wrap" id="transfer"><p class="eyebrow">Separate development examples</p><h2>Two selected transfer flights</h2><p>These sampled successes use the same checkpoint as the learned-course gallery. Both layouts were absent from the training bank but had already been evaluated during development. Their cohort counts belong with the clips; they are not results from the separate zeroshot9 condition.</p><div class="transfer-grid"><figure class="transfer-card"><video controls loop muted playsinline preload="none" poster="assets/motion64/media/transfer/09-long-low-development-transfer-poster.jpg" aria-label="Long-low development transfer"><source src="assets/motion64/media/transfer/09-long-low-development-transfer.mp4" type="video/mp4"/></video><figcaption><b>Long-low development transfer</b><br/>3/17 clean completions in the sampled cohort. Selected stochastic success, 6.992 s; previously evaluated development geometry absent from the training bank.</figcaption></figure><figure class="transfer-card"><video controls loop muted playsinline preload="none" poster="assets/motion64/media/transfer/10-vertical-chain-development-transfer-poster.jpg" aria-label="Vertical-chain development transfer"><source src="assets/motion64/media/transfer/10-vertical-chain-development-transfer.mp4" type="video/mp4"/></video><figcaption><b>Vertical-chain development transfer</b><br/>4/17 clean completions in the sampled cohort. Selected stochastic success, 5.592 s; previously evaluated development geometry absent from the training bank.</figcaption></figure></div><p class="evidence-note">Generalized high-speed autonomy and eventual hardware transfer motivate this work. These selected development examples do not establish either outcome.</p></section>
+<!-- observation bypass to controller -->
+<path d="M115 150 V40 H900 V178" fill="none" stroke="#9aa1ab" stroke-width="1.5" marker-end="url(#ah)"/>
+<text class="s" x="420" y="31" text-anchor="middle">the controller also reads the current observation</text>
 
-<section class="section shade" id="conditions"><div class="wrap"><p class="eyebrow">Simulation contract</p><h2>A nominal lightweight racing plant</h2><p>This version uses perfect simulator state and an exact gate map, with no observation noise or dynamics randomization. The plant is an engineering model of a lightweight five-inch racer, rather than identified Swift or A2RL competition hardware.</p><dl class="plant-grid"><div><dt>Mass / arm</dt><dd>0.55 kg / 0.115 m center to motor</dd></div><div><dt>Static actuator capacity</dt><dd>45 N total thrust · 8.34× weight</dd></div><div><dt>Policy collective limit</dt><dd>65 m/s² · 35.75 N · 6.63× weight</dd></div><div><dt>Body-rate command limits</dt><dd>±6 rad/s on each axis</dd></div><div><dt>Control / physics</dt><dd>130 Hz / ≤2.5 ms physics steps</dd></div><div><dt>Motor response</dt><dd>40 ms physical time constant</dd></div><div><dt>Additional delays</dt><dd>0 command-delay ticks / 0 sensor delay</dd></div><div><dt>Collision model</dt><dd>0.15 m body radius</dd></div></dl><p>The policy cap is below the actuator’s static thrust capacity. Current commands affect the current control interval; physical motor lag remains. Inertia uses a symmetric mass/arm proxy rather than measured hardware inertia.</p><p class="source-links"><a href="assets/motion64/plant.json">Exact plant specification</a><a href="assets/motion64/stack.json">Architecture specification</a><a href="assets/motion64/manifest.json">Flight provenance and hashes</a></p></div></section>
+<!-- observation -->
+<rect x="20" y="150" width="190" height="180" rx="8" fill="#fff" stroke="#d1d5db" stroke-width="1.5"/>
+<text class="t" x="36" y="176">Observation</text>
+<text class="s" x="36" y="194">current tick only · 49 values</text>
+<g>
+<rect x="36" y="206" width="158" height="24" rx="4" fill="#f6f7f9"/><text x="46" y="223" style="font-size:12.5px">Vehicle state</text><text class="m" x="184" y="223" text-anchor="end">19</text>
+<rect x="36" y="234" width="158" height="24" rx="4" fill="#f6f7f9"/><text x="46" y="251" style="font-size:12.5px">Previous command</text><text class="m" x="184" y="251" text-anchor="end">4</text>
+<rect x="36" y="262" width="158" height="24" rx="4" fill="#f6f7f9"/><text x="46" y="279" style="font-size:12.5px">Next gate</text><text class="m" x="184" y="279" text-anchor="end">13</text>
+<rect x="36" y="290" width="158" height="24" rx="4" fill="#f6f7f9"/><text x="46" y="307" style="font-size:12.5px">Gate after next</text><text class="m" x="184" y="307" text-anchor="end">13</text>
+</g>
 
-<section class="section wrap" id="record"><p class="eyebrow">Research record</p><h2>Current preview and earlier study</h2><p>This preview documents the motion64 method and selected checkpoint as of October 27, 2026. The older three-seed MLP/LSTM/Transformer experiment remains available as an <a href="earlier-study.html">earlier supervised-controller study</a>. Its architecture, delay settings, and results describe that earlier system.</p><p>All current clips use checkpoint SHA-256 <code class="hash">7080f09c5a9f70ddc0f6bbfc880d0a8a0c20fd6dc2cb05fcc3eb089563a71641</code>. Public trajectory data preserves the recorded 130 Hz positions, orientations, ordered gates, and physical timing. Gate tilt and rectangular apertures are retained. The quad glyph is illustrative.</p><p>Method, implementation specifications, selected flight media, and provenance: Andrew Olvera. <a href="https://andrew-olvera-research.github.io/site/starscream/">Stable project URL</a> · <a href="../Andrew_Olvera_CV.pdf">CV</a>.</p><p class="coming">Preprint coming soon</p></section>
-</main><footer class="wrap">© 2026 Andrew Olvera · <a href="../">Research portfolio</a></footer><script src="scene3d.js"></script><script src="motion64.js"></script></body></html>
+<!-- planner -->
+<rect x="250" y="130" width="340" height="220" rx="10" fill="#eef3fa" stroke="#1f5a96" stroke-width="1.5"/>
+<text class="cap" x="266" y="155" fill="#1f5a96" style="fill:#1f5a96">PLANNER</text>
+<text class="s" x="574" y="155" text-anchor="end">220K parameters</text>
+<rect x="266" y="176" width="150" height="118" rx="6" fill="#fff" stroke="#1f5a96" stroke-width="1.2"/>
+<text class="t" x="280" y="201">Transformer</text>
+<text class="s" x="280" y="224">5 tokens, 1 layer</text>
+<text class="s" x="280" y="244">width 128, 4 heads</text>
+<text class="s" x="280" y="264">initialized from the</text>
+<text class="s" x="280" y="282">world model</text>
+<rect x="438" y="176" width="136" height="118" rx="6" fill="#fff" stroke="#1f5a96" stroke-width="1.2"/>
+<text class="t" x="452" y="201">Projector</text>
+<text class="s" x="452" y="224">MLP</text>
+<text class="m" x="452" y="244">128→256→64</text>
+<text class="s" x="452" y="264">tanh-bounded</text>
+<path d="M416 235 H434" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ah)"/>
+<text class="s" x="266" y="327">trained by alignment, then racing RL</text>
+<path d="M210 235 H262" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ah)"/>
+
+<!-- training-only encoder -->
+<rect x="606" y="66" width="140" height="80" rx="6" fill="#fdf3ea" stroke="#c8641e" stroke-width="1.4" stroke-dasharray="5 4"/>
+<text class="t" x="676" y="90" text-anchor="middle" style="font-size:14px">Motion encoder</text>
+<text class="s" x="676" y="109" text-anchor="middle">expert future, 0.4 s</text>
+<text class="s" x="676" y="128" text-anchor="middle" style="fill:#c8641e">training only</text>
+<path d="M676 146 V191" stroke="#c8641e" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ahp)"/>
+<text class="s" x="684" y="174" style="fill:#c8641e">target code</text>
+
+<!-- latent -->
+<rect x="618" y="195" width="116" height="80" rx="8" fill="#1f5a96"/>
+<text class="w" x="676" y="232" text-anchor="middle" style="font-family:var(--mono);font-size:24px;font-weight:600;fill:#fff">z</text>
+<text class="w" x="676" y="257" text-anchor="middle" style="font-size:12px;fill:#fff">64-D motion latent</text>
+<path d="M574 235 H614" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ah)"/>
+
+<!-- controller -->
+<rect x="772" y="130" width="208" height="220" rx="10" fill="#f3f4f6" stroke="#9aa1ab" stroke-width="1.5"/>
+<text class="cap" x="788" y="155" style="fill:#6b7280">CONTROLLER</text>
+<text class="s" x="964" y="155" text-anchor="end">frozen</text>
+<rect x="788" y="182" width="176" height="112" rx="6" fill="#fff" stroke="#9aa1ab" stroke-width="1.2"/>
+<text class="t" x="802" y="207">Feedback MLP</text>
+<text class="s" x="802" y="230">input: observation + z</text>
+<text class="m" x="802" y="250">113→256→256→128→4</text>
+<text class="s" x="802" y="272">128K parameters</text>
+<path d="M734 235 H784" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ah)"/>
+<text class="s" x="788" y="327">pretrained in stage 2</text>
+
+<!-- plant + loop -->
+<rect x="788" y="382" width="176" height="52" rx="6" fill="#fff" stroke="#d1d5db" stroke-width="1.5"/>
+<text class="t" x="876" y="404" text-anchor="middle" style="font-size:14px">Quadrotor</text>
+<text class="s" x="876" y="423" text-anchor="middle">simulated plant</text>
+<path d="M944 294 V378" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ah)"/>
+<text class="s" x="934" y="372" text-anchor="end">collective thrust + body rates</text>
+<path d="M788 408 H115 V334" fill="none" stroke="#9aa1ab" stroke-width="1.5" marker-end="url(#ah)"/>
+<text class="s" x="450" y="400" text-anchor="middle">next observation, every 7.7 ms</text>
+</svg>
+</div>
+<div class="key"><span><i class="k-tr"></i>Trained in the final racing stage</span><span><i class="k-fr"></i>Frozen</span><span><i class="k-pr"></i>Used only during training</span></div>
+</figure>
+
+<div class="wrap">
+<h3>What the policy sees</h3>
+<div class="cols-3" style="margin-top:14px">
+<article><h4>Vehicle state<span class="dim">19</span></h4><p>Position and velocity relative to the next gate in the body frame, orientation relative to the gate, body rates, and four motor speeds.</p></article>
+<article><h4>Previous command<span class="dim">4</span></h4><p>The collective thrust and three body rates sent on the last tick.</p></article>
+<article><h4>Next two gates<span class="dim">2 × 13</span></h4><p>The four corners of each gate, ordered and measured from the drone in its body frame, plus a validity flag.</p></article>
+</div>
+<p class="note">No observation history. The transformer attends across five tokens from the current tick (state, previous command, two gates, and a readout), not across time.</p>
+<dl class="specs">
+<div><dt>Backbone</dt><dd>1 layer · width 128 · 4 heads · SwiGLU</dd></div>
+<div><dt>Projector</dt><dd>128 → 256 → 64 · SiLU, tanh out</dd></div>
+<div><dt>Controller</dt><dd>113 → 256 → 256 → 128 → 4</dd></div>
+<div><dt>Command limits</dt><dd>≤ 65 m/s² collective · ±6 rad/s</dd></div>
+<div><dt>Planner parameters</dt><dd>220,352</dd></div>
+<div><dt>Controller parameters</dt><dd>128,388 (frozen)</dd></div>
+</dl>
+</div>
+</section>
+
+<section class="block shade" id="training">
+<div class="wrap">
+<h2>Training</h2>
+<p class="abstract">Each of the five stages trains one piece and hands it to the next. The table shows which network learns in which stage. Expert MPCC trajectories are used during pretraining and alignment. The final stage is pure racing reinforcement learning, with no expert data and no auxiliary losses.</p>
+</div>
+<figure class="dg wide">
+<p class="dg-hint">Scroll sideways to see all five stages →</p>
+<div class="dg-scroll" role="region" aria-label="Training stages table" tabindex="0">
+<table class="stages">
+<caption class="small" style="caption-side:bottom;text-align:left;margin-top:14px">Rows are networks, columns are stages in order. <i>Target</i>: the frozen encoder supplies the code the planner learns to predict.</caption>
+<thead><tr>
+<th scope="col" style="text-align:left"></th>
+<th scope="col"><u>1</u><b>World model</b><small>closed-loop flight data</small></th>
+<th scope="col"><u>2</u><b>Motion interface</b><small>expert trajectories</small></th>
+<th scope="col"><u>3</u><b>Latent alignment</b><small>JEPA-style</small></th>
+<th scope="col"><u>4</u><b>Physical alignment</b><small>closed-loop rollouts</small></th>
+<th scope="col"><u>5</u><b>Racing RL</b><small>PPO on courses</small></th>
+</tr></thead>
+<tbody>
+<tr><th scope="row">Transformer backbone<small>planner</small></th><td><span class="pill tr">trained</span></td><td><span class="pill na">—</span></td><td><span class="pill tr">trained</span></td><td><span class="pill tr">trained</span></td><td><span class="pill tr">trained</span></td></tr>
+<tr><th scope="row">Projector<small>planner</small></th><td><span class="pill na">—</span></td><td><span class="pill na">—</span></td><td><span class="pill tr">trained</span></td><td><span class="pill tr">trained</span></td><td><span class="pill tr">trained</span></td></tr>
+<tr><th scope="row">Motion encoder<small>training only</small></th><td><span class="pill na">—</span></td><td><span class="pill tr">trained</span></td><td><span class="pill tg">target</span></td><td><span class="pill na">—</span></td><td><span class="pill na">—</span></td></tr>
+<tr><th scope="row">Feedback controller<small>deployed</small></th><td><span class="pill na">—</span></td><td><span class="pill tr">trained</span></td><td><span class="pill na">—</span></td><td><span class="pill fr">frozen</span></td><td><span class="pill fr">frozen</span></td></tr>
+<tr class="obj"><th scope="row">Learning signal</th><td>Predict future physical state from executed commands</td><td>PPO reward for tracking expert motion</td><td>Match the encoder's code from the observation alone</td><td>Multistep state error through the frozen controller</td><td>Gate progress, passage and collision reward</td></tr>
+</tbody>
+</table>
+</div>
+</figure>
+
+<div class="wrap">
+<ol class="flow">
+<li><div class="st-h"><u>1</u><b>Learn the physics</b></div><p>An action-conditioned world model trains on closed-loop simulated flight. The transformer encodes state, previous command and two gates. It is trained with 32-tick autoregressive latent rollouts and physically scaled losses on state increments, including orientation and rotor dynamics. Only the backbone carries forward. The rollout and reconstruction heads are dropped.</p></li>
+<li><div class="st-h"><u>2</u><b>Learn an executable motion interface</b></div><p>An encoder compresses the current observation and eight samples of the expert's next 0.4 s of motion into a bounded 64-D code. The feedback controller sees only the current observation and that code. It is trained with PPO to track the expert, with resets to points along the reference. The expert's future reaches the controller only through the code.</p></li>
+<li><div class="st-h"><u>3</u><b>Align the planner to the code</b></div><p>The encoder is frozen and becomes a stop-gradient target. The planner, initialized from the world-model backbone, learns to predict the same 64-D code from the current observation. It has no access to the future. The projector warms up alone before the backbone is unfrozen.</p></li>
+<li><div class="st-h"><u>4</u><b>Align through the physics</b></div><p>The planner flies 52-tick windows through the frozen controller and plant. Each window starts from an expert state, then runs on the system's own achieved states, with the observation refreshed every tick. Errors in position, velocity, rotation, body rate and motor speed are measured against the expert at 13, 26 and 52 ticks and backpropagated through the rollout into the planner.</p></li>
+<li><div class="st-h"><u>5</u><b>Learn to race</b></div><p>Minibatch PPO trains the planner on a progress, gate-passage and collision reward with a shared critic. A two-gate, four-gate, then full-course curriculum and a learning-progress course sampler spread training across layouts. In the latest continuation, half of the training lanes keep the original seed courses and half fly lightly augmented, geometry-checked variants. The controller stays frozen throughout.</p></li>
+</ol>
+</div>
+</section>
+
+<section class="block" id="flights">
+<div class="wrap">
+<h2>Flights from the current checkpoint</h2>
+<p class="abstract">One policy flying eight layouts from its training set with the deterministic (mean) action. They include the exact Swift layout, a reconstruction of the A2RL arena, two MultiGP UTT tracks, and four augmented variants, or grafts, derived from public tracks. The layouts were chosen in advance and recorded without retries. All five recorded runs on each layout were clean.</p>
+</div>
+<div class="wide" style="margin-top:28px">
+<div class="scene3d" id="flight-viewer"></div>
+<div class="viewer-cap"><span><b id="course-title">Swift</b> · <span id="course-info">7 gates · 4.22 s</span></span><span>Drag to orbit · shift-drag to pan · scroll to zoom</span></div>
+<p id="replay-status" role="status" aria-live="polite"></p>
+<div class="tiles" role="group" aria-label="Choose a course">
+<div class="tile"><button type="button" data-course="0" aria-pressed="true"><img src="assets/motion64/media/01-swift-exact-thumbnail.jpg" alt="Swift layout with recorded flight path" width="720" height="405" loading="lazy"/><b>Swift</b><span>exact layout · 7 gates · 4.22 s</span></button><div class="dl"><a href="assets/motion64/media/01-swift-exact.mp4">Video</a><a href="assets/motion64/media/01-swift-exact.gif">GIF</a></div></div>
+<div class="tile"><button type="button" data-course="1" aria-pressed="false"><img src="assets/motion64/media/02-a2rl-arena-reconstruction-thumbnail.jpg" alt="A2RL arena reconstruction with recorded flight path" width="720" height="405" loading="lazy"/><b>A2RL arena</b><span>reconstruction · 12 gates · 7.95 s</span></button><div class="dl"><a href="assets/motion64/media/02-a2rl-arena-reconstruction.mp4">Video</a><a href="assets/motion64/media/02-a2rl-arena-reconstruction.gif">GIF</a></div></div>
+<div class="tile"><button type="button" data-course="2" aria-pressed="false"><img src="assets/motion64/media/03-utt03-bessel-run-thumbnail.jpg" alt="UTT03 Bessel Run with recorded flight path" width="720" height="405" loading="lazy"/><b>UTT03 Bessel Run</b><span>MultiGP · 5 gates · 4.71 s</span></button><div class="dl"><a href="assets/motion64/media/03-utt03-bessel-run.mp4">Video</a><a href="assets/motion64/media/03-utt03-bessel-run.gif">GIF</a></div></div>
+<div class="tile"><button type="button" data-course="3" aria-pressed="false"><img src="assets/motion64/media/04-utt05-nautilus-thumbnail.jpg" alt="UTT05 Nautilus with recorded flight path" width="720" height="405" loading="lazy"/><b>UTT05 Nautilus</b><span>MultiGP · 5 gates · 3.88 s</span></button><div class="dl"><a href="assets/motion64/media/04-utt05-nautilus.mp4">Video</a><a href="assets/motion64/media/04-utt05-nautilus.gif">GIF</a></div></div>
+<div class="tile"><button type="button" data-course="4" aria-pressed="false"><img src="assets/motion64/media/05-fury-derived-graft-thumbnail.jpg" alt="Fury-derived graft with recorded flight path" width="720" height="405" loading="lazy"/><b>Fury graft</b><span>augmented · 4 gates · 4.06 s</span></button><div class="dl"><a href="assets/motion64/media/05-fury-derived-graft.mp4">Video</a><a href="assets/motion64/media/05-fury-derived-graft.gif">GIF</a></div></div>
+<div class="tile"><button type="button" data-course="5" aria-pressed="false"><img src="assets/motion64/media/06-revenge-derived-graft-thumbnail.jpg" alt="Revenge-derived graft with recorded flight path" width="720" height="405" loading="lazy"/><b>Revenge graft</b><span>augmented · 5 gates · 5.41 s</span></button><div class="dl"><a href="assets/motion64/media/06-revenge-derived-graft.mp4">Video</a><a href="assets/motion64/media/06-revenge-derived-graft.gif">GIF</a></div></div>
+<div class="tile"><button type="button" data-course="6" aria-pressed="false"><img src="assets/motion64/media/07-a2rl-derived-graft-thumbnail.jpg" alt="A2RL-derived graft with recorded flight path" width="720" height="405" loading="lazy"/><b>A2RL graft</b><span>augmented · 12 gates · 9.24 s</span></button><div class="dl"><a href="assets/motion64/media/07-a2rl-derived-graft.mp4">Video</a><a href="assets/motion64/media/07-a2rl-derived-graft.gif">GIF</a></div></div>
+<div class="tile"><button type="button" data-course="7" aria-pressed="false"><img src="assets/motion64/media/08-cdra-derived-graft-thumbnail.jpg" alt="CDRA-derived graft with recorded flight path" width="720" height="405" loading="lazy"/><b>CDRA graft</b><span>augmented · 5 gates · 2.99 s</span></button><div class="dl"><a href="assets/motion64/media/08-cdra-derived-graft.mp4">Video</a><a href="assets/motion64/media/08-cdra-derived-graft.gif">GIF</a></div></div>
+</div>
+<noscript><p class="small">The 3D viewer needs JavaScript. Every flight is still available as a video or GIF above.</p></noscript>
+</div>
+
+<div class="wrap">
+<h3>Off the training set</h3>
+<p class="prose">These two layouts were not in the training set. Both were used earlier in development, so they are examples rather than a held-out benchmark. With the stochastic (sampled) policy, <span class="ct">3 of 17</span> and <span class="ct">4 of 17</span> attempts were clean. The videos show successful attempts. Reliable transfer to unseen layouts has not been shown yet.</p>
+<div class="pair">
+<figure><div class="frame"><video controls loop muted playsinline preload="none" poster="assets/motion64/media/transfer/09-long-low-development-transfer-poster.jpg" aria-label="Long-low layout, off the training set"><source src="assets/motion64/media/transfer/09-long-low-development-transfer.mp4" type="video/mp4"/></video></div><figcaption><b>Long-low</b> · 8 gates · 6.99 s · <span class="ct">3/17</span> clean</figcaption></figure>
+<figure><div class="frame"><video controls loop muted playsinline preload="none" poster="assets/motion64/media/transfer/10-vertical-chain-development-transfer-poster.jpg" aria-label="Vertical-chain layout, off the training set"><source src="assets/motion64/media/transfer/10-vertical-chain-development-transfer.mp4" type="video/mp4"/></video></div><figcaption><b>Vertical chain</b> · 8 gates · 5.59 s · <span class="ct">4/17</span> clean</figcaption></figure>
+</div>
+</div>
+</section>
+
+<section class="block shade" id="simulation">
+<div class="wrap">
+<h2>Simulation setup</h2>
+<p class="abstract">All flights use a nominal model of a lightweight five-inch racing quadrotor. It is an engineering model, not identified Swift or A2RL hardware. The policy receives perfect simulator state and an exact gate map, with no observation noise and no dynamics randomization.</p>
+<dl class="specs">
+<div><dt>Mass · arm length</dt><dd>0.55 kg · 0.115 m</dd></div>
+<div><dt>Static thrust</dt><dd>45 N · 8.3× weight</dd></div>
+<div><dt>Policy collective limit</dt><dd>65 m/s² · 35.75 N · 6.6× weight</dd></div>
+<div><dt>Body-rate limit</dt><dd>±6 rad/s per axis</dd></div>
+<div><dt>Control · physics step</dt><dd>130 Hz · ≤ 2.5 ms</dd></div>
+<div><dt>Motor time constant</dt><dd>40 ms</dd></div>
+<div><dt>Added command / sensor delay</dt><dd>none</dd></div>
+<div><dt>Collision radius</dt><dd>0.15 m</dd></div>
+</dl>
+<p class="small">Inertia uses a symmetric mass/arm approximation rather than measured values. Full specification: <a href="assets/motion64/plant.json">plant.json</a>.</p>
+</div>
+</section>
+
+<section class="block" id="status">
+<div class="wrap">
+<h2>Where this stands</h2>
+<div class="cols-2">
+<div><h4>Built and running</h4><ul class="list">
+<li>World-model pretraining of the planner backbone</li>
+<li>Pretrained feedback controller with a 64-D motion latent interface</li>
+<li>Latent and physical alignment of the planner to that interface</li>
+<li>Racing PPO with a gate curriculum and adaptive course sampling</li>
+<li>Clean laps on eight training layouts, including the exact Swift layout and the A2RL arena reconstruction</li>
+</ul></div>
+<div><h4>Not yet established</h4><ul class="list">
+<li>A held-out benchmark with multiple seeds and reported success rates</li>
+<li>Reliable transfer to unseen layouts (3/17 and 4/17 in the examples above)</li>
+<li>Ablations showing what each pretraining stage contributes</li>
+<li>Robustness to sensor noise, latency and vehicle variation</li>
+<li>Vision-based observations and hardware flight</li>
+</ul></div>
+</div>
+</div>
+</section>
+
+<section class="block shade" id="record">
+<div class="wrap">
+<h2>Research record</h2>
+<p class="abstract">Starscream has changed methods several times. Each stage below was published on this site, and the full history is in the <a href="https://github.com/andrew-olvera-research/site/commits/main/starscream">site's commit log</a>.</p>
+<ol class="log">
+<li><time>Sep 22, 2026</time><p><b>Supervised pretraining from an MPCC expert.</b> DAgger- and DART-style imitation with an auxiliary dynamics head.</p></li>
+<li><time>Sep 23, 2026</time><p><b>Vehicle randomization and distillation.</b> Randomized vehicles, a commanded-speed input, and teacher–student distillation toward camera-token students.</p></li>
+<li><time>Sep 30, 2026</time><p><b>Scaled supervised teacher.</b> A transformer pretrained on 65 qualified courses.</p></li>
+<li><time>Oct 13, 2026</time><p><b>Three-seed architecture comparison.</b> MLP, LSTM and transformer controllers that output commands directly. <a href="earlier-study.html">Read the earlier study →</a></p></li>
+<li class="now"><time>Oct 27, 2026</time><p><b>Method change: this page.</b> A world-model-pretrained planner over a frozen controller with a motion latent interface, trained with alignment and then racing RL.</p></li>
+</ol>
+
+<h3>What changed since the October 13 study</h3>
+<div class="scroll-x">
+<table class="then-now">
+<thead><tr><th></th><th>Earlier study (Oct 13)</th><th>Current (Oct 27)</th></tr></thead>
+<tbody>
+<tr><td>Policy output</td><td>Thrust and body rates, directly</td><td>A 64-D motion latent, executed by a frozen controller</td></tr>
+<tr><td>Training signal</td><td>Imitation of MPCC labels on visited states</td><td>Pretraining and alignment, then racing RL</td></tr>
+<tr><td>Inputs</td><td>State, vehicle settings, speed command, six gates</td><td>State, previous command, two gates</td></tr>
+<tr><td>History</td><td>Three rows, about 15 ms</td><td>None</td></tr>
+<tr><td>Size</td><td>About 5.84M parameters</td><td>349K parameters</td></tr>
+<tr><td>Plant</td><td>Nominal, 11 ms actuation delay</td><td>Nominal, no added delay</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="prov">
+<p>Method, implementation and recorded flights by Andrew Olvera. Every flight on this page comes from one checkpoint: update 5,037, after 1,450,656,000 cumulative environment steps, SHA-256 <code>7080f09c5a9f70ddc0f6bbfc880d0a8a0c20fd6dc2cb05fcc3eb089563a71641</code>. Trajectories are the recorded 130 Hz states. The quadrotor glyph in the viewer is illustrative.</p>
+<div class="links"><a href="assets/motion64/stack.json">Architecture spec</a><a href="assets/motion64/plant.json">Plant spec</a><a href="assets/motion64/manifest.json">Flight manifest and hashes</a><a href="../Andrew_Olvera_CV.pdf">CV</a></div>
+</div>
+<p class="soon-line">Preprint in preparation</p>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Andrew Olvera</span><a href="../">Research portfolio</a></div></footer>
+<script src="scene3d.js"></script>
+<script src="motion64.js"></script>
+</body>
+</html>

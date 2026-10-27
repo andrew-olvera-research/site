@@ -68,8 +68,8 @@ if errors: raise SystemExit('\n'.join(errors))
 # Current motion64 preview: public export integrity, split separation and physical timing.
 import hashlib, math
 current=(ROOT/'starscream/index.html').read_text(encoding='utf-8')
-assert '<title>Starscream</title>' in current and '<h1>Starscream</h1>' in current
-for phrase in ['3/17', '4/17', 'no temporal observation history', 'Preprint coming soon', '35.75 N', 'earlier-study.html']:
+assert '<title>Starscream</title>' in current and '<h1 class="title">Starscream' in current
+for phrase in ['3/17', '4/17', 'No observation history', 'Preprint in preparation', '35.75 N', 'earlier-study.html', 'Implementation review']:
     assert phrase in current, phrase
 base=ROOT/'starscream/assets/motion64'
 manifest=json.loads((base/'manifest.json').read_text())
