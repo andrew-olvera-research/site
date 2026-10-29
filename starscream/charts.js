@@ -141,6 +141,33 @@
     });
   }
 
+  // Interactive replay of the held-out flights (recorded 130 Hz states, drawn with Scene3D).
+  function flights() {
+    const host = document.getElementById('flight-viewer');
+    if (!host || !window.Scene3D) return;
+    const status = document.getElementById('replay-status');
+    const tiles = [...document.querySelectorAll('[data-flight]')];
+    const fail = e => { status.textContent = 'The 3D viewer could not load. Each flight is still available as a video.'; console.error(e); };
+    const viewer = new Scene3D(host);
+    let request = 0;
+    async function select(btn) {
+      const current = ++request, id = btn.dataset.flight;
+      status.textContent = 'Loading flight…';
+      const data = await Scene3D.fetch(`assets/flights/${id}.json`);
+      if (current !== request) return;
+      const [info] = btn.querySelectorAll(':scope > span:last-of-type');
+      data.name = id.toUpperCase();
+      viewer.load(data);
+      document.getElementById('course-title').textContent = id.toUpperCase();
+      document.getElementById('course-info').textContent = info.textContent;
+      tiles.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+      status.textContent = '';
+    }
+    tiles.forEach(b => b.addEventListener('click', () => select(b).catch(fail)));
+    select(tiles[0]).catch(fail);
+  }
+
   charts();
+  flights();
   inView();
 })();

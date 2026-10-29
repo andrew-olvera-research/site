@@ -9,7 +9,7 @@
 <link href="https://andrew-olvera-research.github.io/site/starscream/" rel="canonical"/>
 <meta content="Starscream: motion planning over a pretrained flight controller" property="og:title"/>
 <meta content="Andrew Olvera. Preprint coming soon." property="og:description"/>
-<meta content="https://andrew-olvera-research.github.io/site/starscream/assets/flights/outer-012-poster.jpg" property="og:image"/>
+<meta content="https://andrew-olvera-research.github.io/site/starscream/assets/flights/id-022-poster.jpg" property="og:image"/>
 <meta content="article" property="og:type"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -273,12 +273,13 @@
   .chart figcaption { margin-top: 8px; }
   .tip { position: absolute; pointer-events: none; background: #fff; border: 1px solid var(--line-2); border-radius: 4px; padding: 6px 9px;
          font-size: 12.5px; line-height: 1.45; color: var(--ink); box-shadow: 0 2px 8px rgba(0,0,0,.08); white-space: nowrap; display: none; z-index: 5; }
-  .flights { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 22px; margin-top: 26px; }
-  @media (max-width: 700px) { .flights { grid-template-columns: 1fr; } }
-  .flights figure { margin: 0; }
-  .flights video, .teaser video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #f6f8fa; display: block; }
-  .flights figcaption { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; margin-top: 8px; }
-  .flights figcaption > span:last-child { flex-basis: 100%; }
+  .teaser video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #f6f8fa; display: block; }
+  .flight-view { margin-top: 26px; }
+  .flight-view .tiles { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  @media (max-width: 900px) { .flight-view .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .tile .tile-h { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+  .tile .tile-h b { margin: 0; }
+  .tile .chip { font-size: 10px; padding: 0 6px; line-height: 1.7; }
   .chip { font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--muted); }
   .chip.near { border-color: #9db4cf; color: #2c5d8f; background: #f1f5fa; }
   .chip.outer { border-color: var(--accent); color: #fff; background: var(--accent); }
@@ -310,8 +311,8 @@
 </div>
 
 <figure class="teaser wide">
-<div class="frame"><video controls loop muted playsinline preload="metadata" data-inview poster="assets/flights/outer-012-poster.jpg" aria-label="Lap on held-out course OUTER-012"><source src="assets/flights/outer-012.mp4" type="video/mp4"/><a href="assets/flights/outer-012.mp4">Download the flight video</a></video></div>
-<figcaption><b>OUTER-012</b>, a held-out course well outside the training envelope: 7 gates, a 7.58 s lap, peak speed 40 m/s. Simulated, real-time playback.</figcaption>
+<div class="frame"><video controls loop muted playsinline preload="metadata" data-inview poster="assets/flights/id-022-poster.jpg" aria-label="Lap on held-out course ID-022"><source src="assets/flights/id-022.mp4" type="video/mp4"/><a href="assets/flights/id-022.mp4">Download the flight video</a></video></div>
+<figcaption><b>ID-022</b>, a new figure-eight course the policy never trained on: 8 gates in a 3.75 s lap, clean on all 9 trials. Simulated, real-time playback.</figcaption>
 </figure>
 
 <div class="band wrap">
@@ -515,18 +516,24 @@
 
 <div class="wide" id="flights">
 <h3 style="text-align:center;margin-top:56px">Flights on held-out courses</h3>
-<p class="prose" style="text-align:center;max-width:64ch;margin:0 auto">Ten courses chosen to show different layouts. The policy never trained on any of them. OUTER-006 is ID-010 stretched outward: the same layout, flown at 29 m/s on average instead of 23.</p>
-<div class="flights">
-<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/id-010-poster.jpg" aria-label="ID-010, hairpin, 6 gates, held-out course"><source src="assets/flights/id-010.mp4" type="video/mp4"/></video></div><figcaption><span class="chip id">In-distribution</span><b>ID-010</b><span>hairpin · 6 gates · 4.55 s lap · 9/9 clean</span></figcaption></figure>
-<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/id-011-poster.jpg" aria-label="ID-011, figure eight, 7 gates, held-out course"><source src="assets/flights/id-011.mp4" type="video/mp4"/></video></div><figcaption><span class="chip id">In-distribution</span><b>ID-011</b><span>figure eight · 7 gates · 3.83 s lap · 6/9 clean</span></figcaption></figure>
-<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/id-022-poster.jpg" aria-label="ID-022, figure eight, 8 gates, held-out course"><source src="assets/flights/id-022.mp4" type="video/mp4"/></video></div><figcaption><span class="chip id">In-distribution</span><b>ID-022</b><span>figure eight · 8 gates · 3.75 s lap · 9/9 clean</span></figcaption></figure>
-<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/near-001-poster.jpg" aria-label="NEAR-001, chicane, 7 gates, held-out course"><source src="assets/flights/near-001.mp4" type="video/mp4"/></video></div><figcaption><span class="chip near">Near</span><b>NEAR-001</b><span>chicane · wider precision · 7 gates · 5.06 s lap · 5/9 clean</span></figcaption></figure>
-<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/near-011-poster.jpg" aria-label="NEAR-011, figure eight, 6 gates, held-out course"><source src="assets/flights/near-011.mp4" type="video/mp4"/></video></div><figcaption><span class="chip near">Near</span><b>NEAR-011</b><span>figure eight · wider and faster · 6 gates · 4.09 s lap · 9/9 clean</span></figcaption></figure>
-<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/near-018-poster.jpg" aria-label="NEAR-018, figure eight, 7 gates, held-out course"><source src="assets/flights/near-018.mp4" type="video/mp4"/></video></div><figcaption><span class="chip near">Near</span><b>NEAR-018</b><span>figure eight · vertical shift · 7 gates · 4.28 s lap · 6/9 clean</span></figcaption></figure>
-<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/outer-006-poster.jpg" aria-label="OUTER-006, hairpin, 6 gates, held-out course"><source src="assets/flights/outer-006.mp4" type="video/mp4"/></video></div><figcaption><span class="chip outer">Outer</span><b>OUTER-006</b><span>hairpin · wider and faster · 6 gates · 6.09 s lap · 9/9 clean</span></figcaption></figure>
-<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/outer-012-poster.jpg" aria-label="OUTER-012, flow, 7 gates, held-out course"><source src="assets/flights/outer-012.mp4" type="video/mp4"/></video></div><figcaption><span class="chip outer">Outer</span><b>OUTER-012</b><span>flow · wider and faster · 7 gates · 7.58 s lap · 9/9 clean</span></figcaption></figure>
-<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/outer-017-poster.jpg" aria-label="OUTER-017, figure eight, 6 gates, held-out course"><source src="assets/flights/outer-017.mp4" type="video/mp4"/></video></div><figcaption><span class="chip outer">Outer</span><b>OUTER-017</b><span>figure eight · wider and faster · 6 gates · 4.22 s lap · 9/9 clean</span></figcaption></figure>
-<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/id-008-poster.jpg" aria-label="ID-008, chicane, 14 gates, held-out course"><source src="assets/flights/id-008.mp4" type="video/mp4"/></video></div><figcaption><span class="chip id">In-distribution</span><b>ID-008</b><span>chicane · 14 gates · 6.02 s lap · 9/9 clean · dense 14-gate layout</span></figcaption></figure>
+<p class="prose" style="text-align:center;max-width:64ch;margin:0 auto">Ten courses chosen to show different layouts, replayed from the recorded flight states. The policy never trained on any of them. Pick a course, then drag to see the flight in 3D. OUTER-006 is ID-010 stretched outward: the same layout, flown at 29 m/s on average instead of 23.</p>
+<div class="flight-view">
+<div class="scene3d" id="flight-viewer"></div>
+<div class="viewer-cap"><span><b id="course-title">ID-010</b> · <span id="course-info">hairpin · 6 gates · 4.55 s lap</span></span><span>Drag to orbit · shift-drag to pan · scroll to zoom</span></div>
+<p id="replay-status" role="status" aria-live="polite"></p>
+<div class="tiles" role="group" aria-label="Choose a held-out course">
+<div class="tile"><button type="button" data-flight="id-010" aria-pressed="true"><img src="assets/flights/id-010-thumb.jpg" alt="ID-010 course and recorded flight path" width="640" height="360" loading="lazy"/><span class="tile-h"><span class="chip id">In-distribution</span><b>ID-010</b></span><span>hairpin · 6 gates · 4.55 s · 9/9 clean</span></button><div class="dl"><a href="assets/flights/id-010.mp4">Video</a></div></div>
+<div class="tile"><button type="button" data-flight="id-011" aria-pressed="false"><img src="assets/flights/id-011-thumb.jpg" alt="ID-011 course and recorded flight path" width="640" height="360" loading="lazy"/><span class="tile-h"><span class="chip id">In-distribution</span><b>ID-011</b></span><span>figure eight · 7 gates · 3.83 s · 6/9 clean</span></button><div class="dl"><a href="assets/flights/id-011.mp4">Video</a></div></div>
+<div class="tile"><button type="button" data-flight="id-022" aria-pressed="false"><img src="assets/flights/id-022-thumb.jpg" alt="ID-022 course and recorded flight path" width="640" height="360" loading="lazy"/><span class="tile-h"><span class="chip id">In-distribution</span><b>ID-022</b></span><span>figure eight · 8 gates · 3.75 s · 9/9 clean</span></button><div class="dl"><a href="assets/flights/id-022.mp4">Video</a></div></div>
+<div class="tile"><button type="button" data-flight="near-001" aria-pressed="false"><img src="assets/flights/near-001-thumb.jpg" alt="NEAR-001 course and recorded flight path" width="640" height="360" loading="lazy"/><span class="tile-h"><span class="chip near">Near</span><b>NEAR-001</b></span><span>chicane · wider precision · 7 gates · 5.06 s · 5/9 clean</span></button><div class="dl"><a href="assets/flights/near-001.mp4">Video</a></div></div>
+<div class="tile"><button type="button" data-flight="near-011" aria-pressed="false"><img src="assets/flights/near-011-thumb.jpg" alt="NEAR-011 course and recorded flight path" width="640" height="360" loading="lazy"/><span class="tile-h"><span class="chip near">Near</span><b>NEAR-011</b></span><span>figure eight · wider and faster · 6 gates · 4.09 s · 9/9 clean</span></button><div class="dl"><a href="assets/flights/near-011.mp4">Video</a></div></div>
+<div class="tile"><button type="button" data-flight="near-018" aria-pressed="false"><img src="assets/flights/near-018-thumb.jpg" alt="NEAR-018 course and recorded flight path" width="640" height="360" loading="lazy"/><span class="tile-h"><span class="chip near">Near</span><b>NEAR-018</b></span><span>figure eight · vertical shift · 7 gates · 4.28 s · 6/9 clean</span></button><div class="dl"><a href="assets/flights/near-018.mp4">Video</a></div></div>
+<div class="tile"><button type="button" data-flight="outer-006" aria-pressed="false"><img src="assets/flights/outer-006-thumb.jpg" alt="OUTER-006 course and recorded flight path" width="640" height="360" loading="lazy"/><span class="tile-h"><span class="chip outer">Outer</span><b>OUTER-006</b></span><span>hairpin · wider and faster · 6 gates · 6.09 s · 9/9 clean</span></button><div class="dl"><a href="assets/flights/outer-006.mp4">Video</a></div></div>
+<div class="tile"><button type="button" data-flight="outer-012" aria-pressed="false"><img src="assets/flights/outer-012-thumb.jpg" alt="OUTER-012 course and recorded flight path" width="640" height="360" loading="lazy"/><span class="tile-h"><span class="chip outer">Outer</span><b>OUTER-012</b></span><span>flow · wider and faster · 7 gates · 7.58 s · 9/9 clean</span></button><div class="dl"><a href="assets/flights/outer-012.mp4">Video</a></div></div>
+<div class="tile"><button type="button" data-flight="outer-017" aria-pressed="false"><img src="assets/flights/outer-017-thumb.jpg" alt="OUTER-017 course and recorded flight path" width="640" height="360" loading="lazy"/><span class="tile-h"><span class="chip outer">Outer</span><b>OUTER-017</b></span><span>figure eight · wider and faster · 6 gates · 4.22 s · 9/9 clean</span></button><div class="dl"><a href="assets/flights/outer-017.mp4">Video</a></div></div>
+<div class="tile"><button type="button" data-flight="id-008" aria-pressed="false"><img src="assets/flights/id-008-thumb.jpg" alt="ID-008 course and recorded flight path" width="640" height="360" loading="lazy"/><span class="tile-h"><span class="chip id">In-distribution</span><b>ID-008</b></span><span>chicane · 14 gates · 6.02 s · 9/9 clean</span></button><div class="dl"><a href="assets/flights/id-008.mp4">Video</a></div></div>
+</div>
+<noscript><p class="small">The 3D viewer needs JavaScript. Each flight is still available as a video.</p></noscript>
 </div>
 </div>
 
@@ -549,6 +556,7 @@
 </main>
 
 <footer><div class="wrap"><span>© 2026 Andrew Olvera</span></div></footer>
+<script src="scene3d.js"></script>
 <script src="charts.js"></script>
 </body>
 </html>
