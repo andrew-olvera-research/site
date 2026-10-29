@@ -1,0 +1,1237 @@
+{
+ "date": "2026-10-29",
+ "checkpoint_sha256": "a35f9874863f94b72d30a8c33c3585eb4400e19bc01f972b061c0c95305f1cba",
+ "rl_transitions": 696729600,
+ "protocol": "80 held-out courses (40 ID, 20 near, 20 outer); 9 trials each (1 deterministic, 8 sampled); cold start 2 m before gate 0; clean closed lap",
+ "bands": {
+  "full_val": {
+   "id": {
+    "clean": 309,
+    "attempts": 360,
+    "clean_rate": 0.8583,
+    "mean_clean_lap_s": 5.821,
+    "mean_clean_speed_mps": 19.65
+   },
+   "near": {
+    "clean": 69,
+    "attempts": 180,
+    "clean_rate": 0.3833,
+    "mean_clean_lap_s": 5.712,
+    "mean_clean_speed_mps": 22.7
+   },
+   "outer": {
+    "clean": 58,
+    "attempts": 180,
+    "clean_rate": 0.3222,
+    "mean_clean_lap_s": 6.267,
+    "mean_clean_speed_mps": 24.02
+   }
+  },
+  "no_jepa_val": {
+   "id": {
+    "clean": 292,
+    "attempts": 360,
+    "clean_rate": 0.8111,
+    "mean_clean_lap_s": 6.474,
+    "mean_clean_speed_mps": 16.71
+   },
+   "near": {
+    "clean": 70,
+    "attempts": 180,
+    "clean_rate": 0.3889,
+    "mean_clean_lap_s": 5.982,
+    "mean_clean_speed_mps": 19.54
+   },
+   "outer": {
+    "clean": 65,
+    "attempts": 180,
+    "clean_rate": 0.3611,
+    "mean_clean_lap_s": 6.616,
+    "mean_clean_speed_mps": 21.87
+   }
+  }
+ },
+ "courses": [
+  {
+   "course": "id-000",
+   "band": "id",
+   "family": "hairpin",
+   "direction": null,
+   "gates": 6,
+   "distance": 0.8319,
+   "clean": 8,
+   "trials": 9
+  },
+  {
+   "course": "id-001",
+   "band": "id",
+   "family": "chicane",
+   "direction": null,
+   "gates": 7,
+   "distance": 0.9431,
+   "clean": 8,
+   "trials": 9
+  },
+  {
+   "course": "id-002",
+   "band": "id",
+   "family": "hairpin",
+   "direction": null,
+   "gates": 8,
+   "distance": 0.584,
+   "clean": 8,
+   "trials": 9
+  },
+  {
+   "course": "id-003",
+   "band": "id",
+   "family": "figure_eight",
+   "direction": null,
+   "gates": 9,
+   "distance": 0.3346,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-004",
+   "band": "id",
+   "family": "flow",
+   "direction": null,
+   "gates": 10,
+   "distance": 0.4794,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-005",
+   "band": "id",
+   "family": "hairpin",
+   "direction": null,
+   "gates": 11,
+   "distance": 0.4866,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-006",
+   "band": "id",
+   "family": "hairpin",
+   "direction": null,
+   "gates": 12,
+   "distance": 0.4002,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-007",
+   "band": "id",
+   "family": "flow",
+   "direction": null,
+   "gates": 13,
+   "distance": 0.714,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-008",
+   "band": "id",
+   "family": "chicane",
+   "direction": null,
+   "gates": 14,
+   "distance": 0.4267,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-009",
+   "band": "id",
+   "family": "chicane",
+   "direction": null,
+   "gates": 15,
+   "distance": 0.3808,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-010",
+   "band": "id",
+   "family": "hairpin",
+   "direction": null,
+   "gates": 6,
+   "distance": 0.7392,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-011",
+   "band": "id",
+   "family": "figure_eight",
+   "direction": null,
+   "gates": 7,
+   "distance": 0.578,
+   "clean": 6,
+   "trials": 9
+  },
+  {
+   "course": "id-012",
+   "band": "id",
+   "family": "hairpin",
+   "direction": null,
+   "gates": 8,
+   "distance": 0.5356,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-013",
+   "band": "id",
+   "family": "flow",
+   "direction": null,
+   "gates": 9,
+   "distance": 0.4041,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-014",
+   "band": "id",
+   "family": "flow",
+   "direction": null,
+   "gates": 10,
+   "distance": 0.3778,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-015",
+   "band": "id",
+   "family": "chicane",
+   "direction": null,
+   "gates": 11,
+   "distance": 0.6604,
+   "clean": 7,
+   "trials": 9
+  },
+  {
+   "course": "id-016",
+   "band": "id",
+   "family": "figure_eight",
+   "direction": null,
+   "gates": 12,
+   "distance": 0.3422,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-017",
+   "band": "id",
+   "family": "slalom",
+   "direction": null,
+   "gates": 13,
+   "distance": 0.8269,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "id-018",
+   "band": "id",
+   "family": "chicane",
+   "direction": null,
+   "gates": 14,
+   "distance": 0.6815,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-019",
+   "band": "id",
+   "family": "hairpin",
+   "direction": null,
+   "gates": 15,
+   "distance": 0.5339,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-020",
+   "band": "id",
+   "family": "figure_eight",
+   "direction": null,
+   "gates": 6,
+   "distance": 0.7885,
+   "clean": 7,
+   "trials": 9
+  },
+  {
+   "course": "id-021",
+   "band": "id",
+   "family": "flow",
+   "direction": null,
+   "gates": 7,
+   "distance": 0.5311,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-022",
+   "band": "id",
+   "family": "figure_eight",
+   "direction": null,
+   "gates": 8,
+   "distance": 0.5181,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-023",
+   "band": "id",
+   "family": "hairpin",
+   "direction": null,
+   "gates": 9,
+   "distance": 0.5008,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-024",
+   "band": "id",
+   "family": "chicane",
+   "direction": null,
+   "gates": 10,
+   "distance": 0.7192,
+   "clean": 5,
+   "trials": 9
+  },
+  {
+   "course": "id-025",
+   "band": "id",
+   "family": "figure_eight",
+   "direction": null,
+   "gates": 11,
+   "distance": 0.4437,
+   "clean": 8,
+   "trials": 9
+  },
+  {
+   "course": "id-026",
+   "band": "id",
+   "family": "hairpin",
+   "direction": null,
+   "gates": 12,
+   "distance": 0.465,
+   "clean": 6,
+   "trials": 9
+  },
+  {
+   "course": "id-027",
+   "band": "id",
+   "family": "figure_eight",
+   "direction": null,
+   "gates": 13,
+   "distance": 0.2869,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-028",
+   "band": "id",
+   "family": "figure_eight",
+   "direction": null,
+   "gates": 14,
+   "distance": 0.6964,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-029",
+   "band": "id",
+   "family": "figure_eight",
+   "direction": null,
+   "gates": 15,
+   "distance": 0.3902,
+   "clean": 8,
+   "trials": 9
+  },
+  {
+   "course": "id-030",
+   "band": "id",
+   "family": "figure_eight",
+   "direction": null,
+   "gates": 6,
+   "distance": 0.6136,
+   "clean": 8,
+   "trials": 9
+  },
+  {
+   "course": "id-031",
+   "band": "id",
+   "family": "figure_eight",
+   "direction": null,
+   "gates": 7,
+   "distance": 0.6416,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-032",
+   "band": "id",
+   "family": "figure_eight",
+   "direction": null,
+   "gates": 8,
+   "distance": 0.5685,
+   "clean": 7,
+   "trials": 9
+  },
+  {
+   "course": "id-033",
+   "band": "id",
+   "family": "figure_eight",
+   "direction": null,
+   "gates": 9,
+   "distance": 0.6218,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "id-034",
+   "band": "id",
+   "family": "hairpin",
+   "direction": null,
+   "gates": 10,
+   "distance": 0.4758,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-035",
+   "band": "id",
+   "family": "flow",
+   "direction": null,
+   "gates": 11,
+   "distance": 0.4346,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-036",
+   "band": "id",
+   "family": "slalom",
+   "direction": null,
+   "gates": 12,
+   "distance": 0.6397,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "id-037",
+   "band": "id",
+   "family": "chicane",
+   "direction": null,
+   "gates": 13,
+   "distance": 0.551,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "id-038",
+   "band": "id",
+   "family": "flow",
+   "direction": null,
+   "gates": 14,
+   "distance": 0.3658,
+   "clean": 7,
+   "trials": 9
+  },
+  {
+   "course": "id-039",
+   "band": "id",
+   "family": "figure_eight",
+   "direction": null,
+   "gates": 15,
+   "distance": 0.4279,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "near-000",
+   "band": "near",
+   "family": "hairpin",
+   "direction": "compressed_precision",
+   "gates": 6,
+   "distance": 1.0234,
+   "clean": 2,
+   "trials": 9
+  },
+  {
+   "course": "near-001",
+   "band": "near",
+   "family": "chicane",
+   "direction": "expanded_precision",
+   "gates": 7,
+   "distance": 1.007,
+   "clean": 5,
+   "trials": 9
+  },
+  {
+   "course": "near-002",
+   "band": "near",
+   "family": "figure_eight",
+   "direction": "compressed_precision",
+   "gates": 9,
+   "distance": 1.025,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "near-003",
+   "band": "near",
+   "family": "hairpin",
+   "direction": "expanded_precision",
+   "gates": 11,
+   "distance": 1.0183,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "near-004",
+   "band": "near",
+   "family": "chicane",
+   "direction": "expanded_precision",
+   "gates": 14,
+   "distance": 1.031,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "near-005",
+   "band": "near",
+   "family": "chicane",
+   "direction": "compressed_precision",
+   "gates": 15,
+   "distance": 1.0141,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "near-006",
+   "band": "near",
+   "family": "hairpin",
+   "direction": "expanded_wide",
+   "gates": 6,
+   "distance": 1.0201,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "near-007",
+   "band": "near",
+   "family": "flow",
+   "direction": "vertical",
+   "gates": 10,
+   "distance": 1.026,
+   "clean": 8,
+   "trials": 9
+  },
+  {
+   "course": "near-008",
+   "band": "near",
+   "family": "figure_eight",
+   "direction": "expanded_precision",
+   "gates": 12,
+   "distance": 1.0069,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "near-009",
+   "band": "near",
+   "family": "slalom",
+   "direction": "vertical",
+   "gates": 13,
+   "distance": 1.0465,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "near-010",
+   "band": "near",
+   "family": "chicane",
+   "direction": "vertical",
+   "gates": 14,
+   "distance": 1.0256,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "near-011",
+   "band": "near",
+   "family": "figure_eight",
+   "direction": "expanded_wide",
+   "gates": 6,
+   "distance": 1.0279,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "near-012",
+   "band": "near",
+   "family": "flow",
+   "direction": "expanded_wide",
+   "gates": 7,
+   "distance": 1.0336,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "near-013",
+   "band": "near",
+   "family": "chicane",
+   "direction": "compressed_precision",
+   "gates": 10,
+   "distance": 1.0293,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "near-014",
+   "band": "near",
+   "family": "figure_eight",
+   "direction": "vertical",
+   "gates": 11,
+   "distance": 1.0558,
+   "clean": 5,
+   "trials": 9
+  },
+  {
+   "course": "near-015",
+   "band": "near",
+   "family": "figure_eight",
+   "direction": "expanded_precision",
+   "gates": 13,
+   "distance": 1.022,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "near-016",
+   "band": "near",
+   "family": "figure_eight",
+   "direction": "expanded_precision",
+   "gates": 15,
+   "distance": 1.0292,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "near-017",
+   "band": "near",
+   "family": "figure_eight",
+   "direction": "expanded_wide",
+   "gates": 6,
+   "distance": 1.0629,
+   "clean": 7,
+   "trials": 9
+  },
+  {
+   "course": "near-018",
+   "band": "near",
+   "family": "figure_eight",
+   "direction": "vertical",
+   "gates": 7,
+   "distance": 1.0691,
+   "clean": 6,
+   "trials": 9
+  },
+  {
+   "course": "near-019",
+   "band": "near",
+   "family": "figure_eight",
+   "direction": "compressed_precision",
+   "gates": 9,
+   "distance": 1.0052,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "outer-000",
+   "band": "outer",
+   "family": "hairpin",
+   "direction": "compressed_precision",
+   "gates": 6,
+   "distance": 1.2953,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "outer-001",
+   "band": "outer",
+   "family": "chicane",
+   "direction": "expanded_precision",
+   "gates": 7,
+   "distance": 1.2606,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "outer-002",
+   "band": "outer",
+   "family": "figure_eight",
+   "direction": "compressed_precision",
+   "gates": 9,
+   "distance": 1.2701,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "outer-003",
+   "band": "outer",
+   "family": "hairpin",
+   "direction": "expanded_precision",
+   "gates": 11,
+   "distance": 1.263,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "outer-004",
+   "band": "outer",
+   "family": "chicane",
+   "direction": "expanded_precision",
+   "gates": 14,
+   "distance": 1.2659,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "outer-005",
+   "band": "outer",
+   "family": "chicane",
+   "direction": "compressed_precision",
+   "gates": 15,
+   "distance": 1.2593,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "outer-006",
+   "band": "outer",
+   "family": "hairpin",
+   "direction": "expanded_wide",
+   "gates": 6,
+   "distance": 1.2569,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "outer-007",
+   "band": "outer",
+   "family": "flow",
+   "direction": "vertical",
+   "gates": 10,
+   "distance": 1.2865,
+   "clean": 8,
+   "trials": 9
+  },
+  {
+   "course": "outer-008",
+   "band": "outer",
+   "family": "figure_eight",
+   "direction": "expanded_precision",
+   "gates": 12,
+   "distance": 1.287,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "outer-009",
+   "band": "outer",
+   "family": "slalom",
+   "direction": "vertical",
+   "gates": 13,
+   "distance": 1.3389,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "outer-010",
+   "band": "outer",
+   "family": "chicane",
+   "direction": "vertical",
+   "gates": 14,
+   "distance": 1.2846,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "outer-011",
+   "band": "outer",
+   "family": "figure_eight",
+   "direction": "expanded_wide",
+   "gates": 6,
+   "distance": 1.2526,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "outer-012",
+   "band": "outer",
+   "family": "flow",
+   "direction": "expanded_wide",
+   "gates": 7,
+   "distance": 1.2553,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "outer-013",
+   "band": "outer",
+   "family": "chicane",
+   "direction": "compressed_precision",
+   "gates": 10,
+   "distance": 1.3031,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "outer-014",
+   "band": "outer",
+   "family": "figure_eight",
+   "direction": "vertical",
+   "gates": 11,
+   "distance": 1.2848,
+   "clean": 5,
+   "trials": 9
+  },
+  {
+   "course": "outer-015",
+   "band": "outer",
+   "family": "figure_eight",
+   "direction": "expanded_precision",
+   "gates": 13,
+   "distance": 1.2528,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "outer-016",
+   "band": "outer",
+   "family": "figure_eight",
+   "direction": "expanded_precision",
+   "gates": 15,
+   "distance": 1.2704,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "outer-017",
+   "band": "outer",
+   "family": "figure_eight",
+   "direction": "expanded_wide",
+   "gates": 6,
+   "distance": 1.3079,
+   "clean": 9,
+   "trials": 9
+  },
+  {
+   "course": "outer-018",
+   "band": "outer",
+   "family": "figure_eight",
+   "direction": "vertical",
+   "gates": 7,
+   "distance": 1.2539,
+   "clean": 0,
+   "trials": 9
+  },
+  {
+   "course": "outer-019",
+   "band": "outer",
+   "family": "figure_eight",
+   "direction": "compressed_precision",
+   "gates": 9,
+   "distance": 1.2736,
+   "clean": 0,
+   "trials": 9
+  }
+ ],
+ "jepa": {
+  "id": {
+   "paired_trials": 265,
+   "extra_seconds": 0.878,
+   "extra_seconds_ci95": [
+    0.713,
+    1.035
+   ],
+   "slower_fraction": 0.1517,
+   "per_course": [
+    {
+     "course": "id-000",
+     "slower_fraction": 0.2025
+    },
+    {
+     "course": "id-001",
+     "slower_fraction": 0.1542
+    },
+    {
+     "course": "id-002",
+     "slower_fraction": 0.1319
+    },
+    {
+     "course": "id-003",
+     "slower_fraction": 0.1509
+    },
+    {
+     "course": "id-004",
+     "slower_fraction": 0.1726
+    },
+    {
+     "course": "id-005",
+     "slower_fraction": 0.1432
+    },
+    {
+     "course": "id-006",
+     "slower_fraction": 0.1299
+    },
+    {
+     "course": "id-007",
+     "slower_fraction": 0.1736
+    },
+    {
+     "course": "id-008",
+     "slower_fraction": 0.202
+    },
+    {
+     "course": "id-009",
+     "slower_fraction": 0.1873
+    },
+    {
+     "course": "id-010",
+     "slower_fraction": 0.0887
+    },
+    {
+     "course": "id-011",
+     "slower_fraction": 0.1717
+    },
+    {
+     "course": "id-012",
+     "slower_fraction": 0.1423
+    },
+    {
+     "course": "id-013",
+     "slower_fraction": 0.1309
+    },
+    {
+     "course": "id-014",
+     "slower_fraction": 0.1315
+    },
+    {
+     "course": "id-015",
+     "slower_fraction": 0.3365
+    },
+    {
+     "course": "id-016",
+     "slower_fraction": 0.2099
+    },
+    {
+     "course": "id-018",
+     "slower_fraction": 0.1817
+    },
+    {
+     "course": "id-019",
+     "slower_fraction": 0.1881
+    },
+    {
+     "course": "id-020",
+     "slower_fraction": -0.1409
+    },
+    {
+     "course": "id-021",
+     "slower_fraction": 0.0955
+    },
+    {
+     "course": "id-022",
+     "slower_fraction": 0.2327
+    },
+    {
+     "course": "id-023",
+     "slower_fraction": 0.1175
+    },
+    {
+     "course": "id-024",
+     "slower_fraction": -0.0131
+    },
+    {
+     "course": "id-026",
+     "slower_fraction": 0.1409
+    },
+    {
+     "course": "id-027",
+     "slower_fraction": 0.1701
+    },
+    {
+     "course": "id-028",
+     "slower_fraction": 0.2147
+    },
+    {
+     "course": "id-029",
+     "slower_fraction": 0.2329
+    },
+    {
+     "course": "id-030",
+     "slower_fraction": 0.1296
+    },
+    {
+     "course": "id-031",
+     "slower_fraction": 0.1265
+    },
+    {
+     "course": "id-032",
+     "slower_fraction": 0.1398
+    },
+    {
+     "course": "id-034",
+     "slower_fraction": 0.1352
+    },
+    {
+     "course": "id-035",
+     "slower_fraction": 0.1422
+    },
+    {
+     "course": "id-037",
+     "slower_fraction": 0.1794
+    },
+    {
+     "course": "id-038",
+     "slower_fraction": 0.1271
+    },
+    {
+     "course": "id-039",
+     "slower_fraction": 0.2007
+    }
+   ]
+  },
+  "near": {
+   "paired_trials": 51,
+   "extra_seconds": 0.848,
+   "extra_seconds_ci95": [
+    0.55,
+    1.198
+   ],
+   "slower_fraction": 0.1706,
+   "per_course": [
+    {
+     "course": "near-000",
+     "slower_fraction": 0.2367
+    },
+    {
+     "course": "near-001",
+     "slower_fraction": 0.1335
+    },
+    {
+     "course": "near-006",
+     "slower_fraction": 0.079
+    },
+    {
+     "course": "near-007",
+     "slower_fraction": 0.1322
+    },
+    {
+     "course": "near-010",
+     "slower_fraction": 0.2343
+    },
+    {
+     "course": "near-011",
+     "slower_fraction": 0.1143
+    },
+    {
+     "course": "near-012",
+     "slower_fraction": 0.0771
+    },
+    {
+     "course": "near-017",
+     "slower_fraction": 0.0858
+    },
+    {
+     "course": "near-018",
+     "slower_fraction": 0.4424
+    }
+   ]
+  },
+  "outer": {
+   "paired_trials": 45,
+   "extra_seconds": 0.856,
+   "extra_seconds_ci95": [
+    0.469,
+    1.419
+   ],
+   "slower_fraction": 0.1363,
+   "per_course": [
+    {
+     "course": "outer-006",
+     "slower_fraction": 0.0773
+    },
+    {
+     "course": "outer-007",
+     "slower_fraction": 0.1342
+    },
+    {
+     "course": "outer-010",
+     "slower_fraction": 0.3209
+    },
+    {
+     "course": "outer-011",
+     "slower_fraction": 0.1049
+    },
+    {
+     "course": "outer-012",
+     "slower_fraction": 0.0604
+    },
+    {
+     "course": "outer-017",
+     "slower_fraction": 0.1203
+    }
+   ]
+  }
+ },
+ "flights": [
+  {
+   "id": "id-010",
+   "band": "id",
+   "family": "hairpin",
+   "direction": null,
+   "gates": 6,
+   "distance": 0.739,
+   "lap_seconds": 4.546,
+   "mean_speed_mps": 22.6,
+   "peak_speed_mps": 29.2,
+   "clean": 9,
+   "trials": 9,
+   "mode": "mean"
+  },
+  {
+   "id": "id-011",
+   "band": "id",
+   "family": "figure_eight",
+   "direction": null,
+   "gates": 7,
+   "distance": 0.578,
+   "lap_seconds": 3.831,
+   "mean_speed_mps": 13.2,
+   "peak_speed_mps": 18.1,
+   "clean": 6,
+   "trials": 9,
+   "mode": "sampled"
+  },
+  {
+   "id": "id-022",
+   "band": "id",
+   "family": "figure_eight",
+   "direction": null,
+   "gates": 8,
+   "distance": 0.518,
+   "lap_seconds": 3.746,
+   "mean_speed_mps": 11.1,
+   "peak_speed_mps": 17.1,
+   "clean": 9,
+   "trials": 9,
+   "mode": "mean"
+  },
+  {
+   "id": "near-001",
+   "band": "near",
+   "family": "chicane",
+   "direction": "expanded_precision",
+   "gates": 7,
+   "distance": 1.007,
+   "lap_seconds": 5.062,
+   "mean_speed_mps": 21.8,
+   "peak_speed_mps": 27.4,
+   "clean": 5,
+   "trials": 9,
+   "mode": "sampled"
+  },
+  {
+   "id": "near-011",
+   "band": "near",
+   "family": "figure_eight",
+   "direction": "expanded_wide",
+   "gates": 6,
+   "distance": 1.028,
+   "lap_seconds": 4.092,
+   "mean_speed_mps": 16.0,
+   "peak_speed_mps": 23.4,
+   "clean": 9,
+   "trials": 9,
+   "mode": "mean"
+  },
+  {
+   "id": "near-018",
+   "band": "near",
+   "family": "figure_eight",
+   "direction": "vertical",
+   "gates": 7,
+   "distance": 1.069,
+   "lap_seconds": 4.277,
+   "mean_speed_mps": 20.3,
+   "peak_speed_mps": 28.9,
+   "clean": 6,
+   "trials": 9,
+   "mode": "mean"
+  },
+  {
+   "id": "outer-006",
+   "band": "outer",
+   "family": "hairpin",
+   "direction": "expanded_wide",
+   "gates": 6,
+   "distance": 1.257,
+   "lap_seconds": 6.092,
+   "mean_speed_mps": 28.9,
+   "peak_speed_mps": 36.6,
+   "clean": 9,
+   "trials": 9,
+   "mode": "mean"
+  },
+  {
+   "id": "outer-012",
+   "band": "outer",
+   "family": "flow",
+   "direction": "expanded_wide",
+   "gates": 7,
+   "distance": 1.255,
+   "lap_seconds": 7.577,
+   "mean_speed_mps": 32.6,
+   "peak_speed_mps": 40.4,
+   "clean": 9,
+   "trials": 9,
+   "mode": "mean"
+  },
+  {
+   "id": "outer-017",
+   "band": "outer",
+   "family": "figure_eight",
+   "direction": "expanded_wide",
+   "gates": 6,
+   "distance": 1.308,
+   "lap_seconds": 4.223,
+   "mean_speed_mps": 17.0,
+   "peak_speed_mps": 25.5,
+   "clean": 9,
+   "trials": 9,
+   "mode": "mean"
+  },
+  {
+   "id": "id-008",
+   "band": "id",
+   "family": "chicane",
+   "direction": null,
+   "gates": 14,
+   "distance": 0.427,
+   "lap_seconds": 6.023,
+   "mean_speed_mps": 18.1,
+   "peak_speed_mps": 21.7,
+   "clean": 9,
+   "trials": 9,
+   "mode": "mean"
+  }
+ ]
+}

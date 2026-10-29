@@ -9,7 +9,7 @@
 <link href="https://andrew-olvera-research.github.io/site/starscream/" rel="canonical"/>
 <meta content="Starscream: motion planning over a pretrained flight controller" property="og:title"/>
 <meta content="Andrew Olvera. Preprint coming soon." property="og:description"/>
-<meta content="https://andrew-olvera-research.github.io/site/starscream/assets/motion64/media/02-a2rl-arena-reconstruction-thumbnail.jpg" property="og:image"/>
+<meta content="https://andrew-olvera-research.github.io/site/starscream/assets/flights/outer-012-poster.jpg" property="og:image"/>
 <meta content="article" property="og:type"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -251,6 +251,38 @@
 
   @media (max-width: 600px) { .masthead { padding-top: 44px; } section.block { padding: 44px 0; } }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  /* ---------- EVALUATION / RESULTS ---------- */
+  .bands-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+  .bands-3 article { border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; background: #fff; }
+  .bands-3 b { display: block; font-family: var(--serif); font-size: 18px; font-weight: 600; }
+  .bands-3 .d { display: block; font-family: var(--mono); font-size: 13px; color: var(--accent); margin-top: 2px; }
+  .bands-3 p { font-size: 14.5px; color: var(--ink-2); margin-top: 8px; }
+  @media (max-width: 760px) { .bands-3 { grid-template-columns: 1fr; } }
+  .tiles-3 { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: 26px; }
+  .tiles-3 > div { padding: 18px 18px 16px; }
+  .tiles-3 > div + div { border-left: 1px solid var(--line); }
+  .tiles-3 small { display: block; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .tiles-3 b { display: block; font-family: var(--mono); font-size: clamp(26px, 3.4vw, 32px); font-weight: 600; color: var(--accent); letter-spacing: -.03em; line-height: 1.2; margin-top: 4px; }
+  .tiles-3 span { display: block; font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+  @media (max-width: 600px) { .tiles-3 { grid-template-columns: 1fr; } .tiles-3 > div + div { border-left: 0; border-top: 1px solid var(--line); } }
+  .chart { position: relative; margin-top: 26px; }
+  .chart svg { display: block; font-family: var(--sans); }
+  .chart .dot { cursor: pointer; outline: none; }
+  .chart .dot:hover, .chart .dot:focus { stroke: var(--ink); }
+  .chart figcaption { margin-top: 8px; }
+  .tip { position: absolute; pointer-events: none; background: #fff; border: 1px solid var(--line-2); border-radius: 4px; padding: 6px 9px;
+         font-size: 12.5px; line-height: 1.45; color: var(--ink); box-shadow: 0 2px 8px rgba(0,0,0,.08); white-space: nowrap; display: none; z-index: 5; }
+  .flights { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 22px; margin-top: 26px; }
+  @media (max-width: 700px) { .flights { grid-template-columns: 1fr; } }
+  .flights figure { margin: 0; }
+  .flights video, .teaser video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #f6f8fa; display: block; }
+  .flights figcaption { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; margin-top: 8px; }
+  .flights figcaption > span:last-child { flex-basis: 100%; }
+  .chip { font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--muted); }
+  .chip.near { border-color: #9db4cf; color: #2c5d8f; background: #f1f5fa; }
+  .chip.outer { border-color: var(--accent); color: #fff; background: var(--accent); }
+  .foot { font-size: 13.5px; color: var(--muted); margin-top: 22px; }
 </style>
 <link href="data:," rel="icon"/>
 </head>
@@ -259,53 +291,53 @@
 <header class="nav">
 <div class="wide">
 <a class="brand" href="#top">Starscream</a>
-<ul><li class="opt"><a href="#why">Why</a></li><li><a href="#architecture">Architecture</a></li><li><a href="#training">Training</a></li><li><a href="#flights">Flights</a></li><li><a href="../">Home</a></li></ul>
+<ul><li><a href="#architecture">Architecture</a></li><li class="opt"><a href="#methodology">Methodology</a></li><li><a href="#evaluation">Evaluation</a></li><li><a href="#results">Results</a></li><li><a href="../">Home</a></li></ul>
 </div>
 </header>
 
 <main id="top">
 <div class="masthead wrap">
-<div class="venue">Preprint coming soon · Updated October 27, 2026</div>
+<div class="venue">Preprint coming soon · Updated October 29, 2026</div>
 <h1 class="title">Starscream<span class="sub">Motion planning over a pretrained flight controller for drone racing</span></h1>
 <p class="authors"><a href="../">Andrew Olvera</a></p>
 <p class="affil">York College of Pennsylvania</p>
 <div class="buttons">
+<a class="btn" href="#architecture">Architecture</a>
+<a class="btn" href="#methodology">Methodology</a>
+<a class="btn" href="#evaluation">Evaluation</a>
 <a class="btn" href="#flights">Flights</a>
-<a class="btn" href="#why">Why this architecture</a>
-<a class="btn" href="#training">Training pipeline</a>
 </div>
 </div>
 
 <figure class="teaser wide">
-<div class="frame"><video controls loop muted playsinline preload="metadata" poster="assets/motion64/media/02-a2rl-arena-reconstruction-thumbnail.jpg" aria-label="Recorded lap on the A2RL arena reconstruction"><source src="assets/motion64/media/02-a2rl-arena-reconstruction.mp4" type="video/mp4"/><a href="assets/motion64/media/02-a2rl-arena-reconstruction.mp4">Download the flight video</a></video></div>
-<figcaption><b>A2RL arena reconstruction</b>, 12 gates in 7.95 s. Simulated, real-time playback.</figcaption>
+<div class="frame"><video controls loop muted playsinline preload="metadata" data-inview poster="assets/flights/outer-012-poster.jpg" aria-label="Lap on held-out course OUTER-012"><source src="assets/flights/outer-012.mp4" type="video/mp4"/><a href="assets/flights/outer-012.mp4">Download the flight video</a></video></div>
+<figcaption><b>OUTER-012</b>, a held-out course well outside the training envelope: 7 gates, a 7.58 s lap, peak speed 40 m/s. Simulated, real-time playback.</figcaption>
 </figure>
 
 <div class="band wrap">
-<div><b>64-D</b><span>motion latent between planner and controller</span></div>
-<div><b>349K</b><span>actor parameters, planner and controller combined</span></div>
-<div><b>130 Hz</b><span>planning and control, every tick</span></div>
-<div><b>5</b><span>training stages, from world model to racing RL</span></div>
+<div><b>86%</b><span>clean laps on 40 new in-distribution courses</span></div>
+<div><b>40 m/s</b><span>peak speed on a held-out course</span></div>
+<div><b>15%</b><span>faster laps from JEPA alignment</span></div>
+<div><b>349K</b><span>parameters in the whole policy</span></div>
 </div>
 
-<section class="block" id="why">
-<div class="wrap">
-<h2>Why this architecture</h2>
-<p class="abstract">Earlier versions of Starscream learned the whole control policy with DAgger from an MPCC expert. The learner flies, the expert labels the states the learner actually reaches, and the policy trains on those labels. This generalizes remarkably well. Expert labels on learner-reached states cover the off-nominal situations a policy only meets after its own mistakes, which is exactly the coverage plain imitation lacks.</p>
-<p class="abstract">The price is the expert. Every visited state needs a fresh MPCC solve, and keeping a consistently fast, reliable solver in the training loop turns data collection into the bottleneck. Infrastructure cost and training time become extreme, and extensive RL is still needed afterward to reach racing capability. A single network trained this way also faces a tension: pushing it to learn faster and to generalize more broadly pulls its representation in different directions, and getting both at once was hard.</p>
-<p class="abstract">Starscream now splits the problem along that line. A feedback controller is pretrained once to execute expert maneuvers described by a 64-dimensional motion latent, and is then frozen. A planner, whose backbone is first pretrained as a world model, reads the current state and the next two gates and chooses that latent at every control tick. Reinforcement learning trains only the planner.</p>
-<div class="cols-3">
-<article><h4>The controller generalizes over motion</h4><p>It learns from successful MPCC expert trajectories how to turn a motion latent into collective thrust and body rates, covering the modes of expert flight. It learns this once.</p></article>
-<article><h4>The planner generalizes over courses</h4><p>Choosing which maneuver to fly next, across the distribution of course layouts, is a much easier problem than learning to fly and plan at the same time.</p></article>
-<article><h4>RL searches maneuvers, not commands</h4><p>The planner acts in the motion latent, so reinforcement learning explores maneuvers the controller already knows how to fly, starting from a backbone that already models the vehicle's physics.</p></article>
+<div class="wrap" style="margin-top:40px">
+<p class="abstract">Starscream is a learned policy for agile drone racing that separates deciding where to go from working out how to fly there. A pretrained, frozen feedback controller executes maneuvers described by a 64-dimensional motion latent. A planner with a world-model-pretrained backbone chooses that latent 130 times a second, and racing reinforcement learning trains only the planner. The goal is one policy that flies broad geometric layouts, each demanding very different maneuvers.</p>
 </div>
-</div>
-</section>
 
-<section class="block" id="architecture">
+<section class="block" id="architecture" style="border-top:0">
 <div class="wrap">
 <h2>Architecture</h2>
-<p class="abstract">Two networks sit in the control loop and share one interface. The planner turns the current observation into a motion latent <i>z</i>. The controller receives that same observation along with <i>z</i> and outputs the command. During controller pretraining, <i>z</i> came from an encoder that could see the expert's next 0.4 s of motion. The planner learns to produce that code from the present observation alone.</p>
+<h3 style="margin-top:8px">Why split planning from control</h3>
+<p class="prose">Earlier versions of Starscream learned the whole policy with DAgger from an MPCC expert: the learner flies, and the expert labels the states the learner actually reaches. That generalizes remarkably well, because labels on learner-reached states cover the off-nominal situations a policy only meets after its own mistakes. The price is the expert. Every visited state needs a fresh MPCC solve, so a consistently fast solver in the loop makes infrastructure cost and training time extreme, and extensive RL is still needed afterward. One network pushed to learn fast and generalize broadly also pulls its representation in two directions at once.</p>
+<p class="prose">Starscream splits the problem along that line instead.</p>
+<div class="cols-3" style="margin-top:22px">
+<article><h4>The controller generalizes over motion</h4><p>It learns once, from successful MPCC flights, to turn a motion latent into collective thrust and body rates across the modes of expert flight. Then it is frozen.</p></article>
+<article><h4>The planner generalizes over courses</h4><p>Choosing the next maneuver across a distribution of layouts is a much easier problem than learning to fly and plan at the same time.</p></article>
+<article><h4>RL searches maneuvers, not commands</h4><p>Reinforcement learning explores maneuvers the controller already knows how to fly, from a backbone that already models the vehicle's physics.</p></article>
+</div>
+<h3>The control loop</h3>
+<p class="prose">The planner turns the current observation into a motion latent <i>z</i>. The controller receives the same observation along with <i>z</i> and outputs the command. During controller pretraining, <i>z</i> came from an encoder that could see the expert's next 0.4 s of motion. The planner learns to produce that code from the present observation alone.</p>
 </div>
 <figure class="dg wide">
 <p class="dg-hint">Scroll sideways to see the full diagram →</p>
@@ -410,10 +442,10 @@
 </div>
 </section>
 
-<section class="block shade" id="training">
+<section class="block shade" id="methodology">
 <div class="wrap">
-<h2>Training</h2>
-<p class="abstract">Each of the five stages trains one piece and hands it to the next. The table shows which network learns in which stage. Expert MPCC trajectories are used during pretraining and alignment. The final stage is pure racing reinforcement learning, with no expert data and no auxiliary losses.</p>
+<h2>Methodology</h2>
+<p class="abstract">Five stages, each training one piece and handing it to the next. Expert MPCC flights (1,200 successful laps on 50 courses) are used for pretraining and alignment. The final stage is pure racing reinforcement learning, with no expert data and no auxiliary losses.</p>
 </div>
 <figure class="dg wide">
 <p class="dg-hint">Scroll sideways to see all five stages →</p>
@@ -426,14 +458,14 @@
 <th scope="col"><u>2</u><b>Motion interface</b><small>expert trajectories</small></th>
 <th scope="col"><u>3</u><b>Latent alignment</b><small>JEPA-style</small></th>
 <th scope="col"><u>4</u><b>Physical alignment</b><small>closed-loop rollouts</small></th>
-<th scope="col"><u>5</u><b>Racing RL</b><small>PPO on courses</small></th>
+<th scope="col"><u>5</u><b>Racing RL</b><small>PPO on generated courses</small></th>
 </tr></thead>
 <tbody>
 <tr><th scope="row">Transformer backbone<small>planner</small></th><td><span class="pill tr">trained</span></td><td><span class="pill na">—</span></td><td><span class="pill tr">trained</span></td><td><span class="pill tr">trained</span></td><td><span class="pill tr">trained</span></td></tr>
 <tr><th scope="row">Projector<small>planner</small></th><td><span class="pill na">—</span></td><td><span class="pill na">—</span></td><td><span class="pill tr">trained</span></td><td><span class="pill tr">trained</span></td><td><span class="pill tr">trained</span></td></tr>
 <tr><th scope="row">Motion encoder<small>training only</small></th><td><span class="pill na">—</span></td><td><span class="pill tr">trained</span></td><td><span class="pill tg">target</span></td><td><span class="pill na">—</span></td><td><span class="pill na">—</span></td></tr>
 <tr><th scope="row">Feedback controller<small>deployed</small></th><td><span class="pill na">—</span></td><td><span class="pill tr">trained</span></td><td><span class="pill na">—</span></td><td><span class="pill fr">frozen</span></td><td><span class="pill fr">frozen</span></td></tr>
-<tr class="obj"><th scope="row">Learning signal</th><td>Predict future physical state from executed commands</td><td>PPO reward for tracking expert motion</td><td>Match the encoder's code from the observation alone</td><td>Multistep state error through the frozen controller</td><td>Gate progress, passage and collision reward</td></tr>
+<tr class="obj"><th scope="row">Learning signal</th><td>Predict future physical state from executed commands</td><td>PPO reward for tracking expert motion</td><td>Match the encoder's code from the observation alone</td><td>Multistep state error through the frozen controller</td><td>Progress, gates, collisions and smoothness</td></tr>
 </tbody>
 </table>
 </div>
@@ -441,62 +473,70 @@
 
 <div class="wrap">
 <ol class="flow">
-<li><div class="st-h"><u>1</u><b>Learn the physics</b></div><p>An action-conditioned world model trains on closed-loop simulated flight. The transformer encodes state, previous command and two gates. It is trained with 32-tick autoregressive latent rollouts and physically scaled losses on state increments, including orientation and rotor dynamics. Only the backbone carries forward. The rollout and reconstruction heads are dropped.</p></li>
-<li><div class="st-h"><u>2</u><b>Learn an executable motion interface</b></div><p>An encoder compresses the current observation and eight samples of the expert's next 0.4 s of motion into a bounded 64-D code. The feedback controller sees only the current observation and that code. It is trained with PPO to track the expert, with resets to points along the reference. The expert's future reaches the controller only through the code.</p></li>
-<li><div class="st-h"><u>3</u><b>Align the planner to the code</b></div><p>The encoder is frozen and becomes a stop-gradient target. The planner, initialized from the world-model backbone, learns to predict the same 64-D code from the current observation. It has no access to the future. The projector warms up alone before the backbone is unfrozen.</p></li>
-<li><div class="st-h"><u>4</u><b>Align through the physics</b></div><p>The planner flies 52-tick windows through the frozen controller and plant. Each window starts from an expert state, then runs on the system's own achieved states, with the observation refreshed every tick. Errors in position, velocity, rotation, body rate and motor speed are measured against the expert at 13, 26 and 52 ticks and backpropagated through the rollout into the planner.</p></li>
-<li><div class="st-h"><u>5</u><b>Learn to race</b></div><p>Minibatch PPO trains the planner on a progress, gate-passage and collision reward with a shared critic. A two-gate, four-gate, then full-course curriculum and a learning-progress course sampler spread training across layouts. In the latest continuation, half of the training lanes keep the original seed courses and half fly lightly augmented, geometry-checked variants. The controller stays frozen throughout.</p></li>
+<li><div class="st-h"><u>1</u><b>Learn the physics</b></div><p>An action-conditioned world model trains on closed-loop simulated flight, with 32-tick autoregressive latent rollouts and physically scaled losses on state increments, including orientation and rotor dynamics. Only the transformer backbone carries forward.</p></li>
+<li><div class="st-h"><u>2</u><b>Learn an executable motion interface</b></div><p>An encoder compresses the current observation and eight samples of the expert's next 0.4 s into a bounded 64-D code. The controller sees only the current observation and that code, and learns with PPO to track the expert. The future reaches the controller only through the code.</p></li>
+<li><div class="st-h"><u>3</u><b>Align the planner to the code</b></div><p>The frozen encoder becomes a stop-gradient target. The planner, initialized from the world-model backbone, learns to predict the same code from the current observation alone, with the projector warmed up before the backbone unfreezes.</p></li>
+<li><div class="st-h"><u>4</u><b>Align through the physics</b></div><p>The planner flies 52-tick windows through the frozen controller and a differentiable plant, starting from an expert state and then running on its own achieved states. Multistep errors in position, velocity, rotation, body rate and motor speed backpropagate through the rollout.</p></li>
+<li><div class="st-h"><u>5</u><b>Learn to race</b></div><p>PPO trains the planner on continuing laps: episodes start at any gate and fly across lap boundaries. The reward combines progress, gate passage, collisions, body rates and command smoothness. Courses come from the online generator described in Evaluation. The controller stays frozen throughout.</p></li>
 </ol>
 </div>
 </section>
 
-<section class="block" id="flights">
+<section class="block" id="evaluation">
 <div class="wrap">
-<h2>Flights from the current checkpoint</h2>
-<p class="abstract">One policy flying eight layouts with the deterministic (mean) action: the exact Swift layout, a reconstruction of the A2RL arena, two MultiGP UTT tracks, and four augmented variants, or grafts, derived from public tracks. The layouts were chosen in advance and recorded without retries.</p>
+<h2>Evaluation</h2>
+<p class="abstract">The target is breadth: one policy that flies hairpins, chicanes, figure eights, slaloms and long flowing layouts, with climbs, dives and tight reversals, each demanding a different kind of maneuver. Evaluation measures that directly, by how far each course sits from anything seen in training.</p>
+<h3>Distance from training geometry</h3>
+<p class="prose">Every course is summarized by its gate-to-gate transitions: spacing, turn angle, altitude change, a corner-speed estimate, braking demand, gate orientation and size. Quantiles of these, the sequence of turns, gate count and length form a 38-D descriptor. A course's distance is its scaled distance to the nearest training course, normalized so that 1.0 marks the edge of the training envelope.</p>
+<div class="bands-3">
+<article><b>In-distribution</b><span class="d">40 courses · distance ≤ 1</span><p>New layouts inside the training envelope.</p></article>
+<article><b>Near</b><span class="d">20 courses · 1 – 1.25</span><p>In-distribution anchors shifted just outside it.</p></article>
+<article><b>Outer</b><span class="d">20 courses · 1.25 – 1.5</span><p>The same anchors shifted further.</p></article>
 </div>
-<div class="wide" style="margin-top:28px">
-<div class="scene3d" id="flight-viewer"></div>
-<div class="viewer-cap"><span><b id="course-title">Swift</b> · <span id="course-info">7 gates · 4.22 s</span></span><span>Drag to orbit · shift-drag to pan · scroll to zoom</span></div>
-<p id="replay-status" role="status" aria-live="polite"></p>
-<div class="tiles" role="group" aria-label="Choose a course">
-<div class="tile"><button type="button" data-course="0" aria-pressed="true"><img src="assets/motion64/media/01-swift-exact-thumbnail.jpg" alt="Swift layout with recorded flight path" width="720" height="405" loading="lazy"/><b>Swift</b><span>exact layout · 7 gates · 4.22 s</span></button><div class="dl"><a href="assets/motion64/media/01-swift-exact.mp4">Video</a><a href="assets/motion64/media/01-swift-exact.gif">GIF</a></div></div>
-<div class="tile"><button type="button" data-course="1" aria-pressed="false"><img src="assets/motion64/media/02-a2rl-arena-reconstruction-thumbnail.jpg" alt="A2RL arena reconstruction with recorded flight path" width="720" height="405" loading="lazy"/><b>A2RL arena</b><span>reconstruction · 12 gates · 7.95 s</span></button><div class="dl"><a href="assets/motion64/media/02-a2rl-arena-reconstruction.mp4">Video</a><a href="assets/motion64/media/02-a2rl-arena-reconstruction.gif">GIF</a></div></div>
-<div class="tile"><button type="button" data-course="2" aria-pressed="false"><img src="assets/motion64/media/03-utt03-bessel-run-thumbnail.jpg" alt="UTT03 Bessel Run with recorded flight path" width="720" height="405" loading="lazy"/><b>UTT03 Bessel Run</b><span>MultiGP · 5 gates · 4.71 s</span></button><div class="dl"><a href="assets/motion64/media/03-utt03-bessel-run.mp4">Video</a><a href="assets/motion64/media/03-utt03-bessel-run.gif">GIF</a></div></div>
-<div class="tile"><button type="button" data-course="3" aria-pressed="false"><img src="assets/motion64/media/04-utt05-nautilus-thumbnail.jpg" alt="UTT05 Nautilus with recorded flight path" width="720" height="405" loading="lazy"/><b>UTT05 Nautilus</b><span>MultiGP · 5 gates · 3.88 s</span></button><div class="dl"><a href="assets/motion64/media/04-utt05-nautilus.mp4">Video</a><a href="assets/motion64/media/04-utt05-nautilus.gif">GIF</a></div></div>
-<div class="tile"><button type="button" data-course="4" aria-pressed="false"><img src="assets/motion64/media/05-fury-derived-graft-thumbnail.jpg" alt="Fury-derived graft with recorded flight path" width="720" height="405" loading="lazy"/><b>Fury graft</b><span>augmented · 4 gates · 4.06 s</span></button><div class="dl"><a href="assets/motion64/media/05-fury-derived-graft.mp4">Video</a><a href="assets/motion64/media/05-fury-derived-graft.gif">GIF</a></div></div>
-<div class="tile"><button type="button" data-course="5" aria-pressed="false"><img src="assets/motion64/media/06-revenge-derived-graft-thumbnail.jpg" alt="Revenge-derived graft with recorded flight path" width="720" height="405" loading="lazy"/><b>Revenge graft</b><span>augmented · 5 gates · 5.41 s</span></button><div class="dl"><a href="assets/motion64/media/06-revenge-derived-graft.mp4">Video</a><a href="assets/motion64/media/06-revenge-derived-graft.gif">GIF</a></div></div>
-<div class="tile"><button type="button" data-course="6" aria-pressed="false"><img src="assets/motion64/media/07-a2rl-derived-graft-thumbnail.jpg" alt="A2RL-derived graft with recorded flight path" width="720" height="405" loading="lazy"/><b>A2RL graft</b><span>augmented · 12 gates · 9.24 s</span></button><div class="dl"><a href="assets/motion64/media/07-a2rl-derived-graft.mp4">Video</a><a href="assets/motion64/media/07-a2rl-derived-graft.gif">GIF</a></div></div>
-<div class="tile"><button type="button" data-course="7" aria-pressed="false"><img src="assets/motion64/media/08-cdra-derived-graft-thumbnail.jpg" alt="CDRA-derived graft with recorded flight path" width="720" height="405" loading="lazy"/><b>CDRA graft</b><span>augmented · 5 gates · 2.99 s</span></button><div class="dl"><a href="assets/motion64/media/08-cdra-derived-graft.mp4">Video</a><a href="assets/motion64/media/08-cdra-derived-graft.gif">GIF</a></div></div>
-</div>
-<noscript><p class="small">The 3D viewer needs JavaScript. Every flight is still available as a video or GIF above.</p></noscript>
-</div>
-
-<div class="wrap">
-<h3>Held-out courses</h3>
-<p class="prose">To test learning and generalization, the policy also flies courses from a separate corpus that never appears in training. These two layouts are from that corpus. With the stochastic (sampled) policy, 3 of 17 attempts on the first and 4 of 17 on the second fly clean laps. Clean laps on unseen 8-gate layouts are a positive early signal that the planner is learning course structure, not memorizing its training layouts.</p>
-<div class="pair">
-<figure><div class="frame"><video controls loop muted playsinline preload="none" poster="assets/motion64/media/transfer/09-long-low-development-transfer-poster.jpg" aria-label="Long-low layout, held out from training"><source src="assets/motion64/media/transfer/09-long-low-development-transfer.mp4" type="video/mp4"/></video></div><figcaption><b>Long-low</b> · 8 gates · 6.99 s · <span class="ct">3/17</span> clean</figcaption></figure>
-<figure><div class="frame"><video controls loop muted playsinline preload="none" poster="assets/motion64/media/transfer/10-vertical-chain-development-transfer-poster.jpg" aria-label="Vertical-chain layout, held out from training"><source src="assets/motion64/media/transfer/10-vertical-chain-development-transfer.mp4" type="video/mp4"/></video></div><figcaption><b>Vertical chain</b> · 8 gates · 5.59 s · <span class="ct">4/17</span> clean</figcaption></figure>
-</div>
+<p class="prose" style="margin-top:22px">Shifted courses push an anchor in one of four directions: tighter precision, wider precision, more vertical, or wider and faster. All 80 courses have 6–15 gates and none appears in training. Each gets nine trials, one deterministic and eight sampled, from a cold start 2 m before the first gate. A trial counts only as a clean closed lap back through the first gate.</p>
+<h3>The same analysis drives training</h3>
+<p class="prose">The transition features behind the distance also organize training. Courses are tagged with the demands they pose (acceleration, high-speed turns, braking, tight reversals, vertical motion, slalom), and background workers continuously generate new spline courses aimed at those demands. A course enters training only after feasibility, clearance, difficulty and diversity checks. A learning-progress allocator then moves training toward courses and demand types where the policy is still improving, while keeping broad coverage. The generator and allocator build on <a href="https://arxiv.org/abs/2606.27348">Green et al. (2026)</a>.</p>
 </div>
 </section>
 
-<section class="block shade" id="simulation">
+<section class="block shade" id="results">
 <div class="wrap">
-<h2>Simulation setup</h2>
-<p class="abstract">All flights use a nominal model of a lightweight five-inch racing quadrotor. The policy receives simulator state and the gate map directly.</p>
-<dl class="specs">
-<div><dt>Mass · arm length</dt><dd>0.55 kg · 0.115 m</dd></div>
-<div><dt>Static thrust</dt><dd>45 N · 8.3× weight</dd></div>
-<div><dt>Policy collective limit</dt><dd>65 m/s² · 35.75 N · 6.6× weight</dd></div>
-<div><dt>Body-rate limit</dt><dd>±6 rad/s per axis</dd></div>
-<div><dt>Control · physics step</dt><dd>130 Hz · ≤ 2.5 ms</dd></div>
-<div><dt>Motor time constant</dt><dd>40 ms</dd></div>
-<div><dt>Added command / sensor delay</dt><dd>none</dd></div>
-<div><dt>Collision radius</dt><dd>0.15 m</dd></div>
-</dl>
+<h2>Results</h2>
+<div class="tiles-3">
+<div><small>In-distribution</small><b>85.8%</b><span>clean laps · 309 of 360</span></div>
+<div><small>Near</small><b>38.3%</b><span>clean laps · 69 of 180</span></div>
+<div><small>Outer</small><b>32.2%</b><span>clean laps · 58 of 180</span></div>
+</div>
+<p class="prose" style="margin-top:22px">The policy flies most new in-distribution courses clean and still completes a third of the attempts on courses well outside its training geometry. Each dot below is one of the 80 courses.</p>
+<figure class="chart" id="corpus-chart" aria-label="Clean laps out of nine for each of the 80 held-out courses, plotted against distance from training geometry">
+<figcaption>Clean laps out of 9 per course. Hover a dot for the course.</figcaption>
+</figure>
+</div>
 
+<div class="wide" id="flights">
+<h3 style="text-align:center;margin-top:56px">Flights on held-out courses</h3>
+<p class="prose" style="text-align:center;max-width:64ch;margin:0 auto">Ten courses chosen to show different layouts. The policy never trained on any of them. OUTER-006 is ID-010 stretched outward: the same layout, flown at 29 m/s on average instead of 23.</p>
+<div class="flights">
+<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/id-010-poster.jpg" aria-label="ID-010, hairpin, 6 gates, held-out course"><source src="assets/flights/id-010.mp4" type="video/mp4"/></video></div><figcaption><span class="chip id">In-distribution</span><b>ID-010</b><span>hairpin · 6 gates · 4.55 s lap · 9/9 clean</span></figcaption></figure>
+<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/id-011-poster.jpg" aria-label="ID-011, figure eight, 7 gates, held-out course"><source src="assets/flights/id-011.mp4" type="video/mp4"/></video></div><figcaption><span class="chip id">In-distribution</span><b>ID-011</b><span>figure eight · 7 gates · 3.83 s lap · 6/9 clean</span></figcaption></figure>
+<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/id-022-poster.jpg" aria-label="ID-022, figure eight, 8 gates, held-out course"><source src="assets/flights/id-022.mp4" type="video/mp4"/></video></div><figcaption><span class="chip id">In-distribution</span><b>ID-022</b><span>figure eight · 8 gates · 3.75 s lap · 9/9 clean</span></figcaption></figure>
+<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/near-001-poster.jpg" aria-label="NEAR-001, chicane, 7 gates, held-out course"><source src="assets/flights/near-001.mp4" type="video/mp4"/></video></div><figcaption><span class="chip near">Near</span><b>NEAR-001</b><span>chicane · wider precision · 7 gates · 5.06 s lap · 5/9 clean</span></figcaption></figure>
+<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/near-011-poster.jpg" aria-label="NEAR-011, figure eight, 6 gates, held-out course"><source src="assets/flights/near-011.mp4" type="video/mp4"/></video></div><figcaption><span class="chip near">Near</span><b>NEAR-011</b><span>figure eight · wider and faster · 6 gates · 4.09 s lap · 9/9 clean</span></figcaption></figure>
+<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/near-018-poster.jpg" aria-label="NEAR-018, figure eight, 7 gates, held-out course"><source src="assets/flights/near-018.mp4" type="video/mp4"/></video></div><figcaption><span class="chip near">Near</span><b>NEAR-018</b><span>figure eight · vertical shift · 7 gates · 4.28 s lap · 6/9 clean</span></figcaption></figure>
+<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/outer-006-poster.jpg" aria-label="OUTER-006, hairpin, 6 gates, held-out course"><source src="assets/flights/outer-006.mp4" type="video/mp4"/></video></div><figcaption><span class="chip outer">Outer</span><b>OUTER-006</b><span>hairpin · wider and faster · 6 gates · 6.09 s lap · 9/9 clean</span></figcaption></figure>
+<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/outer-012-poster.jpg" aria-label="OUTER-012, flow, 7 gates, held-out course"><source src="assets/flights/outer-012.mp4" type="video/mp4"/></video></div><figcaption><span class="chip outer">Outer</span><b>OUTER-012</b><span>flow · wider and faster · 7 gates · 7.58 s lap · 9/9 clean</span></figcaption></figure>
+<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/outer-017-poster.jpg" aria-label="OUTER-017, figure eight, 6 gates, held-out course"><source src="assets/flights/outer-017.mp4" type="video/mp4"/></video></div><figcaption><span class="chip outer">Outer</span><b>OUTER-017</b><span>figure eight · wider and faster · 6 gates · 4.22 s lap · 9/9 clean</span></figcaption></figure>
+<figure><div class="frame"><video controls loop muted playsinline preload="none" data-inview poster="assets/flights/id-008-poster.jpg" aria-label="ID-008, chicane, 14 gates, held-out course"><source src="assets/flights/id-008.mp4" type="video/mp4"/></video></div><figcaption><span class="chip id">In-distribution</span><b>ID-008</b><span>chicane · 14 gates · 6.02 s lap · 9/9 clean · dense 14-gate layout</span></figcaption></figure>
+</div>
+</div>
+
+<div class="wrap">
+<h3 style="margin-top:56px">JEPA alignment makes the policy faster</h3>
+<p class="prose">An ablation keeps everything else (the world-model backbone, the frozen controller, physical alignment and racing PPO) and skips latent alignment, stage 3. Comparing laps on the same course with the same noise where both versions fly clean, the policy without JEPA is about 0.85 s slower per lap in every band, 14–17% of the lap. 49 of 51 courses are slower. Its flight paths are within about 1% of the same length, so the gap is pace rather than line, and completion rates are similar.</p>
+<figure class="chart" id="jepa-chart" aria-label="Per-course lap time penalty without JEPA alignment: about 15 percent in each band, 49 of 51 courses slower">
+<figcaption>Each dot is one course, averaged over its paired clean laps. Black ticks mark the band average.</figcaption>
+</figure>
+<p class="foot">All flights are simulated on a nominal five-inch racing quadrotor at 130 Hz, with the vehicle state and gate map given to the policy. Videos play in real time.</p>
 </div>
 </section>
 
@@ -509,7 +549,6 @@
 </main>
 
 <footer><div class="wrap"><span>© 2026 Andrew Olvera</span></div></footer>
-<script src="scene3d.js"></script>
-<script src="motion64.js"></script>
+<script src="charts.js"></script>
 </body>
 </html>

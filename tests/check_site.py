@@ -65,37 +65,19 @@ geometry=json.loads((ROOT/'starscream/assets/data/course-geometry.json').read_te
 assert [geometry['sets'][x]['courses'] for x in ['pretrain65','eval100','eval60']]==[65,100,60]
 assert geometry['sets']['eval100']['transitions']==929
 if errors: raise SystemExit('\n'.join(errors))
-# Current motion64 preview: public export integrity, split separation and physical timing.
-import hashlib, math
+# Current Starscream page: Oct 29 held-out evaluation, flights and JEPA ablation.
 current=(ROOT/'starscream/index.html').read_text(encoding='utf-8')
 assert '<title>Starscream</title>' in current and '<h1 class="title">Starscream' in current
-for phrase in ['3/17', '4/17', 'No observation history', 'Preprint coming soon', '35.75 N', 'Why this architecture', 'Held-out courses']:
+for phrase in ['Preprint coming soon', 'id="architecture"', 'id="methodology"', 'id="evaluation"', 'id="results"', 'corpus-chart', 'jepa-chart', '309 of 360', '69 of 180', '58 of 180']:
     assert phrase in current, phrase
-base=ROOT/'starscream/assets/motion64'
-manifest=json.loads((base/'manifest.json').read_text())
-assert manifest['checkpoint_update']==5037 and manifest['checkpoint_steps']==1450656000
-assert len(manifest['assets'])==10
-assert [a['cohort_clean'] for a in manifest['assets'] if a['role']!='training']==[3,4]
-assert sum(a['role']=='training' for a in manifest['assets'])==8
-for a in manifest['assets']:
-    assert a['checkpoint_sha256']==manifest['checkpoint_sha256']
-    for key,digest in a['sha256'].items():
-        f=base/a[key]
-        assert f.resolve().is_relative_to(base.resolve())
-        assert hashlib.sha256(f.read_bytes()).hexdigest()==digest
-    d=json.loads((base/a['trajectory_json']).read_text())
-    t=d['trajectory']; n=len(t['pos'])
-    assert n==len(t['quat'])==len(t['passed']) and t['passed'][-1]==a['gate_count']
-    assert abs((n-1)*t['dt']-a['duration_seconds'])<1e-8
-    assert all('rotation' in g and 'size_xy' in g for g in d['gates'])
-    if a['role']=='training': assert a['mode']=='mean' and a['cohort_episodes']==5
-    else: assert a['mode']=='sampled' and a['cohort_episodes']==17
-for f in base.rglob('*'):
-    if not f.is_file(): continue
-    assert f.suffix not in ['.pt','.npz','.jsonl','.zip','.log']
-    if f.suffix=='.json':
-        text=f.read_text()
-        assert '/workspace/' not in text and 'C:\\\\' not in text
-assert not (base/'provenance').exists()
+res=json.loads((ROOT/'starscream/assets/results/results-2026-10-29.json').read_text())
+assert len(res['courses'])==80 and [sum(c['band']==b for c in res['courses']) for b in ['id','near','outer']]==[40,20,20]
+for b,(clean,attempts) in {'id':(309,360),'near':(69,180),'outer':(58,180)}.items():
+    assert sum(c['clean'] for c in res['courses'] if c['band']==b)==clean==res['bands']['full_val'][b]['clean']
+    assert res['bands']['full_val'][b]['attempts']==attempts
+assert sum(len(res['jepa'][b]['per_course']) for b in res['jepa'])==51
+for f in res['flights']:
+    assert f'assets/flights/{f["id"]}.mp4' in current and (ROOT/'starscream/assets/flights'/f'{f["id"]}.mp4').exists()
+assert '/workspace/' not in (ROOT/'starscream/assets/results/results-2026-10-29.json').read_text()
 assert (ROOT/'Andrew_Olvera_CV.tex').exists()
 print(f'PASS: {len(pages)} routes; {checked} local links/assets/anchors; chart hooks, image alt text, video controls, and editorial guardrails.')
