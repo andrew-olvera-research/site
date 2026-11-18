@@ -1,0 +1,148 @@
+{
+  "factorial": {
+    "arms": {
+      "A": "Scratch fog critic; real actor updates",
+      "B": "Pretrained oracle critic; real actor updates",
+      "C": "Scratch fog critic; real plus WM actor updates",
+      "D": "Pretrained oracle critic; real plus WM actor updates"
+    },
+    "budget": {
+      "seeds": [
+        0,
+        1
+      ],
+      "real_transitions_per_arm_seed": 262144,
+      "paired_games": 128,
+      "simulator_ticks": 2048,
+      "imagination_horizon": 4,
+      "extra_imagined_update_every_real_ticks": 4,
+      "critic_lr": 3.5e-05,
+      "eval_every": 65536
+    },
+    "evaluation": {
+      "seed": 1729,
+      "maps": [
+        "basesWorkers16x16",
+        "basesWorkers16x16B"
+      ],
+      "bots": [
+        "randomBiasedAI",
+        "workerRushAI",
+        "lightRushAI",
+        "coacAI"
+      ],
+      "seats": [
+        0,
+        1
+      ],
+      "games": 16,
+      "greedy": true,
+      "max_steps": 4096,
+      "endpoint_scored": true
+    },
+    "protocol_sha256": "f33286f517b0364e6052e4b948267f87e6fb5c29711d3149b6158807f537f75b",
+    "runs": [
+      {
+        "arm": "A",
+        "seed": 0,
+        "initial_actor_sha256": "8ef97f733bc5e64d72f6d1ff5841409d82d2860a66b9fa9f8b3051fae2208d28",
+        "final_checkpoint_sha256": "172aec97fddfb2a6eba41b6156e1b7d17ceeaa6d549cb90e765a91f4d9562800",
+        "evaluations_sha256": "8b5304a17406478998a48ca339c6d73d6459116b1932cecb42e820b066c8ee91"
+      },
+      {
+        "arm": "A",
+        "seed": 1,
+        "initial_actor_sha256": "8ef97f733bc5e64d72f6d1ff5841409d82d2860a66b9fa9f8b3051fae2208d28",
+        "final_checkpoint_sha256": "931bd0dfda3a87343fadff263fdda50f559b802aa70a425843da51afbb800768",
+        "evaluations_sha256": "aaf1c18fe126858fd516ffe0c47d47308fab8d17f23d446866b7fb8ace7ea787"
+      },
+      {
+        "arm": "B",
+        "seed": 0,
+        "initial_actor_sha256": "8ef97f733bc5e64d72f6d1ff5841409d82d2860a66b9fa9f8b3051fae2208d28",
+        "final_checkpoint_sha256": "e741acb27dd47e4c8249ba1cf2c5fbd24179c4e0f4ea1afa5c1624a23aa8cffe",
+        "evaluations_sha256": "6d6719ea837c21ddac20596308904dceb9c943d9381e87c78e53d0b8b55596e7"
+      },
+      {
+        "arm": "B",
+        "seed": 1,
+        "initial_actor_sha256": "8ef97f733bc5e64d72f6d1ff5841409d82d2860a66b9fa9f8b3051fae2208d28",
+        "final_checkpoint_sha256": "f5e2d77780a5aaccbd7687e58f93022fb99d2dec674c3e9ac6d642cd80a713e1",
+        "evaluations_sha256": "51b48697b8f41a288d2cd78722b7c92b1d793a3ecc24dfba6450753d2f0de101"
+      },
+      {
+        "arm": "C",
+        "seed": 0,
+        "initial_actor_sha256": "8ef97f733bc5e64d72f6d1ff5841409d82d2860a66b9fa9f8b3051fae2208d28",
+        "final_checkpoint_sha256": "6ce16397e6c21ab9a2b20a52cf739a9b4690e1bd20d96fdbda9910f7c00af57a",
+        "evaluations_sha256": "533ed750dbcd09eaa22604cadb6a07a5f870d440b0e4c6f186ec57476aae5d97"
+      },
+      {
+        "arm": "C",
+        "seed": 1,
+        "initial_actor_sha256": "8ef97f733bc5e64d72f6d1ff5841409d82d2860a66b9fa9f8b3051fae2208d28",
+        "final_checkpoint_sha256": "66d810f56944b9ecc7b6d8f824ecb1d0ded1222de09dc4c3ce5aff3e1b052760",
+        "evaluations_sha256": "f863e08fecc7c123a2348daa73f876396fb7d57227095506b07779ac12303061"
+      },
+      {
+        "arm": "D",
+        "seed": 0,
+        "initial_actor_sha256": "8ef97f733bc5e64d72f6d1ff5841409d82d2860a66b9fa9f8b3051fae2208d28",
+        "final_checkpoint_sha256": "12ea2eb3682e4883d4d897622b6ead9ce8576f508a3e9929a08009b229d7d390",
+        "evaluations_sha256": "54f96e42a829c94b5709f7a949f228ea10297fee8e6bad5eab620c06d79e284e"
+      },
+      {
+        "arm": "D",
+        "seed": 1,
+        "initial_actor_sha256": "8ef97f733bc5e64d72f6d1ff5841409d82d2860a66b9fa9f8b3051fae2208d28",
+        "final_checkpoint_sha256": "e42e10a4e8113e5e08a3f516898bdbba68188e269363122beba9f44b2769122a",
+        "evaluations_sha256": "0283f4ee3f3a5919a90cd005f30f612cd1ba74d78b38ab771dc5ab08c7523612"
+      }
+    ],
+    "means_critic_loss_last_quarter": {
+      "A": 2.7644834620196646,
+      "B": 1.0236582621568586,
+      "C": 2.1686855772646463,
+      "D": 0.9758688545808559
+    }
+  },
+  "action_probe": {
+    "games": 64,
+    "trajectories": 128,
+    "states": 640,
+    "actionable_unit_opportunities": 1335,
+    "multi_choice_opportunities": 1113,
+    "source_sha256": "fc43f70e73da027af5b5a2d2e1ccdec2138562814d45b16c04034996a2a19622",
+    "seat_1_no_op": {
+      "initial": 0.3249630630016327,
+      "A-s0": 0.3766617476940155,
+      "A-s1": 0.4387001395225525,
+      "B-s0": 0.4475627839565277,
+      "B-s1": 0.4387001395225525,
+      "C-s0": 0.4032496213912964,
+      "C-s1": 0.4475627839565277,
+      "D-s0": 0.478581964969635,
+      "D-s1": 0.45642539858818054
+    }
+  },
+  "reward_probe": {
+    "reward_mae": 0.3997500027653469,
+    "labels": 4944,
+    "terminal_reward_mae": 7.446111406598773,
+    "terminal_labels": 112,
+    "windows": 309,
+    "world_model_sha256": "d1e6d94ccb78e9704257be304668bb6b250f00dff4a002c7e20f2ec629417372",
+    "source_sha256": "2a0ca60d7ad640d138dc453f31a2bd286f570990a1ed26853007bd47683ab0b0"
+  },
+  "throughput": {
+    "learner_pairs": 128,
+    "cpu_threads": 2,
+    "ticks_per_run": 80,
+    "source_sha256": "a3b28f47f0cd0a71a39ec05674a59065b1dfe7e2da53296e239a32d28c2b4e93"
+  },
+  "tells": {
+    "with_belief_run": "xcomocpv",
+    "state_only_run": "uz5fp5r1",
+    "summary_source_sha256": "8885eaec43eb0b9583aa5d3dffec0252a5bd7a709b1647d3df1c254ed4b78db9"
+  }
+}

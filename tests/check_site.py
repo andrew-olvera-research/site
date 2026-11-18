@@ -4,7 +4,7 @@ from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
 import json
 ROOT = Path(__file__).resolve().parents[1]
-PAGES = ['index.html', 'starscream/index.html', 'starscream/earlier-study.html', 'microrts/index.html', 'token-level-rewards/index.html', 'flowdreamer-microrts/index.html']
+PAGES = ['index.html', 'starscream/index.html', 'starscream/earlier-study.html', 'microrts/index.html', 'microrts/tells.html', 'microrts/assets/microrts-report/data/index.html', 'token-level-rewards/index.html', 'flowdreamer-microrts/index.html']
 class Page(HTMLParser):
     def __init__(self, text):
         super().__init__(convert_charrefs=True)
@@ -80,4 +80,24 @@ for f in res['flights']:
     assert f'assets/flights/{f["id"]}.mp4' in current and (ROOT/'starscream/assets/flights'/f'{f["id"]}.mp4').exists()
 assert '/workspace/' not in (ROOT/'starscream/assets/results/results-2026-10-29.json').read_text()
 assert (ROOT/'Andrew_Olvera_CV.tex').exists()
+# MicroRTS report: headline table and homepage card match the bundled records.
+report=(ROOT/'microrts/index.html').read_text(encoding='utf-8')
+home=(ROOT/'index.html').read_text(encoding='utf-8')
+assert '<title>Learning under fog of war | Andrew Olvera</title>' in report and '<h1 class="title">Learning under fog of war</h1>' in report
+assert '<span class="name">Learning under fog of war</span>' in home and 'MicroRTS research report' in home
+for hook in ['method','results','tells','sources']: assert hook in pages['microrts/index.html'].ids, hook
+assert 'Archived project page' in (ROOT/'microrts/tells.html').read_text(encoding='utf-8')
+MR=ROOT/'microrts/assets/microrts-report/data'
+games=list(csv.DictReader((MR/'match-outcomes.csv').open()))
+prov=json.loads((MR/'provenance.json').read_text())
+steps=sorted({int(g['transitions']) for g in games})
+assert len(games)==640 and steps[-1]==prov['factorial']['budget']['real_transitions_per_arm_seed']
+for arm in 'ABCD':
+    wins=[sum(g['arm']==arm and int(g['transitions'])==s and g['outcome']=='win' for g in games) for s in (steps[0],steps[-1])]
+    loss=prov['factorial']['means_critic_loss_last_quarter'][arm]
+    row=f'<td class="n">{loss:.2f}</td><td class="n">{wins[0]}/32</td><td class="n">{wins[1]}/32</td>'
+    assert row in report, (arm,row)
+final=[g for g in games if int(g['transitions'])==steps[-1]]
+assert len(final)==128 and sum(g['outcome']=='timeout' for g in final)==19 and sum(g['outcome']=='win' for g in final)==14
+assert '/home/' not in (MR/'provenance.json').read_text() and 'C:/' not in (MR/'provenance.json').read_text()
 print(f'PASS: {len(pages)} routes; {checked} local links/assets/anchors; chart hooks, image alt text, video controls, and editorial guardrails.')

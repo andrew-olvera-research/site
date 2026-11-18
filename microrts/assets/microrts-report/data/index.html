@@ -1,0 +1,39 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MicroRTS experiment records | Andrew Olvera</title>
+  <style>
+    body { color: #182838; background: white; font: 1rem/1.65 system-ui, sans-serif; margin: 0; }
+    main { width: min(44rem, calc(100% - 2rem)); margin: 2.5rem auto; }
+    h1, h2 { font-family: Georgia, serif; line-height: 1.2; }
+    h2 { margin-top: 2rem; }
+    a { color: #1f5a96; text-underline-offset: .18em; }
+  </style>
+</head>
+<body>
+<main>
+  <p><a href="../../../">MicroRTS research report</a></p>
+  <h1>MicroRTS experiment records</h1>
+  <p>The files below contain the measurements and protocol used in the report. CSV files open as plain text or in a spreadsheet.</p>
+
+  <h2>Critic fit and policy play</h2>
+  <ul>
+    <li><a href="match-outcomes.csv" download>Match outcomes (CSV)</a>. One row per game, with arm, training seed, checkpoint step, map, opponent, seat, and outcome. The 640 rows span five checkpoints across eight runs. Pool the two training seeds for each arm and checkpoint to get 32 games. Timeouts remain in the denominator.</li>
+    <li><a href="critic-loss.csv" download>Logged critic loss (CSV)</a>. One row per logged measurement. The chart averages observations after 196,608 real learner transitions, with 82 logged observations per seed in that interval. These are losses on each arm’s own evolving data and targets.</li>
+    <li><a href="action-counts.csv" download>Intended action counts (CSV)</a>. One row per actor. Divide move or none counts by 1,335 actionable unit opportunities, then average the two trained actors per arm. The initial actor is shared.</li>
+  </ul>
+
+  <h2>Prediction and throughput</h2>
+  <ul>
+    <li><a href="tells-return-loss.csv" download>Tells validation summary (CSV)</a>. Smooth-L1 loss in symlog coordinates. Relative reduction equals 100 × (state-only loss − belief loss) ÷ state-only loss. These historical summaries represent one training seed per recipe.</li>
+    <li><a href="throughput-repeats.csv" download>Structured transport benchmark (CSV)</a>. Two 80-tick repeats per setting for the full-state critic plus imagination arm. Throughput is real learner transitions per second, excluding evaluation and checkpoint writes.</li>
+  </ul>
+
+  <h2>Protocol and identifiers</h2>
+  <p><a href="provenance.json" download>Protocol, hashes, and qualification measurements (JSON)</a>. Includes evaluation settings, the shared initial actor and fixed-budget checkpoint hashes, action-probe denominators, and reward qualification MAE and coverage. The checkpoint identifiers record lineage. The data here reproduce the reported comparisons and figures, while retraining requires the original runtime, simulator inputs, and checkpoints.</p>
+</main>
+</body>
+</html>

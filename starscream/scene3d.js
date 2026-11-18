@@ -10,7 +10,9 @@
  * Static thumbnail:    new Scene3D(el, { still: true }).load(data)
  * Auto-mount:          <div data-scene3d="path.json"></div>
  *
- * Data schema: see assets/scene3d/make_demo.py (metres, seconds, z up, quat = [w,x,y,z]).
+ * Data schema (metres, seconds, z up, quat = [w,x,y,z]); see assets/flights/*.json:
+ *   { name, gates: [{ pos, yaw, size, rotation, size_xy, mark? }],
+ *     trajectory: { dt, pos: [[x,y,z]...], quat: [[w,x,y,z]...], passed, highlight? } }
  */
 (() => {
   const STYLE = {
